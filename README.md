@@ -30,7 +30,8 @@ This documentation is organized into several key areas:
 
 ### Analogue Version
 
-* [**GDD-Analogue-Setup.md**](./GDD-Analogue-Setup.md): Describes the recommended physical components, organization, and setup for playing the tabletop RPG version of GDTLancer.
+* [**GDD-Analogue-Setup.md**](./GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
+* [**GDD-Analogue-Setup-Formatting.md**](./GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
 * *(Placeholder for Analogue-specific rules variants or system documents)*
 
 ### Meta & Legal

@@ -1,91 +1,77 @@
 # GDTLancer Module Design: Piloting & Travel
 
-**Version:** 1.2
-**Date:** April 2, 2025
-**Related Documents:** GDTLancer Main GDD v1.5, Core Mechanics Design v1.1
+**Version:** 1.3
+**Date:** April 3, 2025
+**Related Documents:** GDTLancer Main GDD v1.6, Core Mechanics Design v1.2
 
 ## 1. Purpose & Scope
 
 * **Module Name:** Piloting & Travel
-* **Purpose:** Governs Agent ship movement within and between systems, supporting direct simulation control and abstracted narrative resolution.
-* **Scope:** Initiating/executing travel, navigation, hazard avoidance, managing travel resources, resolving travel-related events. Excludes detailed combat maneuvering (Combat Module) and specific docking interactions (Interaction Module).
+* **Purpose:** Governs Agent ship movement within and between systems, supporting direct simulation control and abstracted narrative resolution. Manages the passage of abstract time during travel.
+* **Scope:** Initiating/executing travel, navigation, hazard avoidance, advancing the Time Clock, resolving travel-related events. Excludes detailed combat maneuvering (Combat Module) and specific docking interactions (Interaction Module). Direct resource costs for travel are handled abstractly via the global WP Upkeep system triggered by the Time Clock.
 
 ## 2. Core Activities
 
-* **Manual Flight:** Direct, real-time control of the ship (digital primary).
-* **Abstracted Travel:** Narrative resolution for journeys using `Undertake Journey` or `Fast Transit`.
+* **Manual Flight:** Direct, real-time control of the ship (digital primary). Advances Time Clock at a baseline rate or during specific actions.
+* **Abstracted Travel:** Narrative resolution for journeys using `Undertake Journey` or `Fast Transit`. Directly advances the Time Clock.
 
 ## 3. Manual Flight Mode
 
-* **Description:** Simulation-focused flight allowing direct player control. Success primarily depends on player skill and ship performance stats within the physics simulation. Default mode for detailed in-system activity (digital).
-* **Narrative Integration:** Specific high-risk moments or player-declared risky actions (**Trigger Actions**) prompt resolution via the core **Action Check** mechanic.
-    * **Player Choice:** When facing such a Trigger Action (e.g., navigating dense asteroids, pushing engines), the player typically declares an **Action Approach** (`Act Risky` or `Act Cautiously`).
-    * **Resolution:** An Action Check (3d6 + Piloting or Tech Mod + FP spend) is made. The result tier (Crit Success, SwC, Failure) combined with the chosen Approach determines the specific outcome and its severity (defined by event outcomes or module-specific rules).
-    * **Focus Use:** Players can spend **Focus Points (FP)** before the Action Check to influence the roll result.
+* **Description:** Simulation-focused flight allowing direct player control. Success primarily depends on player skill and ship performance stats. Default for detailed in-system activity (digital).
+* **Narrative Integration:** Specific high-stakes moments (**Trigger Actions**) prompt resolution via the core **Action Check**. Player typically declares an **Action Approach** (`Act Risky`/`Act Cautiously`). Resolution uses Action Check (3d6 + Mod + FP) vs Thresholds, consulting appropriate outcome branch. Outcomes impact game state, potentially add **Time Units (TU)** to the Time Clock (especially Cautious delays/complications).
+* **Focus Use:** **Focus Points (FP)** spent before Action Checks or for instant simulation boosts.
+* **Time Cost:** Engaging in detailed manual flight for significant durations advances the **Time Clock** at a default rate (TBD) or specific actions might add TU.
 
 ## 4. Abstracted Travel Modes (Introduction)
 
-* **Concept:** Methods for resolving travel narratively, offering choices in pacing. Primary travel methods in the Analogue Version. Specific mechanics detailed in Section 6.
+* **Concept:** Methods for resolving travel narratively, offering choices in pacing and engagement. Primary travel methods in the Analogue Version. Directly impact the **Time Clock**. Specific mechanics detailed in Section 5.
 * **Modes:** `Undertake Journey` (segment-by-segment) and `Fast Transit` (single-roll skip).
 
-## 5. Module-Specific Resources
+## 5. Module-Specific Mechanics
 
-* **Fuel / Supplies:**
-    * **Primary Resource:** Consumables essential for travel.
-    * **Consumption:** Deducted based on travel mode (`Undertake Journey`: per segment; `Fast Transit`: upfront total) and potentially modified by event outcomes.
-    * **Depletion:** Running low restricts `Fast Transit` and adds tension.
-    * **Replenishment:** Primarily handled via other modules; rare travel events might offer minor replenishment.
+These mechanics resolve abstracted travel using the core Action Check system, incorporating Action Approaches and directly interfacing with the Time Clock.
 
-## 6. Module-Specific Mechanics
-
-These mechanics provide structured ways to resolve abstracted travel using the core Action Check system, incorporating player choice via Action Approaches.
-
-* **6.1. `Undertake Journey` (Segment-by-Segment Resolution)**
+* **5.1. `Undertake Journey` (Segment-by-Segment Resolution)**
     * **Purpose:** Standard abstracted travel, higher fidelity/event density.
     * **Trigger:** Resolving travel one segment at a time.
-    * **Mechanic:** Player declares **Action Approach** (`Act Risky` or `Act Cautiously`) for the segment. Make one **Action Check** (3d6 + Piloting Mod + FP spend vs. Thresholds) per segment. Resolve outcome sequentially. Consume 1 Fuel/Supply per segment (base).
-    * **Outcomes & Events:** The combination of the roll result (Crit/SwC/Fail) and chosen Approach determines the outcome severity via the **Event System**:
-        * *Risky Approach:* Higher potential for positive events/discoveries on Crit Success, but Major Complications on Failure tend to be more severe (e.g., dangerous ambushes, critical malfunctions).
-        * *Cautious Approach:* More stable outcomes. Crits might be less spectacular positive events. Failures trigger less severe Major Complications (e.g., significant delays, moderate resource loss, forced detour instead of direct threat). Success w/ Comp focuses on minimizing negative fallout.
-* **6.2. `Fast Transit` (Single-Roll Skip)**
+    * **Mechanic:** Player declares **Action Approach** (`Act Risky`/`Cautiously`) for the segment. Make one **Action Check** (3d6 + Piloting Mod + FP spend vs. Thresholds) per segment. Resolve outcome sequentially.
+    * **Time Cost:** Each segment **adds +1 TU (base)** to the **Time Clock**. Cautious Complications or specific events may add additional TU.
+    * **Outcomes & Events:** Roll result + Approach determines outcome via **Event System**. Risky approach trends toward more extreme positive/negative events; Cautious towards stability and potential TU delays. Failure typically interrupts journey and triggers Major Complication/Event.
+* **5.2. `Fast Transit` (Single-Roll Skip)**
     * **Purpose:** Optional fast-forward mechanic for speed over detail.
     * **Trigger:** Player chooses to resolve an entire multi-segment route with one roll.
-    * **Mechanic:** Player declares **Action Approach** (`Act Risky` or `Act Cautiously`) for the entire journey. Make **one** **Action Check** (3d6 + Piloting Mod + FP spend vs. Thresholds). Difficulty may adjust based on route length/hazards.
-    * **Prerequisite:** Requires sufficient Fuel/Supplies (calculated upfront).
-    * **Outcomes & Events:** Compressed results, severity influenced by Approach:
-        * *Crit Success:* Arrive efficiently. +1 FP. (Risky might grant additional minor bonus).
-        * *Success w/ Comp:* Arrive. Trigger **Event System** for *one* summarized Minor Complication (severity/type influenced by Approach).
-        * *Failure:* DO NOT arrive. Lose Focus. Trigger **Event System** for *one* Major Failure Event (severity/location influenced by Approach), placing Agent in a new situation en route.
+    * **Mechanic:** Player declares **Action Approach** (`Act Risky`/`Cautiously`). Make **one** **Action Check** (3d6 + Piloting Mod + FP spend vs. Thresholds) for the entire journey. Difficulty may adjust based on route.
+    * **Time Cost:** Immediately **add +1 TU per segment skipped** to the **Time Clock** upon initiation. This may trigger one or more **World Event Ticks** (and associated WP Upkeep demands) upon resolution.
+    * **Outcomes & Events:** Compressed results via **Event System**, severity influenced by Approach. Crit = clean arrival (+Focus). SwC = arrival + summarized Minor Comp. Failure = journey interrupted by Major Failure Event en route (+Lose Focus).
 
-## 7. Module-Specific Progression (TBD)
+## 6. Module-Specific Progression (TBD)
 
-* *(To Be Defined)* Potential for improving Piloting Mod via the Character System, unlocking travel-related Asset Variations via the Asset System, tracking travel achievements.
+* *(To Be Defined)* Potential for improving Piloting Mod, unlocking travel-related Asset Variations, tracking travel achievements (via global Progression System).
 
-## 8. Key Mechanics Utilized (Global)
+## 7. Key Mechanics Utilized (Global)
 
-* **Action Check System:** Resolves Trigger Actions and Abstracted Travel mechanics.
-* **Action Approach System:** Modifies outcome interpretation based on player choice (`Risky`/`Cautious`).
-* **Focus System:** Provides player agency via roll influence and buffs.
-* **Resource Management:** Tracks Fuel/Supplies.
-* **Event System:** Provides narrative and mechanical outcomes for travel events, influenced by Action Approach.
+* **Action Check System:** Resolves Trigger Actions and Abstracted Travel.
+* **Action Approach System:** Modifies outcome interpretation (`Risky`/`Cautious`).
+* **Focus System (FP):** Provides agency via roll influence and buffs.
+* **Time Clock System (TU):** Paces gameplay, triggers World Event Ticks. Advanced by travel and actions within this module.
+* **Wealth Point System (WP):** Covers major costs; periodic Upkeep triggered by World Event Ticks covers abstract operational costs. Not directly spent *per segment* here.
+* **Event System:** Provides narrative/mechanical outcomes for travel events/complications.
 
-## 9. Interface with Other Systems/Modules
+## 8. Interface with Other Systems/Modules
 
-* **Transitions:** Enters/Exits from space scenes, docking interfaces (Interaction Module).
+* **Transitions:** Enters/Exits from space scenes, docking (Interaction Module).
 * **Triggers:** Can trigger Combat, Repair, Investigation based on Event System outcomes.
-* **Outputs:** Feeds data to Progression System (XP) and Chronicle System (history logging).
+* **Outputs:** Advances Time Clock. Feeds data to Progression System (XP) and Chronicle System (history logging). Triggers World Event Ticks indirectly via Time Clock.
 
-## 10. Analogue Version Notes
+## 9. Analogue Version Notes
 
-* Manual flight moments are resolved via **Action Checks** with player choosing **Action Approach**.
-* Core travel uses player choice of **`Undertake Journey`** (segment-by-segment) or **`Fast Transit`** (single roll), both involving Action Approach declaration influencing outcomes from Event tables.
-* Map and resource tracking are essential.
+* Manual flight moments resolved via Action Checks with chosen Action Approach.
+* Core travel uses player choice of **`Undertake Journey`** (segment-by-segment, advancing TU Clock each segment) or **`Fast Transit`** (single roll, advancing TU Clock upfront for all segments).
+* Map essential. Track **Time Clock** and **WP** (for Upkeep during World Event Ticks). Relies on Event System tables/booklets.
 
-## 11. UI/UX Notes (Digital)
+## 10. UI/UX Notes (Digital)
 
 * Clear mode indication (Manual/Abstracted).
-* HUD for flight data & resources.
-* Map interface for route plotting & abstraction initiation.
-* Clear prompts for Action Checks, including **choice of Action Approach (`Risky`/`Cautious`)**.
-* UI for abstracted travel progress/outcomes. Visible Focus meter/options.
-
+* HUD for flight data & ship status. Map interface for route plotting.
+* Clear prompts for Action Checks including **Action Approach choice**.
+* UI for abstracted travel progress/outcomes. Visible **Focus Point** meter & spending options. Visible **Time Clock** progress. **WP** balance visible (likely global UI).
