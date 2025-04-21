@@ -12,8 +12,8 @@
 * **Theme:** Emergent narrative, story-driven world simulation, hard sci-fi aesthetics with space fantasy elements. Player agency in choosing narrative engagement, risk level, and managing time/wealth.
 * **Target Audience:** Fans of Sci-Fi, Space Sims (Elite, Freelancer), Sandbox RPGs (Mount & Blade), Narrative Games, emergent simulations (Dwarf Fortress, EVE Online), and TTRPGs (Stars Without Number, Ironsworn/Starforged).
 * **Platforms:**
-    * Primary Digital: Godot 4 (PC/Mobile). Distinct Neo-Retro 3D visuals.
-    * Secondary Digital: Godot 3 (Lower spec), J2ME (Simplified, turn-based). Minimalist wireframe visuals.
+    * Primary Digital: Godot 3 (PC/Mobile). Distinct Neo-Retro 3D visuals.
+    * Secondary Digital: J2ME (Simplified, turn-based). Minimalist wireframe visuals.
     * Analogue: Standalone TTRPG ruleset.
 * **Unique Selling Points:**
     * Deep emergent narrative driven by unified agent mechanics.
@@ -110,7 +110,7 @@
 
 ## 5. Art & Audio Direction
 
-* **5.1. Primary Visual Style (Godot 4): "Neo-Retro 3D"**
+* **5.1. Primary Visual Style (Godot 3): "Neo-Retro 3D"**
 * **5.2. Secondary Visual Style (J2ME): "Minimalist Wireframe"**
 * **5.3. Environment Design:** Stylized space vistas. Gameplay scale. Lighting/composition focus.
 * **5.4. Audio:** Functional, minimalist sound. Clear feedback. Atmospheric/generative music.
@@ -124,7 +124,7 @@
 
 ## 7. Technical Considerations
 
-* **7.1. Engine:** Godot 4 (Primary), Godot 3 / J2ME (Exploratory/Constraint).
+* **7.1. Engine:** Godot 3 (Primary), J2ME (Exploratory/Constraint).
 * **7.2. Optimization:** High priority, esp. for Agent/World simulation.
 * **7.3. Analogue Version:** Parallel design. Relies on core mechanics & narrative systems. Uses "World Event Tick" (driven by Time Clock, costs WP Upkeep).
 * **7.4. Modularity:** Design Layers, Modules, Systems with clear interfaces.
