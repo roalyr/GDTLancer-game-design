@@ -28,6 +28,10 @@ This documentation is organized into several key areas:
 * [**GDD-Module-Piloting.md**](./GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
 * *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
 
+### Development & Architecture
+
+* [**GDD-Coding-Architecture.md**](./GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation.
+
 ### Analogue Version
 
 * [**GDD-Analogue-Setup.md**](./GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
@@ -47,6 +51,8 @@ This documentation is a living project and currently under active development.
 ---
 
 ## Draft README for Main Game Repository (`roalyr/GDTLancer`)
+
+*(This section contains the planned README content for the main game implementation repository. It will be moved there once the relevant branch is updated.)*
 
 # GDTLancer: Generative Dynamic Transmedia Lancer
 
