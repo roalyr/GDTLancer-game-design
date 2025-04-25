@@ -17,32 +17,38 @@ This documentation is organized into several key areas:
 
 ### Main Document
 
-* [**GDD-Main.md**](./GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts.
+* [**0-GDD-Main.md**](./0-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts.
 
 ### Core Systems
 
-* [**GDD-Core-Mechanics.md**](./GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`).
-
-### Gameplay Modules
-
-* [**GDD-Module-Piloting.md**](./GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
-* *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
+* [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`).
 
 ### Development & Architecture
 
-* [**GDD-Coding-Architecture.md**](./GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation.
-* [**GDD-Development-Challenges.md**](./GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer.
+* [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer.
+* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation.
 
 ### Analogue Version
 
-* [**GDD-Analogue-Setup.md**](./GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
-* [**GDD-Analogue-Setup-Formatting.md**](./GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
+* [**4-GDD-Analogue-Setup.md**](./4-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
+* [**5-GDD-Analogue-Setup-Formatting.md**](./5-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
 * *(Placeholder for Analogue-specific rules variants or system documents)*
+
+
+### Gameplay Modules
+
+* [**6-GDD-Module-Piloting.md**](./6-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
+* *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
+
 
 ### Meta & Legal
 
 * [**LICENSE**](./LICENSE): Contains the licensing information for this documentation project.
 * [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md): Details regarding the use of AI assistance during the generation and refinement of this documentation.
+
+## All pages in a single file
+
+* [**COMBINED_TEXT.md**](./COMBINED_TEXT.md): If you need all pages in a single file.
 
 ---
 
