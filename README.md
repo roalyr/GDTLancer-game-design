@@ -31,6 +31,7 @@ This documentation is organized into several key areas:
 ### Development & Architecture
 
 * [**GDD-Coding-Architecture.md**](./GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation.
+* [**GDD-Development-Challenges.md**](./GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer.
 
 ### Analogue Version
 
