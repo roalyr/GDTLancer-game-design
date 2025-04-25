@@ -30,14 +30,14 @@ This documentation is organized into several key areas:
 
 ### Analogue Version
 
-* [**4-GDD-Analogue-Setup.md**](./4-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
-* [**5-GDD-Analogue-Setup-Formatting.md**](./5-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
+* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
+* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
 * *(Placeholder for Analogue-specific rules variants or system documents)*
 
 
 ### Gameplay Modules
 
-* [**6-GDD-Module-Piloting.md**](./6-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
 * *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
 
 
@@ -45,10 +45,11 @@ This documentation is organized into several key areas:
 
 * [**LICENSE**](./LICENSE): Contains the licensing information for this documentation project.
 * [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md): Details regarding the use of AI assistance during the generation and refinement of this documentation.
+* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant
 
 ## All pages in a single file
 
-* [**COMBINED_TEXT.md**](./COMBINED_TEXT.md): If you need all pages in a single file.
+* [**GDD-COMBINED-TEXT.md**](./GDD-COMBINED-TEXT.md): If you need all pages in a single file.
 
 ---
 

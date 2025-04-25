@@ -1,3 +1,5 @@
+--- Start of ./0-GDD-Main.md ---
+
 # GDTLancer: Generative Dynamic Transmedia Lancer - Game Design Document
 
 **Version:** 1.6
@@ -129,7 +131,7 @@
 * **7.3. Analogue Version:** Parallel design. Relies on core mechanics & narrative systems. Uses "World Event Tick" (driven by Time Clock, costs WP Upkeep).
 * **7.4. Modularity:** Design Layers, Modules, Systems with clear interfaces.
 
---- End of ./0-GDD-Main.md ---
+--- Start of ./1-GDD-Core-Mechanics.md ---
 
 # GDTLancer Core Mechanics Design
 
@@ -217,7 +219,7 @@ This document defines the fundamental, universally applied mechanics used throug
     * **Narrative Boost:** Before Action Check, spend 1-3 FP for +1 per point to roll total.
     * **Simulation Boost:** Upon entering Module instance, spend 1 FP for persistent passive benefit during that instance.
 
---- End of ./1-GDD-Core-Mechanics.md ---
+--- Start of ./2-GDD-Development-Challenges.md ---
 
 # GDTLancer - Development Challenges & Risks
 
@@ -276,7 +278,7 @@ The primary approach to managing these challenges involves:
 
 This document is intended to be a living reference. It will be updated periodically as development progresses, challenges are overcome, mitigation strategies evolve, or new risks are identified.
 
---- End of ./2-GDD-Development-Challenges.md ---
+--- Start of ./3-GDD-Coding-Architecture.md ---
 
 # GDTLancer - Coding Standards & Architecture Guide
 
@@ -344,7 +346,7 @@ This document outlines the agreed-upon coding style conventions and core archite
 * **Decoupling:** Prioritize communication via `EventBus` signals over direct node calls where feasible. Use `GlobalRefs` primarily to *obtain* references needed to call specific methods or connect signals, not for widespread direct state manipulation from unrelated scripts.
 * **Initialization:** Prefer initializing node properties via an `initialize(config)` method called after the node is instanced and added to the tree, passing necessary configuration data (often loaded from a `.tres` template Resource). Avoid heavy reliance on `export` variables directly within complex scene logic scripts (exports are fine for basic scenes or Resources themselves).
 
---- End of ./3-GDD-Coding-Architecture.md ---
+--- Start of ./4.1-GDD-Analogue-Setup.md ---
 
 # GDTLancer Analogue Version Setup
 
@@ -417,7 +419,7 @@ A typical solo or group session requires the following physical components per p
 * Simulates dynamic world changes in the Analogue Version. Triggered when the **Time Clock** on the Character Sheet fills.
 * **Resolution:** Typically involves consulting Event System tables/procedures for background events AND requiring the player to pay an **Upkeep Cost in WP** representing abstract operational expenses (fuel, supplies, maintenance) accrued over that time period. Failure to pay Upkeep has consequences. The Time Clock then resets.
 
---- End of ./4-GDD-Analogue-Setup.md ---
+--- Start of ./4.2-GDD-Analogue-Setup-Formatting.md ---
 
 # GDTLancer Analogue Version - Setup & Formatting Guide
 
@@ -504,7 +506,7 @@ This document details the recommended physical layout, content organization, and
 
 Player decides to `Undertake Journey` (Piloting Module action). They grab their **Ship Asset Sheet**, look at the Piloting section (Side 2), calculate the `Module Modifier` using their **Character Sheet**'s Piloting Skill and the ship's `Asset Difficulty`. They declare `Act Cautiously`. They roll 3d6, potentially spend FP (tracked on Character Sheet), add the Module Modifier. They check the result against thresholds (from **Universal Ref**). They find the outcome summary and Ref Code on the **Asset/Module Sheet**'s table. They look up the Ref Code in the **Piloting Event Booklet**, apply the detailed effects, mark TU on the **Character Sheet**'s Time Clock, and potentially update the **Map Sheet**.
 
---- End of ./5-GDD-Analogue-Setup-Formatting.md ---
+--- Start of ./5.1-GDD-Module-Piloting.md ---
 
 # GDTLancer Module Design: Piloting & Travel
 
@@ -584,7 +586,7 @@ These mechanics resolve abstracted travel using the core Action Check system, in
 * Clear prompts for Action Checks including **Action Approach choice**.
 * UI for abstracted travel progress/outcomes. Visible **Focus Point** meter & spending options. Visible **Time Clock** progress. **WP** balance visible (likely global UI).
 
---- End of ./6-GDD-Module-Piloting.md ---
+--- Start of ./AI-ACKNOWLEDGEMENT.md ---
 
 ## Acknowledgement of AI Assistance
 
@@ -610,7 +612,67 @@ This project is licensed under the [GNU General Public License v3.0 (GPLv3)](htt
 
 **Note:** The use of the GPLv3 license predates the integration of AI development tools into this project's workflow.
 
---- End of ./AI-ACKNOWLEDGEMENT.md ---
+--- Start of ./AI-PRIMING.md ---
+
+# GDTLancer AI Collaboration Priming Prompt
+
+**Version:** 1.0
+**Date:** April 26, 2025
+**Related Documents:** GDTLancer Main GDD v1.6, GDD-Coding-Architecture
+
+## 1. Purpose
+
+This document defines the standard priming prompt to be used when initiating a new chat session with an AI assistant (like Gemini) for the development of GDTLancer. Its purpose is to clearly establish the project context, the expected collaborative paradigm, defined roles, and the iterative workflow, ensuring efficient and targeted AI assistance aligned with the project's goals and standards.
+
+## 2. Standard Priming Prompt Text
+
+*(Use the following text block as the initial prompt in a new AI chat session dedicated to GDTLancer development.)*
+
+---
+
+For Gemini,
+
+This chat session is dedicated to the collaborative development of a game project, **GDTLancer**.
+
+### 2.1. Project Overview
+
+GDTLancer is a multi-platform space adventure RPG being built in Godot Engine 3. The core vision involves blending sandbox simulation with TTRPG-inspired emergent narrative mechanics to create a living, dynamic universe. My immediate focus is on developing a robust and well-structured game framework according to the Game Design Documents (GDDs), which I can later fill with specific content and assets, similar to modding an existing game.
+
+### 2.2. Provided Context
+
+Shortly, I will upload several text files containing the project's context. These will include:
+* The combined Game Design Documents (`GDD-COMBINED-TEXT.md`) outlining the vision, mechanics, architecture, and planned systems/modules.
+* A text dump of the current project file/directory structure (`.PROJECT_DUMP_TEXT_ENHANCED_TREE.txt`).
+* Text dumps of the existing GDScript code (`.PROJECT_DUMP_TEXT_GD.txt`), resource files (`.PROJECT_DUMP_TEXT_TRES.txt`), and scene structures (`.PROJECT_DUMP_TEXT_TSCN.txt`).
+Please use these files as the primary source of truth for the project's current state and design intent.
+
+### 2.3. Our Collaboration Paradigm & Roles
+
+I want us to work together in a specific way:
+* **My Role (User):** I will act as the project architect and director. I will focus on the high-level picture, define the goals based on the GDD, provide guidance, validate your suggestions against the overall design, and make final decisions. I am less focused on writing detailed code line-by-line.
+* **Your Role (Gemini):** I want to rely on you as an implementation assistant. Please help me by:
+    * Suggesting concrete implementation approaches and code structures when I'm unsure where to start.
+    * Drafting initial versions of GDScript functions, classes, or entire system scripts based on my goals and the GDD.
+    * Handling the "manufacturing" of code according to the project's established coding standards and architectural patterns (e.g., use of Autoloads, EventBus, Resources as defined in `GDD-Coding-Architecture.md`).
+    * Explaining the drafted code and suggesting refinements.
+    * Helping identify potential issues or inconsistencies.
+
+### 2.4. Workflow
+
+Our workflow will be iterative:
+1.  I will state a high-level goal (e.g., "Implement the basics of the Event System").
+2.  You will suggest an approach and/or draft the initial code structure/functions.
+3.  I will review your suggestions/drafts, ask questions, and provide feedback or refinement requests.
+4.  We will refine the code together. For general discussion, code drafting, and providing context, we will use the main chat.
+5.  If a specific function becomes complex and requires detailed, interactive editing, we may use the Canvas feature for that focused task, following the "Context in Chat, Active File in Canvas" method we discussed previously.
+
+---
+
+Please confirm you understand this collaborative approach and are ready to begin once I've uploaded the context files.
+
+--- End of Priming Prompt Text ---
+
+--- Start of ./README.md ---
 
 # GDTLancer Game Design Documentation
 
@@ -644,14 +706,14 @@ This documentation is organized into several key areas:
 
 ### Analogue Version
 
-* [**4-GDD-Analogue-Setup.md**](./4-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
-* [**5-GDD-Analogue-Setup-Formatting.md**](./5-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
+* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
+* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
 * *(Placeholder for Analogue-specific rules variants or system documents)*
 
 
 ### Gameplay Modules
 
-* [**6-GDD-Module-Piloting.md**](./6-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
 * *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
 
 
@@ -659,10 +721,11 @@ This documentation is organized into several key areas:
 
 * [**LICENSE**](./LICENSE): Contains the licensing information for this documentation project.
 * [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md): Details regarding the use of AI assistance during the generation and refinement of this documentation.
+* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant
 
 ## All pages in a single file
 
-* [**COMBINED_TEXT.md**](./COMBINED_TEXT.md): If you need all pages in a single file.
+* [**GDD-COMBINED-TEXT.md**](./GDD-COMBINED-TEXT.md): If you need all pages in a single file.
 
 ---
 
@@ -719,6 +782,3 @@ This project (the Godot 3 implementation source code and associated assets withi
 * Currently solo development.
 
 ---
-
---- End of ./README.md ---
-
