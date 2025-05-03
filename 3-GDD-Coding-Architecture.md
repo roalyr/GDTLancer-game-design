@@ -47,6 +47,7 @@ This document outlines the agreed-upon coding style conventions and core archite
     * `PascalCase` for class names (if using `class_name`), node names in the scene tree, and signal names defined within scripts (though `EventBus` signals use snake\_case following convention for built-in signals).
     * `ALL_CAPS_SNAKE_CASE` for constants (`const`).
 * **Comments:** Use `#` for comments. Write comments to explain the *why* behind non-obvious code, complex algorithms, or important design decisions, not just *what* the code does. Remove redundant or commented-out code sections once they are no longer needed.
+* **Export variable:** Only use `export var x` notation for templates (resources which derive from single basic script). All other variables in basic scripts should not be exported, define them as `var x`.
 
 ## 5. Architectural Patterns & Practices
 
