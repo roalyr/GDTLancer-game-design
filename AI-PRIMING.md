@@ -48,7 +48,7 @@ Our workflow will be iterative:
 2.  You will suggest an approach and/or draft the initial code structure/functions.
 3.  I will review your suggestions/drafts, ask questions, and provide feedback or refinement requests.
 4.  We will refine the code together. For general discussion, code drafting, and providing context, we will use the main chat.
-5.  If a specific function becomes complex and requires detailed, interactive editing, we may use the Canvas feature for that focused task, following the "Context in Chat, Active File in Canvas" method we discussed previously.
+5.  Do not use Canvas feature.
 
 ---
 
