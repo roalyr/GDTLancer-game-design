@@ -1,4 +1,4 @@
---- Start of ./0-GDD-Main.md ---
+--- Start of ./0.1-GDD-Main.md ---
 
 # GDTLancer: Generative Dynamic Transmedia Lancer - Game Design Document
 
@@ -130,6 +130,47 @@
 * **7.2. Optimization:** High priority, esp. for Agent/World simulation.
 * **7.3. Analogue Version:** Parallel design. Relies on core mechanics & narrative systems. Uses "World Event Tick" (driven by Time Clock, costs WP Upkeep).
 * **7.4. Modularity:** Design Layers, Modules, Systems with clear interfaces.
+
+--- Start of ./0.2-GDD-Mottos-Sayings.md ---
+
+# GDTLancer - Mottos & Sayings
+
+**Version:** 1.1
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, 6.1-GDD-Lore-Background.md v1.3
+
+## 1. Purpose
+
+This document lists potential mottos for the GDTLancer game itself (for branding and thematic encapsulation) and a selection of in-game, lore-wise mottos and sayings that reflect the culture, history, and beliefs of the inhabitants as per the suggested Lore.
+
+## 2. Game Motto (Branding & Ethos)
+
+These mottos aim to capture the unique promise and development philosophy of GDTLancer:
+
+1.  **"GDTLancer: Delivered as Designed."** (Directly references the commitment to delivering on the GDD, no empty promises, scoped design, challenges acknowledged)
+
+## 3. Lore-Wise Mottos
+
+These phrases reflect the Lore (for loading screen, etc.):
+
+* "The Vessel endures; so must we."
+* "Our home is the journey; our strength, the bond."
+* "Every cycle, every gram, every action counts."
+* "Measure the cost, master the consequence."
+* "Sustenance is resilience; starvation, the final failure."
+* "We honor the past by building the future."
+* "Endurance is the first virtue, foresight the second."
+* "Conservation today ensures continuation tomorrow."
+* "Matter is means; expansion is imperative."
+* "A calculated risk is a claim on what's next."
+* "The void yields to the prepared and the persistent."
+* "Skill carves status, action defines worth."
+* "No return, only the myriad paths forward."
+* "Regret is a luxury abandoned."
+* "From shared hardship, shared strength is forged."
+* "The only true borders are the limits of our hull and our ingenuity."
+
+---
 
 --- Start of ./1-GDD-Core-Mechanics.md ---
 
@@ -874,33 +915,34 @@ The main repository for the game project itself can be found at:
 
 This documentation is organized into several key areas:
 
-### Main Document
+### 0. Core Vision & Introduction
 
-* [**0-GDD-Main.md**](./0-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7, 2025-05-16)
+* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7, 2025-05-16)
+* [**0.2-GDD-Mottos-Sayings.md**](./0.2-GDD-Mottos-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (New: v1.1, 2025-05-16)
 
-### Core Systems & Mechanics
+### 1. Core Systems & Mechanics
 
 * [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.3, 2025-05-16)
 
-### Development, Architecture
+### 2. Development & Architecture
 
 * [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.1, 2025-05-16)
 * [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation. (Reviewed: v1.2, 2025-05-16)
 
-### Analogue Version
+### 3. Analogue Version
 
 * [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.2, 2025-05-16)
 * [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.1, 2025-05-16)
 * *(Placeholder for Analogue-specific rules variants or system documents)*
 
-### Gameplay Modules
+### 4. Gameplay Modules
 
 * [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`). (Reviewed: v1.4, 2025-05-16)
 * *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
 
-### Lore, Worldbuilding & Onboarding
+### 5. Lore & Player Experience
 
-* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, the nature of "The Keystone" and the "Opulence" system, and core cultural/physiological traits of its inhabitants. (Reviewed: v1.3, 2025-05-16)
+* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, "The Keystone," the "Opulence" system, and core cultural/physiological traits. (Reviewed: v1.3, 2025-05-16)
 * [**6.2-GDD-Player-Onboarding.md**](./6.2-GDD-Player-Onboarding.md): Details the strategy for player onboarding, addressing information density and the gradual introduction of game mechanics. (New: v1.0, 2025-05-16)
 
 ### Meta & Legal
