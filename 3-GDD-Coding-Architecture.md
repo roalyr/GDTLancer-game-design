@@ -1,8 +1,8 @@
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.1
-**Date:** May 4, 2025
-**Related Documents:** GDTLancer Main GDD v1.6
+**Version:** 1.2
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7
 
 ## 1. Purpose
 

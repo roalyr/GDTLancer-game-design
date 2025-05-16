@@ -1,8 +1,8 @@
 # GDTLancer Core Mechanics Design
 
-**Version:** 1.2
-**Date:** April 3, 2025
-**Related Documents:** GDTLancer Main GDD v1.6
+**Version:** 1.3
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7
 
 ## 1. Purpose
 

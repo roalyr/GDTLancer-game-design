@@ -1,7 +1,7 @@
 # GDTLancer: Generative Dynamic Transmedia Lancer - Game Design Document
 
-**Version:** 1.6
-**Date:** April 3, 2025
+**Version:** 1.7
+**Date:** May 16, 2025
 **Author:** Roal-Yr
 
 ## 0. Introduction

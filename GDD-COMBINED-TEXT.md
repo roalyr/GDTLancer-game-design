@@ -2,8 +2,8 @@
 
 # GDTLancer: Generative Dynamic Transmedia Lancer - Game Design Document
 
-**Version:** 1.6
-**Date:** April 3, 2025
+**Version:** 1.7
+**Date:** May 16, 2025
 **Author:** Roal-Yr
 
 ## 0. Introduction
@@ -135,9 +135,9 @@
 
 # GDTLancer Core Mechanics Design
 
-**Version:** 1.2
-**Date:** April 3, 2025
-**Related Documents:** GDTLancer Main GDD v1.6
+**Version:** 1.3
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7
 
 ## 1. Purpose
 
@@ -223,9 +223,9 @@ This document defines the fundamental, universally applied mechanics used throug
 
 # GDTLancer - Development Challenges & Risks
 
-**Version:** 1.0
-**Date:** April 25, 2025
-**Related Documents:** GDTLancer Main GDD v1.6, Core Mechanics Design v1.2, Phased Plan (Section 4 in GDD-Main)
+**Version:** 1.1
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3, Phased Plan (Section 4 in GDD-Main)
 
 ## 1. Purpose
 
@@ -282,9 +282,9 @@ This document is intended to be a living reference. It will be updated periodica
 
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.1
-**Date:** May 4, 2025
-**Related Documents:** GDTLancer Main GDD v1.6
+**Version:** 1.2
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7
 
 ## 1. Purpose
 
@@ -343,9 +343,9 @@ This document outlines the agreed-upon coding style conventions and core archite
 
 # GDTLancer Analogue Version Setup
 
-**Version:** 1.1
-**Date:** April 3, 2025
-**Related Documents:** GDTLancer Main GDD v1.6, Core Mechanics Design v1.2, Module/System GDDs (as developed)
+**Version:** 1.2
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3, Module/System GDDs (as developed)
 
 ## 1. Overview & Philosophy
 
@@ -416,9 +416,9 @@ A typical solo or group session requires the following physical components per p
 
 # GDTLancer Analogue Version - Setup & Formatting Guide
 
-**Version:** 1.0
-**Date:** April 3, 2025
-**Related Documents:** GDTLancer Main GDD v1.6, Core Mechanics Design v1.2, Analogue Setup v1.1, Module/System GDDs
+**Version:** 1.1
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3, Analogue Setup v1.2, Module/System GDDs
 
 ## 1. Purpose
 
@@ -503,9 +503,9 @@ Player decides to `Undertake Journey` (Piloting Module action). They grab their 
 
 # GDTLancer Module Design: Piloting & Travel
 
-**Version:** 1.3
-**Date:** April 3, 2025
-**Related Documents:** GDTLancer Main GDD v1.6, Core Mechanics Design v1.2
+**Version:** 1.4
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3
 
 ## 1. Purpose & Scope
 
@@ -578,6 +578,196 @@ These mechanics resolve abstracted travel using the core Action Check system, in
 * HUD for flight data & ship status. Map interface for route plotting.
 * Clear prompts for Action Checks including **Action Approach choice**.
 * UI for abstracted travel progress/outcomes. Visible **Focus Point** meter & spending options. Visible **Time Clock** progress. **WP** balance visible (likely global UI).
+
+--- Start of ./6.1-GDD-Lore-Background.md ---
+
+# GDTLancer - Lore & Background
+
+**Version:** 1.3
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3
+
+## 1. Overview
+
+This document outlines the foundational lore and background history for the GDTLancer universe. The intent is for this history to primarily inform game mechanics, character dialogue, environmental design, technological limitations, and societal norms, allowing the player to experience its consequences organically rather than through direct exposition. The primary gameplay space is divided into **Sectors**, which can encompass one or more star systems, nebulae, or distinct regions thereof, designed to keep travel distances and times manageable.
+
+## 2. Origins & Departure from Earth
+
+* **Ancestry:** The current inhabitants of the **Opulence** system are descendants of various refugee groups from a future Earth. Their primary vessel, a massive generation ship, is known as **"The Keystone."**
+* **Departure Era:** The exodus from Earth occurred in waves, primarily during the early-to-mid 2100s. Various disaffected minorities, persecuted groups, and those seeking to escape specific regional strife or ecological pressures departed at different times, in different ships. The Keystone was one such major effort.
+* **Earth's Status:** Earth itself was not destroyed or universally collapsed. It continued its typical cycles of regional decline and prosperity, conflict and cooperation, as has often been the case for human civilization. For the departed parties aboard The Keystone, Earth became a distant memory, a point of origin they had no intention (or capability) of returning to, largely irrelevant to their current existence, separated by vast distances of space and potentially time.
+* **Mission Imperative:** The voyage of The Keystone was fundamentally a flight to find a new, safe home, away from terrestrial persecution and hardship. It was a "one-way trip" driven by the need for survival and self-determination, not by a grand design of exploration or colonial ambition from a unified Earth.
+
+## 3. The Keystone (Generation Ship)
+
+* **Design Philosophy:** A colossal, monolithic vessel, engineered for extreme durability and the ultra-reliability of its core systems, intended to function autonomously for centuries if needed.
+* **Structural Integrity:** The Keystone was heavily shielded to withstand the anticipated rigors of long-duration interstellar travel.
+* **Artificial Gravity:** Designed as a massive cylinder, The Keystone spun along its axis to generate a consistent, sub-1g gravitational environment.
+* **Internal Environment:** Featured a fully enclosed, self-sustaining ecosystem. There were no external windows or standard hatches to the void. The internal atmosphere was maintained at a minimal, yet safe, low pressure.
+* **Propulsion System:** Utilized rudimentary, automated, "set-and-forget" Sub-Light Travel (STL) engines, designed for a multi-century coasting journey.
+
+## 4. The Interstellar Journey & The Looming Anomaly
+
+* **The Anomaly's Shadow:** Approximately one century before The Keystone was directly impacted, a vast and inexplicable spatio-temporal distortion—later simply termed "the Anomaly"—was detected far along its projected path. Its immense scale and unusual properties (a slow, gradual warping of space-time, exhibiting characteristics akin to an incredibly diffuse and large-scale stable wormhole or a region of fundamentally altered cosmic fabric) became sources of intense study and growing apprehension.
+* **Generations in Preparation:** Several generations aboard The Keystone were born and raised with the knowledge of the impending encounter. While its precise effects remained unpredictable, contingency planning, targeted research into theoretical physics, advanced sensor technology, and structural reinforcement became paramount. However, no prediction accurately foresaw the ultimate consequence of the transit—a massive, uncontrolled spatial displacement.
+* **Trials and Tribulations:** The voyage was characterized by systemic issues:
+    * Slow degradation of non-critical systems.
+    * Imbalances within the closed-loop ecosystem, leading to a persistent, low-level fear of starvation and a deep cultural respect for food and all life-sustaining resources.
+    * Miscalculations regarding long-term resource consumption.
+    * Accumulated human error in maintenance.
+    * Constant, low-level radiation exposure (cryosleep was not viable).
+    * Despite these, core systems (hull, spin gravity, primary life support) remained intact.
+* **Population Dynamics (Journey):** A natural, gradual reduction in population occurred due to resource limitations and the harsh realities of the journey.
+* **Knowledge Management (Journey):**
+    * **Preservation Focus:** A fanatical dedication to preserving and improving *survival-critical* knowledge (engineering, life support, fabrication, closed-loop agriculture, Anomaly data).
+    * **Knowledge Attrition:** Much of Earth's general cultural, historical, and non-critical scientific knowledge became fragmented or lost.
+
+## 5. The Anomaly Transit & Arrival in Opulence
+
+* **The Slow Transit:** The Keystone's passage through the Anomaly was not a rapid event but a protracted transit that may have lasted decades. The effects of traversing this region of distorted space-time were subtle from within, with no immediate, violent stresses.
+* **The Great Leap & Uncharted Space:** Upon exiting the Anomaly, The Keystone found itself flung across an unknown and vast cosmic distance into an entirely uncharted region of space, far from any known star charts. There is a lingering uncertainty about a potential temporal displacement as well.
+* **New Anchor - Opulence System:** The Keystone's systems eventually brought the vessel to a halt near a G-type star within a new system, subsequently named **"Opulence"** due to the star's abundant energy output.
+* **Primary Post-Arrival Scarcity:** Energy was plentiful, but *matter* (raw materials for repairs, expansion, new vessels) was critically scarce.
+
+## 6. Post-Arrival: Transformation & Initial Strides in Opulence
+
+* **The Keystone's New Role:** The Keystone began a slow process of self-transformation, recycling non-essential sections.
+    * It became the central hub for energy collection, refining, fabrication, knowledge archival (especially Anomaly data), and education.
+* **Early Fleet & Automation:** The first new constructions were small survey/prospecting vessels and automated mining machinery.
+* **First Successes & Sustainability:** Initial successes involved asteroid mining, replenishing internal stocks, and achieving basic self-sustainability.
+
+## 7. The People: Generations, Adaptation & Society
+
+* **The "Founders":** This cohort consists of those born during the latter journey stages or early Opulence period. They focus on The Keystone's integrity, Anomaly research, education, strategic planning, and knowledge preservation. They often favor cautious approaches, potentially granting gameplay bonuses to `Act Cautiously` options.
+* **The "Voyagers":** This is the first generation largely born and raised within Opulence, experiencing energy abundance but matter scarcity. They are somewhat established, with a foundational understanding of their new environment.
+    * **Driving Motivation:** To establish a permanent, thriving, resilient, and *space-bound* civilization, emphasizing outward expansion for resources, habitat diversification, and system redundancy.
+    * **Primary Focus:** Exploration of Opulence and nearby sectors, asteroid surveying/mining, establishing outposts. A key long-term goal is understanding the Anomaly to potentially develop controlled FTL travel (e.g., jump gates) for inter-sector expansion.
+* **Population Dynamics (Post-Arrival):** Slowly expanding, but overall population remains scarce, placing high value on each individual. This fosters in-depth character interactions and simulations (akin to Dwarf Fortress), where NPCs have significant agency and can impact the world.
+* **Core Physiological Adaptations:**
+    * **Radiation Resistance:** Enhanced biological resistance to radiation.
+    * **Low-Pressure Acclimatization:** Adaptation to sustained very low atmospheric pressure.
+    * **Gravity Attunement:** Physiology tuned to The Keystone's sub-1g gravity.
+    * **Specialized Digestion:** Efficiently processes recycled/limited diets.
+    * **Sensory Attunement:** Senses attuned to enclosed, artificial environments.
+
+## 8. Core Psychology & Culture
+
+* **Environmental Dispositions:**
+    * Profound agoraphobia (fear of open, unbounded spaces, especially planetary surfaces) and claustrophilia (need for enclosure).
+* **Habitat Philosophy:** Planets are generally viewed as terrifying, resource-intensive, and hostile or irrelevant; their extensive exploration or settlement is not a cultural priority. Space (asteroids, void habitats) is the only viable environment.
+* **Behavioral Traits & Values:**
+    * Generational trauma from Earthly persecution and the journey's hardships (including fear of starvation) has instilled a "one-way trip" resolve and a deep-seated need for self-sufficiency, control, and order.
+    * Extreme pragmatism and utilitarianism.
+    * High respect for food and all life-sustaining resources.
+    * Reverence for practical knowledge, engineering, resource management, systemic redundancy, diversification of efforts, and sustainable existence.
+    * Strong emphasis on knowledge sharing within trusted communal/clan units.
+* **Societal Structure & Relationships:**
+    * Traditional Earth-based notions of monogamy are not strictly relevant; familial and sexual ties are often more fluid and diverse, fostering a less rivalry-prone and possessive mindset in personal relationships (though not necessarily regarding resources or trust).
+    * Meritocracy is a cornerstone: skills, contributions, and trustworthiness define an individual's standing far more than gender, orientation, or ancestry. Prejudice, if it exists, tends to target perceived uselessness, lack of contribution, or breaches of communal trust.
+* **Outlook & Conflict:**
+    * **Interpersonal Conflict:** Direct, violent conflict between individuals or groups within the Opulence civilization is heavily taboo and extremely rare, a consequence of population scarcity and the absolute necessity of cooperation for survival.
+    * **Ritualized Combat:** When disputes cannot be resolved through other means, or for maintaining combat readiness, highly ritualized, (usually) non-lethal ship-based duels might occur. These are expensive undertakings, designed to minimize loss of life and precious matter. They often eschew projectiles in favor of mounted melee weapons (lances, cutting beams, rams) – hinting at the "Lancer" aspect – to prevent matter dispersion. Duels to the death are exceptionally rare and typically a matter of last resort for unforgivable crimes against the community. There are no massive fleet-on-fleet engagements.
+    * **External Threats:** Projectile weapons (often reusable like harpoons, kinetic impactors, or javelins) are maintained and considered less resource-intensive for potential defense against unknown external threats or for "hunting" spacebourne lifeforms (purpose: defense and scarce minerals collection).
+
+## 9. Technology & Expansion
+
+* **Technological Foundation:** Rooted in The Keystone's "humble but ultra-reliable" original technology, now being iteratively improved.
+* **Technological Focus:** Robotics, small vessel design, fabrication, asteroid mining/processing, and the critical study of the Anomaly for breakthroughs in propulsion and spatial manipulation.
+* **Exploration Style:** Purpose-driven (resources, outpost locations, Anomaly research), not idle curiosity. Procedurally generated "dungeon-like" space pockets might represent unstable Anomaly echoes or newly discovered resource fields.
+* **Settlement Strategy:** Expanding network of small, enclosed, defensible outposts (asteroid-based or bespoke void habitats).
+
+## 10. Names, Surnames, and Languages (Outline)
+
+* **Cultural Melting Pot:** The generations aboard The Keystone, originating from diverse refugee groups, would have led to a blending of terrestrial cultures, languages, and naming conventions.
+* **Naming Conventions:**
+    * **Given Names:** Likely a mix of traditional names from various Earth cultures, perhaps shortened or phonetically altered over time. New names might also have emerged, inspired by significant events, revered individuals on The Keystone, or even technical components.
+    * **Surnames/Family Names:** Could be a mix of inherited Earth surnames, names adopted based on an ancestor's role or achievement on The Keystone (e.g., "Hydroponics-Zhang," "Engineer-Kovalenko," "Spinner-Nia"), or identifiers linked to their original departure group/ship (if multiple groups merged onto The Keystone). Clan-like structures might use shared identifiers.
+* **Language:** A lingua franca would have likely developed – a creole or simplified trade language based on dominant languages from the original refugee groups, heavily infused with technical jargon related to The Keystone's operation and space travel. Original Earth languages might exist in fragmented forms, preserved within families or for archival/cultural purposes.
+* **(Further details and specific name/language tables to be developed later.)**
+
+## 11. Ambient Lore Implementation Goal
+
+The player should experience the *results* and *consequences* of this historical background through:
+* **Game Mechanics:** Scarcity models, resource types, ship capabilities, upgrade paths.
+* **Character Dialogue:** NPC attitudes, generational differences, common parlance.
+* **Environmental Design:** The look and feel of The Keystone, outposts, and ship interiors.
+* **Technological Limitations:** Reflecting their evolutionary path and current research.
+* **Societal Norms & Faction Beliefs:** How groups interpret their history and envision the future.
+Direct exposition should be minimized in favor of "showing, not telling."
+
+--- Start of ./6.2-GDD-Player-Onboarding.md ---
+
+# GDTLancer - Player Onboarding Design
+
+**Version:** 1.0
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, UI/UX Principles (Section 6 in GDD-Main), Core Mechanics Design v1.3
+
+## 1. Purpose & Challenge
+
+* **Purpose:** This document outlines the strategy and considerations for player onboarding in GDTLancer, aiming to smoothly introduce players to the game's various interconnected systems and mechanics.
+* **Challenge - Information Density:** GDTLancer features a rich set of mechanics (Gameplay Modules, Development Layers, Core Systems like Events & Goals, resources like Focus Points, Wealth Points, Time Units, and core resolution mechanics like Action Checks and Action Approaches). While this depth is a core design goal, presenting it all at once can be overwhelming for new players, potentially hindering their engagement and enjoyment.
+
+## 2. Guiding Principles for Onboarding
+
+The onboarding process will adhere to the following principles, aligning with the UI/UX Principles (GDD-Main, Section 6) that emphasize clarity and accessibility:
+
+* **Gradual Introduction:** Core systems and mechanics will be introduced sequentially, not simultaneously. Each new element should build upon previously understood concepts.
+* **Contextual Learning ("Just-in-Time Teaching"):** Mechanics and systems will be taught when they become directly relevant to the player's current situation, goals, or available actions. Avoid front-loading all information.
+* **Learn by Doing:** Prioritize interactive tutorials, guided first experiences, and simple introductory tasks over passive text dumps or lengthy unskippable cutscenes.
+* **Layered Complexity:** Allow players to engage with the basic functionality of a system first. Advanced options, strategic depth, and intricate inter-system synergies can be revealed or unlocked later, or be opt-in for players seeking mastery.
+* **Clear & Immediate Feedback:** The UI/UX must provide clear, concise, and immediate feedback for player actions and the status of relevant systems (e.g., changes in FP, WP, Time Clock progression).
+* **Reinforcement & Repetition:** Provide opportunities for players to safely practice and reinforce learned mechanics in low-stakes environments before they become critical.
+* **Optional Depth & Player Pacing:** While core concepts are essential, deep mastery of all system interplays should be optional for basic game progression and enjoyment, rewarding players who invest more time in understanding. Players should feel a degree of control over the pace of learning.
+* **Minimal Hand-Holding Post-Introduction:** While initial guidance is crucial, the onboarding should aim to empower players to explore and experiment independently once core concepts are grasped.
+
+## 3. Onboarding Phases & Strategies
+
+The onboarding process will be woven into the early stages of gameplay, likely corresponding with the player character's initial experiences as a "Voyager."
+
+* **Phase 1: Core Piloting & Resource Awareness (First Hour)**
+    * **Introduction:** Basic 3D ship movement and controls (Manual Flight).
+    * **First System Introduced:** The **Time Clock** and **Time Units (TU)**, introduced via initial short-range travel or simple tasks that consume time.
+    * **First Action:** A very simple, low-stakes **Trigger Action** that introduces the concept of an **Action Check** (perhaps without modifiers initially, or with a clearly explained, fixed positive modifier).
+    * **First Meta-Resource:** Introduction to **Focus Points (FP)** and their basic use in boosting an Action Check. The FP gain/loss cycle should be experienced early.
+    * **UI/UX Focus:** Clear HUD elements for ship status, TU/Time Clock, and FP. Contextual tooltips for these elements on their first appearance.
+    * **Example Scenario:** A "maiden voyage" or a simple delivery task within a safe, contained area of the Opulence system, perhaps guided by a Founder NPC or a senior Voyager.
+
+* **Phase 2: Understanding Consequences & Choices (Hours 1-3)**
+    * **Introduction:** The **Action Approach** system (`Act Risky` / `Act Cautiously`) introduced in a scenario with clear branching outcomes.
+    * **Module Modifiers:** The concept of skills and asset difficulties influencing the `Module Modifier` is introduced as the player undertakes slightly more complex tasks or acquires their first basic asset/upgrade.
+    * **Second Meta-Resource:** Introduction to **Wealth Points (WP)** through a significant first reward or a necessary major expenditure (e.g., critical ship component, essential data).
+    * **Event System Teaser:** A simple, impactful event (from the Event System) occurs, perhaps as a direct consequence of an Action Check, demonstrating how the world can react unexpectedly.
+    * **Goal System Introduction:** The player is given their first clear short-term **Goal** (via the Goal System), with a visible **Progress Track**.
+    * **UI/UX Focus:** Clear presentation of Action Check outcomes, Action Approach choices, WP balance, and active goals.
+
+* **Phase 3: Broader Systems & World Interaction (Hours 3+)**
+    * **World Event Tick:** The player experiences their first **World Event Tick** after the Time Clock fills, including the associated **WP Upkeep** cost. This naturally introduces the longer-term economic pressures.
+    * **Introduction to Other Modules:** As goals and opportunities arise, the player is guided towards new Gameplay Modules (e.g., basic Trading, Mining, or responding to a distress signal leading to a simple Combat encounter). Each new module will have its own mini-tutorial or guided experience.
+    * **Chronicle System Introduction:** The player discovers how to access or is shown the Chronicle System, seeing their (and perhaps other Agents') significant actions logged.
+    * **Deeper System Interactions:** Contextual hints or advanced tutorials can start to explain how systems like Events, Goals, and Agent actions influence each other and the World State.
+    * **Lore Integration:** Information from the Lore & Background GDD is revealed organically through dialogue, environmental details, and system behaviors rather than info-dumps.
+
+## 4. Specific Onboarding Techniques
+
+* **Interactive Checklists/Tutorial Pop-ups:** Non-intrusive, dismissible prompts that guide the player through their first interaction with a new UI element or mechanic.
+* **"Show, Don't Just Tell" Scenarios:** Craft early game situations or mini-quests that inherently require the use of a specific mechanic to succeed, making the learning process part of the gameplay.
+* **Mentorship Dialogue:** Short, contextual dialogue from key NPCs (e.g., a Founder mentor, a fellow Voyager) offering advice or explaining a new concept as it becomes relevant.
+* **Glossary/Codex:** An in-game accessible reference for all key terms, mechanics, and lore snippets the player has encountered, as per GDD-Main UI/UX Principles.
+* **Visual Cues:** Highlighting relevant UI elements when a new system is introduced or becomes critical.
+* **Safe Failure States:** Early tutorials should allow for "failure" (e.g., failing an Action Check) without overly punitive consequences, allowing players to learn from mistakes. The outcome should clearly explain *why* a failure occurred.
+
+## 5. Onboarding & Game Layers
+
+The game's layered development approach (GDD-Main, Section 4.2) naturally supports a layered onboarding:
+
+* **Layer 1 Mechanics (Core Simulation & Mechanics):** Will form the bulk of initial onboarding.
+* **Layer 2 Mechanics (Narrative Integration):** Introduced once the player has a grasp of basic actions and resource management.
+* **Layer 3 Mechanics (World & Agency Simulation):** The impact of these (NPC actions, World State changes) will become apparent more gradually as the player spends more time in the game, rather than being explicitly taught as a "system" the player must manage directly from the start.
+
+## 6. Iteration & Player Feedback
+
+The onboarding process will require significant iteration and playtesting. Feedback from new players will be crucial in refining the pacing, clarity, and effectiveness of the tutorial systems. The goal is to make the rich mechanics of GDTLancer accessible and engaging, not a barrier to entry.
 
 --- Start of ./AI-ACKNOWLEDGEMENT.md ---
 
@@ -686,35 +876,38 @@ This documentation is organized into several key areas:
 
 ### Main Document
 
-* [**0-GDD-Main.md**](./0-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts.
+* [**0-GDD-Main.md**](./0-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7, 2025-05-16)
 
-### Core Systems
+### Core Systems & Mechanics
 
-* [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`).
+* [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.3, 2025-05-16)
 
-### Development & Architecture
+### Development, Architecture
 
-* [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer.
-* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation.
+* [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.1, 2025-05-16)
+* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation. (Reviewed: v1.2, 2025-05-16)
 
 ### Analogue Version
 
-* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version.
-* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version.
+* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.2, 2025-05-16)
+* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.1, 2025-05-16)
 * *(Placeholder for Analogue-specific rules variants or system documents)*
-
 
 ### Gameplay Modules
 
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`).
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`). (Reviewed: v1.4, 2025-05-16)
 * *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
 
+### Lore, Worldbuilding & Onboarding
+
+* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, the nature of "The Keystone" and the "Opulence" system, and core cultural/physiological traits of its inhabitants. (Reviewed: v1.3, 2025-05-16)
+* [**6.2-GDD-Player-Onboarding.md**](./6.2-GDD-Player-Onboarding.md): Details the strategy for player onboarding, addressing information density and the gradual introduction of game mechanics. (New: v1.0, 2025-05-16)
 
 ### Meta & Legal
 
 * [**LICENSE**](./LICENSE): Contains the licensing information for this documentation project.
 * [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md): Details regarding the use of AI assistance during the generation and refinement of this documentation.
-* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant
+* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant.
 
 ## All pages in a single file
 
@@ -724,7 +917,6 @@ This documentation is organized into several key areas:
 
 This documentation is a living project and currently under active development.
 
----
 ---
 
 ## Draft README for Main Game Repository (`roalyr/GDTLancer`)

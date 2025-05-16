@@ -1,8 +1,8 @@
 # GDTLancer - Development Challenges & Risks
 
-**Version:** 1.0
-**Date:** April 25, 2025
-**Related Documents:** GDTLancer Main GDD v1.6, Core Mechanics Design v1.2, Phased Plan (Section 4 in GDD-Main)
+**Version:** 1.1
+**Date:** May 16, 2025
+**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3, Phased Plan (Section 4 in GDD-Main)
 
 ## 1. Purpose
 
