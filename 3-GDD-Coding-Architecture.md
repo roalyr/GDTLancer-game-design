@@ -1,8 +1,8 @@
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.2
-**Date:** May 16, 2025
-**Related Documents:** GDTLancer Main GDD v1.7
+**Version:** 1.3
+**Date:** June 22, 2025
+**Related Documents:** GDTLancer Main GDD v1.7.1
 
 ## 1. Purpose
 
@@ -56,3 +56,17 @@ This document outlines the agreed-upon coding style conventions and core archite
 * **Decoupling:** Prioritize communication via `EventBus` signals over direct node calls where feasible. Use `GlobalRefs` primarily to *obtain* references needed to call specific methods or connect signals, not for widespread direct state manipulation from unrelated scripts.
 * **Initialization:** Prefer initializing node properties via an `initialize(config)` method called *after* the node is instanced and added to the tree, passing necessary configuration data (often loaded from a `.tres` template Resource). Fetch required node references (`get_node`, etc.) within `initialize` or `_ready` as appropriate based on when the references are needed (fetch in `initialize` if needed during initialization itself, otherwise `_ready` is generally safer).
 * **Global Sequence Logging:** Implement high-level `print` statements in key initialization points (e.g., Autoload `_ready`, `WorldManager` start/zone load stages, `AgentBody` initialize) to provide a comprehensible overview of the game startup and loading sequence. Use a consistent prefix for these logs (e.g., `WM:`, `Sys:`, `Agent:`) and consider simple step counters (like `WM: 1/X - Action`) for clarity. Avoid excessively detailed logging at this global level.
+
+## 6. Physics Abstraction & Implementation
+
+To achieve a specific, controllable, and highly performant game feel that aligns with the stylized nature of GDTLancer, the game does not use a traditional rigid-body physics engine for ship movement. Instead, it "fakes physics" through a set of state-based rules and interpolation.
+
+* **Core Method:** The primary method for all movement is `KinematicBody.move_and_slide()`. The velocity vector passed to this function is carefully managed by the agent's component scripts rather than being influenced by external physical forces like gravity or collisions.
+
+* **Technical Components:**
+    * **Linear Interpolation (`lerp`):** The `linear_interpolate()` function is the workhorse for creating smooth transitions. It is used extensively for acceleration, deceleration, and braking by smoothly moving the `current_velocity` towards a target velocity. The camera also uses this for position smoothing.
+    * **PID Controllers:** For more complex, goal-oriented behaviors that require smoothly reaching and maintaining a target state without overshoot, a reusable `PIDController` class is employed. This is critical for maneuvers such as maintaining a precise orbit distance or managing deceleration during a final approach to a target, and for smoothing camera rotation.
+
+* **Control Philosophy & UI Feedback:**
+    * **Contextual Actions:** Player interaction with tools and weapons is simplified to a single "Activate" button or command. The function of this activation is determined entirely by the context of what is being targeted.
+    * **UI Feedback:** To support this contextual system, the UI must provide clear, predictive feedback. The targeting reticle and HUD must change dynamically to show the player the expected outcome of their action *before* they commit to it, upholding the core UI/UX principle of Clarity.

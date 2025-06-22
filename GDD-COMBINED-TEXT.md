@@ -2,8 +2,8 @@
 
 # GDTLancer: Generative Dynamic Transmedia Lancer - Game Design Document
 
-**Version:** 1.7
-**Date:** May 16, 2025
+**Version:** 1.7.1
+**Date:** June 22, 2025
 **Author:** Roal-Yr
 
 ## 0. Introduction
@@ -39,9 +39,12 @@
 * **Gameplay Module (Horizontal Development):** Mechanics for a specific activity loop (e.g., Combat Module). Each Module gets a GDD page.
 * **Gameplay System (Depth Development):** Cross-cutting ruleset (e.g., Event System). Each System gets a GDD page.
 * **Goal System (Vows Lite):** Gameplay System for tracking Agent objectives via Progress Tracks.
+* **G-Stasis Cradle:** The in-lore system for pilot survivability.
+* **Lancer Paradigm:** The melee-centric combat doctrine arising from matter scarcity.
 * **Module Modifier:** Primary situational modifier for an Action Check (`Relevant Skill + Asset Difficulty`).
 * **Neo-Retro 3D:** Primary visual style (minimalist, hard-edged 3D).
 * **Phase:** A defined development milestone targeting specific Modules, Layers, and Systems.
+* **Pragmatic Aesthetics:** The core principle guiding ship design.
 * **Progress Track:** Visual representation of goal completion.
 * **Time Clock:** Abstract tracker for time passing, marked in Time Units (TU). Filling the clock triggers a World Event Tick. *Detailed in Core Mechanics Design.*
 * **Time Unit (TU):** Abstract unit of time marked on the Time Clock by actions/events. *Detailed in Core Mechanics Design.*
@@ -319,13 +322,71 @@ The primary approach to managing these challenges involves:
 
 This document is intended to be a living reference. It will be updated periodically as development progresses, challenges are overcome, mitigation strategies evolve, or new risks are identified.
 
+--- Start of ./3.1-GDD-Ship-Design-Philosophy.md ---
+
+# GDTLancer Ship Design Philosophy
+
+**Version:** 1.0
+**Date:** June 22, 2025
+**Related Documents:** `GDTLancer Main GDD v1.7.1`, `Asset System GDD` (Planned), `6.1-GDD-Lore-Background.md v1.4`
+
+## 1. Overview & Philosophy
+
+This document outlines the guiding principles for the functional and aesthetic design of all spaceships within the GDTLancer universe. The core philosophy is **"Pragmatic Aesthetics,"** a concept that balances the in-game lore of resource scarcity with the meta-game need for recognizable and engaging ship designs.
+
+Designs are rooted in the "humble but ultra-reliable" original technology of The Pillar and must feel like plausible evolutions of that foundation. Visually, this is expressed through the game's "Neo-Retro 3D" style, which favors hard edges, clear silhouettes, and functional form. Mechanically, all ships are considered a primary form of `Asset` managed by the `Asset System`.
+
+## 2. Core Functional Necessities
+
+While the mechanical representation may be abstracted, every ship design must logically account for the following core functional components. These elements inform the visual language of the ship, ensuring that even stylized designs feel grounded and purposeful.
+
+* **Centralized Control Hub:** A bridge or cockpit for command and control.
+* **Propulsion Systems:** Engines and thrusters to enable movement.
+* **Power Source:** A reactor or core to energize all ship systems.
+* **Life Support:** Systems for air, temperature regulation, and radiation shielding.
+* **Structural Integrity:** A hull and frame designed to withstand the stresses of space travel and combat.
+
+## 3. Enduring Genre Conventions (GDTLancer Adaptation)
+
+GDTLancer adapts established sci-fi conventions to fit its unique universe and gameplay goals:
+
+* **Visual Class Archetypes:** Ships should be instantly recognizable. Fighters are small and agile, Freighters are bulky and functional, and Capital Ships are massive and imposing. These archetypes provide clear visual cues to the player about a ship's likely role and capabilities.
+* **The "Rule of Cool" within Constraints:** Aesthetics and the "awesome factor" are highly valued, but must be justified within the lore. A design can be striking, but it should not feel frivolous. Every element should have a perceived function, reflecting the pragmatic, utilitarian culture of the Voyagers.
+* **Modularity & Customization:** Ships are designed as modular platforms. Players will be able to modify and swap out core components like weapons, engines, and specialized equipment. This is a primary function of the `Asset System` and a key part of player progression.
+* **Dramatic Sense of Scale:** The visual and mechanical difference between a small survey ship and a massive void habitat is a core part of the game's environmental design. Camera work and UI will be designed to emphasize these differences.
+
+## 4. The "Lancer" Paradigm (Melee-Centric Design)
+
+A defining characteristic of the Opulence system's technology and combat doctrine is its focus on close-range and melee-style engagements.
+
+* **Justification (Matter Scarcity):** Raw matter is the primary scarce resource in the Opulence system. As a result, single-use projectile weapons that expend precious materials are seen as incredibly wasteful. They are maintained primarily for defense against unknown external threats or for "hunting" spaceborne life, not for regularized combat.
+* **Doctrine:** To minimize the loss of life and matter, ritualized combat is favored over destructive warfare. This has led to the common practice of adapting industrial tools for dual-purpose use in combat. This design approach is central to the game, with examples including:
+    * **Industrial Cutting Lance:** A salvage cutter that can be used as a close-range thermal spear.
+    * **Tractor/Grapple System:** A cargo tow-line that can latch onto and control enemy ships.
+    * **Kinetic Anchor Drill:** A mining anchor that can be fired as a kinetic projectile.
+    * **Plasma Jet Cutter:** A repair welder that can be used as a short-range plasma torch.
+* **Nomenclature:** This focus on mounted, melee-style weapons gives rise to the "Lancer" moniker in the game's title and is a key part of the universe's identity.
+
+## 5. Ship Classification (Initial Outline)
+
+All vessels are classified by their general size and intended role. The detailed stats and capabilities for each ship will be defined in the `Asset System GDD`.
+
+* **Small Craft:** One- or two-person vessels designed for specific, short-range tasks.
+    * *Examples: Fighter, Interceptor, Survey Vessel, Shuttle.*
+* **Medium Craft:** Multi-crew vessels forming the backbone of most independent operations.
+    * *Examples: Freighter, "Lanceship" (dedicated melee combat vessel), Cutter, Prospector.*
+* **Large Craft:** Significant assets requiring large crews and substantial resources to operate.
+    * *Examples: Capital Ship, Mobile Refinery, Void Habitat.*
+* **Unique:** A singular classification for one-of-a-kind vessels of immense scale or historical importance.
+    * *Example: The Pillar.*
+
 --- Start of ./3-GDD-Coding-Architecture.md ---
 
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.2
-**Date:** May 16, 2025
-**Related Documents:** GDTLancer Main GDD v1.7
+**Version:** 1.3
+**Date:** June 22, 2025
+**Related Documents:** GDTLancer Main GDD v1.7.1
 
 ## 1. Purpose
 
@@ -379,6 +440,20 @@ This document outlines the agreed-upon coding style conventions and core archite
 * **Decoupling:** Prioritize communication via `EventBus` signals over direct node calls where feasible. Use `GlobalRefs` primarily to *obtain* references needed to call specific methods or connect signals, not for widespread direct state manipulation from unrelated scripts.
 * **Initialization:** Prefer initializing node properties via an `initialize(config)` method called *after* the node is instanced and added to the tree, passing necessary configuration data (often loaded from a `.tres` template Resource). Fetch required node references (`get_node`, etc.) within `initialize` or `_ready` as appropriate based on when the references are needed (fetch in `initialize` if needed during initialization itself, otherwise `_ready` is generally safer).
 * **Global Sequence Logging:** Implement high-level `print` statements in key initialization points (e.g., Autoload `_ready`, `WorldManager` start/zone load stages, `AgentBody` initialize) to provide a comprehensible overview of the game startup and loading sequence. Use a consistent prefix for these logs (e.g., `WM:`, `Sys:`, `Agent:`) and consider simple step counters (like `WM: 1/X - Action`) for clarity. Avoid excessively detailed logging at this global level.
+
+## 6. Physics Abstraction & Implementation
+
+To achieve a specific, controllable, and highly performant game feel that aligns with the stylized nature of GDTLancer, the game does not use a traditional rigid-body physics engine for ship movement. Instead, it "fakes physics" through a set of state-based rules and interpolation.
+
+* **Core Method:** The primary method for all movement is `KinematicBody.move_and_slide()`. The velocity vector passed to this function is carefully managed by the agent's component scripts rather than being influenced by external physical forces like gravity or collisions.
+
+* **Technical Components:**
+    * **Linear Interpolation (`lerp`):** The `linear_interpolate()` function is the workhorse for creating smooth transitions. It is used extensively for acceleration, deceleration, and braking by smoothly moving the `current_velocity` towards a target velocity. The camera also uses this for position smoothing.
+    * **PID Controllers:** For more complex, goal-oriented behaviors that require smoothly reaching and maintaining a target state without overshoot, a reusable `PIDController` class is employed. This is critical for maneuvers such as maintaining a precise orbit distance or managing deceleration during a final approach to a target, and for smoothing camera rotation.
+
+* **Control Philosophy & UI Feedback:**
+    * **Contextual Actions:** Player interaction with tools and weapons is simplified to a single "Activate" button or command. The function of this activation is determined entirely by the context of what is being targeted.
+    * **UI Feedback:** To support this contextual system, the UI must provide clear, predictive feedback. The targeting reticle and HUD must change dynamically to show the player the expected outcome of their action *before* they commit to it, upholding the core UI/UX principle of Clarity.
 
 --- Start of ./4.1-GDD-Analogue-Setup.md ---
 
@@ -544,9 +619,9 @@ Player decides to `Undertake Journey` (Piloting Module action). They grab their 
 
 # GDTLancer Module Design: Piloting & Travel
 
-**Version:** 1.4
-**Date:** May 16, 2025
-**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3
+**Version:** 1.5
+**Date:** June 22, 2025
+**Related Documents:** GDTLancer Main GDD v1.7.1, Core Mechanics Design v1.3
 
 ## 1. Purpose & Scope
 
@@ -581,12 +656,50 @@ These mechanics resolve abstracted travel using the core Action Check system, in
     * **Mechanic:** Player declares **Action Approach** (`Act Risky`/`Cautiously`) for the segment. Make one **Action Check** (3d6 + Piloting Mod + FP spend vs. Thresholds) per segment. Resolve outcome sequentially.
     * **Time Cost:** Each segment **adds +1 TU (base)** to the **Time Clock**. Cautious Complications or specific events may add additional TU.
     * **Outcomes & Events:** Roll result + Approach determines outcome via **Event System**. Risky approach trends toward more extreme positive/negative events; Cautious towards stability and potential TU delays. Failure typically interrupts journey and triggers Major Complication/Event.
+
 * **5.2. `Fast Transit` (Single-Roll Skip)**
     * **Purpose:** Optional fast-forward mechanic for speed over detail.
     * **Trigger:** Player chooses to resolve an entire multi-segment route with one roll.
     * **Mechanic:** Player declares **Action Approach** (`Act Risky`/`Cautiously`). Make **one** **Action Check** (3d6 + Piloting Mod + FP spend vs. Thresholds) for the entire journey. Difficulty may adjust based on route.
     * **Time Cost:** Immediately **add +1 TU per segment skipped** to the **Time Clock** upon initiation. This may trigger one or more **World Event Ticks** (and associated WP Upkeep demands) upon resolution.
     * **Outcomes & Events:** Compressed results via **Event System**, severity influenced by Approach. Crit = clean arrival (+Focus). SwC = arrival + summarized Minor Comp. Failure = journey interrupted by Major Failure Event en route (+Lose Focus).
+
+* **5.3. Core Ship Commands**
+These commands represent the fundamental actions a ship's `NavigationSystem` can execute. They are the building blocks for both player-initiated actions and AI-driven behaviors. They are categorized by their primary function.
+
+### Navigation & General Movement
+
+These commands control the ship's basic movement in space.
+
+* **Move To Position:** Commands the ship to fly towards a specific coordinate in 3D space and then come to a stop.
+* **Move in Direction:** Commands the ship to accelerate and fly continuously in a specified vector direction. This is the core of "free flight" mode.
+* **Stop:** Commands the ship to actively apply braking force to neutralize all velocity and come to a complete stop.
+* **Align To Vector:** Commands the ship to rotate to face a specific direction, without applying any translational movement.
+
+### Target-Based Interaction Commands
+
+These commands require a specific `Spatial` node as a target and dictate how the ship interacts with it.
+
+* **Approach:** Commands the ship to fly towards a target and stop at a calculated stand-off distance based on the target's size.
+* **Orbit:** Commands the ship to enter a stable, circular path around a target at a specified distance and direction (clockwise or counter-clockwise).
+* **Flee:** Commands the ship to fly directly away from a target.
+* **Match Velocity:** A crucial command to neutralize relative velocity with a target, allowing for formation flying or stable close-range engagement.
+* **Maintain Relative Position:** A more advanced command to lock onto a target at a specific offset vector (e.g., "stay 100m off their port wing").
+* **Strafe Around Target:** A key combat maneuver where the ship orbits a target but keeps its forward vector oriented towards the target at all times.
+
+### Precision & Environmental Interaction
+
+These commands are used for delicate operations, often involving non-ship objects.
+
+* **Match Rotation:** Commands the ship to synchronize its own rotation with that of a tumbling target, such as a derelict or asteroid.
+* **Align to Surface:** Commands the ship to align itself flush with a specific surface on a target, perpendicular to the surface normal. This is essential for docking or anchoring.
+
+### Reactive & Systemic Behaviors
+
+These are not direct commands but describe how the ship's state is affected by external factors within the "fake physics" model.
+
+* **Apply Impulse:** A function that simulates a sudden change in velocity when the ship is hit by a kinetic impact.
+* **Tether Dynamics:** A set of rules governing the linked movement, strain, and physics of ships connected by a tractor beam or grapple system.
 
 ## 6. Module-Specific Progression (TBD)
 
@@ -620,13 +733,72 @@ These mechanics resolve abstracted travel using the core Action Check system, in
 * Clear prompts for Action Checks including **Action Approach choice**.
 * UI for abstracted travel progress/outcomes. Visible **Focus Point** meter & spending options. Visible **Time Clock** progress. **WP** balance visible (likely global UI).
 
+--- Start of ./5.2-GDD-Module-Combat.md ---
+
+# GDTLancer Module Design: Combat
+
+**Version:** 1.0
+**Date:** June 22, 2025
+**Related Documents:** `GDTLancer Main GDD v1.7.1`, `1-GDD-Core-Mechanics v1.3`, `3.1-GDD-Ship-Design-Philosophy v1.0`, `Asset System GDD` (Planned), `5.1-GDD-Module-Piloting v1.5`
+
+## 1. Purpose & Scope
+
+* **Module Name:** Combat
+* **Purpose:** Governs the resolution of ship-to-ship conflict.
+* **Scope:** This module encompasses targeting, maneuvering for offensive/defensive position, and the use of ship `Assets` as weapons. It is typically initiated as a result of an `Event System` outcome during other activities, such as Piloting. The module's mechanics are heavily informed by the "Lancer" paradigm of close-range, melee-focused engagements to conserve scarce resources.
+
+## 2. Core Loop Integration
+
+Combat encounters adhere to the game's core resolution loop, layering narrative mechanics on top of the base simulation.
+
+* **Trigger Actions:** Key offensive or defensive actions where the outcome is uncertain (e.g., firing a weapon, ramming, attempting to disable a subsystem) are considered `Trigger Actions`.
+* **Action Check Resolution:** All `Trigger Actions` in combat are resolved using the core `Action Check` system (`3d6 + Module Modifier ≥ Thresholds`). The `Module Modifier` will be derived from the relevant character skill (e.g., Piloting, Gunnery) and the difficulty/quality of the `Asset` being used.
+* **Action Approach:** Before making an `Action Check`, the player must declare their `Action Approach` (`Act Risky` or `Act Cautiously`). This choice determines the nature of the outcome. For example:
+    * **`Act Risky` Attack:** A success might deal extra damage or inflict a critical hit. A failure might result in the player's ship being left vulnerable or taking damage.
+    * **`Act Cautiously` Attack:** A success might deal standard damage. A failure might simply be a miss with no further negative consequences, or a complication might involve a significant expenditure of `Time Units (TU)` to regain position.
+
+## 3. Dual-Purpose Asset Doctrine
+
+Consistent with the principle of "Pragmatic Aesthetics", most combat "weapons" are dual-purpose industrial or survey tools.
+
+* **Contextual Activation:** The function of an equipped `Asset` is determined by the player's current target. A single "Activate" input will trigger different actions based on context, which must be clearly communicated to the player via the UI.
+* **Example Dual-Purpose Systems:**
+    * **Kinetic Anchor Drill:** A mining anchor that can be fired as a kinetic projectile.
+    * **Industrial Cutting Lance:** A salvage cutter that can be used as a close-range thermal spear.
+    * **Tractor/Grapple System:** A cargo tow-line that can latch onto and control enemy ships.
+    * **Hydraulic Pincer:** Salvage jaws that can physically crush enemy ship components.
+    * **Plasma Jet Cutter:** A repair welder that can be used as a short-range plasma torch.
+    * **Magnetic Field Collector:** A dust-gathering tool that can induce extreme heat in enemy hulls.
+    * **Ablation Laser:** A survey tool that can be used to blind and destroy enemy sensors.
+
+(Note: The specific mechanics, damage values, and `Asset Difficulty` for each item will be detailed in the `Asset System GDD`.)
+
+## 4. Combat Maneuvering & Commands
+
+Effective combat relies on the `Essential Ship Commands` defined within the Piloting & Travel module. Their application in combat is critical for success.
+
+* **Core Maneuvers:**
+    * `Match Velocity`: Essential for closing to and maintaining the effective range of close-quarters weapons.
+    * `Maintain Relative Position`: Used to stay in a target's blind spot or maintain a specific engagement angle.
+    * `Strafe Around Target`: Allows a ship to keep its primary weapons facing an enemy while dodging laterally.
+* **Reactive Behaviors:**
+    * `Apply Impulse`: A "fake physics" function that simulates a sudden push or rotation when a ship is hit by a kinetic impact, potentially interrupting the target's actions.
+
+## 5. UI/UX Considerations for Combat
+
+Clarity is paramount for the combat interface. The player must understand their options and the potential consequences of their actions.
+
+* **Contextual Targeting Reticle:** The HUD must dynamically update the targeting reticle to reflect the contextual action available for the equipped `Asset`. For example, the reticle should display a "LANCE" prompt over an enemy ship but a "MINE" prompt over an asteroid.
+* **Action Approach Prompts:** When a `Trigger Action` is initiated, the UI must clearly present the choice to `Act Risky` or `Act Cautiously` before the `Action Check` is rolled.
+* **Status Display:** The HUD must provide clear, easy-to-read information on player and target ship status (e.g., hull integrity, active status effects).
+
 --- Start of ./6.1-GDD-Lore-Background.md ---
 
 # GDTLancer - Lore & Background
 
-**Version:** 1.3
+**Version:** 1.4
 **Date:** May 16, 2025
-**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3
+**Related Documents:** GDTLancer Main GDD v1.7.1, Core Mechanics Design v1.3
 
 ## 1. Overview
 
@@ -634,23 +806,23 @@ This document outlines the foundational lore and background history for the GDTL
 
 ## 2. Origins & Departure from Earth
 
-* **Ancestry:** The current inhabitants of the **Opulence** system are descendants of various refugee groups from a future Earth. Their primary vessel, a massive generation ship, is known as **"The Keystone."**
-* **Departure Era:** The exodus from Earth occurred in waves, primarily during the early-to-mid 2100s. Various disaffected minorities, persecuted groups, and those seeking to escape specific regional strife or ecological pressures departed at different times, in different ships. The Keystone was one such major effort.
-* **Earth's Status:** Earth itself was not destroyed or universally collapsed. It continued its typical cycles of regional decline and prosperity, conflict and cooperation, as has often been the case for human civilization. For the departed parties aboard The Keystone, Earth became a distant memory, a point of origin they had no intention (or capability) of returning to, largely irrelevant to their current existence, separated by vast distances of space and potentially time.
-* **Mission Imperative:** The voyage of The Keystone was fundamentally a flight to find a new, safe home, away from terrestrial persecution and hardship. It was a "one-way trip" driven by the need for survival and self-determination, not by a grand design of exploration or colonial ambition from a unified Earth.
+* **Ancestry:** The current inhabitants of the **Opulence** system are descendants of various refugee groups from a future Earth. Their primary vessel, a massive generation ship, is known as **"The Pillar."**
+* **Departure Era:** The exodus from Earth occurred in waves, primarily during the early-to-mid 2100s. Various disaffected minorities, persecuted groups, and those seeking to escape specific regional strife or ecological pressures departed at different times, in different ships. The Pillar was one such major effort.
+* **Earth's Status:** Earth itself was not destroyed or universally collapsed. It continued its typical cycles of regional decline and prosperity, conflict and cooperation, as has often been the case for human civilization. For the departed parties aboard The Pillar, Earth became a distant memory, a point of origin they had no intention (or capability) of returning to, largely irrelevant to their current existence, separated by vast distances of space and potentially time.
+* **Mission Imperative:** The voyage of The Pillar was fundamentally a flight to find a new, safe home, away from terrestrial persecution and hardship. It was a "one-way trip" driven by the need for survival and self-determination, not by a grand design of exploration or colonial ambition from a unified Earth.
 
-## 3. The Keystone (Generation Ship)
+## 3. The Pillar (Generation Ship)
 
 * **Design Philosophy:** A colossal, monolithic vessel, engineered for extreme durability and the ultra-reliability of its core systems, intended to function autonomously for centuries if needed.
-* **Structural Integrity:** The Keystone was heavily shielded to withstand the anticipated rigors of long-duration interstellar travel.
-* **Artificial Gravity:** Designed as a massive cylinder, The Keystone spun along its axis to generate a consistent, sub-1g gravitational environment.
+* **Structural Integrity:** The Pillar was heavily shielded to withstand the anticipated rigors of long-duration interstellar travel.
+* **Artificial Gravity:** Designed as a massive cylinder, The Pillar spun along its axis to generate a consistent, sub-1g gravitational environment.
 * **Internal Environment:** Featured a fully enclosed, self-sustaining ecosystem. There were no external windows or standard hatches to the void. The internal atmosphere was maintained at a minimal, yet safe, low pressure.
 * **Propulsion System:** Utilized rudimentary, automated, "set-and-forget" Sub-Light Travel (STL) engines, designed for a multi-century coasting journey.
 
 ## 4. The Interstellar Journey & The Looming Anomaly
 
-* **The Anomaly's Shadow:** Approximately one century before The Keystone was directly impacted, a vast and inexplicable spatio-temporal distortion—later simply termed "the Anomaly"—was detected far along its projected path. Its immense scale and unusual properties (a slow, gradual warping of space-time, exhibiting characteristics akin to an incredibly diffuse and large-scale stable wormhole or a region of fundamentally altered cosmic fabric) became sources of intense study and growing apprehension.
-* **Generations in Preparation:** Several generations aboard The Keystone were born and raised with the knowledge of the impending encounter. While its precise effects remained unpredictable, contingency planning, targeted research into theoretical physics, advanced sensor technology, and structural reinforcement became paramount. However, no prediction accurately foresaw the ultimate consequence of the transit—a massive, uncontrolled spatial displacement.
+* **The Anomaly's Shadow:** Approximately one century before The Pillar was directly impacted, a vast and inexplicable spatio-temporal distortion—later simply termed "the Anomaly"—was detected far along its projected path. Its immense scale and unusual properties (a slow, gradual warping of space-time, exhibiting characteristics akin to an incredibly diffuse and large-scale stable wormhole or a region of fundamentally altered cosmic fabric) became sources of intense study and growing apprehension.
+* **Generations in Preparation:** Several generations aboard The Pillar were born and raised with the knowledge of the impending encounter. While its precise effects remained unpredictable, contingency planning, targeted research into theoretical physics, advanced sensor technology, and structural reinforcement became paramount. However, no prediction accurately foresaw the ultimate consequence of the transit—a massive, uncontrolled spatial displacement.
 * **Trials and Tribulations:** The voyage was characterized by systemic issues:
     * Slow degradation of non-critical systems.
     * Imbalances within the closed-loop ecosystem, leading to a persistent, low-level fear of starvation and a deep cultural respect for food and all life-sustaining resources.
@@ -665,21 +837,21 @@ This document outlines the foundational lore and background history for the GDTL
 
 ## 5. The Anomaly Transit & Arrival in Opulence
 
-* **The Slow Transit:** The Keystone's passage through the Anomaly was not a rapid event but a protracted transit that may have lasted decades. The effects of traversing this region of distorted space-time were subtle from within, with no immediate, violent stresses.
-* **The Great Leap & Uncharted Space:** Upon exiting the Anomaly, The Keystone found itself flung across an unknown and vast cosmic distance into an entirely uncharted region of space, far from any known star charts. There is a lingering uncertainty about a potential temporal displacement as well.
-* **New Anchor - Opulence System:** The Keystone's systems eventually brought the vessel to a halt near a G-type star within a new system, subsequently named **"Opulence"** due to the star's abundant energy output.
+* **The Slow Transit:** The Pillar's passage through the Anomaly was not a rapid event but a protracted transit that may have lasted decades. The effects of traversing this region of distorted space-time were subtle from within, with no immediate, violent stresses.
+* **The Great Leap & Uncharted Space:** Upon exiting the Anomaly, The Pillar found itself flung across an unknown and vast cosmic distance into an entirely uncharted region of space, far from any known star charts. There is a lingering uncertainty about a potential temporal displacement as well.
+* **New Anchor - Opulence System:** The Pillar's systems eventually brought the vessel to a halt near a G-type star within a new system, subsequently named **"Opulence"** due to the star's abundant energy output.
 * **Primary Post-Arrival Scarcity:** Energy was plentiful, but *matter* (raw materials for repairs, expansion, new vessels) was critically scarce.
 
 ## 6. Post-Arrival: Transformation & Initial Strides in Opulence
 
-* **The Keystone's New Role:** The Keystone began a slow process of self-transformation, recycling non-essential sections.
+* **The Pillar's New Role:** The Pillar began a slow process of self-transformation, recycling non-essential sections.
     * It became the central hub for energy collection, refining, fabrication, knowledge archival (especially Anomaly data), and education.
 * **Early Fleet & Automation:** The first new constructions were small survey/prospecting vessels and automated mining machinery.
 * **First Successes & Sustainability:** Initial successes involved asteroid mining, replenishing internal stocks, and achieving basic self-sustainability.
 
 ## 7. The People: Generations, Adaptation & Society
 
-* **The "Founders":** This cohort consists of those born during the latter journey stages or early Opulence period. They focus on The Keystone's integrity, Anomaly research, education, strategic planning, and knowledge preservation. They often favor cautious approaches, potentially granting gameplay bonuses to `Act Cautiously` options.
+* **The "Founders":** This cohort consists of those born during the latter journey stages or early Opulence period. They focus on The Pillar's integrity, Anomaly research, education, strategic planning, and knowledge preservation. They often favor cautious approaches, potentially granting gameplay bonuses to `Act Cautiously` options.
 * **The "Voyagers":** This is the first generation largely born and raised within Opulence, experiencing energy abundance but matter scarcity. They are somewhat established, with a foundational understanding of their new environment.
     * **Driving Motivation:** To establish a permanent, thriving, resilient, and *space-bound* civilization, emphasizing outward expansion for resources, habitat diversification, and system redundancy.
     * **Primary Focus:** Exploration of Opulence and nearby sectors, asteroid surveying/mining, establishing outposts. A key long-term goal is understanding the Anomaly to potentially develop controlled FTL travel (e.g., jump gates) for inter-sector expansion.
@@ -687,7 +859,7 @@ This document outlines the foundational lore and background history for the GDTL
 * **Core Physiological Adaptations:**
     * **Radiation Resistance:** Enhanced biological resistance to radiation.
     * **Low-Pressure Acclimatization:** Adaptation to sustained very low atmospheric pressure.
-    * **Gravity Attunement:** Physiology tuned to The Keystone's sub-1g gravity.
+    * **Gravity Attunement:** Physiology tuned to The Pillar's sub-1g gravity.
     * **Specialized Digestion:** Efficiently processes recycled/limited diets.
     * **Sensory Attunement:** Senses attuned to enclosed, artificial environments.
 
@@ -710,20 +882,31 @@ This document outlines the foundational lore and background history for the GDTL
     * **Ritualized Combat:** When disputes cannot be resolved through other means, or for maintaining combat readiness, highly ritualized, (usually) non-lethal ship-based duels might occur. These are expensive undertakings, designed to minimize loss of life and precious matter. They often eschew projectiles in favor of mounted melee weapons (lances, cutting beams, rams) – hinting at the "Lancer" aspect – to prevent matter dispersion. Duels to the death are exceptionally rare and typically a matter of last resort for unforgivable crimes against the community. There are no massive fleet-on-fleet engagements.
     * **External Threats:** Projectile weapons (often reusable like harpoons, kinetic impactors, or javelins) are maintained and considered less resource-intensive for potential defense against unknown external threats or for "hunting" spacebourne lifeforms (purpose: defense and scarce minerals collection).
 
-## 9. Technology & Expansion
+## 9. Technology, Expansion & Human Interface
 
-* **Technological Foundation:** Rooted in The Keystone's "humble but ultra-reliable" original technology, now being iteratively improved.
+* **Technological Foundation:** Rooted in The Pillar's "humble but ultra-reliable" original technology, now being iteratively improved.
 * **Technological Focus:** Robotics, small vessel design, fabrication, asteroid mining/processing, and the critical study of the Anomaly for breakthroughs in propulsion and spatial manipulation.
 * **Exploration Style:** Purpose-driven (resources, outpost locations, Anomaly research), not idle curiosity. Procedurally generated "dungeon-like" space pockets might represent unstable Anomaly echoes or newly discovered resource fields.
 * **Settlement Strategy:** Expanding network of small, enclosed, defensible outposts (asteroid-based or bespoke void habitats).
 
+Building upon the core physiological adaptations developed during their centuries-long journey (e.g., enhanced radiation resistance, low-pressure acclimatization), the people of Opulence have engineered specific technologies to allow pilots to interface effectively with their vessels and survive extreme conditions.
+
+### 9.1. G-Stasis Cradle
+
+To withstand the immense G-forces of high-performance flight and combat, which would be lethal to an unassisted human body, all high-performance cockpits are equipped with a G-Stasis Cradle. This is not a form of liquid immersion, but a complex mechanical and bio-support system with several key components:
+
+* **Exo-Harness:** A full-body, rigid frame that locks the pilot in place to prevent flailing under extreme acceleration.
+* **Active Contour Cradle:** A grid of pressurized bladders that inflate to create a rock-solid, custom mold, bracing the pilot's entire body against G-forces.
+* **Pressurized Breathing System:** Actively forces a dense, oxygen-rich gas mixture into the lungs to prevent them from collapsing under pressure.
+* **Neuro-Biological Support:** An integrated system that provides automated injections of stimulants and G-force mitigating drugs, coupled with a neural link for faster reaction times and predictive bracing.
+
 ## 10. Names, Surnames, and Languages (Outline)
 
-* **Cultural Melting Pot:** The generations aboard The Keystone, originating from diverse refugee groups, would have led to a blending of terrestrial cultures, languages, and naming conventions.
+* **Cultural Melting Pot:** The generations aboard The Pillar, originating from diverse refugee groups, would have led to a blending of terrestrial cultures, languages, and naming conventions.
 * **Naming Conventions:**
-    * **Given Names:** Likely a mix of traditional names from various Earth cultures, perhaps shortened or phonetically altered over time. New names might also have emerged, inspired by significant events, revered individuals on The Keystone, or even technical components.
-    * **Surnames/Family Names:** Could be a mix of inherited Earth surnames, names adopted based on an ancestor's role or achievement on The Keystone (e.g., "Hydroponics-Zhang," "Engineer-Kovalenko," "Spinner-Nia"), or identifiers linked to their original departure group/ship (if multiple groups merged onto The Keystone). Clan-like structures might use shared identifiers.
-* **Language:** A lingua franca would have likely developed – a creole or simplified trade language based on dominant languages from the original refugee groups, heavily infused with technical jargon related to The Keystone's operation and space travel. Original Earth languages might exist in fragmented forms, preserved within families or for archival/cultural purposes.
+    * **Given Names:** Likely a mix of traditional names from various Earth cultures, perhaps shortened or phonetically altered over time. New names might also have emerged, inspired by significant events, revered individuals on The Pillar, or even technical components.
+    * **Surnames/Family Names:** Could be a mix of inherited Earth surnames, names adopted based on an ancestor's role or achievement on The Pillar (e.g., "Hydroponics-Zhang," "Engineer-Kovalenko," "Spinner-Nia"), or identifiers linked to their original departure group/ship (if multiple groups merged onto The Pillar). Clan-like structures might use shared identifiers.
+* **Language:** A lingua franca would have likely developed – a creole or simplified trade language based on dominant languages from the original refugee groups, heavily infused with technical jargon related to The Pillar's operation and space travel. Original Earth languages might exist in fragmented forms, preserved within families or for archival/cultural purposes.
 * **(Further details and specific name/language tables to be developed later.)**
 
 ## 11. Ambient Lore Implementation Goal
@@ -731,7 +914,7 @@ This document outlines the foundational lore and background history for the GDTL
 The player should experience the *results* and *consequences* of this historical background through:
 * **Game Mechanics:** Scarcity models, resource types, ship capabilities, upgrade paths.
 * **Character Dialogue:** NPC attitudes, generational differences, common parlance.
-* **Environmental Design:** The look and feel of The Keystone, outposts, and ship interiors.
+* **Environmental Design:** The look and feel of The Pillar, outposts, and ship interiors.
 * **Technological Limitations:** Reflecting their evolutionary path and current research.
 * **Societal Norms & Faction Beliefs:** How groups interpret their history and envision the future.
 Direct exposition should be minimized in favor of "showing, not telling."
@@ -917,32 +1100,37 @@ This documentation is organized into several key areas:
 
 ### 0. Core Vision & Introduction
 
-* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7, 2025-05-16)
+* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7.1, 2025-06-22)
 * [**0.2-GDD-Mottos-Sayings.md**](./0.2-GDD-Mottos-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (New: v1.1, 2025-05-16)
 
 ### 1. Core Systems & Mechanics
 
 * [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.3, 2025-05-16)
 
-### 2. Development & Architecture
+### 2. Development Challenges
 
 * [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.1, 2025-05-16)
-* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation. (Reviewed: v1.2, 2025-05-16)
 
-### 3. Analogue Version
+### 3. Development Architecture
+
+* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation. (Reviewed: v1.3, 2025-06-22)
+* [**3.1-GDD-Ship-Design-Philosophy.md**](./3.1-GDD-Ship-Design-Philosophy.md): Defines the core design principles for ships, including the "Lancer" paradigm of melee-centric combat. (New: v1.0, 2025-06-22)
+
+### 4. Analogue Version
 
 * [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.2, 2025-05-16)
 * [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.1, 2025-05-16)
 * *(Placeholder for Analogue-specific rules variants or system documents)*
 
-### 4. Gameplay Modules
+### 5. Gameplay Modules
 
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`). (Reviewed: v1.4, 2025-05-16)
-* *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`). (Reviewed: v1.5, 2025-06-22)
+* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, dual-purpose assets, and the "Lancer" combat doctrine. (New: v1.0, 2025-06-22)
+* *(Placeholder for future module design documents, e.g., Trading, etc.)*
 
-### 5. Lore & Player Experience
+### 6. Lore & Player Experience
 
-* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, "The Keystone," the "Opulence" system, and core cultural/physiological traits. (Reviewed: v1.3, 2025-05-16)
+* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, "The Pillar," the "Opulence" system, and core cultural/physiological traits. (Reviewed: v1.4, 2025-05-16)
 * [**6.2-GDD-Player-Onboarding.md**](./6.2-GDD-Player-Onboarding.md): Details the strategy for player onboarding, addressing information density and the gradual introduction of game mechanics. (New: v1.0, 2025-05-16)
 
 ### Meta & Legal
@@ -991,21 +1179,4 @@ This project aims to create a unique experience blending the freedom of classic 
 ### Design Documentation
 
 The detailed design principles, mechanics, and development plan for GDTLancer reside in its dedicated documentation repository:
-**[GDTLancer Game Design Documentation](https://github.com/roalyr/GDTLancer-game-design)**
-
-### Technology
-
-* Primary Engine: **Godot Engine 3**
-
-### License
-
-This project (the Godot 3 implementation source code and associated assets within this repository) is intended to be licensed under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**. Please see the LICENSE file in the repository root for the full license text once added.
-
-* The J2ME version will also use GPLv3.
-* The Analogue TTRPG version materials, developed in a separate repository, are intended to be licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
-
-### Contributions
-
-* Currently solo development.
-
----
+**[GDTLancer Game Design Documentation](

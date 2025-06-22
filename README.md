@@ -17,32 +17,37 @@ This documentation is organized into several key areas:
 
 ### 0. Core Vision & Introduction
 
-* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7, 2025-05-16)
+* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.7.1, 2025-06-22)
 * [**0.2-GDD-Mottos-Sayings.md**](./0.2-GDD-Mottos-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (New: v1.1, 2025-05-16)
 
 ### 1. Core Systems & Mechanics
 
 * [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)** meta-resource, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.3, 2025-05-16)
 
-### 2. Development & Architecture
+### 2. Development Challenges
 
 * [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.1, 2025-05-16)
-* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation. (Reviewed: v1.2, 2025-05-16)
 
-### 3. Analogue Version
+### 3. Development Architecture
+
+* [**3-GDD-Coding-Architecture.md**](./3-GDD-Coding-Architecture.md): Outlines the coding style conventions, architectural patterns (Autoloads, Components, Resources, Scene Structure), and development philosophy for the Godot implementation. (Reviewed: v1.3, 2025-06-22)
+* [**3.1-GDD-Ship-Design-Philosophy.md**](./3.1-GDD-Ship-Design-Philosophy.md): Defines the core design principles for ships, including the "Lancer" paradigm of melee-centric combat. (New: v1.0, 2025-06-22)
+
+### 4. Analogue Version
 
 * [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.2, 2025-05-16)
 * [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.1, 2025-05-16)
 * *(Placeholder for Analogue-specific rules variants or system documents)*
 
-### 4. Gameplay Modules
+### 5. Gameplay Modules
 
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`). (Reviewed: v1.4, 2025-05-16)
-* *(Placeholder for future module design documents, e.g., Combat, Trading, etc.)*
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering manual flight integration and abstracted travel mechanics (`Undertake Journey`, `Fast Transit`). (Reviewed: v1.5, 2025-06-22)
+* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, dual-purpose assets, and the "Lancer" combat doctrine. (New: v1.0, 2025-06-22)
+* *(Placeholder for future module design documents, e.g., Trading, etc.)*
 
-### 5. Lore & Player Experience
+### 6. Lore & Player Experience
 
-* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, "The Keystone," the "Opulence" system, and core cultural/physiological traits. (Reviewed: v1.3, 2025-05-16)
+* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, "The Pillar," the "Opulence" system, and core cultural/physiological traits. (Reviewed: v1.4, 2025-05-16)
 * [**6.2-GDD-Player-Onboarding.md**](./6.2-GDD-Player-Onboarding.md): Details the strategy for player onboarding, addressing information density and the gradual introduction of game mechanics. (New: v1.0, 2025-05-16)
 
 ### Meta & Legal
@@ -91,21 +96,4 @@ This project aims to create a unique experience blending the freedom of classic 
 ### Design Documentation
 
 The detailed design principles, mechanics, and development plan for GDTLancer reside in its dedicated documentation repository:
-**[GDTLancer Game Design Documentation](https://github.com/roalyr/GDTLancer-game-design)**
-
-### Technology
-
-* Primary Engine: **Godot Engine 3**
-
-### License
-
-This project (the Godot 3 implementation source code and associated assets within this repository) is intended to be licensed under the **GNU General Public License v3.0 or later (GPL-3.0-or-later)**. Please see the LICENSE file in the repository root for the full license text once added.
-
-* The J2ME version will also use GPLv3.
-* The Analogue TTRPG version materials, developed in a separate repository, are intended to be licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
-
-### Contributions
-
-* Currently solo development.
-
----
+**[GDTLancer Game Design Documentation](
