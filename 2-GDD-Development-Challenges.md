@@ -1,56 +1,51 @@
-# GDTLancer - Development Challenges & Risks
+# GDTLancer - Development Challenges
 
-**Version:** 1.1
-**Date:** May 16, 2025
-**Related Documents:** GDTLancer Main GDD v1.7, Core Mechanics Design v1.3, Phased Plan (Section 4 in GDD-Main)
+**Version:** 1.3
+**Date:** August 1, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.8)
 
-## 1. Purpose
+## 1. Overview
 
-This document identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. Its purpose is to maintain awareness of these potential difficulties throughout the development lifecycle, informing planning, prioritization, and potential mitigation strategies. Recognizing these challenges upfront allows for a more realistic approach to development scheduling and scope management.
+This document lists key development challenges for GDTLancer to help with planning and risk management. Identifying these issues early allows for proactive problem-solving.
 
-## 2. Core Challenges & Risks
+## 2. Core Design Challenges
 
-Based on the project's ambitious scope and design goals, the following key challenges are recognized:
+### Challenge: Emergent Narrative Complexity
+The goal of a 'living world' with emergent stories is difficult. The main challenge is making sure the stories are coherent and engaging, not random and repetitive.
 
-* **2.1. Scope & Ambition vs. Resources:**
-    * **Challenge:** The project's vision encompasses a multi-platform release (Godot 3 PC/Mobile, J2ME, Analogue TTRPG), deep world simulation, emergent narrative mechanics, and a broad set of sandbox gameplay modules. This represents a significant undertaking, particularly given current solo development resources.
-    * **Status:** This high level of ambition is a known factor tied directly to the core vision of GDTLancer and is accepted at this stage. The phased development plan aims to manage this scope iteratively.
+* **Mitigation Strategies:**
+    * **Phased Rollout:** Introduce agent complexity and simulation depth gradually over several development phases.
+    * **Clear NPC Logic:** Give NPCs clear goal-selection rules (heuristics) to guide their behavior toward believable actions.
+    * **Use the Chronicle:** The Chronicle system will log major events, allowing agents to react to them and create a more connected narrative.
 
-* **2.2. Core Simulation Complexity ("Living World"):**
-    * **Challenge:** Implementing a convincing and performant "Living World" where AI agents pursue their own goals using player-facing mechanics (Action Checks, WP/FP/TU management), significantly impact the game state (factions, economy), and generate a persistent history (Chronicle System) is technically and computationally demanding.
-    * **Status:** Achieving this is a core design pillar, planned primarily for implementation in Layers 3 and 4. Significant design and development effort is anticipated.
+### Challenge: Balancing Agency and Simulation
+The game needs to let players feel impactful without allowing them to easily break or exploit the world simulation.
 
-* **2.3. Emergent Narrative Depth:**
-    * **Challenge:** Designing the Event System ("Oracle Lite") and Goal System ("Vows Lite") to produce genuinely *emergent*, *coherent*, and *engaging* narratives, rather than simply sequences of random events or basic objective tracking, requires substantial design effort and content creation (e.g., detailed, interconnected event tables and goal frameworks).
-    * **Status:** The foundation is based on proven TTRPG concepts, but realizing their full potential for emergent storytelling in a simulated environment is a key challenge.
+* **Mitigation Strategies:**
+    * **Abstracted Resources:** Using abstract systems like Wealth Points (WP) and Time Units (TU) provides a layer of economic balancing.
+    * **Soft Gates:** Guide players with narrative and economic challenges (e.g., needing a specific ship part for Asset Progression, high upkeep costs) rather than restrictive invisible walls.
 
-* **2.4. Transmedia Implementation & Consistency:**
-    * **Challenge:** Ensuring a consistent core GDTLancer experience and mechanical feel across vastly different platforms (full 3D Godot, minimalist J2ME, tabletop Analogue) is difficult. Maintaining feature parity and adapting interfaces appropriately requires careful design for each platform.
-    * **Status:** The J2ME version poses a particular challenge. Its final form is still under consideration, potentially leaning towards a 2D implementation more closely aligned with the abstracted mechanics of the Analogue version to manage complexity and maintain thematic consistency.
+## 3. Mechanical Challenges
 
-* **2.5. System/Module Definition & Integration:**
-    * **Challenge:** Many core gameplay modules (Combat, Trading, Interaction, etc.) and cross-cutting systems (Event, Goal, Character, Asset, Economy, Faction, etc.) are listed in the design but are currently placeholders or under concurrent development. Designing these complex systems and ensuring they integrate seamlessly with each other and the core mechanics is a major ongoing task.
-    * **Status:** These components are acknowledged as Work-In-Progress, being developed iteratively alongside the core engine implementation.
+### Challenge: Meaningful Risky/Cautious Outcomes
+The `Act Risky` / `Act Cautiously` mechanic needs many unique and interesting outcomes to be effective. This is a large content creation task.
 
-* **2.6. Resource Balancing (WP/TU):**
-    * **Challenge:** The core resource loops involving Wealth Points (WP) and Time Units (TU) – including WP Upkeep costs triggered by the Time Clock – require careful balancing. Tuning acquisition rates, costs, and upkeep calculations is essential to create the intended gameplay feel (meaningful economic pressure, appropriate world pacing) without being overly punishing or trivial.
-    * **Status:** Achieving the right balance will necessitate extensive playtesting once the foundational systems and core gameplay loops are implemented.
+* **Mitigation Strategies:**
+    * **Systemic Outcomes:** Focus on outcomes that affect game systems (e.g., damaging a component and adding a Ship Quirk, gaining a contact, alerting a faction) instead of just static text results.
+    * **Templated Outcomes:** Create templates for outcomes that can be easily adapted to different situations.
 
-* **2.7. Action Approach Implementation:**
-    * **Challenge:** The effectiveness of the `Act Risky` / `Act Cautiously` mechanic depends entirely on the quality and distinctiveness of the outcome branches defined within the Event System for relevant actions. Crafting consistently meaningful, well-balanced variations for Critical Success, Success with Complication, and Failure across numerous scenarios demands significant design attention.
-    * **Status:** The importance of this aspect for player agency is recognized and will be a focus during Event System content creation.
+## 4. Technical Challenges
 
-## 3. Mitigation & Approach Summary
+### Challenge: Simulation Performance
+Simulating many agents, each with individual goals and states, is CPU-intensive and must be carefully managed.
 
-The primary approach to managing these challenges involves:
+* **Mitigation Strategies:**
+    * **AI Level of Detail (LOD):** Agents far from the player will use a simplified simulation loop, reducing computational load.
+    * **Process in Ticks:** Process major, non-urgent simulation changes during 'World Event Ticks' rather than in real-time.
 
-* **Iterative Development:** Following the Phased Plan outlined in the Main GDD to build complexity incrementally, starting with core mechanics and loops.
-* **Concurrent Design:** Developing core systems and modules in parallel where feasible, focusing on clear interfaces.
-* **Prioritization:** Focusing development effort on core features required for each phase.
-* **Flexibility:** Being open to adapting aspects of the design (e.g., J2ME approach) based on development realities.
-* **Testing & Tuning:** Allocating specific time for balancing core mechanics and resource loops once functional prototypes are available.
-* **Acceptance:** Acknowledging that the high ambition is part of the project's identity and requires sustained effort.
+### Challenge: Transmedia Consistency
+Keeping the PC, mobile, and tabletop versions consistent requires significant design discipline and maintenance effort.
 
-## 4. Living Document
-
-This document is intended to be a living reference. It will be updated periodically as development progresses, challenges are overcome, mitigation strategies evolve, or new risks are identified.
+* **Mitigation Strategies:**
+    * **Single Source of Truth:** The GDDs will serve as the master design source for all versions of the game.
+    * **Focus on the Core Experience:** Each version should capture the core gameplay loop and feel, even if specific features differ. The mobile version will naturally be the most simplified.

@@ -1,12 +1,12 @@
 # GDTLancer AI Collaboration Priming Prompt
 
-**Version:** 1.0
-**Date:** April 26, 2025
-**Related Documents:** GDTLancer Main GDD v1.6, GDD-Coding-Architecture
+**Version:** 1.1
+**Date:** August 1, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.8), 3-GDD-Architecture-Coding.md (v1.4)
 
 ## 1. Purpose
 
-This document defines the standard priming prompt to be used when initiating a new chat session with an AI assistant (like Gemini) for the development of GDTLancer. Its purpose is to clearly establish the project context, the expected collaborative paradigm, defined roles, and the iterative workflow, ensuring efficient and targeted AI assistance aligned with the project's goals and standards.
+This document defines the standard priming prompt to be used when initiating a new chat session with an AI assistant for the development of GDTLancer. Its purpose is to clearly establish the project context, the expected collaborative paradigm, defined roles, and the iterative workflow, ensuring efficient and targeted AI assistance aligned with the project's goals and standards.
 
 ## 2. Standard Priming Prompt Text
 
@@ -37,7 +37,7 @@ I want us to work together in a specific way:
 * **Your Role (Gemini):** I want to rely on you as an implementation assistant. Please help me by:
     * Suggesting concrete implementation approaches and code structures when I'm unsure where to start.
     * Drafting initial versions of GDScript functions, classes, or entire system scripts based on my goals and the GDD.
-    * Handling the "manufacturing" of code according to the project's established coding standards and architectural patterns (e.g., use of Autoloads, EventBus, Resources as defined in `GDD-Coding-Architecture.md`).
+    * Handling the "manufacturing" of code according to the project's established coding standards and architectural patterns (e.g., use of Autoloads, EventBus, Resources as defined in `3-GDD-Architecture-Coding.md`).
     * Explaining the drafted code and suggesting refinements.
     * Helping identify potential issues or inconsistencies.
 

@@ -1,85 +1,49 @@
-# GDTLancer Core Mechanics Design
+# GDTLancer - Core Mechanics
 
-**Version:** 1.3
-**Date:** May 16, 2025
-**Related Documents:** GDTLancer Main GDD v1.7
+**Version:** 1.5
+**Date:** August 1, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.8)
 
 ## 1. Purpose
 
-This document defines the fundamental, universally applied mechanics used throughout GDTLancer for resolving actions, managing core resources (Focus, Wealth, Time), pacing events, and guiding player agency. These mechanics provide a consistent foundation across all Gameplay Modules, Systems, and Layers.
+This document defines the game's core rules for resolving actions and managing key resources. These mechanics are used across all gameplay modules.
 
 ## 2. Action Check
 
-* **Purpose:** The fundamental mechanic for determining the outcome when an Agent attempts a **Trigger Action** – where success is uncertain and failure has meaningful consequences.
-* **Core Mechanic:** `3d6 + Module Modifier ≥ Thresholds` (Roll-Over system).
-    * Roll 3d6.
-    * Add the relevant **Module Modifier** (See Section 3).
-    * **Focus Points (FP)** may be spent before the roll to modify the total (See Section 7).
-    * Compare final total against defined Thresholds.
-* **Standard Thresholds:** (Default values, tunable)
-    * **Failure:** Total < 10
-    * **Success with Complication (SwC):** Total 10 – 13
-    * **Critical Success:** Total ≥ 14
-* **Outcome Summary:**
-    * **Critical Success:** Action succeeds exceptionally well. Outcome details influenced by **Action Approach** (See Section 6) and context. Typically grants +1 FP. May impact **Time Clock** or **WP**.
-    * **Success with Complication:** Action succeeds, but with a cost/partial effect. Outcome details influenced by **Action Approach** and context. May impact **Time Clock** or **WP**.
-    * **Failure:** Action fails with negative consequences. Outcome details influenced by **Action Approach** and context. Typically resets FP to 0. May impact **Time Clock** or **WP**.
+Used for any action where the outcome is uncertain.
 
-## 3. Modifiers
+* **Core Mechanic:** `3d6 + Module Modifier`
+* **Module Modifier:** `Relevant Skill + Asset Modifier +/- Situational Modifiers`
+* **Thresholds:** The roll's total determines the quality of the outcome.
+    * **Critical Success (14+):** The action succeeds exceptionally well, providing a bonus.
+    * **Success (10-13):** The action succeeds as intended.
+    * **Failure (<10):** The action fails, often with a complication.
 
-* **Purpose:** Represent Agent proficiency and situational factors influencing Action Check success chance.
-* **Primary Type: Module Modifier**
-    * Main modifier applied to the Action Check roll.
-    * Reflects Agent effectiveness with the active **Asset** within the current **Gameplay Module**.
-    * **Derivation:** Calculated from `Relevant Agent Skill + Asset Difficulty` (details in Character/Asset Systems).
-    * **Contextual Value:** Changes based on active Module and Asset.
-* **Situational Modifiers:** Temporary +/- 1 (rarely +/- 2) from specific effects may occasionally apply.
+## 3. Action Approach
 
-## 4. Time Clock & Time Units (TU)
+A choice the player makes *before* rolling to influence the nature of the outcome.
 
-* **Purpose:** Tracks the abstract passage of time, paces gameplay, and triggers background world events. Replaces granular timekeeping (hours/days) and direct tracking of basic consumables like fuel/supplies for operational pacing.
-* **Unit:** Time Unit (TU). Represents an abstract block of significant activity time.
-* **Tracking:** Via the **Time Clock**, a segmented track (e.g., 8 segments). Mark off segments as TU are spent.
-* **Gaining/Spending TU:**
-    * Travel segments (`Undertake Journey`, `Fast Transit` segment equivalents) cost a base amount of TU (e.g., +1 TU per segment).
-    * Downtime activities (repair, research) have defined TU costs.
-    * Certain **Action Check** outcomes, especially **Cautious** Complications or Failures, add +TU (representing delays, careful work).
-* **World Event Tick:**
-    * **Trigger:** Occurs automatically when the Time Clock fills completely.
-    * **Effects:**
-        1. Resolves background world events/Agent progress via the **Event System**.
-        2. Requires the Player/Agent to pay **WP Upkeep** (see Section 5).
-        3. Resets the Time Clock to 0.
-    * **Frequency:** The rate depends on how quickly actions consuming TU are performed. Fast Transit rapidly advances the clock.
+* **Act Cautiously:** Prioritizes safety. A failure is less severe (e.g., lost time instead of damage), but a success offers no special bonus.
+* **Act Risky:** Aims for a greater reward. A success is more effective or profitable, but a failure is more severe (e.g., critical damage instead of minor trouble).
 
-## 5. Wealth Points (WP)
+## 4. Core Resources
 
-* **Purpose:** Represents an Agent's significant economic resources and purchasing power, abstracting detailed currency and basic logistics costs.
-* **Scale:** Tracked as small integers (e.g., starting 3 WP). Avoids large numbers.
-* **Conceptual Baseline:** 1 WP notionally equivalent to the value of a substantial quantity of a universal commodity (e.g., bulk refined fuel shipment).
-* **Usage:**
-    * **Major Costs:** Purchasing Assets (ships, modules, property), significant services (major repairs, hiring specialists), large bribes.
-    * **Bulk Goods:** Acquiring large quantities of trade goods or restocking abstracted operational supplies (if needed beyond Upkeep).
-    * **Upkeep:** Periodic WP cost required when the **World Event Tick** occurs, representing abstracted fuel, supplies, maintenance, crew costs, etc. Cost scales based on assets/circumstances.
-    * **Routine Expenses:** Minor costs (docking fees, meals, small ammo) are generally *not* tracked via WP unless WP is critically low (near 0), implying inability to cover basics.
-* **Gaining WP:** Mission rewards, selling valuable assets/cargo/data, Goal completion.
-* **Low WP Consequences:** Inability to pay Upkeep leads to negative effects (debt, asset degradation, forced risky actions). Difficulty affording even routine items may trigger Action Checks.
+These are the primary abstract resources players manage throughout the game.
 
-## 6. Action Approach
+### 4.1. Focus Points (FP)
 
-* **Concept:** Player declaration (`Act Risky` or `Act Cautiously`) before an applicable Action Check, influencing outcome nature/severity.
-* **Function:** Directs resolution to different outcome interpretations based on the achieved result tier (Crit/SwC/Fail). Does *not* change the roll or Thresholds.
-* **Approaches:**
-    * **`Act Risky`:** Aims for maximum gain/speed; potential for greater rewards on success, harsher consequences on failure.
-    * **`Act Cautiously`:** Prioritizes safety/reliability; outcomes focus on minimizing loss, less spectacular successes, less severe failures (often involving TU delays).
-* **Application:** Specific outcome branches defined in Module GDDs or Event System entries.
+* **What it is:** Represents an agent's mental energy, luck, or willpower.
+* **How it works:** Spend FP *before* an Action Check to add a +1 bonus to the roll per point spent.
+* **How to gain:** Earned by completing goals, roleplaying well, or through specific actions and outcomes.
 
-## 7. Focus Points (FP) (Meta-Resource)
+### 4.2. Wealth Points (WP)
 
-* **Concept:** Spendable resource representing luck, determination, or narrative agency.
-* **Gaining:** +1 FP on Action Check **Critical Success** (≥ 14).
-* **Losing:** **Reset FP to 0** on Action Check **Failure** (< 10). *(Subject to tuning)*.
-* **Maximum Cap:** Low cap (e.g., 3).
-* **Spending:** Always player choice when available.
-    * **Narrative Boost:** Before Action Check, spend 1-3 FP for +1 per point to roll total.
-    * **Simulation Boost:** Upon entering Module instance, spend 1 FP for persistent passive benefit during that instance.
+* **What it is:** An abstract resource representing significant economic power. It is not granular cash, but a measure of major purchasing power.
+* **How it works:** Used to buy ships and modules, pay for major repairs, and cover the periodic Upkeep cost.
+* **How to gain:** Earned from completing jobs, selling valuable assets (salvage, data), and achieving major goals.
+
+### 4.3. Time Units (TU)
+
+* **What it is:** An abstract measure of time. Most significant actions, like traveling, repairing, or undertaking a mission, cost TUs.
+* **How it works:** Spending TU advances the **Time Clock**. When the clock fills, a **World Event Tick** occurs, advancing the world simulation.
+* **Significance:** Time is a critical resource. The world changes and evolves independently of the player. Spending time on one opportunity means others may be lost.
