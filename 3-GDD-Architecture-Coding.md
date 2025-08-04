@@ -26,6 +26,7 @@ This document outlines the agreed-upon coding style conventions and core archite
 * **Player Agency:** Empower players with choices regarding risk vs. reward, engagement level, and resource management.
 * **Reusability:** Design core components to be reusable across different contexts. Leverage Godot's scene instancing and Resource system.
 * **Decoupling:** Minimize hard dependencies between different systems and modules. Utilize the global `EventBus` for signaling events and state changes. Use `GlobalRefs` only for accessing essential, unique managers or nodes.
+* **ENSURE GDD compliance with code and file tree text dumps and vice-versa:** Ensure the paths to scripts, scenes and resources are accounted for if they already exist. Ensure naming and formatting conventions are kept (according to codebase text dumps).
 
 ## 4. Code Formatting Standards
 
