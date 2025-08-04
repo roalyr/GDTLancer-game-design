@@ -430,16 +430,16 @@ In the Phase 1 demo, the player will:
 ## 5. Phase 1 Development Milestones
 
 ### Milestone 1: Foundational Systems
-* [ ] Implement the **Time, Character, Asset, and Inventory Systems** to their required Phase 1 functionality.
+* [WIP] Implement the **Time, Character, Asset, and Inventory Systems** to their required Phase 1 functionality.
 * [ ] Implement the data structures for all narrative stubs (e.g., the dictionaries for Reputation, Faction Standing; the list for Ship Quirks).
-* [ ] Ensure the **Core Mechanics API** is functional and accessible.
+* [Done] Ensure the **Core Mechanics API** is functional and accessible.
 
 ### Milestone 2: The Player in the World
-* [ ] The player can be spawned into the Zone Scene in their starting ship.
-* [ ] The **Piloting Module**'s `Free Flight` mode is fully functional.
-* [ ] The Main HUD is implemented, displaying basic ship status.
+* [Done] The player can be spawned into the Zone Scene in their starting ship.
+* [Done] The **Piloting Module**'s `Free Flight` mode is fully functional.
+* [Done] The Main HUD is implemented, displaying basic ship status.
 * [ ] Implement basic UI screens to display narrative stub info (Reputation, Sector Stats, Contact Dossier, Faction Standing).
-* [ ] The **Time System** is connected to flight, consuming TU and triggering WP Upkeep.
+* [WIP] The **Time System** is connected to flight, consuming TU and triggering WP Upkeep.
 
 ### Milestone 3: The Economic Loop
 * [ ] The **Trading Module** is implemented, allowing the player to buy and sell commodities.
