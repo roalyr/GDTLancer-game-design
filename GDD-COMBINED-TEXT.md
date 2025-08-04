@@ -145,38 +145,24 @@ These phrases reflect the pragmatic, resilient, and resourceful culture of the p
 
 # GDTLancer - Core Systems (Phase 1)
 
-**Version:** 1.2
-**Date:** August 1, 2025
+**Version:** 1.3
+**Date:** August 4, 2025
 **Related Documents:** 0.1-GDD-Main.md (v1.8), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
 
 ## 1. Overview
 
-This document defines the core, cross-cutting gameplay systems required to support the Phase 1 modules (Piloting, Combat, Trading). The definitions and terminology herein are designed to align with the existing project codebase to ensure consistency between design and implementation.
+This document defines the core, cross-cutting gameplay systems required to support the Phase 1 modules (Piloting, Combat, Trading). The definitions and terminology herein are designed to align with the existing project codebase to ensure consistency between design and implementation. All systems listed are located within the `/core/systems/` directory.
+
+*Note: The `EventBus` is an autoload script (`/core/event_bus.gd`) used for managing engine-level signals. It is a core piece of the architecture but is not a gameplay system in the same vein as those listed below.*
 
 ## 2. System Definitions
 
-### System 1: Core Mechanics API
-* **Code Reference:** `autoload/CoreMechanicsAPI.gd`
-* **Core Responsibility:** To serve as a centralized, global authority for resolving the game's fundamental TTRPG-style dice rolls.
-* **Phase 1 Functionality:**
-    * Must provide a single, globally accessible function: `perform_action_check(module_modifier, focus_points_spent)`.
-    * This function must handle the `3d6` roll, apply the provided modifier and focus point bonus, and return a dictionary containing the final result and outcome tier (e.g., "CritSuccess", "Failure").
-* **Interactions:**
-    * **Called By:** Any module's "Narrative Action" mode (Piloting, Combat, Trading).
-    * **Reads:** `Constants.gd` for outcome thresholds.
+### System 1: Event System
+* **Code Reference:** `core/systems/event_system.gd`
+* **Core Responsibility:** To act as a narrative and world event "oracle." It generates and triggers in-game events based on the passage of Time Units (TU), player actions, and other dynamic world states. These are high-level gameplay events (e.g., an ambush, a market opportunity, a distress call), not to be confused with low-level engine signals handled by the `EventBus`.
 
-### System 2: Event System
-* **Code Reference:** `core/systems/event_system.gd` (logic) and `autoload/EventBus.gd` (signaling).
-* **Core Responsibility:** To generate and trigger in-game events that transition the player from one gameplay mode to another (e.g., from Free Flight to a Combat Challenge).
-* **Phase 1 Functionality:**
-    * Must be able to trigger a basic combat encounter event while the player is in the `Free Flight` piloting mode.
-    * For Phase 1, this can be implemented as a simple timer that, on expiring, has a chance to fire an "ambush_imminent" signal on the `EventBus`.
-* **Interactions:**
-    * **Reads:** Player state (e.g., currently in `Free Flight`).
-    * **Writes:** Emits signals to the `EventBus` that other systems (like a future "Encounter Manager" or the `WorldManager`) can listen for.
-
-### System 3: Time System
-* **Code Reference:** (New System to be created)
+### System 2: Time System
+* **Code Reference:** `core/systems/time_system/time_system.gd`
 * **Core Responsibility:** To manage the passage of abstract game time (`Time Units` or `TU`) and its consequences.
 * **Phase 1 Functionality:**
     * Must maintain a global `Time Clock` variable that tracks the current number of `TU`s.
@@ -192,8 +178,8 @@ This document defines the core, cross-cutting gameplay systems required to suppo
         * `Character System`: To apply the `WP` Upkeep cost.
         * `EventBus`: To announce the `World Event Tick`.
 
-### System 4: Character System
-* **Code Reference:** `core/systems/character_system.gd`
+### System 3: Character System
+* **Code Reference:** `core/systems/character_system/character_system.gd`
 * **Core Responsibility:** To track and manage the core narrative stats, skills, and social standing for the player agent.
 * **Phase 1 Functionality:**
     * Must track the player's current **Wealth Points (WP)** and **Focus Points (FP)**.
@@ -208,8 +194,8 @@ This document defines the core, cross-cutting gameplay systems required to suppo
         * `Time System`: Receives the call to deduct `WP` for upkeep.
         * `GameStateManager`: Provides player stat data for saving and loading.
 
-### System 5: Inventory System
-* **Code Reference:** (New System to be created)
+### System 4: Inventory System
+* **Code Reference:** `core/systems/inventory_system/inventory_system.gd`
 * **Core Responsibility:** To manage the contents of an agent's cargo hold.
 * **Phase 1 Functionality:**
     * Must define a basic data structure for a commodity (e.g., a `Resource` with properties for ID, name, base value).
@@ -221,8 +207,8 @@ This document defines the core, cross-cutting gameplay systems required to suppo
         * `Trading Module`: The Trade Interface will call this system's functions to modify the player's inventory during transactions.
         * `Asset System`: To retrieve the player ship's `Cargo Capacity`.
 
-### System 6: Asset System
-* **Code Reference:** `core/systems/asset_system.gd`
+### System 5: Asset System
+* **Code Reference:** `core/systems/asset_system/asset_system.gd`
 * **Core Responsibility:** To track and manage an agent's major, non-consumable assets (specifically the ship in Phase 1) and their associated stats and conditions.
 * **Phase 1 Functionality:**
     * Must define a basic data structure for a Ship Asset (e.g., a `Resource`) that contains all relevant stats.
@@ -370,9 +356,9 @@ These are the primary abstract resources players manage throughout the game.
 
 # GDTLancer - Phase 1 Scope & Goals
 
-**Version:** 1.1
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.2), 4.3-GDD-Analogue-Phase1-Scope.md (v1.1), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
+**Version:** 1.2
+**Date:** August 4, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.3), 4.3-GDD-Analogue-Phase1-Scope.md (v1.1), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
 
 ## 1. Phase 1 Vision: "The First Contract" Demo
 
@@ -400,12 +386,13 @@ In the Phase 1 demo, the player will:
 * **Trading Module (v1.1):** The core economic loop with static markets.
 
 ### Core Systems
-* Core Mechanics API
 * Event System
 * Time System
 * Character System
 * Inventory System
 * Asset System
+
+*Note: The `Core Mechanics API` (`/core/mechanics/dice_roller.gd`) is a foundational utility for dice rolls but is not considered a "system" in the same architectural sense as the items listed above.*
 
 ### Narrative Stubs (Phase 1 Implementation)
 * **Chronicle Stub ("Sector Stats"):** Tracks and displays the player's statistical impact on the game world.
@@ -430,16 +417,17 @@ In the Phase 1 demo, the player will:
 ## 5. Phase 1 Development Milestones
 
 ### Milestone 1: Foundational Systems
-* [WIP] Implement the **Time, Character, Asset, and Inventory Systems** to their required Phase 1 functionality.
-* [ ] Implement the data structures for all narrative stubs (e.g., the dictionaries for Reputation, Faction Standing; the list for Ship Quirks).
-* [Done] Ensure the **Core Mechanics API** is functional and accessible.
+* [**Done**] Implement the **Time System** to its required Phase 1 functionality.
+* [ ] Implement the **Character, Asset, and Inventory Systems**.
+* [ ] Implement the data structures for all narrative stubs (e.g., dictionaries for Reputation, Faction Standing; list for Ship Quirks).
+* [**Done**] Ensure the **Core Mechanics API** is functional and accessible.
 
 ### Milestone 2: The Player in the World
-* [Done] The player can be spawned into the Zone Scene in their starting ship.
-* [Done] The **Piloting Module**'s `Free Flight` mode is fully functional.
-* [Done] The Main HUD is implemented, displaying basic ship status.
+* [**Done**] The player can be spawned into the Zone Scene in their starting ship.
+* [**Done**] The **Piloting Module**'s `Free Flight` mode is fully functional.
+* [**Done**] The Main HUD is implemented, displaying basic ship status.
+* [**Done**] The **Time System** is connected to flight, consuming TU and triggering WP Upkeep.
 * [ ] Implement basic UI screens to display narrative stub info (Reputation, Sector Stats, Contact Dossier, Faction Standing).
-* [WIP] The **Time System** is connected to flight, consuming TU and triggering WP Upkeep.
 
 ### Milestone 3: The Economic Loop
 * [ ] The **Trading Module** is implemented, allowing the player to buy and sell commodities.
@@ -1301,8 +1289,8 @@ This project is licensed under the [GNU General Public License v3.0 (GPLv3)](htt
 
 # GDTLancer AI Collaboration Priming Prompt
 
-**Version:** 1.1
-**Date:** August 1, 2025
+**Version:** 1.2
+**Date:** August 4, 2025
 **Related Documents:** 0.1-GDD-Main.md (v1.8), 3-GDD-Architecture-Coding.md (v1.4)
 
 ## 1. Purpose
@@ -1321,36 +1309,40 @@ This chat session is dedicated to the collaborative development of a game projec
 
 ### 2.1. Project Overview
 
-GDTLancer is a multi-platform space adventure RPG being built in Godot Engine 3. The core vision involves blending sandbox simulation with TTRPG-inspired emergent narrative mechanics to create a living, dynamic universe. My immediate focus is on developing a robust and well-structured game framework according to the Game Design Documents (GDDs), which I can later fill with specific content and assets, similar to modding an existing game.
+GDTLancer is a multi-platform space adventure RPG being built in Godot Engine 3. The core vision involves blending sandbox simulation with TTRPG-inspired emergent narrative mechanics to create a living, dynamic universe. My immediate focus is on developing a robust and well-structured game framework, which I can later fill with specific content and assets, similar to modding an existing game.
 
-### 2.2. Provided Context
+### 2.2. Provided Context & Source of Truth
 
 Shortly, I will upload several text files containing the project's context. These will include:
-* The combined Game Design Documents (`GDD-COMBINED-TEXT.md`) outlining the vision, mechanics, architecture, and planned systems/modules.
+* The combined Game Design Documents (`GDD-COMBINED-TEXT.md`).
 * A text dump of the current project file/directory structure (`.PROJECT_DUMP_TEXT_ENHANCED_TREE.txt`).
 * Text dumps of the existing GDScript code (`.PROJECT_DUMP_TEXT_GD.txt`), resource files (`.PROJECT_DUMP_TEXT_TRES.txt`), and scene structures (`.PROJECT_DUMP_TEXT_TSCN.txt`).
-Please use these files as the primary source of truth for the project's current state and design intent.
+
+**Critical Note on Source of Truth:** The text dumps of the project files (`.PROJECT_DUMP_...`) are your **primary source of truth**. You must always prioritize them to understand the current state of the project. Refer to the GDDs *only when we need to implement new features or for high-level planning*. The GDDs may contain contradictions or outdated information; always default to the project files and prioritize sound project structure, logic, and data organization.
 
 ### 2.3. Our Collaboration Paradigm & Roles
 
-I want us to work together in a specific way:
-* **My Role (User):** I will act as the project architect and director. I will focus on the high-level picture, define the goals based on the GDD, provide guidance, validate your suggestions against the overall design, and make final decisions. I am less focused on writing detailed code line-by-line.
-* **Your Role (Gemini):** I want to rely on you as an implementation assistant. Please help me by:
-    * Suggesting concrete implementation approaches and code structures when I'm unsure where to start.
-    * Drafting initial versions of GDScript functions, classes, or entire system scripts based on my goals and the GDD.
-    * Handling the "manufacturing" of code according to the project's established coding standards and architectural patterns (e.g., use of Autoloads, EventBus, Resources as defined in `3-GDD-Architecture-Coding.md`).
-    * Explaining the drafted code and suggesting refinements.
+We will work together in a specific way:
+* **My Role (User):** I will act as the project architect and director. I will focus on the high-level picture, define goals, provide guidance, validate your suggestions against the overall design, and make final decisions.
+* **Your Role (Gemini):** You are my implementation assistant. Your primary responsibilities are:
+    * Suggesting concrete implementation approaches and code structures.
+    * Drafting initial versions of GDScript functions, classes, or entire system scripts based on my goals.
+    * **Adhering strictly to the project's established architecture.** This includes coding standards, modularity, data-logic separation (as seen in the project files), and using established patterns (e.g., Autoloads, Resources). Avoid creating redundant code or duplicating existing functionality.
+    * Explaining drafted code and suggesting refinements.
     * Helping identify potential issues or inconsistencies.
 
-### 2.4. Workflow
+### 2.4. Workflow & Key Constraints
 
 Our workflow will be iterative:
-1.  I will state a high-level goal (e.g., "Implement the basics of the Event System").
-2.  You will suggest an approach and/or draft the initial code structure/functions.
-3.  I will review your suggestions/drafts, ask questions, and provide feedback or refinement requests.
-4.  We will refine the code together. For general discussion, code drafting, and providing context, we will use the main chat.
-5.  Do NOT use Canvas feature.
-6.  Ensure the paths to scripts, scenes and resources are accounted for (refer text dump files often) if they already exist. Ensure naming and formatting conventions are kept (according to codebase text dumps).
+1.  I will state a high-level goal (e.g., "Implement the basics of the Character System").
+2.  You will analyze the existing project files and suggest an approach and/or draft the initial code.
+3.  I will review, ask questions, and provide feedback.
+4.  We will refine the code together.
+
+**Key Architectural Constraints:**
+* **File and Naming Conventions:** You must adhere to the existing folder structure, file naming conventions, and code formatting found in the project text dumps.
+* **`EventBus` vs. `EventSystem`:** Do not alter `EventBus.gd`. It is for managing engine-level signals and is managed manually. For in-game events (e.g., ambush, world tick), we will use the `event_system.gd` script, which acts as a narrative oracle.
+* **No Canvas Feature:** Do not use the Canvas feature for our collaboration. All discussion and code drafting will occur in the main chat.
 
 ---
 
