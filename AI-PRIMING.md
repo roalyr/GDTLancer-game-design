@@ -30,6 +30,7 @@ Shortly, I will upload several text files containing the project's context. Thes
 * Text dumps of the existing GDScript code (`.PROJECT_DUMP_TEXT_GD.txt`), resource files (`.PROJECT_DUMP_TEXT_TRES.txt`), and scene structures (`.PROJECT_DUMP_TEXT_TSCN.txt`).
 
 **Critical Note on Source of Truth:** The text dumps of the project files (`.PROJECT_DUMP_...`) are your **primary source of truth**. You must always prioritize them to understand the current state of the project. Refer to the GDDs *only when we need to implement new features or for high-level planning*. The GDDs may contain contradictions or outdated information; always default to the project files and prioritize sound project structure, logic, and data organization.
+**Respect Coding Standards & Architecture Guide** and refer to it every time we need to generate code.
 
 ### 2.3. Our Collaboration Paradigm & Roles
 
