@@ -1243,48 +1243,164 @@ These principles must be applied to the design of all game systems, from agent A
 
 # GDTLancer - Ship Design Philosophy
 
-**Version:** 1.4
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.6)
+**Version:** 2.0
+**Date:** August 17, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.6), 7-GDD-Assets-Style.md (v1.0), 7.1-GDD-Assets-Ship-Design.md (v1.4)
 
-## 1. Overview
+## 1. Core Principles
 
-This document outlines the design philosophy for all ships in GDTLancer. It aims to balance in-game lore with the need for clear and engaging ship designs. The core principle is **Pragmatic Aesthetics**: function dictates form.
+* **Function over Form:** Design prioritizes a clear purpose over aesthetics.
+* **Integrated Hull:** The design is a complete, pre-designed spaceframe, not assembled from modular chassis parts.
+* **Lived-In Aesthetic:** Ship shows signs of maintenance and historical use (wear, patches, modifications).
 
-## 2. Core Principles
+---
 
-* **Pragmatic Aesthetics:** Designs prioritize function, reliability, and modularity. Born from a culture of resource scarcity and engineering pragmatism, a ship's look should communicate its purpose. Ornamentation is rare and seen as wasteful.
-* **Modular Design:** Ships are built from modular components (thrusters, cockpits, cargo bays, weapon mounts). This makes them easier to repair, upgrade, and customize, reinforcing the setting's iterative approach to technology.
-* **"Lived-In" Feel:** Ships should look used and maintained, not pristine. Scratches, patch repairs, and external modifications show a history of use. Designs may be asymmetrical if it serves a functional purpose.
+## 2. Propulsion Systems
 
-## 3. The Lancer Combat Doctrine
+### 2.1. Main Engines
 
-The Lancer Doctrine is a combat philosophy born from the dual scarcities of raw matter and skilled personnel. Its primary goal is not destruction, but the controlled neutralization of an opponent to capture assets and preserve life. This doctrine directly shapes the design and function of all combat-capable ships.
+* **"Rock-Eater" (Chemical - Baseline)**
+    * **Propellant:** Powdered metals (Al, Fe) + Oxidizer (from rock/ice).
+    * **Niche:** Common, reliable, low-performance.
+* **"Ice-Drinker" (Chemical - High-Performance)**
+    * **Propellant:** Hydrolox or Methalox (from ice deposits).
+    * **Niche:** High-thrust vessels; requires targeted prospecting.
+* **"Gas-Sipping" (Chemical - Specialist)**
+    * **Propellant:** Ramscoop-collected hydrogen from nebulae.
+    * **Niche:** Extreme range within nebulae, low sustainable thrust.
+* **Nuclear Thermal Rocket (NTR)**
+    * **Mechanism:** Fission reactor superheats a secondary propellant.
+    * **Niche:** Top-tier performance. Extremely expensive to refuel.
 
-* **Close-Quarters Engagement:** The doctrine favors close-range combat where precision is possible. This minimizes wasted energy and allows for the use of durable, low-cost tools. Ship designs often feature heavy forward armor and reinforced frames.
-* **Adapted Industrial Tools (Melee):** Instead of disposable ammunition, combat often relies on adapted industrial equipment like reinforced drills, cutting lances, and grappling arms. These tools are used to disable key ship systems like thrusters or power plants.
-* **Recoverable Projectiles:** When ranged attacks are necessary, they use recoverable munitions. Examples include tethered harpoons, capture nets, or non-explosive kinetic slugs designed to be retrieved after a fight.
-* **Asset Preservation:** The ultimate goal is to disable, not destroy. A disabled ship can be claimed, its pilot captured, and its cargo seized. This approach avoids the immense waste of destroying a valuable vessel and its skilled operator.
+### 2.2. Emergency Propulsion
 
-## 4. Ship Classes & Roles
+* **Cold Gas Thrusters**
+    * **Mechanism:** Vents inert, pressurized gas.
+    * **Niche:** Low-thrust emergency use. Simple, reliable, independent of main propellant.
+* **Microwave / Resistojet Thrusters**
+    * **Mechanism:** Uses electricity to heat any available mass (e.g., waste gas) into plasma.
+    * **Niche:** Very low thrust, high-efficiency "get-home" engine. Requires significant power.
 
-Ship classes are defined by their intended role within the Lancer Doctrine. Many dedicated combat ships are heavily modified versions of standard industrial frames.
+---
 
-* **Lancer:** A close-quarters specialist designed to disable enemy vessels using adapted tools. Heavily armored in the front to protect it on approach.
-* **Striker:** Utilizes recoverable projectiles like harpoons or kinetic slugs to cripple targets from a short distance before closing in or retreating.
-* **Bastion:** A durable, heavily armored ship, often used for defense or to anchor a formation. May carry capture-oriented tools like nets or tractor beams.
-* **Skirmisher:** A fast ship that excels at flanking and disabling specific external modules like thrusters or sensors. Lightly armored but hard to hit.
-* **Industrial/Civilian:** Freighters, miners, tugs, and survey ships. Typically armed only for defense, but their sturdy frames are often the starting point for combat conversions.
+## 3. Power Plants
 
-## 5. Visual Language
+* **Solar Panels**
+    * **Niche:** Baseline power generation. Low output, ineffective far from a star.
+* **Radioisotope Thermoelectric Generator (RTG)**
+    * **Niche:** Low, constant power output for extreme durations. Ideal for emergency backup or low-power "dark running".
+* **Fuel Cells**
+    * **Niche:** Mid-grade power. Consumes propellant (e.g., hydrogen) to generate electricity. Better output than solar, but requires fuel.
+* **Fission Reactor**
+    * **Fuel:** Rare Uranium/Thorium ores from asteroids.
+    * **Niche:** High-end, long-duration power source. Essential for deep space operations.
 
-The visual design should consistently reinforce the core principles.
+---
 
-* **Exposed Components:** Functional parts like pipes, heat sinks, and power conduits are often visible, showcasing the ship's mechanical nature.
-* **Hard Edges:** Designs favor function-driven angles and simple geometric shapes over complex, organic curves.
-* **Materiality:** Materials look real and functional—dented steel, welded plates, composite patches. Textures should emphasize function and wear.
-* **Lighting:** Lighting is functional, used for visibility on viewports, docking guides, and warning indicators.
-* **Color & Decals:** Color and decals identify faction and ownership, not for pure decoration. They are often applied practically, like stenciled serial numbers or faction logos.
+## 4. Cooling Systems
+
+* **Standard Radiators**
+    * **Niche:** Basic, durable heat dissipation. Bulky, often with exposed, vulnerable elements.
+* **Cryo-Coolers**
+    * **Niche:** High-efficiency, active cooling for advanced systems. More compact, requires power, more fragile.
+
+---
+
+## 5. Life Support Systems
+
+* **Open-Loop System**
+    * **Niche:** Consumes stored consumables. Limits mission duration. Standard on short-range vessels.
+* **Closed-Loop Recycler**
+    * **Niche:** Recycles air and water using Pillar-derived technology. Extends mission endurance significantly.
+* **G-Stasis Cradle**
+    * **Function:** Mitigates extreme G-forces.
+    * **Components:** Exo-Harness, Contour Bladders, Pressurized Breathing, Neuro-Biological Support.
+
+---
+
+## 6. Radiation Protection
+
+* **Baseline Hull Shielding**
+    * **Niche:** Standard hull materials offer minimal protection from cosmic radiation and solar flares. Sufficient only for short-duration, in-system travel.
+* **Dense Core Laminate**
+    * **Niche:** Heavy, layered armor with a dense material core. Offers significant radiation protection for deep space travel at the cost of increased mass.
+
+---
+
+## 7. Turbomachinery
+
+* **Standard Mechanical Pumps**
+    * **Niche:** Baseline pumps for propellant and coolant. Heavy, durable, and power-inefficient.
+* **Single-Crystal Blisk Turbopumps**
+    * **Niche:** Advanced, high-performance pumps. Fabricated from exotic single-crystal alloys for extreme efficiency, low mass, and high durability. Complex and costly.
+
+---
+
+## 8. External Hardpoints & Utility Tools
+
+Tools often serve dual purposes for industry and combat, per the Lancer Doctrine.
+
+### 8.1. Mining & Salvage Tools
+
+* **Rotary Mining Drill:** Precision ore extraction. Doubles as a close-range lance.
+* **Reinforced Prow:** Brute-force asteroid fracturing. Doubles as a melee ram.
+* **High-Power Ablative Laser:** Skims trace elements from surfaces. Can strip ship armor or damage exposed external systems.
+* **Seismic Charge Launcher:** Controlled demolition of asteroids via expensive consumables. Can target ship subsystems.
+
+### 8.2. Capture & Control Tools
+
+* **Harpoon & Winch Array:** Tethers asteroids or ships. Functions as a recoverable projectile.
+
+### 8.3. Gas/Debris Collectors
+
+* **Magnetic Ramscoop:** Passively collects nebula gas for "Gas-Sipping" engines.
+* **Forward-Facing Debris Scoop:** Actively collects fragments from wreckage or fractured asteroids.
+
+---
+
+## 9. Energy Storage
+
+* **High-Capacity Battery Banks**
+    * **Niche:** High-storage, low-power-output. Stores large energy reserves from power plants but has a slow discharge rate.
+* **Supercapacitors**
+    * **Niche:** High-power-output, low-storage. Discharges almost instantly for high-draw systems (lasers, engine startup).
+
+---
+
+## 10. Size & Mass Characteristics
+
+* **Size Range:** 20 to 40 meters in length.
+* **Mass Range:** Dry mass from ~20 metric tons (light vessels) to over 100 metric tons (heavy freighters).
+* **Core Design:** Built around a compact, single-pilot life support pod with an integrated G-Stasis Cradle.
+
+---
+
+## 11. Construction Materials
+
+* **Welded Steel & Composites (Baseline)**
+    * **Niche:** Heavy, cheap, easy to repair. Standard for industrial vessels.
+* **Titanium-Alloy Frame (Mid-Grade)**
+    * **Niche:** Lighter and stronger than steel. Improves agility and durability for a higher cost.
+* **Graphene-Reinforced Ceramics (High-End)**
+    * **Niche:** Extremely light, durable, high heat resistance. Rare and difficult to repair.
+
+---
+
+## 12. Propellant Storage
+
+### 12.1. Solid Propellant (Powders/Metals)
+
+* **Unpressurized Hopper**
+    * **Niche:** Baseline solid fuel storage. Heavy, simple, potential for inconsistent fuel feed.
+* **Agitated Silo**
+    * **Niche:** Advanced storage. Uses mechanisms to prevent clumping and ensure a consistent fuel feed to the engine.
+
+### 12.2. Liquid & Cryogenic Propellant
+
+* **Insulated Dewar Tank**
+    * **Niche:** Baseline liquid storage. Passive insulation results in inevitable fuel boil-off over time, limiting mission duration.
+* **Active Cryocooler Tank**
+    * **Niche:** High-end cryogenic storage. Uses power to actively cool the propellant, eliminating boil-off. Essential for long-haul cryogenic-fueled ships.
 
 --- Start of ./7-GDD-Assets-Style.md ---
 
