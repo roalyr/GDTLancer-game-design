@@ -1241,49 +1241,48 @@ These principles must be applied to the design of all game systems, from agent A
 
 --- Start of ./7.1-GDD-Assets-Ship-Design.md ---
 
-# GDTLancer - Ship Design Philosophy
+# 7.1 GDTLancer - Ship Design Philosophy
 
-**Version:** 2.0
-**Date:** August 17, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.6), 7-GDD-Assets-Style.md (v1.0), 7.1-GDD-Assets-Ship-Design.md (v1.4)
-
-## 1. Core Principles
-
-* **Function over Form:** Design prioritizes a clear purpose over aesthetics.
-* **Integrated Hull:** The design is a complete, pre-designed spaceframe, not assembled from modular chassis parts.
-* **Lived-In Aesthetic:** Ship shows signs of maintenance and historical use (wear, patches, modifications).
+**Version:** 2.2
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `6.1-GDD-Lore-Background.md`, `6-GDD-Lore-Narrative-Borders.md`, `7-GDD-Assets-Style.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.3-GDD-Assets-Ship-Chassis.md`
 
 ---
 
-## 2. Propulsion Systems
+## 1. Overview
 
-### 2.1. Main Engines
+This document defines the foundational technology and design philosophy for all ship assets in the GDTLancer universe. It serves as a "palette" of available components, systems, and materials that inform the design of specific, player-facing assets (like engines and hulls). This philosophy is rooted in the lore of a post-exodus civilization defined by resource scarcity and pragmatic engineering.
+
+---
+
+## 2. Core Principles
+
+* **Function over Form:** Design prioritizes a clear purpose over aesthetics. This aligns with the "Pragmatic Aesthetics" style.
+* **Integrated Hull:** The ship's design is a complete, pre-designed spaceframe, not assembled from modular chassis parts.
+* **Lived-In Aesthetic:** Ships show signs of maintenance and historical use (wear, patches, modifications), reflecting the "Waste not, want not" culture.
+
+---
+
+## 3. Propulsion Systems
+
+### 3.1. Main Engines
 
 * **"Rock-Eater" (Chemical - Baseline)**
-    * **Propellant:** Powdered metals (Al, Fe) + Oxidizer (from rock/ice).
-    * **Niche:** Common, reliable, low-performance.
-* **"Ice-Drinker" (Chemical - High-Performance)**
-    * **Propellant:** Hydrolox or Methalox (from ice deposits).
-    * **Niche:** High-thrust vessels; requires targeted prospecting.
-* **"Gas-Sipping" (Chemical - Specialist)**
-    * **Propellant:** Ramscoop-collected hydrogen from nebulae.
-    * **Niche:** Extreme range within nebulae, low sustainable thrust.
+    * **Propellant:** A solid fuel grain (powdered metals + binder) and a liquid oxidizer (LOX).
+    * **Niche:** Common, reliable hybrid engine. This is the technology used by the Phase 1 "Cruiser," "Balanced," and "Brawler" engine configurations.
 * **Nuclear Thermal Rocket (NTR)**
-    * **Mechanism:** Fission reactor superheats a secondary propellant.
-    * **Niche:** Top-tier performance. Extremely expensive to refuel.
+    * **Mechanism:** Fission reactor superheats a secondary liquid propellant (e.g., liquid hydrogen).
+    * **Niche:** Top-tier, high-efficiency performance. Extremely expensive.
 
-### 2.2. Emergency Propulsion
+### 3.2. Emergency Propulsion
 
-* **Cold Gas Thrusters**
-    * **Mechanism:** Vents inert, pressurized gas.
-    * **Niche:** Low-thrust emergency use. Simple, reliable, independent of main propellant.
 * **Microwave / Resistojet Thrusters**
     * **Mechanism:** Uses electricity to heat any available mass (e.g., waste gas) into plasma.
-    * **Niche:** Very low thrust, high-efficiency "get-home" engine. Requires significant power.
+    * **Niche:** Very low thrust, high-efficiency "get-home" engine. Requires a significant power source.
 
 ---
 
-## 3. Power Plants
+## 4. Power Plants
 
 * **Solar Panels**
     * **Niche:** Baseline power generation. Low output, ineffective far from a star.
@@ -1293,20 +1292,20 @@ These principles must be applied to the design of all game systems, from agent A
     * **Niche:** Mid-grade power. Consumes propellant (e.g., hydrogen) to generate electricity. Better output than solar, but requires fuel.
 * **Fission Reactor**
     * **Fuel:** Rare Uranium/Thorium ores from asteroids.
-    * **Niche:** High-end, long-duration power source. Essential for deep space operations.
+    * **Niche:** High-end, long-duration power source. Essential for deep space operations and high-draw modules, including NTR engines.
 
 ---
 
-## 4. Cooling Systems
+## 5. Cooling Systems
 
 * **Standard Radiators**
-    * **Niche:** Basic, durable heat dissipation. Bulky, often with exposed, vulnerable elements.
+    * **Niche:** Basic, durable heat dissipation. Bulky, often with exposed, vulnerable elements. Used on "Balanced" and "Brawler" engines.
 * **Cryo-Coolers**
     * **Niche:** High-efficiency, active cooling for advanced systems. More compact, requires power, more fragile.
 
 ---
 
-## 5. Life Support Systems
+## 6. Life Support Systems
 
 * **Open-Loop System**
     * **Niche:** Consumes stored consumables. Limits mission duration. Standard on short-range vessels.
@@ -1318,7 +1317,7 @@ These principles must be applied to the design of all game systems, from agent A
 
 ---
 
-## 6. Radiation Protection
+## 7. Radiation Protection
 
 * **Baseline Hull Shielding**
     * **Niche:** Standard hull materials offer minimal protection from cosmic radiation and solar flares. Sufficient only for short-duration, in-system travel.
@@ -1327,7 +1326,7 @@ These principles must be applied to the design of all game systems, from agent A
 
 ---
 
-## 7. Turbomachinery
+## 8. Turbomachinery
 
 * **Standard Mechanical Pumps**
     * **Niche:** Baseline pumps for propellant and coolant. Heavy, durable, and power-inefficient.
@@ -1336,29 +1335,28 @@ These principles must be applied to the design of all game systems, from agent A
 
 ---
 
-## 8. External Hardpoints & Utility Tools
+## 9. External Hardpoints & Utility Tools
 
 Tools often serve dual purposes for industry and combat, per the Lancer Doctrine.
 
-### 8.1. Mining & Salvage Tools
+### 9.1. Mining & Salvage Tools
 
 * **Rotary Mining Drill:** Precision ore extraction. Doubles as a close-range lance.
 * **Reinforced Prow:** Brute-force asteroid fracturing. Doubles as a melee ram.
 * **High-Power Ablative Laser:** Skims trace elements from surfaces. Can strip ship armor or damage exposed external systems.
 * **Seismic Charge Launcher:** Controlled demolition of asteroids via expensive consumables. Can target ship subsystems.
 
-### 8.2. Capture & Control Tools
+### 9.2. Capture & Control Tools
 
 * **Harpoon & Winch Array:** Tethers asteroids or ships. Functions as a recoverable projectile.
 
-### 8.3. Gas/Debris Collectors
+### 9.3. Gas/Debris Collectors
 
-* **Magnetic Ramscoop:** Passively collects nebula gas for "Gas-Sipping" engines.
 * **Forward-Facing Debris Scoop:** Actively collects fragments from wreckage or fractured asteroids.
 
 ---
 
-## 9. Energy Storage
+## 10. Energy Storage
 
 * **High-Capacity Battery Banks**
     * **Niche:** High-storage, low-power-output. Stores large energy reserves from power plants but has a slow discharge rate.
@@ -1367,7 +1365,7 @@ Tools often serve dual purposes for industry and combat, per the Lancer Doctrine
 
 ---
 
-## 10. Size & Mass Characteristics
+## 11. Size & Mass Characteristics
 
 * **Size Range:** 20 to 40 meters in length.
 * **Mass Range:** Dry mass from ~20 metric tons (light vessels) to over 100 metric tons (heavy freighters).
@@ -1375,7 +1373,7 @@ Tools often serve dual purposes for industry and combat, per the Lancer Doctrine
 
 ---
 
-## 11. Construction Materials
+## 12. Construction Materials
 
 * **Welded Steel & Composites (Baseline)**
     * **Niche:** Heavy, cheap, easy to repair. Standard for industrial vessels.
@@ -1386,21 +1384,179 @@ Tools often serve dual purposes for industry and combat, per the Lancer Doctrine
 
 ---
 
-## 12. Propellant Storage
-
-### 12.1. Solid Propellant (Powders/Metals)
-
-* **Unpressurized Hopper**
-    * **Niche:** Baseline solid fuel storage. Heavy, simple, potential for inconsistent fuel feed.
-* **Agitated Silo**
-    * **Niche:** Advanced storage. Uses mechanisms to prevent clumping and ensure a consistent fuel feed to the engine.
-
-### 12.2. Liquid & Cryogenic Propellant
+## 13. Liquid & Cryogenic Propellant Storage
 
 * **Insulated Dewar Tank**
-    * **Niche:** Baseline liquid storage. Passive insulation results in inevitable fuel boil-off over time, limiting mission duration.
+    * **Niche:** Baseline liquid storage (e.g., for LOX). Passive insulation results in inevitable fuel boil-off over time, limiting mission duration.
 * **Active Cryocooler Tank**
-    * **Niche:** High-end cryogenic storage. Uses power to actively cool the propellant, eliminating boil-off. Essential for long-haul cryogenic-fueled ships.
+    * **Niche:** High-end cryogenic storage. Uses power to actively cool the propellant, eliminating boil-off. Essential for long-haul cryogenic-fueled ships (e.g., LOX or NTR propellant).
+
+--- Start of ./7.2-GDD-Assets-Ship-Engines.md ---
+
+# 7.2 GDTLancer Ship Engines
+
+**Version:** 1.3
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `2.1-GDD-Development-Phase1-Scope.md`
+
+---
+
+## 1. Overview
+
+This document defines the player-facing engine configurations for GDTLancer. The initial entries ("Cruiser", "Balanced", "Brawler", "Interceptor") are scoped for Phase 1. Placeholders for future-phase technologies, such as Nuclear Thermal (NTR) and Microwave thrusters, are included for design completeness.
+
+This document is broken into three sections to align with the project's transmedia goals:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards, aligning with the "Pragmatic Aesthetics".
+2.  **Godot Implementation:** The `AgentTemplate` `.tres` values that drive the "fake physics" model.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore, Visuals, & Dimensions (For Infocards)
+
+The Phase 1 hybrid engines are all configurations of the baseline **"Rock-Eater" (Chemical - Baseline)** propulsion system. Future technologies will have distinct characteristics.
+
+| Engine Config. | Visual & Exhaust Description | Estimated Dimensions (Lore) |
+| :--- | :--- | :--- |
+| **"Cruiser"** | A rugged, reliable single-cylinder hybrid engine. Its plain, armored casing emphasizes a **no-frills, function-first** design, with minimal external components save for a single, heavily shielded LOX feed line. It features a **simple conical nozzle**. The exhaust is a tight, stable, pale-blue or white flame. | **Baseline:**<br>Casing: ~8m long, ~2m diameter<br>Nozzle: ~2.5m wide<br>Total Length: ~9.5m |
+| **"Balanced"** | A modified Cruiser chassis with visible performance upgrades. These include additional **heat shielding panels** and **small, passive radiator fins**. It uses a more pronounced **bell-shaped nozzle**. The exhaust is brighter, with visible **shock diamonds** (Mach diamonds). | **Variant of Cruiser:**<br>Casing: ~8m long, ~2.5m diameter (with fins)<br>Nozzle: ~3m wide<br>Total Length: ~10m |
+| **"Brawler"** | Visibly aggressive, this engine's casing integrates prominent, **armored radiator panels**. The LOX feed lines are **thicker and more numerous**. It vents through a **single, very large, but relatively short and wide nozzle**. The exhaust is a violent, turbulent, orange-white plume. | **Variant of Cruiser:**<br>Casing: ~8m long, ~3.5-4m diameter (with radiators)<br>Nozzle: ~4m wide<br>Total Length: ~9m (short nozzle) |
+| **"Interceptor"** | Not a traditional engine; it's a **rectangular or hexagonal armored block** that resembles a missile pod. Its surface has **visible seams** indicating where the entire cartridge cassette is loaded. The face is studded with the **many small, simple conical nozzles** of the individual cartridges. The "exhaust" is a massive, overwhelming, and short-lived **cloud of thick, dirty smoke and fire**. | **Module Block:**<br>~4m x 4m (face)<br>~2-3m (deep) |
+| **Nuclear Thermal (NTR)** | *(Future Phase)* A complex, heavy engine built around a shielded fission reactor. The nozzle is large and advanced, designed to handle superheated propellant. Exhaust is a clean, intensely hot, and transparent or pale-colored plume. | TBD (Likely large/heavy) |
+| **Microwave (Emergency)** | *(Future Phase)* A compact thruster block, often used as a backup. Features no large propellant casing, only power couplings and a small, complex nozzle array. Exhaust is a very faint, low-energy plasma glow. | TBD (Likely small module) |
+
+### Lore Note (Propellant)
+
+The note below applies to the Phase 1 "Rock-Eater" hybrid engines. Propellant for other technologies (NTR, etc.) will differ.
+
+The "engine" casing (e.g., the `8m x 2m` cylinder of the Cruiser) contains the solid fuel. The baseline propellant load for a standard ship is assumed to be **~120 metric tons**. This is composed of:
+* **~40t solid "Rock-Eater" fuel grain:** Housed within the engine casing itself. (The `8m x 2m` casing provides `~25.1m³` of volume, which fits 40t of high-density fuel composite).
+* **~80t Liquid Oxygen (LOX):** Stored in **two external 35m³ cryotanks** (total `70m³` volume, matching the `~80t` mass of LOX), which are fed into the engine.
+
+---
+
+## 3. Part 2: Godot Implementation (For `agent_template.gd`)
+
+These are the *actual* gameplay parameters to be set in the `AgentTemplate` `.tres` resource files.
+
+### `agent_template.gd` Values
+
+| Engine Config. | `max_move_speed` | `acceleration` | `deceleration` | `max_turn_speed` |
+| :--- | :--- | :--- | :--- | :--- |
+| **"Cruiser"** | `500.0` | `0.3` | `0.3` | `0.6` |
+| **"Balanced"** | `500.0` | `0.5` | `0.5` | `0.75` |
+| **"Brawler"** | `500.0` | `0.8` | `0.8` | `1.1` |
+| **Nuclear Thermal (NTR)** | `500.0` | `TBD` | `TBD` | `TBD` |
+| **Microwave (Emergency)**| `100.0` | `0.1` | `0.1` | `0.3` |
+
+### Implementation Notes
+
+* These values are the direct input for the "fake physics" `MovementSystem`.
+* The `max_move_speed` (float) is the hard cap on velocity. The Microwave engine has a much lower cap, reflecting its "get-home" role.
+* `acceleration` (float) is the `lerp` factor. This value is the final gameplay implementation of the `Thruster Power` stat required by the Piloting Module. A "Brawler" (`0.8`) will feel highly responsive, while a "Cruiser" (`0.3`) will feel heavy.
+* `deceleration` (float) is the `lerp` factor for natural "drag".
+* `max_turn_speed` (float) is the `slerp` factor for rotation. This is the implementation of the `Agility` stat. A "Brawler" (`1.1`) will be highly agile, while a "Cruiser" (`0.6`) will feel sluggish.
+* **"Interceptor" (SRM):** This is **not** an `AgentTemplate` configuration. It will be implemented as a special *action* or *consumable asset* that, when activated, temporarily overrides the `MovementSystem.acceleration` with a massive value (e.g., `5.0` or higher) for a short, fixed duration.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+These stats are for the tabletop TTRPG, aligning with the core rules for `Action Checks` and the `Analogue Setup`.
+
+### Analogue Asset Stats
+
+| Engine Config. | Asset Difficulty (Piloting) | Endurance (Segments / ~TU) | `WP` / Resource Cost |
+| :--- | :--- | :--- | :--- |
+| **"Cruiser"** | **-1** (Easy/Stable) | **~10 Segments** | Low (Standard Refuel) |
+| **"Balanced"** | **0** (Standard) | **~6 Segments** | Low (Standard Refuel) |
+| **"Brawler"** | **+2** (Hard/Volatile) | **~3 Segments** | High (Fast Refuel) |
+| **"Interceptor"** | **+3** (Burst/Risky) | **1-2 Bursts** | Costs `WP` to re-arm cartridges. |
+| **Nuclear Thermal (NTR)** | **+3** (Complex) | **~20+ Segments** | **Very High** (Requires Fission Fuel) |
+| **Microwave (Emergency)** | **0** (Reliable) | Unlimited (Low-Thrust) | N/A (Consumes Power) |
+
+### Analogue Rules
+
+* **Asset Difficulty:** This modifier is applied to the player's `3d6 + Module Modifier` `Action Check` when piloting. A `Brawler` (+2) is more difficult and risky to control.
+* **Endurance (Segments / ~TU):** Defines how many "travel segments" the ship can cover before refueling is required. Each segment of travel costs `Time Units (TU)`, which advances the `Time Clock`.
+* **`WP` Cost:** The `Brawler` and `Interceptor` engines are a `Wealth Point (WP)` sink, representing their inefficiency and specialized re-arming/refueling needs. This drives the economic loop by costing the player `WP` at stations.
+
+--- Start of ./7.3-GDD-Assets-Ship-Chassis.md ---
+
+# 7.3 GDTLancer Ship Chassis
+
+**Version:** 1.1
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1.1-GDD-Core-Systems.md`, `2.1-GDD-Development-Phase1-Scope.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `4.1-GDD-Analogue-Setup.md`
+
+---
+
+## 1. Overview
+
+This document defines the primary ship hull classes. A crucial design constraint is the **"Integrated Hull"** philosophy. Hulls are not modular chassis parts the player assembles; they are distinct, pre-designed spaceframes (ship classes) that the player acquires as a complete asset.
+
+These integrated hulls are significant assets acquired through the **Asset Progression system**. Modularity is expressed by slotting components (like engines, tanks, and utility tools) into the pre-existing, specialized frames.
+
+This document is broken into three sections:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards, based on the `Pragmatic Aesthetics`.
+2.  **Godot Implementation:** The core stats (mass, cargo, slots) that each hull defines as a `Resource` within the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules and stats for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Hull Descriptions (For Infocards)
+
+| Hull Class | Visual & Design Philosophy | Lore Role & GDD Justification |
+| :--- | :--- | :--- |
+| **"Spinal"** | The baseline, pragmatic, function-first design. Its linear layout aligns all core components along a central thrust axis, making it the most straightforward and efficient versatile vessel. | The ubiquitous **freighter, explorer, or multi-role vessel**. The reference model used for the "Cruiser" engine is a perfect example of this common, reliable design. |
+| **"Catamaran"** | A dual-hull frame designed for a specific industrial purpose: mounting oversized modules that wouldn't fit on a standard spinal frame. Features dual-engine mounts for redundancy and stable thrust. | A dedicated **Industrial Hauler or Salvage Platform**. The wide central space is designed to mount specialized tools like a **Forward-Facing Debris Scoop** or oversized cargo pods. |
+| **"Trident"** | A triple-engine mount frame, over-engineered to support extreme power generation or acceleration. It is designed to handle high-draw systems like **Fission Reactors** or **Microwave Thrusters**. | A **high-end industrial or combat vessel**. It may be a **Deep-Space Miner** powering a **High-Power Ablative Laser**, or a **Lancer Interceptor** using raw acceleration for melee combat, as per the Lancer Doctrine. |
+| **"Tower"** | Not a "Broadside Battleship," but a **"Broadside Grappler"**. Its purpose is to present a massive "tool wall" for disabling and capturing enemy vessels, perfectly aligning with the Lancer Doctrine's focus on **preservation of assets** and melee. | A specialized **salvage and capture vessel**. Its tactical role is to "catch" a target with a volley of **Harpoon & Winch Arrays**, then use **Rotary Drills** (as lances) and **Ablative Lasers** to systematically disable and capture it. |
+
+### Lore Note (Enabling Technology)
+
+All exotic hull designs, especially the high-G "Trident" and the lateral-strafing "Tower," are only viable due to the **G-Stasis Cradle**. This system allows pilots to survive the extreme and unusual acceleration vectors these specialized ships produce.
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Ship Hulls will be defined as `Resource` files (e.g., `SpinalHull.tres`) and managed by the `Asset System`. These resources define the ship's core, non-performance stats and its component slots.
+
+### Hull Base Stats & Slots
+
+| Hull Class | Base Mass (t) | Base Cargo (units) | Engine Slots | Utility Slots (Est.) |
+| :--- | :--- | :--- | :--- | :--- |
+| **"Spinal"** | 60 | 50 | 1 | 2 |
+| **"Catamaran"** | 120 | 150 | 2 | 4 (Oversized) |
+| **"Trident"** | 90 | 40 | 3 | 3 (High-Power) |
+| **"Tower"** | 150 | 100 | 1 (Standard) | 8+ (Broadside) |
+
+### Implementation Notes
+* **`Base Mass (t)`:** This is the hull's dry mass. The `Asset System` will be responsible for the final "wet mass" calculation (Base Mass + Engine Mass + Cargo Mass + Fuel Mass) that provides the `Mass` stat required by the Piloting Module.
+* **`Base Cargo (units)`:** This is the `Cargo Capacity` stat used by the `Inventory System` and Trading Module.
+* **Slots:** These define the number and type of components (like engines from `7.2-GDD-Assets-Ship-Engines.md` or tools from `7.1-GDD-Assets-Ship-Design.md`) that can be slotted into the hull.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the tabletop TTRPG, the hull provides base stats (like Hull Integrity) and, like engines, an `Asset Difficulty` modifier that stacks.
+
+### Analogue Asset Stats
+
+| Hull Class | Asset Difficulty (Global) | Base Hull | Base Cargo | Special Rule |
+| :--- | :--- | :--- | :--- | :--- |
+| **"Spinal"** | **0** (Baseline) | 10 | 5 | Standard, versatile. |
+| **"Catamaran"** | **+1** (Sluggish) | 15 | 15 | Can mount 'Industrial' tools. `+1` to salvage-related `Action Checks`. |
+| **"Trident"** | **+1** (High-G) | 12 | 4 | Can mount 3 engines. `+1` to `Act Risky` Piloting checks for interception. |
+| **"Tower"** | **+2** (Unwieldy) | 20 | 10 | Can mount 'Broadside' tools. `+1` to all `Action Checks` for grappling or disabling targets. |
+
+### Analogue Rules
+
+* **Asset Difficulty:** This modifier stacks with the engine's modifier. The *final* `Module Modifier` for an `Action Check` is `Skill + Engine_Difficulty + Hull_Difficulty`. A "Trident" hull (+1) with a "Brawler" engine (+2) would have a total `+3` difficulty, making it very hard to control, which fits the lore.
+* **Base Hull / Cargo:** These are the starting values for the asset.
+* **Special Rule:** These provide a narrative and mechanical benefit that reinforces the hull's specific role.
 
 --- Start of ./7-GDD-Assets-Style.md ---
 
