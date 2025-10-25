@@ -17,6 +17,7 @@ This documentation is organized into several key areas:
 
 ### 0. Core Vision & Introduction
 
+* [**0.0-GDD-Internal-Rules-Conventions.md**](./0.0-GDD-Internal-Rules-Conventions.md): Defines the structure, numeration, and standard page format for the GDD. (New: v1.0, 2025-10-26)
 * [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.8, 2025-08-01)
 * [**0.2-GDD-Main-Sayings.md**](./0.2-GDD-Main-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (Reviewed: v1.4, 2025-08-01)
 
@@ -43,8 +44,8 @@ This documentation is organized into several key areas:
 
 ### 5. Gameplay Modules
 
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.7, 2025-08-01)
-* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`. (Reviewed: v1.5, 2025-08-01)
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.8, 2025-10-25)
+* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`, adhering to the Lancer Doctrine. (Reviewed: v1.6, 2025-10-25)
 * [**5.3-GDD-Module-Trading.md**](./5.3-GDD-Module-Trading.md): Details the mechanics for the economic loop, including the `Trade Interface` and trading-related `Narrative Actions`. (Reviewed: v1.2, 2025-08-01)
 
 ### 6. Lore & Player Experience
@@ -56,7 +57,17 @@ This documentation is organized into several key areas:
 ### 7. Assets and Style
 
 * [**7-GDD-Assets-Style.md**](./7-GDD-Assets-Style.md): Defines the core "Neo-Retro 3D" style for all game assets, including models, environments, UI, and audio. (New: v1.0, 2025-08-01)
-* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles for ships, including "Pragmatic Aesthetics" and the "Lancer" combat doctrine. (Reviewed: v1.4, 2025-08-01)
+* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles and technology palette for ships. (Reviewed: v2.2, 2025-10-25)
+* [**7.2-GDD-Assets-Ship-Engines.md**](./7.2-GDD-Assets-Ship-Engines.md): Details the specific configurations, stats, and lore for ship engines. (Reviewed: v1.3, 2025-10-25)
+* [**7.3-GDD-Assets-Ship-Chassis.md**](./7.3-GDD-Assets-Ship-Chassis.md): Details the specific configurations, stats, and lore for ship hulls/chassis. (Reviewed: v1.1, 2025-10-25)
+* [**7.4-GDD-Assets-Power-Plants.md**](./7.4-GDD-Assets-Power-Plants.md): Details ship power generation assets. (New: v1.0, 2025-10-25)
+* [**7.5-GDD-Assets-Cooling-Systems.md**](./7.5-GDD-Assets-Cooling-Systems.md): Details ship heat management assets. (New: v1.0, 2025-10-26)
+* [**7.6-GDD-Assets-Life-Support.md**](./7.6-GDD-Assets-Life-Support.md): Details pilot life support and G-Stasis assets. (New: v1.0, 2025-10-26)
+* [**7.7-GDD-Assets-Radiation-Protection.md**](./7.7-GDD-Assets-Radiation-Protection.md): Details hull radiation shielding levels. (New: v1.0, 2025-10-26)
+* [**7.8-GDD-Assets-Turbomachinery.md**](./7.8-GDD-Assets-Turbomachinery.md): Details propellant and coolant pump assets. (New: v1.0, 2025-10-26)
+* [**7.9-GDD-Assets-Utility-Tools.md**](./7.9-GDD-Assets-Utility-Tools.md): Details external hardpoint tools for industry and combat. (Reviewed: v1.1, 2025-10-25)
+* [**7.10-GDD-Assets-Energy-Storage.md**](./7.10-GDD-Assets-Energy-Storage.md): Details battery and capacitor assets. (New: v1.0, 2025-10-26)
+* [**7.11-GDD-Assets-Propellant-Storage.md**](./7.11-GDD-Assets-Propellant-Storage.md): Details liquid/cryogenic propellant tank assets. (New: v1.0, 2025-10-25)
 
 ### Meta & Legal
 

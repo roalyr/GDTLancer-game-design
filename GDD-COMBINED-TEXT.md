@@ -1,3 +1,77 @@
+--- Start of ./0.0-GDD-Internal-Rules-Conventions.md ---
+
+# 0.0 GDTLancer - Internal GDD Rules and Conventions
+
+**Version:** 1.0
+**Date:** October 26, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `README.md`
+
+---
+
+## 1. Overview
+
+This document defines the structural conventions and formatting rules used throughout the GDTLancer Game Design Documentation (GDD). Adhering to these rules ensures consistency, clarity, and facilitates the project's **transmedia goals**, particularly the eventual extraction of a standalone Analogue TTRPG ruleset.
+
+---
+
+## 2. GDD Structure & Numeration
+
+The GDD is organized into chapters and sub-chapters using a numerical prefix system, followed by a descriptive name.
+
+* **Format:** `X.Y-GDD-<ChapterName>-<SubChapterName>.md`
+    * `X`: Represents the major chapter number (e.g., `1` for Core Mechanics, `5` for Gameplay Modules, `7` for Assets).
+    * `Y`: Represents the sub-chapter or specific page number within that chapter (e.g., `7.1` for Ship Design Philosophy, `7.2` for Ship Engines).
+    * `GDD`: Standard identifier.
+    * `<ChapterName>`/`<SubChapterName>`: Descriptive title using PascalCase or hyphenated lowercase.
+
+* **Example:** `5.1-GDD-Module-Piloting.md` is the first page (`.1`) in the Gameplay Modules chapter (`5`).
+
+* **Ordering:** This system ensures files are sorted logically within the repository filesystem and provides a clear hierarchy. The `README.md` file serves as the master index.
+
+---
+
+## 3. Standard Page Structure
+
+To support the project's goal of eventual separation into Digital (Godot) and Analogue (TTRPG) components, most GDD pages describing specific game elements (like Assets or Modules) **must** follow a standardized section structure:
+
+1.  **Header:**
+    * **Page Title:** (`# X.Y GDTLancer - Descriptive Title`)
+    * **Metadata:** `Version`, `Date`, `Related Documents` (listing all directly relevant GDD pages by filename).
+    * **Separator:** `---`
+
+2.  **Section 1: Overview**
+    * **Purpose:** Briefly explain the scope and purpose of the page and the element it describes.
+    * **Structure Note:** Explicitly state that the document follows the standard 3-part structure (Lore/Godot/Analogue).
+
+3.  **Section 2: Part 1: Lore & Visuals (or Description / Conceptual)**
+    * **Purpose:** Contains all player-facing descriptive text, lore justifications, visual descriptions, and aesthetic notes.
+    * **Content:** This section should align with the game's established lore and art style. Use tables for comparisons where appropriate.
+
+4.  **Section 3: Part 2: Godot Implementation (or Digital Implementation)**
+    * **Purpose:** Details the specific implementation within the Godot Engine (v3.x).
+    * **Content:** Defines `Resource` properties, `AgentTemplate` stats, system interactions, specific GDScript function requirements, data structures, and concrete gameplay values used by the digital version. Should reference relevant code files or architectural patterns.
+
+5.  **Section 4: Part 3: Analogue Implementation**
+    * **Purpose:** Describes how the element is represented and functions within the tabletop RPG ruleset.
+    * **Content:** Defines abstracted stats, `Asset Difficulty` modifiers, special rules, interactions with core TTRPG mechanics like `Action Checks`, `TU`, `WP`, `FP`, and provides formatting guidance for physical components.
+
+* **Note:** Pages defining high-level concepts (like `0.1-GDD-Main.md`) or purely organizational documents (like this one) may omit the strict Part 1/2/3 structure where it doesn't apply.
+
+---
+
+## 4. Rationale for Structure
+
+This strict separation serves a critical long-term goal:
+
+* **TTRPG Extraction:** Once the Godot project is sufficiently mature, the "Part 2: Godot Implementation" sections can be programmatically or manually removed from the GDD.
+* **Result:** The remaining content (Overview, Lore/Visuals, Analogue Implementation) forms the basis of a cohesive and functional rulebook and lore guide for the standalone GDTLancer Analogue TTRPG. This structure minimizes the effort required for this transmedia adaptation.
+
+---
+
+## 5. Citations
+
+* **Requirement:** All GDD pages must use the `` format to cross-reference information from other GDD pages. This ensures traceability and helps maintain consistency.
+
 --- Start of ./0.1-GDD-Main.md ---
 
 # GDTLancer - Main GDD
@@ -882,19 +956,25 @@ The final PDF product must contain the following printable materials:
 
 --- Start of ./5.1-GDD-Module-Piloting.md ---
 
-# GDTLancer - Piloting Module
+# 5.1 GDTLancer - Piloting Module
 
-**Version:** 1.7
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.2)
+**Version:** 1.8
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `2.1-GDD-Development-Phase1-Scope.md`, `3-GDD-Architecture-Coding.md`, `5.2-GDD-Module-Combat.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.3-GDTLancer-Ship-Chassis.md`
+
+---
 
 ## 1. Overview
 
 This document defines the core mechanics of the Piloting Module. Its purpose is to govern all ship movement and its interaction with the core game loop. The module is divided into three distinct functional modes, designed to create a clear separation between low-stress travel, skill-based challenges, and narrative resolution.
 
+---
+
 ## 2. Development Phase 1 Focus
 
-This design is scoped specifically for **Phase 1 (Core Loop)**. The primary goal is to establish the fundamental flight model and the gameplay loop of transitioning between the three modes. Advanced features and a wider variety of challenges and narrative actions are planned for subsequent phases.
+This design is scoped specifically for **Phase 1 (Core Loop)**. The primary goal is to establish the fundamental flight model and the gameplay loop of transitioning between the three modes. Advanced features are planned for subsequent phases.
+
+---
 
 ## 3. Mode 1: Free Flight
 
@@ -902,25 +982,29 @@ This is the default mode for intra-system travel, acting as the connective tissu
 
 * **Purpose:** To allow players to move around a sector map in a low-stress, self-directed manner.
 * **Mechanics:**
-    * **Control Scheme:** Player has direct control over their ship using the core "boost and drift" flight model.
+    * **Control Scheme:** Player has direct control over their ship using the core "boost and drift" flight model implemented via the `MovementSystem` and `NavigationSystem`.
     * **Resource Costs:**
         * This mode continuously advances the **Time Clock** at a standard rate, consuming **Time Units (TU)**.
-        * It does not have a direct Wealth Point cost, but the time spent contributes to the periodic **Upkeep Cost** in **Wealth Points (WP)**.
+        * It does not have a direct **Wealth Point (WP)** cost, but the time spent contributes to the periodic **Upkeep Cost** in `WP`.
     * **Event Triggering:** While in Free Flight, the **Event System** can trigger encounters (e.g., distress call, pirate ambush). A triggered event will seamlessly transition the player into a **Flight Challenge**.
+
+---
 
 ## 4. Mode 2: Flight Challenge
 
 This mode represents self-contained, objective-based scenarios that test the player's skill.
 
-* **Purpose:** To provide a pure, skill-based test of the player's piloting and combat abilities without interruption from abstract mechanics.
+* **Purpose:** To provide a pure, skill-based test of the player's piloting (and potentially combat) abilities without interruption from abstract mechanics.
 * **Mechanics:**
     * **Trigger:** Initiated by an event from Free Flight or by accepting a mission that requires a specific objective to be met.
     * **Objective-Based:** Each challenge has a clear, binary success condition. Examples for Phase 1 include:
-        * `Destroy all hostile targets.`
+        * `Neutralize all hostile targets.` (Handled by `Combat Module` rules)
         * `Survive for a specific duration.`
         * `Reach a specific coordinate.`
     * **Pure Skill:** Success or failure is determined entirely by the player's real-time performance. There are **no** `Action Checks` during a Flight Challenge.
-    * **Ship Performance:** A ship's stats directly affect its handling, speed, and durability within the challenge.
+    * **Ship Performance:** A ship's stats directly affect its handling, speed, and durability within the challenge. (See Section 6 for stat details).
+
+---
 
 ## 5. Mode 3: Narrative Action
 
@@ -930,19 +1014,21 @@ This mode is the TTRPG-style resolution step that occurs *after* a Flight Challe
 * **Mechanics:**
     * **Trigger:** Player-initiated command selected from a menu after the "CHALLENGE COMPLETE" condition is met.
     * **Core Mechanic:** Utilizes the standard `3d6 + Module Modifier` **Action Check** to determine the outcome.
-    * **Consequences:** The result of the roll determines the strategic consequences. These outcomes can directly interact with stub systems, such as adding a negative "Ship Quirk" to the player's vessel on a failure, or affecting their "Reputation" based on their approach.
+    * **Consequences:** The result of the roll determines the strategic consequences. These outcomes can directly interact with narrative stub systems, such as adding a negative **"Ship Quirk"** to the player's vessel on a failure, or affecting their **"Reputation"** based on their chosen `Action Approach` (`Risky`/`Cautious`).
     * **Essential Phase 1 Actions:**
-        * **Perform Evasive Departure:** Used after winning a combat encounter to determine if the getaway was clean. A failure could result in being tracked or damaging a component, potentially adding a "Ship Quirk."
-        * **Execute Precision Arrival:** Used after reaching a destination to determine the quality of the docking. A failure could result in minor ship damage and add a Quirk like "Jammed Landing Gear."
+        * **Perform Evasive Departure:** Used after winning a combat encounter to determine if the getaway was clean. Failure could result in being tracked or damaging a component, potentially adding a "Ship Quirk".
+        * **Execute Precision Arrival:** Used after reaching a destination coordinate to determine the quality of the docking/approach. Failure could result in minor ship damage and add a Quirk like "Jammed Landing Gear".
+
+---
 
 ## 6. Required Phase 1 Systems & Stats
 
 * **Required Agent Stats (from Character System):**
     * `Piloting Skill`: The base value used to calculate the `Module Modifier` for Narrative Actions.
 * **Required Ship Stats (from Asset System):**
-    * `Mass`: Affects inertia and drift.
-    * `Agility`: Affects turn rate and responsiveness.
-    * `Thruster Power`: Affects acceleration and top speed.
+    * `Mass`: Affects inertia and drift. (Calculated from Hull Base Mass + component masses).
+    * `Agility`: Affects turn rate and responsiveness. (Implemented via `max_turn_speed` in `AgentTemplate`).
+    * `Thruster Power`: Affects acceleration and top speed. (Implemented via `acceleration` and `max_move_speed` in `AgentTemplate`).
 * **Core System Integration:**
     * **Time System:** Must be advanced by Free Flight mode.
     * **Event System:** Required to trigger the transition from Free Flight to a Flight Challenge.
@@ -952,60 +1038,71 @@ This mode is the TTRPG-style resolution step that occurs *after* a Flight Challe
 
 --- Start of ./5.2-GDD-Module-Combat.md ---
 
-# GDTLancer - Combat Module
+# 5.2 GDTLancer - Combat Module
 
-**Version:** 1.5
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.2), 5.1-GDD-Module-Piloting.md (v1.7)
+**Version:** 1.6
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `5.1-GDD-Module-Piloting.md`, `6.1-GDD-Lore-Background.md`, `6-GDD-Lore-Narrative-Borders.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.3-GDD-Assets-Ship-Chassis.md`, `7.9-GDD-Assets-Utility-Tools.md`
+
+---
 
 ## 1. Overview
 
-This document defines the mechanics for ship-to-ship conflict. The module is designed to work in concert with the Piloting Module, structuring combat encounters into a distinct skill-based challenge followed by a narrative resolution.
+This document defines the mechanics for ship-to-ship conflict, adhering to the **Lancer Doctrine**. Combat prioritizes **disabling and capturing vessels** over outright destruction, reflecting the cultural value placed on preserving assets. The module structures encounters into a distinct skill-based **Combat Challenge** followed by a narrative resolution via **Narrative Actions**.
+
+**Key Design Constraint:** There are **no energy shields**. Combat focuses on overcoming hull integrity and disabling systems using specialized **Utility Tools**.
+
+---
 
 ## 2. Development Phase 1 Focus
 
-This design is scoped for **Phase 1 (Core Loop)**. The focus is on establishing the fundamental mechanics of combat: targeting, applying damage, and clear victory conditions. Advanced features like specific sub-system targeting, electronic warfare, or complex weapon types are planned for later phases.
+This design is scoped for **Phase 1 (Core Loop)**. The focus is on establishing the fundamental mechanics: targeting the main hull, applying damage using Phase 1 tools, and clear victory/disable conditions. Advanced features like specific sub-system targeting are planned for later phases.
+
+---
 
 ## 3. Mode 1: Combat Challenge
 
 This mode represents the direct, real-time engagement between vessels. It is a self-contained test of the player's combat and piloting skill.
 
-* **Purpose:** To provide pure, skill-based ship-to-ship fighting without interruption from abstract mechanics.
+* **Purpose:** To provide pure, skill-based ship-to-ship fighting focused on disabling tactics.
 * **Mechanics:**
     * **Trigger:** Initiated by an event from Free Flight (e.g., ambush) or by accepting a mission that requires combat.
-    * **Core Gameplay:** Players have direct control over their ship's movement and weapon systems. The core gameplay loop involves maneuvering, aiming, and firing to deplete the enemy's Hull Integrity.
+    * **Core Gameplay:** Players have direct control over their ship's movement and equipped **Utility Tools**. The core gameplay loop involves maneuvering, aiming, and using tools (like Ablative Lasers or Rotary Drills acting as lances) to disable the enemy (e.g., reduce Hull Integrity to 0, achieve a specific objective like grappling).
     * **Targeting:** For Phase 1, targeting is limited to the enemy ship's main hull.
-    * **Objective:** The challenge is successfully completed when all designated hostile targets are neutralized (Hull Integrity reaches 0).
+    * **Objective:** The challenge is successfully completed when all designated hostile targets are **neutralized** (Hull Integrity reaches 0 or another disable condition is met).
     * **Consequences of Damage:** Taking significant hull damage during the challenge, even if victorious, can result in a new "Ship Quirk" being added to the player's vessel.
     * **Pure Skill:** Success in this mode is determined solely by player performance. There are **no** `Action Checks` during the Combat Challenge.
 
+---
+
 ## 4. Mode 2: Narrative Action
 
-This is the resolution step that occurs after the Combat Challenge is won. It determines the consequences and potential rewards of the engagement.
+This is the resolution step that occurs after the Combat Challenge is successfully completed (i.e., the enemy is neutralized). It determines the consequences and potential rewards of the engagement.
 
-* **Purpose:** To resolve the strategic and narrative fallout of a battle.
+* **Purpose:** To resolve the strategic and narrative fallout of a battle, emphasizing the Lancer Doctrine's goals.
 * **Mechanics:**
     * **Trigger:** Player-initiated command selected from a menu after the last enemy ship is neutralized.
     * **Core Mechanic:** Utilizes the standard `3d6 + Module Modifier` **Action Check** to determine the outcome.
-    * **Consequences:** Outcomes from these actions are a primary driver for the narrative stub systems. Results can directly modify the player's "Reputation," their standing with various "Factions," and the sector's "World Stats" in the Chronicle.
+    * **Consequences:** Outcomes directly modify narrative stubs like "Reputation," "Faction Standing," and sector "World Stats". Successful disablement/capture should yield better rewards than simple destruction.
     * **Essential Phase 1 Actions:**
-        * **Assess the Aftermath:** A general-purpose action to evaluate the battlefield. A success might reveal that the defeated ships belonged to a known pirate faction, improving your standing with a security faction. A failure might reveal that the fight was witnessed by a neutral party who reports your aggression, lowering your reputation.
-        * **Claim Wreckage:** A specific attempt to salvage components from a disabled ship. A success yields a valuable asset or adds to `WP`. A `Risky` approach might yield more `WP` but lower your reputation ("Opportunist"). A failure could mean the wreckage is too unstable and explodes.
+        * **Assess the Aftermath:** A general-purpose action to evaluate the battlefield context. Success might reveal faction affiliations or recoverable intel. Failure might mean misidentifying the wreck or attracting unwanted attention.
+        * **Claim Wreckage:** A specific attempt to salvage components from a **disabled** ship. Success yields a valuable asset or adds to `WP`. A `Risky` approach might yield more `WP` but damage `Reputation` ("Opportunist"). Failure could mean the wreckage is too unstable.
+
+---
 
 ## 5. Required Phase 1 Systems & Stats
 
 * **Required Agent Stats (from Character System):**
     * `Tactics Skill`: The base value used to calculate the `Module Modifier` for combat-related Narrative Actions.
 * **Required Ship Stats (from Asset System):**
-    * `Hull Integrity`: The ship's health.
-    * `Shields`: A regenerating layer of defense that absorbs damage before Hull Integrity.
-    * `Weapon Systems`: Defines damage output, range, and rate of fire for equipped weapons.
+    * `Hull Integrity`: The ship's health points.
+    * Equipped **`Utility Tools`**: These define the ship's offensive capabilities (damage output, range, special effects like grappling).
 * **Core System Integration:**
     * **Event System:** To initiate combat encounters.
     * **Time System:** Combat Challenges and subsequent actions consume **Time Units (TU)**.
     * **Core Mechanics API:** To resolve Narrative Actions.
-    * **Asset System:** Provides the ship's combat stats.
-    * **Character System:** Provides the skill stats for Narrative Action checks.
+    * **Asset System:** Provides the ship's `Hull Integrity` and tracks equipped `Utility Tools`.
+    * **Character System:** Provides the `Tactics Skill` for Narrative Action checks.
 
 --- Start of ./5.3-GDD-Module-Trading.md ---
 
@@ -1238,6 +1335,139 @@ These principles must be applied to the design of all game systems, from agent A
 * **Mechanical Implementation:**
     * **Agent Focus:** The simulation must be focused on the interactions between human agents and their factions. The vast majority of generated events should relate to trade, politics, piracy, personal relationships, and discovery.
     * **The Alien is Alien:** True alien life, cosmic horrors, or spatio-temporal anomalies (like "the Anomaly" in the backstory) must be treated as rare, significant, and narratively impactful. The simulation should not be populated with a menagerie of random sci-fi creatures and phenomena; this preserves their thematic weight.
+
+--- Start of ./7.10-GDD-Assets-Energy-Storage.md ---
+
+# 7.10 GDTLancer - Energy Storage
+
+**Version:** 1.0
+**Date:** October 26, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.4-GDD-Assets-Power-Plants.md`, `7.9 GDTLancer - Utility Tools`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for shipboard energy storage systems. These components work in conjunction with **Power Plants** to manage a ship's electrical supply, either by storing large reserves or enabling rapid discharge for high-draw systems.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"High-Capacity Battery Banks"** | Large, heavy banks of chemical batteries designed to store significant amounts of energy generated by the ship's power plant. They have a relatively slow discharge rate, making them suitable for providing sustained power or emergency backup, but not for peak loads. Visually, they are banks of simple, rugged containers. |
+| **"Supercapacitors"** | Advanced energy storage using electrostatic fields rather than chemical reactions. They store less total energy than batteries but can discharge almost instantly, providing massive bursts of power for high-draw systems like Ablative Lasers or engine startups. Visually, they are more compact and complex modules. |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Energy Storage units will be defined as `Resource` files (e.g., `SupercapacitorBank.tres`) and managed by the `Asset System`. The `Asset System` will track the `current_charge_mj` for each unit.
+
+### Energy Storage `Resource` Properties
+
+| Asset Type | `capacity_mj` (float) | `max_discharge_rate_mw` (float) | `charge_efficiency` (float) |
+| :--- | :--- | :--- | :--- |
+| **"Battery Bank"** | 1000.0 (High Capacity) | 2.0 (Low Discharge) | 0.9 |
+| **"Supercapacitors"** | 100.0 (Low Capacity) | 50.0 (High Discharge) | 0.95 |
+
+### Implementation Notes
+
+* **`capacity_mj`:** The total amount of energy (in megajoules) the unit can store.
+* **`max_discharge_rate_mw`:** The maximum power (in megawatts) the unit can output instantaneously. Supercapacitors excel here, enabling high-draw tools.
+* **Power Management:** The `Asset System` manages the flow of energy. Power Plants charge these storage units. When ship power draw exceeds plant output, the storage units discharge (up to their `max_discharge_rate_mw`) to cover the deficit. If draw exceeds *both* plant output and storage discharge rate, systems shut down.
+* **`charge_efficiency`:** Represents energy lost during the charging process.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the TTRPG, energy storage provides a buffer or enables peak power actions.
+
+### Analogue Asset Stats
+
+| Asset Type | Asset Difficulty (Tech) | `WP` Cost | Special Rule |
+| :--- | :--- | :--- | :--- |
+| **"Battery Bank"** | **0** (Standard) | Low | **Reserve Power:** Can spend **1 FP** to ignore the effects of a temporary power loss (e.g., failed Power Plant check) for 1 `TU`. |
+| **"Supercapacitors"** | **+1** (Advanced) | Medium | **Peak Discharge:** Enables the use of assets requiring "Peak Power" (e.g., advanced lasers). Can spend **1 FP** to guarantee sufficient power for one activation of such an asset, even if Power Slots are currently insufficient. |
+
+### Analogue Rules
+
+* **Reserve Power:** Batteries provide a safety net against temporary power failures or insufficient generation.
+* **Peak Discharge:** Supercapacitors are required for certain high-energy actions or assets, acting as an enabler and providing a way to push systems beyond normal limits using **Focus Points (FP)**.
+* **Asset Difficulty (Tech):** Applies to `Action Checks` related to repairing or managing the energy storage system.
+
+--- Start of ./7.11-GDD-Assets-Propellant-Storage.md ---
+
+# 7.11 GDTLancer - Propellant Storage
+
+**Version:** 1.0
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for propellant storage. This specifically covers storage for **liquid and cryogenic propellants** (like Liquid Oxygen (LOX) or liquid hydrogen for NTRs).
+
+It does **not** cover solid propellant storage, as the "Rock-Eater" hybrid engine's solid fuel grain is considered an integral part of the engine casing itself.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore, Visuals, & Dimensions (For Infocards)
+
+| Asset Type | Visual & Lore Description | Baseline Dimensions (Lore) |
+| :--- | :--- | :--- |
+| **"Insulated Dewar Tank"** | The baseline liquid storage tank. It is a passive, heavily insulated vessel. While reliable, it cannot perfectly prevent boil-off, causing a slow loss of cryogenic fuel over time. This limits a ship's maximum mission duration. Visually, it is a simple, reinforced cylinder. | **35m³ Baseline:**<br>~3m diameter<br>~5m long |
+| **"Active Cryocooler Tank"** | A high-end cryogenic storage tank. It uses active cooling systems (powered by the ship's reactor) to completely eliminate fuel boil-off. Essential for long-haul vessels or ships using advanced propellants (like NTRs). Visually, it is bulkier, with external power couplings and small radiator fins. | **35m³ Baseline:**<br>~3.5m diameter (with machinery)<br>~5m long |
+
+### Lore Note (Baseline Configuration)
+
+The standard ship configuration seen in Phase 1 (e.g., a "Spinal" hull with a "Cruiser" engine) uses **two "Insulated Dewar Tanks"** to hold its `~80t` LOX supply.
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Propellant Tanks will be defined as `Resource` files (e.g., `InsulatedDewarTank.tres`) and managed by the `Asset System`. The `Asset System` will be responsible for tracking the `current_fuel_level` of each tank.
+
+### Tank `Resource` Properties
+
+| Asset Type | `capacity_m3` (float) | `boil_off_rate_per_tu` (float) | `power_draw_mw` (float) |
+| :--- | :--- | :--- | :--- |
+| **"Insulated Dewar"** | 35.0 | 0.01 (Example value) | 0.0 |
+| **"Active Cryocooler"** | 35.0 | 0.0 | 0.5 (Example value) |
+
+### Implementation Notes
+
+* **`capacity_m3`:** The total volume of propellant the tank can hold.
+* **`boil_off_rate_per_tu`:** This is the key mechanic. The `Time System`, upon advancing the `Time Clock`, will trigger a function in the `Asset System` to deduct this amount of fuel from all "Insulated Dewar Tanks."
+* **`power_draw_mw`:** The "Active Cryocooler Tank" requires constant power from the ship's Power Plant (defined in `7.4-GDD-Assets-Power-Plants.md`). If power is lost, it reverts to behaving like a (less effective) Dewar tank.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the tabletop TTRPG, the mechanical difference is abstracted into a simple rule that interacts with the `Time Clock` and `WP` systems.
+
+### Analogue Asset Stats
+
+| Asset Type | Asset Difficulty | `WP` Cost (Est.) | Special Rule |
+| :--- | :--- | :--- | :--- |
+| **"Insulated Dewar"** | **0** (Standard) | (Baseline) | **Boil-Off:** If a `World Event Tick` occurs while you are not docked at a station, lose 1 `Endurance` segment from your ship's engine. |
+| **"Active Cryocooler"** | **0** (Standard) | **High** (Upgrade) | **Active Cooling:** Immune to propellant **Boil-Off**. (May fail if the ship's Power Plant gains a negative `Ship Quirk`). |
 
 --- Start of ./7.1-GDD-Assets-Ship-Design.md ---
 
@@ -1558,6 +1788,432 @@ For the tabletop TTRPG, the hull provides base stats (like Hull Integrity) and, 
 * **Base Hull / Cargo:** These are the starting values for the asset.
 * **Special Rule:** These provide a narrative and mechanical benefit that reinforces the hull's specific role.
 
+--- Start of ./7.4-GDD-Assets-Power-Plants.md ---
+
+# 7.4 GDTLancer - Power Plants
+
+**Version:** 1.0
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.3-GDD-Assets-Ship-Chassis.md`, `7.11-GDD-Assets-Propellant-Storage.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for shipboard power plants. These are a critical component, as they supply the necessary electricity for all other ship systems, from basic life support to high-draw modules like advanced engines, tools, and cooling systems.
+
+The Phase 1 starting asset will be the basic "Solar Panels," with other plants available as goals via the **Asset Progression system**.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"Solar Panels"** | The baseline power source. Typically large, articulated "wings" of photovoltaic cells. Reliable and require no fuel, but suffer from low output and are ineffective in deep space or far from a star. |
+| **"RTG"** | **(Radioisotope Thermoelectric Generator)**. A small, heavy, and extremely durable power source with no moving parts. Provides a low but constant power output for extreme durations. Ideal for emergency backup or "dark running". |
+| **"Fuel Cells"** | A mid-grade power system that consumes propellant (e.g., hydrogen) to generate electricity. Offers better output than solar panels but requires a steady fuel supply, limiting its endurance. |
+| **"Fission Reactor"** | The high-end, long-duration power source. A compact, heavily-shielded reactor that provides massive power output. It is essential for deep space operations and high-draw modules, such as those found on "Trident" hulls. |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Power Plants will be defined as `Resource` files (e.g., `FissionReactor.tres`) and managed by the `Asset System`. The `Asset System` will track the ship's `current_power_output` vs. `current_power_draw`.
+
+### Power Plant `Resource` Properties
+
+| Asset Type | `power_output_mw` (float) | `fuel_type` (String) | `fuel_consumption_rate` (float) |
+| :--- | :--- | :--- | :--- |
+| **"Solar Panels"** | 1.0 (Baseline) | "None" | 0.0 |
+| **"RTG"** | 0.5 | "None" | 0.0 |
+| **"Fuel Cells"** | 5.0 | "Hydrogen" | 0.1 / TU |
+| **"Fission Reactor"**| 20.0 | "Fission Fuel" | 0.01 / TU |
+
+### Implementation Notes
+
+* **`power_output_mw`:** The baseline power (in megawatts) the plant provides. The `Solar Panels`' output will be modified by a "solar_efficiency_factor" based on distance from the sector's star.
+* **Power Management:** The `Asset System` must manage the ship's power budget. Modules like "Active Cryocooler Tanks", "Microwave Thrusters", and "Ablative Lasers" will add to the `current_power_draw`. If `draw > output`, systems will shut down, starting with non-essential modules.
+* **`fuel_type` / `consumption_rate`:** The `Time System`, upon advancing the `Time Clock`, will trigger a function in the `Asset System` to consume fuel from the `Inventory System` for all fuel-consuming plants.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the TTRPG, power is abstracted into "Power Slots," which represent how many high-draw modules a ship can support.
+
+### Analogue Asset Stats
+
+| Asset Type | Asset Difficulty (Tech) | `WP` Cost | Power Slots | Special Rule |
+| :--- | :--- | :--- | :--- | :--- |
+| **"Solar Panels"** | **0** (Simple) | (Baseline) | **1** | **Solar Dependent:** In deep space, `Power Slots` are reduced to 0. |
+| **"RTG"** | **0** (Simple) | Low | **0** | **Always On:** Provides 0 `Power Slots`, but keeps basic life support running in any condition. |
+| **"Fuel Cells"** | **+1** (Managed) | Medium | **2** | **Consumes Fuel:** Costs `1 WP` per `World Event Tick` to represent refueling. |
+| **"Fission Reactor"** | **+2** (Complex) | Very High | **4** | **Consumes Fuel:** Costs `5 WP` (or rare item) per `World Event Tick` to represent refueling. |
+
+### Analogue Rules
+
+* **Power Slots:** High-draw assets (like an "NTR Engine" or "Ablative Laser") require 1 or more `Power Slots` to be functional.
+* **Asset Difficulty (Tech):** This modifier applies to any `Action Check` related to repairing the power plant or managing a power-related crisis.
+
+--- Start of ./7.5-GDD-Assets-Cooling-Systems.md ---
+
+# 7.5 GDTLancer - Cooling Systems
+
+**Version:** 1.0
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.4-GDD-Assets-Power-Plants.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for shipboard cooling systems. Heat management is a critical aspect of the pragmatic ship design philosophy, as high-performance components like engines and power plants generate significant waste heat that must be dissipated to prevent damage or reduced efficiency.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"Standard Radiators"** | The baseline heat dissipation system. Consists of large, often external, radiator panels. They are bulky and potentially vulnerable but are reliable and require no power. These are seen integrated into the casing of "Balanced" and "Brawler" engines. |
+| **"Cryo-Coolers"** | An advanced, high-efficiency active cooling system. More compact than standard radiators, they use power to significantly enhance heat dissipation, making them essential for high-output systems like Fission Reactors or NTR engines. They are, however, more fragile and complex. |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Cooling Systems will be defined as `Resource` files (e.g., `StandardRadiatorSet.tres`) and managed by the `Asset System`. The `Asset System` will track the ship's overall `current_heat_level` and `heat_dissipation_rate`.
+
+### Cooling System `Resource` Properties
+
+| Asset Type | `heat_dissipation_mw` (float) | `power_draw_mw` (float) | `fragility_modifier` (float) |
+| :--- | :--- | :--- | :--- |
+| **"Standard Radiators"** | 5.0 (Baseline) | 0.0 | 1.0 (Standard) |
+| **"Cryo-Coolers"** | 20.0 | 2.0 | 1.5 (More fragile) |
+
+### Implementation Notes
+
+* **`heat_dissipation_mw`:** The amount of heat (in thermal megawatts) the system can dissipate per second.
+* **Heat Management:** The `Asset System` must track the ship's `current_heat_level`. Components like Engines and Power Plants will *generate* heat based on their activity. The `Asset System` calculates the net heat change (`Heat Generated - Total Heat Dissipation`).
+* **Overheating:** If `current_heat_level` exceeds a threshold, negative effects occur (e.g., reduced engine efficiency, component damage, potential for adding "Ship Quirks").
+* **`power_draw_mw`:** Cryo-Coolers require power from a Power Plant. If power is insufficient, their dissipation rate drops significantly.
+* **`fragility_modifier`:** A multiplier used by the `Combat Module` when determining the chance of this component being damaged or gaining a quirk. Cryo-Coolers are more susceptible to damage.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the TTRPG, cooling is abstracted. The primary effect is enabling high-performance modules and managing an abstract "Heat" track during stressful situations.
+
+### Analogue Asset Stats
+
+| Asset Type | Asset Difficulty (Tech) | `WP` Cost | Special Rule |
+| :--- | :--- | :--- | :--- |
+| **"Standard Radiators"** | **0** (Simple) | (Baseline) | Provides **1 Heat Capacity**. Sufficient for standard operations. |
+| **"Cryo-Coolers"** | **+1** (Complex) | Medium | Requires **1 Power Slot**. Provides **3 Heat Capacity**. Enables use of "High Heat" assets (like NTR). |
+
+### Analogue Rules
+
+* **Heat Capacity:** Represents how much stress the ship's systems can take before overheating. Certain `Action Check` failures (especially `Risky` piloting or combat actions) or specific events may add **Heat Points**.
+* **Overheating:** If `Heat Points >= Heat Capacity`, the ship suffers a consequence (e.g., gains a negative "Ship Quirk", must spend `TU` to vent heat).
+* **Enabling Assets:** Certain high-performance assets (like an NTR engine) might explicitly require "Cryo-Coolers" (or equivalent Heat Capacity) to function.
+* **Asset Difficulty (Tech):** Applies to `Action Checks` for repairing the cooling system.
+
+--- Start of ./7.6-GDD-Assets-Life-Support.md ---
+
+# 7.6 GDTLancer - Life Support Systems
+
+**Version:** 1.0
+**Date:** October 26, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.3-GDTLancer-Ship-Chassis.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for shipboard life support systems. These are essential for pilot survival and directly impact mission endurance by managing consumables or recycling vital resources. It also includes the critical **G-Stasis Cradle**, which enables high-performance maneuvering.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"Open-Loop System"** | The baseline life support system. Consumes stored consumables (oxygen, water, filters) to maintain a breathable atmosphere. Simple and reliable, but its limited supply restricts mission duration, making it standard only on short-range vessels. Visually represented by storage tanks and basic filtration units within the cockpit pod. |
+| **"Closed-Loop Recycler"** | An advanced life support system utilizing Pillar-derived technology. It actively recycles air and water, drastically reducing consumable usage and significantly extending mission endurance. Requires more power and maintenance. Visually, it includes more complex machinery, algae tanks, or chemical scrubbers. |
+| **"G-Stasis Cradle"** | Not an environmental system, but a critical pilot support mechanism integrated into the ship's core design. It mitigates extreme G-forces during high-performance maneuvers. Includes an Exo-Harness, Active Contour Bladders, Pressurized Breathing apparatus, and Neuro-Biological Support systems. Enables the use of specialized hulls like the "Trident" and "Tower". |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Life Support systems will be defined as `Resource` files (e.g., `ClosedLoopRecycler.tres`) and managed by the `Asset System`. The `Asset System` will track `current_life_support_reserves`.
+
+### Life Support `Resource` Properties
+
+| Asset Type | `consumable_rate_per_tu` (float) | `power_draw_mw` (float) | `max_g_tolerance` (float) |
+| :--- | :--- | :--- | :--- |
+| **"Open-Loop"** | 0.1 (Example) | 0.1 | 5.0 (Baseline) |
+| **"Closed-Loop"** | 0.01 (Reduced) | 0.5 | 5.0 (Baseline) |
+| **"G-Stasis Cradle"** | 0.0 | 1.0 (Active) | 15.0+ (Enhanced) |
+
+### Implementation Notes
+
+* **`consumable_rate_per_tu`:** The `Time System`, upon advancing the `Time Clock`, will trigger the `Asset System` to deduct this amount from `current_life_support_reserves` (tracked in the `Inventory System`). Running out of reserves leads to mission failure or severe penalties.
+* **`power_draw_mw`:** Closed-loop systems and the G-Stasis Cradle require power. Loss of power disables their benefits.
+* **`max_g_tolerance`:** This stat interacts with the `Piloting Module`. If the ship's acceleration exceeds this value (possible with high-thrust engines or extreme maneuvers), the pilot suffers negative effects (e.g., temporary control loss, increased chance of `Action Check` failure). The G-Stasis Cradle drastically increases this threshold.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the TTRPG, life support impacts mission endurance abstractly, while the G-Stasis Cradle enables specific maneuvers or ship types.
+
+### Analogue Asset Stats
+
+| Asset Type | Asset Difficulty (Tech) | `WP` Cost | Special Rule |
+| :--- | :--- | :--- | :--- |
+| **"Open-Loop"** | **0** (Standard) | (Baseline) | **Limited Duration:** After **10 TU** away from a station, gain the "Low Supplies" status (e.g., `-1` to all `Action Checks`). |
+| **"Closed-Loop"** | **+1** (Complex) | Medium | **Extended Duration:** Extends the "Low Supplies" threshold to **30 TU**. Requires power. |
+| **"G-Stasis Cradle"** | **+1** (Integrated) | (Included in Hull) | **High-G Maneuvers:** Required to pilot "Trident" or "Tower" hulls. Allows `Act Risky` Piloting checks involving extreme acceleration without automatic penalty. |
+
+### Analogue Rules
+
+* **Endurance:** The choice of life support system dictates how long a player can operate independently before needing to resupply, measured in **Time Units (TU)**. Running low imposes penalties.
+* **G-Stasis Enablement:** The Cradle is a prerequisite for certain hulls and high-risk piloting actions, reinforcing the lore.
+* **Asset Difficulty (Tech):** Applies to `Action Checks` related to repairing the life support system.
+
+--- Start of ./7.7-GDD-Assets-Radiation-Protection.md ---
+
+# 7.7 GDTLancer - Radiation Protection
+
+**Version:** 1.0
+**Date:** October 26, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for shipboard radiation protection. Shielding against cosmic radiation and solar flares is crucial for pilot safety, especially during deep space travel or operation near hazardous phenomena.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"Baseline Hull Shielding"** | This represents the minimal radiation protection offered by standard ship construction materials (like Welded Steel). It is sufficient only for short-duration travel within relatively safe, charted space near habitats or major celestial bodies. It is not a distinct component, but an inherent property of basic hulls. |
+| **"Dense Core Laminate"** | A significant upgrade involving heavy, layered armor with a dense material core (e.g., lead or depleted uranium analogues) integrated into the hull structure. It offers substantial protection against cosmic radiation and solar flares, making deep space travel viable, but at the cost of significantly increased mass. Visually, ships with this upgrade may appear bulkier or have thicker hull plating. |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Radiation Protection levels will likely be integrated as properties directly within the Hull `Resource` files (See `7.3-GDTLancer-Ship-Chassis.md`), rather than separate swappable components. The `Asset System` will expose this value.
+
+### Hull Radiation Protection Property (Example within Hull Resource)
+
+| Property Name | Data Type | Description | Baseline Value | Dense Core Value |
+| :--- | :--- | :--- | :--- | :--- |
+| `radiation_shielding_factor` | `float` | Multiplier representing effectiveness (0.0 = none, 1.0 = perfect). | 0.2 | 0.8 |
+
+### Implementation Notes
+
+* **Radiation Zones:** Environmental zones in the game world will have a `radiation_level` property.
+* **Exposure Calculation:** The `Asset System` or a dedicated "Pilot Health System" (future phase) will calculate radiation exposure over time based on the zone's `radiation_level` mitigated by the ship's `radiation_shielding_factor`.
+* **Consequences:** High radiation exposure could lead to temporary penalties (e.g., reduced `Focus Points`), add negative `Ship Quirks` related to sensor interference, or trigger dangerous events.
+* **Mass Penalty:** Hulls with "Dense Core Laminate" will have a significantly higher `Base Mass (t)`, impacting piloting performance.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+In the TTRPG, radiation protection primarily acts as a gate for certain types of travel or exploration and mitigates specific hazards.
+
+### Analogue Asset Stats (Integrated into Hull Sheet)
+
+| Protection Level | `WP` Cost Modifier | Special Rule |
+| :--- | :--- | :--- |
+| **"Baseline Shielding"** | (Standard Hull Cost) | **Hazard Vulnerability:** When traveling through a "Radiation Hazard" zone, automatically gain 1 `Heat Point` per `TU` spent in the zone. |
+| **"Dense Core Laminate"** | +High WP Cost (Hull Upgrade) | **Deep Space Capable:** Immune to the automatic `Heat Point` gain from "Radiation Hazard" zones. Required for travel segments marked "Deep Space Route". |
+
+### Analogue Rules
+
+* **Environmental Hazards:** Specific map locations or travel segments can be marked as "Radiation Hazards." Baseline shielding imposes a constant penalty (representing system strain and pilot stress) when in these areas.
+* **Deep Space Gating:** Dense Core Laminate is a prerequisite for attempting certain long-range or exploratory journeys, representing a significant investment managed through the `Asset Progression` system.
+* **Event Mitigation:** Specific event outcomes from the `Module Event Booklets` (e.g., solar flare encounter) might have reduced severity or be ignored entirely if the ship has Dense Core Laminate.
+
+--- Start of ./7.8-GDD-Assets-Turbomachinery.md ---
+
+# 7.8 GDTLancer - Turbomachinery
+
+**Version:** 1.0
+**Date:** October 26, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.11-GDD-Assets-Propellant-Storage.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for shipboard turbomachinery, specifically the pumps used for moving propellants and coolants. While often integrated directly into engines or other systems, their quality significantly impacts overall ship efficiency and reliability.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"Standard Mechanical Pumps"** | The baseline technology for fluid transfer. These are heavy, durable, but relatively power-inefficient mechanical pumps. Reliable workhorses found on most standard vessels. Visually represented as robust, blocky pump housings integrated near engines and tanks. |
+| **"Single-Crystal Blisk Turbopumps"** | Advanced, high-performance turbopumps representing a significant technological step. Fabricated from exotic single-crystal alloys, these pumps combine the turbine and bladed disk into a single component ("blisk"), offering extreme efficiency, low mass, and high durability. Complex and costly, usually found on high-end engines or specialized industrial equipment. Visually smaller, more refined, possibly with diagnostic indicators. |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Turbopumps might be implemented as integrated properties within the Engine `Resource` files or potentially as swappable sub-components influencing engine performance.
+
+### Example Properties (If Integrated into Engine Resource)
+
+| Property Name | Data Type | Description | Standard Value | Blisk Value |
+| :--- | :--- | :--- | :--- | :--- |
+| `pump_efficiency_modifier` | `float` | Multiplier affecting fuel consumption or thrust output. | 1.0 | 1.1 (Example) |
+| `pump_power_draw_mw` | `float` | Base power draw for pump operation. | 0.2 | 0.1 (More efficient) |
+| `pump_reliability_factor` | `float` | Base chance modifier for pump-related failures/quirks. | 1.0 | 0.8 (More reliable) |
+
+### Implementation Notes
+
+* **Performance Impact:** Higher `pump_efficiency_modifier` could slightly increase the effective `acceleration` or decrease fuel consumption calculated by the `Asset System`.
+* **Power Draw:** Contributes to the ship's overall power budget. Blisk pumps are more power-efficient.
+* **Reliability:** The `pump_reliability_factor` influences the chance of failure events or gaining related "Ship Quirks" during stressful situations (e.g., combat damage, critical failures on `Action Checks`).
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+In the TTRPG, pump quality is abstracted into reliability and efficiency modifiers.
+
+### Analogue Asset Stats (Likely Integrated into Engine Sheet)
+
+| Pump Type | Asset Difficulty (Tech) | `WP` Cost Modifier | Special Rule |
+| :--- | :--- | :--- | :--- |
+| **"Standard Mechanical"** | **0** (Standard) | (Baseline Engine Cost) | Standard performance and reliability. |
+| **"Single-Crystal Blisk"** | **+1** (Advanced) | +Medium WP (Engine Upgrade) | **Enhanced Efficiency:** Gain `+1` Endurance segment. **Reliable:** Ignore the first pump-related "Ship Quirk" gained. |
+
+### Analogue Rules
+
+* **Efficiency Bonus:** Blisk pumps directly improve the engine's core **Endurance** stat, representing better fuel management.
+* **Reliability Bonus:** They provide resilience against specific types of failures or negative traits acquired through gameplay, reducing downtime or repair costs (`WP`).
+* **Asset Difficulty (Tech):** Applies to `Action Checks` related to repairing the pumps or engine systems. Advanced Blisk pumps might be harder to fix in the field.
+
+--- Start of ./7.9-GDD-Assets-Utility-Tools.md ---
+
+# 7.9 GDTLancer - Utility Tools
+
+**Version:** 1.1
+**Date:** October 25, 2025
+**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `5.2-GDD-Module-Combat.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.3-GDTLancer-Ship-Chassis.md` (corrected filename), `7.4-GDD-Assets-Power-Plants.md`
+
+---
+
+## 1. Overview
+
+This document defines the asset configurations for external hardpoint-mounted utility tools. These tools often serve dual purposes for both industry (mining, salvage) and combat, which is a core tenet of the **Lancer Doctrine**.
+
+The specific tools available are the primary distinguishing feature for specialized hull classes like the "Catamaran" and "Tower".
+
+**Design Note on Combat:** Per previous instruction, these tools are the primary means of offense. There are **no energy shields**; combat is a "hard sci-fi" affair focused on disabling systems and overcoming hull integrity. These tools enable that specific gameplay, and `5.2-GDD-Module-Combat.md` reflects this.
+
+This document follows the standard 3-part structure:
+1.  **Lore & Visuals:** Descriptive text for in-game infocards.
+2.  **Godot Implementation:** The `Resource` properties for the `Asset System`.
+3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
+
+---
+
+## 2. Part 1: Lore & Visuals (For Infocards)
+
+| Asset Type | Visual & Lore Description |
+| :--- | :--- |
+| **"Rotary Mining Drill"** | A heavy-duty industrial drill designed for precision ore extraction from asteroids. Per the Lancer Doctrine, it doubles as a brutal close-range "lance" for breaching ship hulls. A key tool for "Tower" hulls. |
+| **"Reinforced Prow"** | This is less a tool and more a structural modification. It consists of a heavily reinforced and specially shaped bow designed for brute-force asteroid fracturing. Its secondary purpose is as a melee "ram" for neutralizing enemy vessels. |
+| **"High-Power Ablative Laser"** | A high-draw energy tool. Its industrial use is to skim trace elements from asteroid surfaces. In combat, it is used to strip enemy armor or disable external systems without destroying the hull. Requires a **Fission Reactor**, common on "Trident" and "Tower" hulls. |
+| **"Seismic Charge Launcher"** | A launcher that fires expensive, consumable charges for the controlled demolition of asteroids. In combat, these low-velocity charges can be used to target specific ship subsystems. |
+| **"Harpoon & Winch Array"** | A recoverable projectile system. Industrially, it tethers asteroids for mining or towing. In combat, it is the primary tool for the "Broadside Grappler" tactic, allowing a "Tower" hull to tether and control a target. |
+| **"Forward-Facing Debris Scoop"** | A massive, reinforced collector designed for actively scooping fragments from wreckage or fractured asteroids. It is an oversized module, requiring a specialized "Catamaran" hull to mount. |
+
+---
+
+## 3. Part 2: Godot Implementation (Asset Stats)
+
+Utility Tools will be defined as `Resource` files (e.g., `RotaryDrill.tres`) and managed by the `Asset System`. These assets will be activated by the player and their logic handled by the relevant module (e.g., `Combat Module` or a future Mining module).
+
+### Tool `Resource` Properties
+
+| Asset Type | `power_draw_mw` (float) | `damage` (int) | `consumable_item_id` (String) | `slot_type` (String) |
+| :--- | :--- | :--- | :--- | :--- |
+| Rotary Drill | 1.0 | 50 (Melee) | "None" | "Broadside" |
+| Reinforced Prow | 0.0 | 40 (Melee/Ram) | "None" | "Structural" |
+| Ablative Laser | 15.0 | 20 (Energy) | "None" | "High-Power" |
+| Seismic Charge Launcher | 0.5 | 100 (Explosive) | "SeismicCharge" | "Standard" |
+| Harpoon & Winch | 2.0 | 5 (Kinetic) | "None" | "Broadside" |
+| Debris Scoop | 1.0 | 0 | "None" | "Oversized" |
+
+### Implementation Notes
+
+* **`power_draw_mw`:** The power required from the ship's Power Plant when the tool is active. The `Asset System` tracks this against the plant's output. The "Ablative Laser" has a very high draw, requiring a "Fission Reactor".
+* **`damage`:** The base damage value used by the `Combat Module`. The "Harpoon" does minimal damage; its utility is in tethering.
+* **`consumable_item_id`:** The item ID that is consumed from the `Inventory System` on use (e.g., for the Seismic Launcher).
+* **`slot_type`:** Defines which hull hardpoints can mount this tool, aligning with the "Slots" defined in `7.3-GDTLancer-Ship-Chassis.md`.
+
+---
+
+## 4. Part 3: Analogue TTRPG Implementation (For Asset Sheets)
+
+For the TTRPG, tools grant new `Action Check` options or provide modifiers to existing ones.
+
+### Analogue Asset Stats
+
+| Asset Type | Asset Difficulty (Skill) | `WP` Cost (Est.) | Special Rule |
+| :--- | :--- | :--- | :--- |
+| Rotary Drill | **+2** (Tech/Pilot) | Medium | Grants the **"Breach Hull"** `Action Check` in melee. On a `Success` (10+), deals direct Hull damage. |
+| Reinforced Prow | **+1** (Piloting) | Low | Grants the **"Ram"** `Act Risky` option. On a `Success` (10+), deals significant damage; on a `Failure` (<10), you also take damage. |
+| Ablative Laser | **+1** (Tech) | High | Requires 1 `Power Slot`. Can be used to `Act Cautiously` to add a **"Ship Quirk"** to a target instead of dealing damage. |
+| Seismic Charge Launcher | **+1** (Tech) | Low (Consumable) | Firing consumes `1 WP` (or a "Seismic Charge" item). Has a high chance to add a **"Ship Quirk"**. |
+| Harpoon & Winch | **+1** (Piloting) | Medium | Grants the **"Grapple Target"** `Action Check`. On a `Success` (10+), the target cannot flee. A key tool for "Tower" hulls. |
+| Debris Scoop | **0** (Standard) | Medium | Requires a "Catamaran" hull. Grants a `+2` `Module Modifier` to all salvage-related `Action Checks` (e.g., "Claim Wreckage"). |
+
+### Analogue Rules
+
+* **Asset Difficulty:** This modifier applies to any `Action Check` made *using* that specific tool (e.g., a "Piloting" check to ram, a "Tech" check to operate the laser).
+* **Special Rule:** Defines the tool's unique mechanical function within the TTRPG's abstract systems.
+
 --- Start of ./7-GDD-Assets-Style.md ---
 
 # GDTLancer - General Asset & Style Guide
@@ -1715,6 +2371,7 @@ This documentation is organized into several key areas:
 
 ### 0. Core Vision & Introduction
 
+* [**0.0-GDD-Internal-Rules-Conventions.md**](./0.0-GDD-Internal-Rules-Conventions.md): Defines the structure, numeration, and standard page format for the GDD. (New: v1.0, 2025-10-26)
 * [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.8, 2025-08-01)
 * [**0.2-GDD-Main-Sayings.md**](./0.2-GDD-Main-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (Reviewed: v1.4, 2025-08-01)
 
@@ -1741,8 +2398,8 @@ This documentation is organized into several key areas:
 
 ### 5. Gameplay Modules
 
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.7, 2025-08-01)
-* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`. (Reviewed: v1.5, 2025-08-01)
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.8, 2025-10-25)
+* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`, adhering to the Lancer Doctrine. (Reviewed: v1.6, 2025-10-25)
 * [**5.3-GDD-Module-Trading.md**](./5.3-GDD-Module-Trading.md): Details the mechanics for the economic loop, including the `Trade Interface` and trading-related `Narrative Actions`. (Reviewed: v1.2, 2025-08-01)
 
 ### 6. Lore & Player Experience
@@ -1754,7 +2411,17 @@ This documentation is organized into several key areas:
 ### 7. Assets and Style
 
 * [**7-GDD-Assets-Style.md**](./7-GDD-Assets-Style.md): Defines the core "Neo-Retro 3D" style for all game assets, including models, environments, UI, and audio. (New: v1.0, 2025-08-01)
-* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles for ships, including "Pragmatic Aesthetics" and the "Lancer" combat doctrine. (Reviewed: v1.4, 2025-08-01)
+* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles and technology palette for ships. (Reviewed: v2.2, 2025-10-25)
+* [**7.2-GDD-Assets-Ship-Engines.md**](./7.2-GDD-Assets-Ship-Engines.md): Details the specific configurations, stats, and lore for ship engines. (Reviewed: v1.3, 2025-10-25)
+* [**7.3-GDD-Assets-Ship-Chassis.md**](./7.3-GDD-Assets-Ship-Chassis.md): Details the specific configurations, stats, and lore for ship hulls/chassis. (Reviewed: v1.1, 2025-10-25)
+* [**7.4-GDD-Assets-Power-Plants.md**](./7.4-GDD-Assets-Power-Plants.md): Details ship power generation assets. (New: v1.0, 2025-10-25)
+* [**7.5-GDD-Assets-Cooling-Systems.md**](./7.5-GDD-Assets-Cooling-Systems.md): Details ship heat management assets. (New: v1.0, 2025-10-26)
+* [**7.6-GDD-Assets-Life-Support.md**](./7.6-GDD-Assets-Life-Support.md): Details pilot life support and G-Stasis assets. (New: v1.0, 2025-10-26)
+* [**7.7-GDD-Assets-Radiation-Protection.md**](./7.7-GDD-Assets-Radiation-Protection.md): Details hull radiation shielding levels. (New: v1.0, 2025-10-26)
+* [**7.8-GDD-Assets-Turbomachinery.md**](./7.8-GDD-Assets-Turbomachinery.md): Details propellant and coolant pump assets. (New: v1.0, 2025-10-26)
+* [**7.9-GDD-Assets-Utility-Tools.md**](./7.9-GDD-Assets-Utility-Tools.md): Details external hardpoint tools for industry and combat. (Reviewed: v1.1, 2025-10-25)
+* [**7.10-GDD-Assets-Energy-Storage.md**](./7.10-GDD-Assets-Energy-Storage.md): Details battery and capacitor assets. (New: v1.0, 2025-10-26)
+* [**7.11-GDD-Assets-Propellant-Storage.md**](./7.11-GDD-Assets-Propellant-Storage.md): Details liquid/cryogenic propellant tank assets. (New: v1.0, 2025-10-25)
 
 ### Meta & Legal
 
