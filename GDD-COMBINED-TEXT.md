@@ -76,8 +76,8 @@ This strict separation serves a critical long-term goal:
 
 # GDTLancer - Main GDD
 
-**Version:** 1.8
-**Date:** August 1, 2025
+**Version:** 1.9
+**Date:** October 31, 2025
 **Author:** Roal-Yr
 
 ## 0. Introduction
@@ -109,12 +109,13 @@ This strict separation serves a critical long-term goal:
 * **Contact:** An abstract NPC the player interacts with via menus to gain missions, information, and build relationships.
 * **Faction:** A distinct political or corporate entity in the game world with which the player can gain or lose standing.
 * **Focus Points (FP):** A resource spent to improve an Action Check result.
-* **G-Stasis Cradle:** In-lore tech that allows pilots to survive high-G maneuvers.
+* **G-Stasis Cradle:** In-lore tech that allows pilots to survive high-G maneuvers (e.g., rapid acceleration, high-thrust industrial actions).
 * **Goal System:** System for tracking Agent objectives.
-* **Lancer Doctrine:** The cultural doctrine of non-destructive ship combat, born from scarcity of materials and personnel.
 * **Module:** A set of mechanics for a specific activity (e.g., Combat, Mining).
 * **Pragmatic Aesthetics:** Function-first ship design philosophy.
+* **Preservation Convention:** The widespread cultural and economic norm of valuing ships and skilled pilots, prioritizing disablement and capture over destruction.
 * **Reputation:** A narrative stat tracking the player's professional standing (e.g., "Dependable," "Opportunist").
+* **Ship Perk:** A positive trait an asset can acquire as achievements.
 * **Ship Quirk:** A negative trait an asset can acquire due to damage or failed actions, often imposing a mechanical penalty.
 * **Time Clock:** Tracks time. When full, it triggers a World Event Tick.
 * **Time Unit (TU):** An abstract unit of time. Actions cost TUs.
@@ -138,7 +139,7 @@ This strict separation serves a critical long-term goal:
     * Combat (Ship)
     * Trading
     * Interaction (Social)
-    * Mining & Repair
+    * Mining & Industrial
     * Investigation & Exploration
 * **3.3. Core Loop:** Players use modules for activities. Key actions require a check, influenced by the player's chosen risk level (`Risky` / `Cautious`). The outcome affects the world and the player's resources (FP, WP, TU).
 
@@ -152,18 +153,18 @@ This strict separation serves a critical long-term goal:
     * **Layer 4 (Legacy):** Faction mechanics and long-term consequences.
 * **4.3. Phased Plan:**
     * **Phase 1 (Core Loop):** Establish a playable "vertical slice" of the game. Includes basic Piloting, Combat, and Trading modules and their supporting systems.
-    * **Phase 2 (Narrative):** Add Mining/Repair; integrate Layer 2 systems.
+    * **Phase 2 (Narrative):** Add Mining/Industrial; integrate Layer 2 systems.
     * **Phase 3 (Living World):** Add Investigation; begin Layer 3 simulation.
 
 ## 5. Art & Audio
 
-* **Visuals:** "Neo-Retro 3D" - low-poly, hard-edged models with modern lighting, inspired by early 3D graphics.
-* **Audio:** Minimalist, functional sound effects and atmospheric music that supports the tone of pragmatic space travel.
+* **Visuals:** "Neo-Retro 3D" - GLES2 rendering, medium-low-poly, hard-edged models, inspired by early 3D graphics.
+* **Audio:** Minimalist, functional sound effects and atmospheric music.
 * **UI/UX:** A clean, non-intrusive UI that clearly communicates game state and choices. Easy to learn but provides depth for experienced players.
 
 ## 6. Technical
 
-* **Engine:** Godot 3 (Primary), with a parallel J2ME-style version for mobile.
+* **Engine:** Godot 3 (Primary), potentially other platforms implementing Analogue verison digitally (j2me).
 * **Analogue:** A parallel tabletop RPG design using the same core mechanics.
 * **Modularity:** A modular architecture to ensure systems are independent and maintainable.
 
@@ -171,28 +172,25 @@ This strict separation serves a critical long-term goal:
 
 # GDTLancer - Mottos & Sayings
 
-**Version:** 1.4
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.5)
+**Version:** 1.5
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9)
 
 ## 1. Purpose
 
-This document lists mottos for the game and in-world sayings that reflect the culture of Opulence. These phrases should inform character dialogue and ambient storytelling.
+This document lists mottos for the game and in-setting sayings that reflect the pragmatic culture of the sector's colonists. These phrases should inform character dialogue and ambient storytelling.
 
 ## 2. Game Motto (Development Ethos)
 
 * **"GDTLancer: Delivered as Designed."**
     *(This is an external motto for the development team, reflecting a commitment to the GDD's scope.)*
 
-## 3. In-Lore Sayings & Mottos
+## 3. In-Setting Sayings & Mottos
 
-These phrases reflect the pragmatic, resilient, and resourceful culture of the people of Opulence.
+These phrases reflect the pragmatic, resilient, and resourceful culture of the people in this sector, shaped by the challenges of scarcity and exploration.
 
 * "Waste not, want not."
     *(The most common adage, deeply ingrained in the culture.)*
-
-* "The Vessel endures; so must we."
-    *(A foundational saying, referencing the endurance of The Pillar.)*
 
 * "Measure the cost, master the consequence."
     *(Reflects a cultural focus on calculated risk-taking.)*
@@ -204,7 +202,7 @@ These phrases reflect the pragmatic, resilient, and resourceful culture of the p
     *(A practical view on failure as a learning opportunity.)*
 
 * "Skill carves status; action defines worth."
-    *(The core of their meritocratic society.)*
+    *(The core of a meritocratic, frontier-style society.)*
 
 * "Good salvage makes good neighbors."
     *(A cynical but common phrase related to resource acquisition.)*
@@ -212,22 +210,19 @@ These phrases reflect the pragmatic, resilient, and resourceful culture of the p
 * "The void yields to the prepared."
     *(Emphasizes the value of foresight and expertise.)*
 
-* "No return, only the path forward."
-    *(A reminder of their one-way journey and focus on the future.)*
-
 --- Start of ./1.1-GDD-Core-Systems.md ---
 
 # GDTLancer - Core Systems (Phase 1)
 
-**Version:** 1.3
-**Date:** August 4, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
+**Version:** 1.5
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
 
 ## 1. Overview
 
-This document defines the core, cross-cutting gameplay systems required to support the Phase 1 modules (Piloting, Combat, Trading). The definitions and terminology herein are designed to align with the existing project codebase to ensure consistency between design and implementation. All systems listed are located within the `/core/systems/` directory.
+This document defines the core, cross-cutting gameplay systems required to support the Phase 1 modules (Piloting, Combat, Trading). The definitions and terminology herein are designed to align with the existing project codebase to ensure consistency between design and implementation. All systems listed are located within the `/core/systems/` directory and are added as children to the `WorldManager` node in `main_game_scene.tscn`.
 
-*Note: The `EventBus` is an autoload script (`/core/event_bus.gd`) used for managing engine-level signals. It is a core piece of the architecture but is not a gameplay system in the same vein as those listed below.*
+*Note: The `EventBus` is an autoload script (`autoload/EventBus.gd`) used for managing engine-level signals. It is a core piece of the architecture but is not a gameplay system in the same vein as those listed below.*
 
 ## 2. System Definitions
 
@@ -236,15 +231,15 @@ This document defines the core, cross-cutting gameplay systems required to suppo
 * **Core Responsibility:** To act as a narrative and world event "oracle." It generates and triggers in-game events based on the passage of Time Units (TU), player actions, and other dynamic world states. These are high-level gameplay events (e.g., an ambush, a market opportunity, a distress call), not to be confused with low-level engine signals handled by the `EventBus`.
 
 ### System 2: Time System
-* **Code Reference:** `core/systems/time_system/time_system.gd`
+* **Code Reference:** `core/systems/time_system.gd`
 * **Core Responsibility:** To manage the passage of abstract game time (`Time Units` or `TU`) and its consequences.
 * **Phase 1 Functionality:**
-    * Must maintain a global `Time Clock` variable that tracks the current number of `TU`s.
-    * Must provide a function to add `TU` to the `Time Clock`.
-    * When the `Time Clock` reaches its maximum value, it must:
+    * Operates on the global `GameState.current_tu` variable.
+    * Must provide a function `add_time_units(tu_to_add: int)`.
+    * When `GameState.current_tu` reaches `Constants.TIME_CLOCK_MAX_TU`, it must:
         1.  Emit a `world_event_tick_triggered` signal on the `EventBus`.
         2.  Call the `Character System` to deduct the periodic `WP` Upkeep cost.
-        3.  Reset the `Time Clock` to zero.
+        3.  Decrement `GameState.current_tu` (handling multiple ticks if necessary).
 * **Interactions:**
     * **Interacts With:**
         * `Piloting Module`: Free Flight mode will call the function to add `TU`.
@@ -253,55 +248,55 @@ This document defines the core, cross-cutting gameplay systems required to suppo
         * `EventBus`: To announce the `World Event Tick`.
 
 ### System 3: Character System
-* **Code Reference:** `core/systems/character_system/character_system.gd`
-* **Core Responsibility:** To track and manage the core narrative stats, skills, and social standing for the player agent.
+* **Code Reference:** `core/systems/character_system.gd`
+* **Core Responsibility:** To track and manage the core narrative stats, skills, and social standing for all character agents by providing a stateless API to access `GameState.characters`.
 * **Phase 1 Functionality:**
-    * Must track the player's current **Wealth Points (WP)** and **Focus Points (FP)**.
-    * Must provide functions to safely add or subtract `WP` and `FP`.
-    * Must contain the player's skill values: `Piloting Skill`, `Tactics Skill`, `Trading Skill`.
-    * Must manage the data for narrative stubs, including the player's overall `Reputation` and their `Faction Standing` with various groups.
-    * Must have a function to handle the `Upkeep Cost` deduction when called by the `Time System`.
+    * Must provide functions to get character data (e.g., `get_player_character()`).
+    * Must provide functions to safely add or subtract `WP` and `FP` from a character's data in `GameState` (e.g., `add_wp(uid, amount)`, `get_fp(uid)`).
+    * Must provide a function to retrieve skill values (e.g., `get_skill_level(uid, skill_name)`).
+    * Must provide a function to handle the `Upkeep Cost` deduction (e.g., `apply_upkeep_cost(uid, cost)`) when called by the `Time System`.
 * **Interactions:**
     * **Interacts With:**
-        * `Trading Module`: To modify the player's `WP` total.
-        * `Combat/Piloting Modules`: To retrieve skill values for calculating `Module Modifiers`.
+        * `Trading Module`: To modify a character's `WP` total.
+        * `Combat/Piloting Modules`: To retrieve skill values for `Module Modifiers`.
         * `Time System`: Receives the call to deduct `WP` for upkeep.
-        * `GameStateManager`: Provides player stat data for saving and loading.
+        * `GameStateManager`: Provides character data for saving and loading.
 
 ### System 4: Inventory System
-* **Code Reference:** `core/systems/inventory_system/inventory_system.gd`
-* **Core Responsibility:** To manage the contents of an agent's cargo hold.
+* **Code Reference:** `core/systems/inventory_system.gd`
+* **Core Responsibility:** To manage the contents of all character inventories within `GameState.inventories`. It is a stateless API.
 * **Phase 1 Functionality:**
-    * Must define a basic data structure for a commodity (e.g., a `Resource` with properties for ID, name, base value).
-    * Must maintain a list or dictionary of commodities currently held by the player.
-    * Must provide functions to `addItem(item, quantity)` and `removeItem(item, quantity)`.
-    * All inventory modifications must respect the `Cargo Capacity` stat of the player's ship.
+    * Must define the `InventoryType` enum (`SHIP`, `MODULE`, `COMMODITY`).
+    * Must provide a function to create a new inventory record for a character: `create_inventory_for_character(uid)`.
+    * Must provide generic functions to add/remove assets: `add_asset(uid, type, asset_id, quantity)` and `remove_asset(uid, type, asset_id, quantity)`.
+    * Must provide a function to check quantity: `get_asset_count(uid, type, asset_id)`.
 * **Interactions:**
     * **Interacts With:**
-        * `Trading Module`: The Trade Interface will call this system's functions to modify the player's inventory during transactions.
-        * `Asset System`: To retrieve the player ship's `Cargo Capacity`.
+        * `Trading Module`: The Trade Interface will call this system's functions to modify inventories. `Cargo Capacity` checks must be performed by the *Trading Module* (by querying the `Asset System`) *before* calling `add_asset`.
+        * `WorldGenerator`: Calls `create_inventory_for_character(uid)`.
 
 ### System 5: Asset System
-* **Code Reference:** `core/systems/asset_system/asset_system.gd`
-* **Core Responsibility:** To track and manage an agent's major, non-consumable assets (specifically the ship in Phase 1) and their associated stats and conditions.
+* **Code Reference:** `core/systems/asset_system.gd`
+* **Core Responsibility:** To provide a stateless API for accessing master asset instances (like ships) stored in `GameState.assets_ships`.
 * **Phase 1 Functionality:**
-    * Must define a basic data structure for a Ship Asset (e.g., a `Resource`) that contains all relevant stats.
-    * Must maintain a reference to the player's currently active ship asset.
-    * Must provide getter functions for other systems to query the current ship's stats (e.g., `get_player_ship_stat("CargoCapacity")`).
-    * Must manage the data for the **Ship Quirks** narrative stub, including a list of active quirks on the player's ship.
+    * Must provide a function to retrieve a specific ship instance: `get_ship(ship_uid)`.
+    * Must provide a convenience function to get the player's active ship (by checking `GameState.characters`): `get_player_ship()`.
+    * The returned `ShipTemplate` resource contains all relevant stats (e.g., `cargo_capacity`, `hull_integrity`, `ship_quirks`).
 * **Interactions:**
     * **Interacts With:**
-        * `Inventory System`: Provides the `Cargo Capacity` stat.
-        * `Combat Module`: Provides stats like `Hull Integrity`, `Shields`, and `Weapon Systems`.
-        * `Piloting Module`: Provides stats like `Mass`, `Agility`, and `Thruster Power`.
+        * `Inventory System`: Provides `Cargo Capacity` via `get_player_ship().cargo_capacity`.
+        * `Combat Module`: Provides stats like `hull_integrity` from the `ShipTemplate`.
+        * `Piloting Module`: Provides stats like `max_move_speed` from the `ShipTemplate`.
+
+*Note on Core Mechanics API: The foundational dice roll logic is located in the `autoload/CoreMechanicsAPI.gd` autoload, which provides the `perform_action_check()` function.*
 
 --- Start of ./1.2-GDD-Core-Cellular-Automata.md ---
 
 # GDTLancer - Cellular Automata Implementation
 
-**Version:** 1.1
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.2), 6.1-GDD-Lore-Background.md (v1.5), 6.3-GDD-Narrative-Borders.md (v1.0)
+**Version:** 1.2
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1.1-GDD-Core-Systems.md (v1.5), 6.1-GDD-Lore-Background.md (v1.5), 6.3-GDD-Narrative-Borders.md (v1.0)
 
 ## 1. Overview & Philosophy
 
@@ -333,12 +328,12 @@ For the Phase 1 demo, all CA implementations will be lightweight "stubs" designe
 ### Gameplay & Exploration Mechanics
 
 #### 3. System Surveying (Anomaly Mapping)
-* **Description:** A temporary, mini-CA that simulates the exploration and analysis of a volatile, uncharted cosmic anomaly, reflecting the lore surrounding "The Anomaly".
+* **Description:** A temporary, mini-CA that simulates the exploration and analysis of a volatile, uncharted cosmic anomaly, reflecting the dangers of exploring uncharted space.
 * **Phase 1 Stub:** Unlocked by an "Explorer-class" ship. The `Chart Anomaly` Narrative Action triggers a fire-and-forget simulation that runs for a set amount of Time Units.
 * **Player Access / Feedback:** A stylized **"Probe Data Report"** received as an in-game message. It displays a static, graphical snapshot of the anomaly's final state, accompanied by a narrative summary: *"Survey complete. The anomaly contains a high concentration of stable exotic particles. Data sold for +15 WP."*
 
 #### 4. Salvage Analysis
-* **Description:** A temporary mini-CA representing the complex process of sifting through salvaged wreckage for usable technology, reinforcing the lore of iterative engineering.
+* **Description:** A temporary mini-CA representing the complex process of sifting through salvaged wreckage for usable technology, reinforcing the setting's theme of iterative engineering.
 * **Phase 1 Stub:** Triggered by an `Analyze Salvage` Narrative Action after combat. A background simulation runs to determine what can be successfully reverse-engineered.
 * **Player Access / Feedback:** A narrative **"Workshop Analysis Report"** appears in the Hangar UI. It does not show the simulation, only the outcome: *"Analysis of the salvaged pirate vessel was successful. Our technicians have isolated a schematic for a more efficient engine manifold. **Progress made on 'Prospector Ship' Acquisition Project.**"*
 
@@ -378,9 +373,9 @@ For the Phase 1 demo, all CA implementations will be lightweight "stubs" designe
 
 # GDTLancer - Core Mechanics
 
-**Version:** 1.5
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8)
+**Version:** 1.6
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9)
 
 ## 1. Purpose
 
@@ -430,9 +425,9 @@ These are the primary abstract resources players manage throughout the game.
 
 # GDTLancer - Phase 1 Scope & Goals
 
-**Version:** 1.2
-**Date:** August 4, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.3), 4.3-GDD-Analogue-Phase1-Scope.md (v1.1), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
+**Version:** 1.3
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1.1-GDD-Core-Systems.md (v1.5), 4.3-GDD-Analogue-Phase1-Scope.md (v1.1), 5.1-GDD-Module-Piloting.md (v1.6), 5.2-GDD-Module-Combat.md (v1.4), 5.3-GDD-Module-Trading.md (v1.1)
 
 ## 1. Phase 1 Vision: "The First Contract" Demo
 
@@ -466,7 +461,7 @@ In the Phase 1 demo, the player will:
 * Inventory System
 * Asset System
 
-*Note: The `Core Mechanics API` (`/core/mechanics/dice_roller.gd`) is a foundational utility for dice rolls but is not considered a "system" in the same architectural sense as the items listed above.*
+*Note: The `Core Mechanics API` (`autoload/CoreMechanicsAPI.gd`) is a foundational utility for dice rolls but is not considered a "system" in the same architectural sense as the items listed above.*
 
 ### Narrative Stubs (Phase 1 Implementation)
 * **Chronicle Stub ("Sector Stats"):** Tracks and displays the player's statistical impact on the game world.
@@ -492,9 +487,9 @@ In the Phase 1 demo, the player will:
 
 ### Milestone 1: Foundational Systems
 * [**Done**] Implement the **Time System** to its required Phase 1 functionality.
-* [ ] Implement the **Character, Asset, and Inventory Systems**.
+* [**Done**] Implement the **Character, Asset, and Inventory Systems**.
 * [ ] Implement the data structures for all narrative stubs (e.g., dictionaries for Reputation, Faction Standing; list for Ship Quirks).
-* [**Done**] Ensure the **Core Mechanics API** is functional and accessible.
+* [**Done**] Ensure the **Core Mechanics API** (`autoload/CoreMechanicsAPI.gd`) is functional and accessible.
 
 ### Milestone 2: The Player in the World
 * [**Done**] The player can be spawned into the Zone Scene in their starting ship.
@@ -525,9 +520,9 @@ In the Phase 1 demo, the player will:
 
 # GDTLancer - Development Challenges
 
-**Version:** 1.3
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8)
+**Version:** 1.4
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9)
 
 ## 1. Overview
 
@@ -548,7 +543,7 @@ The game needs to let players feel impactful without allowing them to easily bre
 
 * **Mitigation Strategies:**
     * **Abstracted Resources:** Using abstract systems like Wealth Points (WP) and Time Units (TU) provides a layer of economic balancing.
-    * **Soft Gates:** Guide players with narrative and economic challenges (e.g., needing a specific ship part for Asset Progression, high upkeep costs) rather than restrictive invisible walls.
+    * **Soft Gates:** Guide players with narrative and economic challenges (e..g., needing a specific ship part for Asset Progression, high upkeep costs) rather than restrictive invisible walls.
 
 ## 3. Mechanical Challenges
 
@@ -579,9 +574,9 @@ Keeping the PC, mobile, and tabletop versions consistent requires significant de
 
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.7
-**Date:** August 4, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8)
+**Version:** 1.8
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9)
 
 ## 1. Purpose
 
@@ -590,7 +585,7 @@ This document outlines the agreed-upon coding style conventions and core archite
 ## 2. Engine & Language
 
 * **Engine:** Godot Engine v3.x.
-* **GUT version:**  7.4.3
+* **GUT version:** 7.4.3
 * **Renderer:** GLES2 backend (prioritizing performance and compatibility).
 * **Language:** GDScript (using static typing hints where beneficial for clarity).
 
@@ -614,7 +609,7 @@ This document outlines the agreed-upon coding style conventions and core archite
 * **Indentation:** Use **Tabs** for indentation.
 * **Line Length:** A maximum line length of approximately **100 characters**.
 * **Conditional Statements (`if`/`elif`/`else`): No Lumping.** As a manual standard, statements controlled by a conditional must always start on a new, properly indented line. The `gdformat` tool should be configured to enforce this, but the primary responsibility lies with the developer to write pristine, readable code.
-* **Export Variables:** Only use `export var` for defining data in template files (e.g., Resources deriving from `AgentTemplate`). Variables within standard node logic scripts should typically not be exported unless necessary for editor tweaking during development; prefer initialization via an `initialize()` method.
+* **Export Variables:** Only use `export var` for defining data in template files (e.g., `AgentTemplate`). Variables within standard node logic scripts should typically not be exported unless necessary for editor tweaking during development; prefer initialization via an `initialize()` method.
 * **Naming Conventions:** Follow standard Godot GDScript conventions:
     * `snake_case` for variables and function names (e.g., `max_move_speed`, `_physics_process`). Use a leading underscore `_` for "private" methods or variables.
     * `PascalCase` for class names (if using `class_name`) and node names in the scene tree (e.g., `AgentContainer`).
@@ -624,13 +619,14 @@ This document outlines the agreed-upon coding style conventions and core archite
 
 ## 5. Architectural Patterns & Practices
 
-* **Autoload Singletons:** Utilize sparingly for truly global services:
+* **Autoload Singletons:** Utilize for truly global services and data:
     * `Constants`: Global constants (paths, names, tuning).
     * `GlobalRefs`: Holds references to unique, essential nodes/managers.
     * `EventBus`: Central signal dispatcher for decoupled communication.
     * `CoreMechanicsAPI`: Centralized functions for core rule resolution.
     * `GameStateManager`: Centralized save/load logic.
-    * Other major systems should generally start as regular Nodes to control initialization order.
+    * `GameState`: **Primary Source of Truth for all persistent data.** Holds all dynamic game state (characters, inventories, world time, etc.).
+    * `TemplateDatabase`: Caches all loaded `.tres` templates on startup.
 * **Component Pattern:** Use child Nodes with attached scripts to encapsulate distinct functionalities (e.g., `MovementSystem`, `NavigationSystem`).
 * **Resource Templates (`.tres`):** Use custom `Resource` scripts (`extends Resource`, `class_name`) to define data structures (e.g., `AgentTemplate`). Initialize objects using these loaded Resource objects.
 * **Scene Instancing:** Leverage Godot's scene instancing for creating Agents, loading Zones, and assembling UI.
@@ -651,28 +647,30 @@ To ensure the reliability of core systems and prevent regressions, a test-driven
 
 * **Tooling:** The project uses the **Godot Unit Test (GUT) 7.4.3** framework for writing and running unit tests.
 * **Testing Priorities (Crucial Scripts):** Unit tests are required for:
-    * **Core Systems & APIs:** Any autoload singleton with internal logic (e.g., `CoreMechanicsAPI`, `GameStateManager`) and any core system (e.g., `Time System`, `Inventory System`) must have a corresponding test script.
+    * **Core Systems & APIs:** Any autoload singleton with internal logic (e.g., `CoreMechanicsAPI`, `GameStateManager`) and any core system (e.g., `TimeSystem`, `InventorySystem`) must have a corresponding test script.
     * **Complex Components:** Any component with significant, self-contained logic (e.g., `PIDController`, `MovementSystem`, `NavigationSystem`) must be tested.
     * **Utility Scripts:** Any general-purpose utility scripts must be tested to ensure reliability.
 * **What Not to Test:**
     * **UI Scripts:** Scripts that primarily manage UI nodes and visual state are better suited for manual, integration testing.
     * **Simple "Glue" Scripts:** Scripts that primarily delegate commands or connect signals without complex internal logic do not require unit tests.
 * **Best Practices:**
-    * **Location:** Test scripts must be located in the `tests/` directory, mirroring the structure of the main project (e.g., the test for `core/systems/agent_spawner.gd` is located at `tests/core/systems/test_agent_spawner.gd`).
+    * **Location:** Test scripts must be located in the `tests/` directory, mirroring the structure of the main project (e.g., the test for `core/systems/agent_system.gd` is located at `tests/core/systems/test_agent_spawner.gd`).
     * **Isolation:** Tests must be independent. Use GUT's `before_each()` and `after_each()` methods to set up and tear down the test environment for each test function, preventing side effects.
     * **Mocking:** When testing a script that depends on other complex nodes or systems, use mock objects (doubles) to isolate the unit under test.
 
-## 8. System Implementation Checklist & Data Flow
+## 8. System Implementation & Data Flow (Stateless Architecture)
 
-This section provides a generalized checklist for creating new gameplay systems to ensure they integrate correctly with the project's architecture.
+This section defines the project's core data flow, which is based on **stateless systems** and a **centralized state object**.
 
 ### 8.1. General Principles
 
-* **Single Responsibility:** A system should manage one domain of the game (e.g., Time, Character Stats, Inventory). If a system grows too complex, refactor it into smaller, more focused systems or components.
-* **Event-Driven Communication:** Systems should react to game events by listening to signals on the `EventBus`. They should announce their own significant state changes by emitting signals on the `EventBus`. This keeps systems decoupled.
-* **Data Authority:** Each system is the single source of truth for the data it manages. All modifications to a system's data must be done through its public API (its functions), never by directly changing its variables from the outside.
+* **`GameState` is the Source of Truth:** The `GameState.gd` autoload singleton is the **single source of truth** for all dynamic, persistent game data. This includes `GameState.characters`, `GameState.inventories`, `GameState.current_tu`, etc.
+* **Systems are Stateless APIs:** Core systems (e.g., `CharacterSystem`, `InventorySystem`, `TimeSystem`) are `Node` scripts located in `core/systems/` and parented under `WorldManager`. They are **stateless**. They do not hold their own data.
+* **Systems Provide Logic:** A system's job is to provide a clean, logical API (a set of functions) that reads from and writes to the `GameState`.
+    * **Example:** `CharacterSystem.add_wp(uid, amount)` is a function that retrieves the correct character from `GameState.characters`, modifies its `wealth_points` property, and (if it's the player) emits a signal on the `EventBus`. The `CharacterSystem` itself does not store the `wealth_points`.
+* **Event-Driven Communication:** Systems should react to game events by listening to signals on the `EventBus` (e.g., `_on_world_event_tick`). They announce significant state changes by emitting signals on the `EventBus` (e.g., `player_wp_changed`).
 
-### 8.2. System Script Checklist
+### 8.2. System Script Checklist (Stateless)
 
 When creating a new system (e.g., `new_system.gd`):
 
@@ -682,63 +680,56 @@ When creating a new system (e.g., `new_system.gd`):
     * [ ] The system should be added as a child of the `WorldManager` node in `main_game_scene.tscn`.
 
 2.  **Initialization (`_ready()`):**
-    * [ ] Register the system with `GlobalRefs` so other parts of the game can access it (e.g., `GlobalRefs.set_new_system(self)`).
-    * [ ] Connect to any necessary signals on the `EventBus` that this system needs to react to. This is the primary way systems listen for game-wide events.
-        ```gdscript
-        # Example: In _ready() of your new system
-        EventBus.connect("day_passed", self, "_on_day_passed")
-        EventBus.connect("game_loaded", self, "_on_game_loaded")
-        ```
+    * [ ] Register the system with `GlobalRefs` so other parts of the game can access its API (e.g., `GlobalRefs.set_new_system(self)`).
+    * [ ] Connect to any necessary signals on the `EventBus` that this system needs to react to (e.g., `EventBus.connect("world_event_tick_triggered", self, "_on_world_event_tick")`).
 
 3.  **State Management:**
-    * [ ] All internal state variables (the data the system manages) must be prefixed with an underscore (e.g., `_current_player_wp`).
+    * [ ] **DO NOT** store persistent state variables in the system script. All persistent data must be read from and written to the `GameState` autoload.
 
 4.  **Public API (Functions):**
-    * [ ] **Action Methods:** Create functions to modify the system's internal state (e.g., `add_wp(amount)`, `add_time_units(units)`). These are the only valid ways to change the system's data.
-    * [ ] **Getter Methods:** Create functions to provide read-only access to state (e.g., `get_wp()`, `get_current_tu()`).
-    * [ ] **Data Protection:** If a getter returns a `Dictionary` or `Array`, it **must** return a copy by using `.duplicate(true)`. This prevents external scripts from getting a reference and modifying the data directly.
+    * [ ] **Action Methods:** Create functions that modify data within `GameState` (e.g., `add_wp(uid, amount)`). These are the only valid ways to change game state.
+    * [ ] **Getter Methods:** Create functions that provide read-only access to data from `GameState` (e.g., `get_wp(uid)`).
+    * [ ] **Data Protection:** If a getter returns a `Dictionary` or `Array` from `GameState`, it **must** return a copy by using `.duplicate(true)`. This prevents external scripts from getting a reference and modifying the data directly, bypassing the system's API.
         ```gdscript
         # GOOD: Returns a safe copy
         func get_player_data() -> Dictionary:
-            return _player_data.duplicate(true)
+        	if GameState.characters.has(GameState.player_character_uid):
+        		return GameState.characters[GameState.player_character_uid].duplicate(true)
+        	return {}
 
         # BAD: Returns a direct reference, allowing external modification
         func get_player_data_bad() -> Dictionary:
-            return _player_data
+        	return GameState.characters[GameState.player_character_uid]
         ```
-
-5.  **Persistence (Save/Load):**
-    * [ ] Implement a `get_save_data() -> Dictionary` function. This function must gather all of the system's state variables into a single dictionary and return it.
-    * [ ] Implement a `load_save_data(data: Dictionary)` function. This function takes a dictionary and restores the system's internal state from it.
-    * [ ] Implement an `_on_game_loaded(save_data: Dictionary)` signal handler. This handler is called when the `game_loaded` signal is emitted. It is responsible for finding its specific chunk of data within the larger `save_data` dictionary and passing it to its own `load_save_data` function.
 
 ### 8.3. Data Flow for Save & Load
 
-The `GameStateManager` orchestrates the process, but does not know the internal details of any system.
+The `GameStateManager.gd` autoload handles all save/load logic. It directly serializes and deserializes the `GameState` autoload.
 
 **Saving Process:**
 
-1.  `GameStateManager.save_game()` is called.
-2.  `GameStateManager` creates an empty `save_data` dictionary.
-3.  `GameStateManager` iterates through its list of known systems (via `GlobalRefs`). For each system (e.g., `GlobalRefs.character_system`), it calls `get_save_data()`.
-4.  The returned data dictionary from each system is added to the main `save_data` dictionary under a unique key (e.g., `save_data["character_state"] = ...`).
+1.  `GameStateManager.save_game(slot_id)` is called.
+2.  `GameStateManager` calls its internal `_serialize_game_state()` function.
+3.  This function manually builds a `save_data` dictionary by pulling all necessary data *directly from `GameState`* (e.g., `save_data["current_tu"] = GameState.current_tu`).
+4.  It uses helper functions like `_serialize_resource_dict()` to handle complex data like `GameState.characters`.
 5.  `GameStateManager` writes the final, complete `save_data` dictionary to a file.
 
 **Loading Process:**
 
-1.  `GameStateManager.load_game()` is called.
+1.  `GameStateManager.load_game(slot_id)` is called.
 2.  `GameStateManager` reads the entire `save_data` dictionary from a file.
-3.  `GameStateManager` emits the `game_loaded` signal on the `EventBus`, passing the entire `save_data` dictionary as the payload.
-4.  **Every system** that needs to load data listens for the `game_loaded` signal.
-5.  When the signal is received, each system's `_on_game_loaded` handler inspects the payload, finds its specific data chunk (e.g., `save_data["character_state"]`), and passes that chunk to its own `load_save_data` method to restore its internal state.
+3.  It calls its internal `_deserialize_and_apply_game_state(save_data)`.
+4.  This function clears the live `GameState` (e.g., `GameState.characters.clear()`) and repopulates it with the data from the `save_data` dictionary.
+5.  After data is restored, `GameStateManager` emits `EventBus.emit_signal("game_state_loaded")`.
+6.  Any UI elements or other nodes that need to refresh their display (like the `MainHUD`) listen for the `game_state_loaded` signal and then pull the new data from `GameState` using the (stateless) system APIs.
 
 --- Start of ./4.1-GDD-Analogue-Setup.md ---
 
 # GDTLancer Analogue Version Setup
 
-**Version:** 1.3
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1-GDD-Core-Mechanics.md (v1.5)
+**Version:** 1.4
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1-GDD-Core-Mechanics.md (v1.6)
 
 ## 1. Overview & Philosophy
 
@@ -809,9 +800,9 @@ A typical solo or group session requires the following physical components per p
 
 # GDTLancer Analogue Version - Setup & Formatting Guide
 
-**Version:** 1.2
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1-GDD-Core-Mechanics.md (v1.5), 4.1-GDD-Analogue-Setup.md (v1.3)
+**Version:** 1.3
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1-GDD-Core-Mechanics.md (v1.6), 4.1-GDD-Analogue-Setup.md (v1.4)
 
 ## 1. Purpose
 
@@ -884,9 +875,9 @@ Player decides to `Undertake Journey`. They grab their **Ship Asset Sheet**, loo
 
 # GDTLancer - Analogue Version: Phase 1 Scope & Goals
 
-**Version:** 1.2
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1-GDD-Core-Mechanics.md (v1.5), 1.1-GDD-Core-Systems.md (v1.2), 4.1-GDD-Analogue-Setup.md (v1.3), 4.2-GDD-Analogue-Setup-Formatting.md (v1.2)
+**Version:** 1.3
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1-GDD-Core-Mechanics.md (v1.6), 1.1-GDD-Core-Systems.md (v1.5), 4.1-GDD-Analogue-Setup.md (v1.4), 4.2-GDD-Analogue-Setup-Formatting.md (v1.3)
 
 ## 1. Phase 1 Vision: "The First Contract" Quickstart PDF
 
@@ -958,9 +949,9 @@ The final PDF product must contain the following printable materials:
 
 # 5.1 GDTLancer - Piloting Module
 
-**Version:** 1.8
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `2.1-GDD-Development-Phase1-Scope.md`, `3-GDD-Architecture-Coding.md`, `5.2-GDD-Module-Combat.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.3-GDTLancer-Ship-Chassis.md`
+**Version:** 1.9
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `2.1-GDD-Development-Phase1-Scope.md` (v1.3), `3-GDD-Architecture-Coding.md` (v1.8), `5.2-GDD-Module-Combat.md` (v1.4), `7.2-GDD-Assets-Ship-Engines.md` (v1.3), `7.3-GDTLancer-Ship-Chassis.md` (v1.1)
 
 ---
 
@@ -1040,15 +1031,15 @@ This mode is the TTRPG-style resolution step that occurs *after* a Flight Challe
 
 # 5.2 GDTLancer - Combat Module
 
-**Version:** 1.6
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `5.1-GDD-Module-Piloting.md`, `6.1-GDD-Lore-Background.md`, `6-GDD-Lore-Narrative-Borders.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.3-GDD-Assets-Ship-Chassis.md`, `7.9-GDD-Assets-Utility-Tools.md`
+**Version:** 1.7
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `5.1-GDD-Module-Piloting.md` (v1.9), `6.1-GDD-Lore-Background.md`, `6-GDD-Lore-Narrative-Borders.md`, `7.1-GDD-Assets-Ship-Design.md` (v2.2), `7.3-GDD-Assets-Ship-Chassis.md` (v1.1), `7.9-GDD-Assets-Utility-Tools.md` (v1.1)
 
 ---
 
 ## 1. Overview
 
-This document defines the mechanics for ship-to-ship conflict, adhering to the **Lancer Doctrine**. Combat prioritizes **disabling and capturing vessels** over outright destruction, reflecting the cultural value placed on preserving assets. The module structures encounters into a distinct skill-based **Combat Challenge** followed by a narrative resolution via **Narrative Actions**.
+This document defines the mechanics for ship-to-ship conflict, adhering to the **Preservation Convention**. Combat, as a module, prioritizes **disabling and capturing vessels** over outright destruction, reflecting the cultural and economic value placed on preserving assets. The module structures encounters into a distinct skill-based **Combat Challenge** followed by a narrative resolution via **Narrative Actions**.
 
 **Key Design Constraint:** There are **no energy shields**. Combat focuses on overcoming hull integrity and disabling systems using specialized **Utility Tools**.
 
@@ -1067,7 +1058,7 @@ This mode represents the direct, real-time engagement between vessels. It is a s
 * **Purpose:** To provide pure, skill-based ship-to-ship fighting focused on disabling tactics.
 * **Mechanics:**
     * **Trigger:** Initiated by an event from Free Flight (e.g., ambush) or by accepting a mission that requires combat.
-    * **Core Gameplay:** Players have direct control over their ship's movement and equipped **Utility Tools**. The core gameplay loop involves maneuvering, aiming, and using tools (like Ablative Lasers or Rotary Drills acting as lances) to disable the enemy (e.g., reduce Hull Integrity to 0, achieve a specific objective like grappling).
+    * **Core Gameplay:** Players have direct control over their ship's movement and equipped **Utility Tools**. The core gameplay loop involves maneuvering, aiming, and using tools (like Ablative Lasers or Rotary Drills) to disable the enemy. This includes high-thrust industrial actions, such as using grapples to hold a target or drills to breach a hull, enabled by the **G-Stasis Cradle**.
     * **Targeting:** For Phase 1, targeting is limited to the enemy ship's main hull.
     * **Objective:** The challenge is successfully completed when all designated hostile targets are **neutralized** (Hull Integrity reaches 0 or another disable condition is met).
     * **Consequences of Damage:** Taking significant hull damage during the challenge, even if victorious, can result in a new "Ship Quirk" being added to the player's vessel.
@@ -1079,14 +1070,14 @@ This mode represents the direct, real-time engagement between vessels. It is a s
 
 This is the resolution step that occurs after the Combat Challenge is successfully completed (i.e., the enemy is neutralized). It determines the consequences and potential rewards of the engagement.
 
-* **Purpose:** To resolve the strategic and narrative fallout of a battle, emphasizing the Lancer Doctrine's goals.
+* **Purpose:** To resolve the strategic and narrative fallout of a battle, emphasizing the **Preservation Convention's** goals.
 * **Mechanics:**
     * **Trigger:** Player-initiated command selected from a menu after the last enemy ship is neutralized.
     * **Core Mechanic:** Utilizes the standard `3d6 + Module Modifier` **Action Check** to determine the outcome.
     * **Consequences:** Outcomes directly modify narrative stubs like "Reputation," "Faction Standing," and sector "World Stats". Successful disablement/capture should yield better rewards than simple destruction.
     * **Essential Phase 1 Actions:**
         * **Assess the Aftermath:** A general-purpose action to evaluate the battlefield context. Success might reveal faction affiliations or recoverable intel. Failure might mean misidentifying the wreck or attracting unwanted attention.
-        * **Claim Wreckage:** A specific attempt to salvage components from a **disabled** ship. Success yields a valuable asset or adds to `WP`. A `Risky` approach might yield more `WP` but damage `Reputation` ("Opportunist"). Failure could mean the wreckage is too unstable.
+        * **Claim Wreckage:** A specific attempt to salvage components from a **disabled** ship. Success yields a valuable asset or adds to `WP`. A `Risky` approach might yield more `WP` but damage `Repation` ("Opportunist"). Failure could mean the wreckage is too unstable.
 
 ---
 
@@ -1106,11 +1097,11 @@ This is the resolution step that occurs after the Combat Challenge is successful
 
 --- Start of ./5.3-GDD-Module-Trading.md ---
 
-# GDTLancer - Trading Module
+# 5.B GDTLancer - Trading Module
 
-**Version:** 1.2
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1.1-GDD-Core-Systems.md (v1.2)
+**Version:** 1.3
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1.1-GDD-Core-Systems.md (v1.5)
 
 ## 1. Overview
 
@@ -1166,81 +1157,53 @@ These actions introduce skill, chance, and social interaction into trading, maki
 
 # GDTLancer - Lore & Background
 
-**Version:** 1.6
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1-GDD-Core-Mechanics.md (v1.5)
+**Version:** 1.7
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1-GDD-Core-Mechanics.md (v1.6)
 
 ## 1. Overview
 
-This document outlines the foundational lore for the GDTLancer universe. This history informs game mechanics, dialogue, design, and technology. The game takes place in **Sectors**, which can be a star system or other distinct region, keeping travel distances manageable.
+This document outlines the foundational setting and background for the GDTLancer universe. This information informs game mechanics, dialogue, design, and technology.
 
-## 2. The Exodus and The Pillar
+## 2. The Premise: A Sector of Colonists
 
-* **Origin:** The people of the Opulence system descend from groups who left Earth centuries ago.
-* **The Pillar:** Their generation ship, "The Pillar," was built for a multi-century journey, prioritizing durability and self-sufficiency.
-* **Functionality:** The Pillar is a rotating cylinder that generates sub-1g gravity. Its fully enclosed systems maintained a controlled, low-pressure atmosphere and a closed-loop ecosystem.
-* **Purpose:** The exodus was a one-way trip to establish a new, autonomous civilization, away from Earth's conflicts and ecological issues.
+The game takes place in a hand-crafted sector of space populated by a human-centric society of early colonists and explorers. The specific history of *how* or *why* humanity arrived in this sector is left undefined. The narrative focus is on the current state of the sector and the player's actions within it.
 
-## 3. The Anomaly and Arrival
+## 3. Core Theme: Scarcity and Pragmatism
 
-* **Interstellar Transit:** The voyage ended after passing through a spatio-temporal distortion known as "the Anomaly."
-* **Dislocation:** The Anomaly caused an uncontrolled spatial displacement, throwing The Pillar into an uncharted region of space. A temporal shift is also suspected.
-* **Arrival:** The Pillar eventually stopped near a G-type star, where the "Opulence" system was settled.
-* **Resource Shift:** Opulence is rich in energy, but raw matter for construction and repair is scarce. This scarcity defines the system's economy and culture.
+The primary driver of the setting is a considerable, but not punishing, scarcity of complex materials and skilled labor. This dynamic has forged a pragmatic, resilient, and resourceful culture.
+* **Core Values:** The culture values efficiency, function-over-form ("Pragmatic Aesthetics"), and resourcefulness. "Waste not, want not" is a common adage.
+* **Value of Assets:** Because of this scarcity, complex assets (like ships) and skilled personnel (like pilots) are highly valued and treated as quasi-irreplaceable.
 
-## 4. Post-Arrival: Shaping a Civilization
+## 4. The "Preservation Convention"
 
-* **Present Timeline:** The game is set 50-70 years after The Pillar's arrival. "Founders" (born on The Pillar) are elders in their 70s-90s. The "Voyagers" (the first generation born in Opulence) are adults in their 50s-70s and form the backbone of society. Younger generations are now often born in newer habitats off-Pillar.
-* **The Pillar's Enduring Role:** The Pillar was repurposed into the system's central hub for energy collection, refining, fabrication, and knowledge archival. It remains the primary deep-space port.
-* **Initial Expansion:** Early efforts focused on building survey vessels and automated mining tools. Asteroid mining established material self-sufficiency, allowing for the construction of smaller satellite habitats.
+This cultural and economic reality has led to a widespread social norm known as the **Preservation Convention**.
+* **Core Tenet:** This convention prioritizes the disablement, disarming, and capture of vessels over their outright destruction. Destroying a valuable ship and skilled pilot is seen as wasteful and unprofitable.
+* **Conflict:** This creates a natural source of conflict, as fringe groups or sociopaths who *break* this convention are treated as a significant threat by the general society.
+* **Industrial Tactics:** This convention favors the high-thrust application of industrial tools (grapples, reinforced prows, drills) in close-quarters engagements to disable, rather than annihilate, an opponent.
 
-## 5. The People of Opulence: Generations & Adaptation
+## 5. Technology & Aesthetics
 
-* **Founders:** This older generation holds the memory of the long voyage. They are seen as experienced, patient, and detail-oriented, valuing established procedures and knowledge preservation.
-* **Voyagers:** The first generation born in Opulence is pragmatic and resourceful, shaped by energy abundance and matter scarcity. They focus on practical expansion and resource acquisition.
-* **Population Value:** Each individual is highly valued due to historical population limits and a continued scarcity of skilled labor. This underlies the game's focus on meaningful agent interactions.
-* **Physiological Legacy:** Centuries in a controlled environment have led to subtle physiological differences, such as a preference for lower-G and better tolerance for minor radiation, which are considered normal.
+* **Technological Baseline:** Technology is grounded and functional, iterating on known, reliable systems. The aesthetic is function-first, emphasizing reliability and modularity.
+* **G-Stasis Cradle:** A key piece of in-lore technology standard in all high-performance ships. It is a bio-support system that allows a pilot to survive the extreme G-forces (e.g., up to 15G) generated by aggressive maneuvering or the use of high-thrust industrial tools in combat.
+* **Travel:** Common Faster-Than-Light travel does not exist. Travel *within* a sector is done via in-system engines. Travel *between* sectors is a significant strategic undertaking, abstracted as a high cost in **Wealth Points (WP)** and **Time Units (TU)**.
 
-## 6. Culture of Pragmatism & Resilience
+## 6. Naming Conventions (Outline)
 
-* **Environmental Disposition:** Planetary surfaces are not feared, but seen as inefficient and resource-intensive to settle compared to asteroids and void habitats, which offer better environmental control.
-* **Core Values:** The culture values pragmatism, utilitarianism, and self-sufficiency. Resourcefulness and efficiency are highly respected. "Waste not, want not" is a common adage.
-* **Social Structure:** Family units are often based on mutual support and contribution. Meritocracy based on practical skills is central to social standing.
-* **Internal Conflict and Resolution:** Competition over resources, trade routes, or patents is common. Destructive warfare is avoided due to its high cost. Disputes are resolved through negotiation, arbitration, or structured "trials" to preserve assets and personnel.
-* **The 'Lancer' Combat Doctrine:** When disputes escalate, they are handled through specialized ship-to-ship engagements designed for controlled neutralization, not destruction.
-    * **Melee Focus:** The core of this doctrine, the "Lancer" paradigm, emphasizes close-quarters combat using durable industrial tools (lances, grapples, rams). This conserves matter and allows for asset recovery.
-    * **Reclaimable Projectiles:** Projectile weapons are rare and typically designed to be recoverable. They are used strategically to disable or capture.
-    * **Limited Casualties:** The goal is to disable, capture, or compel surrender, reflecting the high value of pilots and their ships.
-
-## 7. Technology, Expansion & Human Interface
-
-* **Technological Evolution:** Technology is an iteration of The Pillar's original systems, emphasizing reliability, modularity, and efficiency.
-* **Research Focus:** Key development areas include robotics, small vessel design, efficient fabrication, asteroid mining, and advanced propulsion.
-* **Exploration & Settlement:** Exploration is driven by practical needs for resources and outpost locations. Settlements are utilitarian void habitats or modified asteroids.
-
-### 7.1. G-Stasis Cradle
-
-* **Purpose:** A standard system in all high-performance ships that allows pilots to withstand extreme G-forces.
-* **Components:** A mechanical and bio-support system including an Exo-Harness, Active Contour Bladders for bracing, a Pressurized Breathing System, and Neuro-Biological Support for chemical and neural assistance.
-
-## 8. Naming Conventions (Outline)
-
-* **Cultural Synthesis:** Names reflect a blend of diverse Earth cultures from The Pillar's journey.
-* **Given Names:** A mix of traditional Earth names, often simplified. New names may emerge from significant events.
-* **Surnames:** Can be inherited Earth names or functional names reflecting ancestral roles (e.g., "Engineer-Chang," "Pilot-Nia").
+* **Cultural Synthesis:** Names reflect a blend of diverse Earth cultures.
 * **Language:** A practical and direct creole lingua franca with heavy technical jargon.
 
-## 9. Ambient Lore Implementation Goal
+## 7. Ambient Lore Implementation Goal
 
-The player experiences this history through its consequences on game mechanics, dialogue, and design, minimizing direct exposition in favor of "showing, not telling."
+The player experiences this setting through its consequences on game mechanics (like the combat module), dialogue, and design, minimizing direct exposition in favor of "showing, not telling."
 
 --- Start of ./6.2-GDD-Lore-Player-Onboarding.md ---
 
 # GDTLancer - Player Onboarding
 
-**Version:** 1.2
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 1-GDD-Core-Mechanics.md (v1.5), 6.1-GDD-Lore-Background.md (v1.6)
+**Version:** 1.3
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 1-GDD-Core-Mechanics.md (v1.6), 6.1-GDD-Lore-Background.md (v1.7)
 
 ## 1. Purpose and Goals
 
@@ -1248,54 +1211,57 @@ This document outlines the player's first 30-60 minutes of gameplay. The goal is
 
 * **Teach Core Mechanics:** Introduce Action Checks, the `Risky`/`Cautious` system, and core resources (FP, WP, TU).
 * **Show the Gameplay Loop:** Demonstrate how to accept a goal, travel, perform actions, and receive a reward.
-* **Introduce the Setting:** Convey the pragmatic culture, resource scarcity, and the "Lancer" combat mindset through action.
+* **Introduce the Setting:** Convey the pragmatic culture, resource scarcity, and the "Preservation Convention" mindset through action.
 * **Provide a Clear Next Step:** End the tutorial with a clear, player-driven objective.
 
 ## 2. Onboarding Philosophy
 
 * **Guided, Not Forced:** Give the player a clear starting goal within a small, controlled area, but allow for experimentation.
 * **Learn by Doing:** Introduce mechanics as they are needed. Explain the Action Check when the player first needs to make one.
-* **Contextual Introduction:** Frame the tutorial within a simple story that organically reveals aspects of the game's lore and culture.
+* **Contextual Introduction:** Frame the tutorial within a simple story that organically reveals aspects of the game's setting and culture.
 
 ## 3. Onboarding Scenario: "The First Contract"
 
 This scenario introduces the player to the game's core loop and establishes their place in the world.
 
-* **Setup:** The player is a new pilot with a basic, second-hand ship, docked at a small habitat. Their mentor, a senior 'Voyager' engineer, guides them through their first official contract. This immediately grounds the player in the generational lore.
+* **Setup:** The player is a new pilot with a basic, second-hand ship, docked at a small habitat. Their mentor, a senior, experienced engineer, guides them through their first official contract. This immediately grounds the player in the pragmatic, hands-on culture of the sector.
 
 * **Step 1: The Mentor & The Goal**
-    * The Mentor NPC gives the player a simple contract: retrieve a specific, salvageable component from a nearby, stable debris field.
-    * **Introduces:** The Goal System, basic dialogue interaction.
+    * The Mentor NPC gives the player a simple contract: a rival salvage crew has disabled a small cargo drone but failed to secure it. The drone is now adrift at a known coordinate. The player's contract is to fly to the drone and retrieve its secure data core.
+    * **Introduces:** The Goal System, basic dialogue interaction, and the setting's focus on salvage.
 
 * **Step 2: Travel & Time**
-    * The mentor instructs the player to fly to the debris field. The flight is short and direct.
+    * The mentor instructs the player to fly to the drone's coordinates. The flight is short and direct.
     * **Introduces:** Basic Piloting controls, the concept of spending Time Units (TU), and the Time Clock.
 
 * **Step 3: The First Action Check**
-    * At the debris field, the player must scan for the component. This is their first **Action Check**.
-    * **Introduces:** The Action Check mechanic, the `Risky`/`Cautious` choice, and the use of Focus Points (FP).
+    * Upon arriving, the player finds the drone, but its data port is damaged. The player must use their ship's tools to carefully access the core. This is their first **Action Check**.
+    * **Introduces:** The Action Check mechanic, the `Risky`/`Cautious` choice, and how tools are used to solve problems.
 
-* **Step 4: A Minor Complication**
-    * The component is found, but it's stuck under a larger piece of debris. The player must use their ship's manipulator arm to carefully pry it loose. This requires another Action Check.
-    * **Introduces:** How tools are used to solve problems; reinforces the Action Check mechanic.
+* **Step 4: Controlled Conflict**
+    * Just as the player secures the core, the rival salvage ship (a lone scavenger) that originally disabled the drone returns and demands the core. This is a controlled combat tutorial.
+    * The mentor advises the player to disable the scavenger's ship (reduce its hull to zero) without completely destroying it, calling annihilation "wasteful" and "a good way to get a bad reputation."
+    * **Introduces:** The Combat Module, targeting the enemy hull, and the core principle of the Preservation Convention (avoiding destruction to preserve assets).
 
-* **Step 5: Controlled Conflict**
-    * On the return trip, a lone scavenger in a poorly-maintained ship intercepts them and demands the component. This is a controlled combat tutorial.
-    * The mentor advises the player to disable the scavenger's ship (reduce its hull to zero) without completely destroying it, calling annihilation "wasteful."
-    * **Introduces:** The Combat Module, targeting the enemy hull, and the core principle of the Lancer Doctrine (avoiding destruction to preserve assets).
+* **Step 5: The Narrative Resolution (The Payoff)**
+    * After the rival ship is neutralized (Hull Integrity at 0), the **Narrative Action** menu appears. The mentor explains this is where the "real work" is done.
+    * The player is presented with options like **"Assess the Aftermath"** and **"Claim Wreckage"**.
+    * The mentor guides them to **"Assess the Aftermath"**. The player makes an Action Check (using their `Tactics Skill`).
+    * **Outcome (example):** On a Success, the mentor says, "Good. You scanned their ship data. They're small-time, no faction. As per convention, activate their distress beacon. We have what we came for."
+    * **Introduces:** The core TTRPG loop: **Skill-based play followed by TTRPG-style narrative resolution.** It shows *how* you handle a disabled vessel (assess it and leave it for recovery, as per the Convention).
 
 * **Step 6: The Reward & Next Steps**
-    * The player returns the component to the mentor. They receive their first **Wealth Point (WP)** as payment.
+    * The player returns the data core to the mentor. They receive their first **Wealth Point (WP)** as payment.
     * The mentor congratulates them and points them to the station's job board, explaining how to find new contracts.
-    * **Introduces:** The Wealth (WP) resource and the systems for finding new, player-driven goals. The tutorial is now complete, and the player is free to choose their next action.
+    * **Introduces:** The Wealth (WP) resource and the systems for finding new, player-driven goals. The tutorial is now complete.
 
 --- Start of ./6-GDD-Lore-Narrative-Borders.md ---
 
 # GDTLancer - Narrative Borders of the Simulation
 
-**Version:** 1.1
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.6)
+**Version:** 1.2
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 6.1-GDD-Lore-Background.md (v1.7)
 
 ## 1. Purpose & Philosophy
 
@@ -1309,15 +1275,15 @@ These principles must be applied to the design of all game systems, from agent A
 
 ### Border 1: Preservation of Assets
 
-* **Lore Justification:** The culture of Opulence was forged by the scarcity of complex materials and skilled personnel. Every ship is a significant investment, and every skilled pilot is a nearly irreplaceable resource. This led to the creation of the Lancer Doctrine, which prizes neutralization and capture over outright destruction.
+* **Lore Justification:** The culture of the sector's colonists was forged by the scarcity of complex materials and skilled personnel. Every ship is a significant investment, and every skilled pilot is a nearly irreplaceable resource. This led to the creation of the **Preservation Convention**, which prizes neutralization and capture over outright destruction.
 * **Mechanical Implementation:**
     * **High Cost of Destruction:** Systems must be designed so that the total destruction of a ship is the least profitable and most consequence-heavy outcome of combat. It should result in minimal WP gain, significant Reputation loss, and potential negative Faction Standing changes.
     * **Rewarding Disablement:** Conversely, disabling a ship to allow for salvage (`Claim Wreckage`) or compelling a surrender must always be the most mechanically and narratively rewarding path.
-    * **NPC Behavior:** The logic for NPC agents must reflect this. Most NPCs will default to disabling tactics. Only specific, defined groups (e.g., fanatical outlaws, non-human threats) would ever favor wanton destruction, making them feel truly alien to the setting's culture.
+    * **NPC Behavior:** The logic for NPC agents must reflect this. Most NPCs will default to disabling tactics. Only specific, defined groups (e.g., fanatical outlaws, sociopaths) would ever favor wanton destruction, making them feel truly alien to the setting's culture.
 
 ### Border 2: Pragmatic Agent Behavior
 
-* **Lore Justification:** The people of Opulence are pragmatic, utilitarian, and focused on managing risk, time, and resources. Their actions are driven by logical needs and calculated goals, not chaos.
+* **Lore Justification:** The people of the sector are pragmatic, utilitarian, and focused on managing risk, time, and resources. Their actions are driven by logical needs and calculated goals, not chaos.
 * **Mechanical Implementation:**
     * **Goal-Oriented AI:** The `Goal System` for NPCs must be built on heuristics, not pure randomness. A trading agent will seek to maximize profit. A pirate agent will seek to acquire wealth with the least possible risk.
     * **Systemic Pressures:** The core game loops and resource sinks (like the `Time System`'s `Upkeep Cost`) must apply to NPCs as well as the player, ensuring they operate under the same pragmatic pressures.
@@ -1331,18 +1297,18 @@ These principles must be applied to the design of all game systems, from agent A
 
 ### Border 4: A Human-Centric Universe
 
-* **Lore Justification:** The game's narrative is fundamentally about humanity—specifically, the descendants of The Pillar—and how they've adapted.
+* **Lore Justification:** The game's narrative is fundamentally about humanity—specifically, the early colonists and explorers of this sector—and how they've adapted.
 * **Mechanical Implementation:**
     * **Agent Focus:** The simulation must be focused on the interactions between human agents and their factions. The vast majority of generated events should relate to trade, politics, piracy, personal relationships, and discovery.
-    * **The Alien is Alien:** True alien life, cosmic horrors, or spatio-temporal anomalies (like "the Anomaly" in the backstory) must be treated as rare, significant, and narratively impactful. The simulation should not be populated with a menagerie of random sci-fi creatures and phenomena; this preserves their thematic weight.
+    * **The Alien is Alien:** True alien life, cosmic horrors, or spatio-temporal anomalies must be treated as rare, significant, and narratively impactful. The simulation should not be populated with a menagerie of random sci-fi creatures and phenomena; this preserves their thematic weight.
 
 --- Start of ./7.10-GDD-Assets-Energy-Storage.md ---
 
 # 7.10 GDTLancer - Energy Storage
 
-**Version:** 1.0
-**Date:** October 26, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.4-GDD-Assets-Power-Plants.md`, `7.9 GDTLancer - Utility Tools`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.4-GDD-Assets-Power-Plants.md` (v1.1), `7.9 GDTLancer - Utility Tools` (v1.2)
 
 ---
 
@@ -1407,9 +1373,9 @@ For the TTRPG, energy storage provides a buffer or enables peak power actions.
 
 # 7.11 GDTLancer - Propellant Storage
 
-**Version:** 1.0
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.2-GDD-Assets-Ship-Engines.md` (v1.4)
 
 ---
 
@@ -1469,19 +1435,24 @@ For the tabletop TTRPG, the mechanical difference is abstracted into a simple ru
 | **"Insulated Dewar"** | **0** (Standard) | (Baseline) | **Boil-Off:** If a `World Event Tick` occurs while you are not docked at a station, lose 1 `Endurance` segment from your ship's engine. |
 | **"Active Cryocooler"** | **0** (Standard) | **High** (Upgrade) | **Active Cooling:** Immune to propellant **Boil-Off**. (May fail if the ship's Power Plant gains a negative `Ship Quirk`). |
 
+### Analogue Rules
+
+* **Boil-Off:** This rule links the `Time Clock` to the `Endurance` stat of the engine, creating a resource drain over time.
+* **Active Cooling:** This asset negates the `Boil-Off` rule, but is dependent on the ship's power system.
+
 --- Start of ./7.1-GDD-Assets-Ship-Design.md ---
 
 # 7.1 GDTLancer - Ship Design Philosophy
 
-**Version:** 2.2
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `6.1-GDD-Lore-Background.md`, `6-GDD-Lore-Narrative-Borders.md`, `7-GDD-Assets-Style.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.3-GDD-Assets-Ship-Chassis.md`
+**Version:** 2.3
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `6.1-GDD-Lore-Background.md` (v1.7), `6-GDD-Lore-Narrative-Borders.md` (v1.2), `7-GDD-Assets-Style.md` (v1.1), `7.2-GDD-Assets-Ship-Engines.md` (v1.3), `7.3-GDD-Assets-Ship-Chassis.md` (v1.1)
 
 ---
 
 ## 1. Overview
 
-This document defines the foundational technology and design philosophy for all ship assets in the GDTLancer universe. It serves as a "palette" of available components, systems, and materials that inform the design of specific, player-facing assets (like engines and hulls). This philosophy is rooted in the lore of a post-exodus civilization defined by resource scarcity and pragmatic engineering.
+This document defines the foundational technology and design philosophy for all ship assets in the GDTLancer universe. It serves as a "palette" of available components, systems, and materials that inform the design of specific, player-facing assets (like engines and hulls). This philosophy is rooted in the lore of a colonial civilization defined by resource scarcity and pragmatic engineering.
 
 ---
 
@@ -1540,7 +1511,7 @@ This document defines the foundational technology and design philosophy for all 
 * **Open-Loop System**
     * **Niche:** Consumes stored consumables. Limits mission duration. Standard on short-range vessels.
 * **Closed-Loop Recycler**
-    * **Niche:** Recycles air and water using Pillar-derived technology. Extends mission endurance significantly.
+    * **Niche:** Recycles air and water using advanced technology. Extends mission endurance significantly.
 * **G-Stasis Cradle**
     * **Function:** Mitigates extreme G-forces.
     * **Components:** Exo-Harness, Contour Bladders, Pressurized Breathing, Neuro-Biological Support.
@@ -1567,12 +1538,12 @@ This document defines the foundational technology and design philosophy for all 
 
 ## 9. External Hardpoints & Utility Tools
 
-Tools often serve dual purposes for industry and combat, per the Lancer Doctrine.
+Tools often serve dual purposes for industry and combat, per the **Preservation Convention**.
 
 ### 9.1. Mining & Salvage Tools
 
-* **Rotary Mining Drill:** Precision ore extraction. Doubles as a close-range lance.
-* **Reinforced Prow:** Brute-force asteroid fracturing. Doubles as a melee ram.
+* **Rotary Mining Drill:** Precision ore extraction. Doubles as a close-range tool for **breaching ship hulls** in a controlled manner.
+* **Reinforced Prow:** A structural modification that adds a reinforced "hard place" to the ship's bow. It is designed for controlled, high-thrust interactions (like pushing large salvage objects) rather than high-speed impacts. Its combat application is for **breaching, pinning, or bulldozing** disabled targets.
 * **High-Power Ablative Laser:** Skims trace elements from surfaces. Can strip ship armor or damage exposed external systems.
 * **Seismic Charge Launcher:** Controlled demolition of asteroids via expensive consumables. Can target ship subsystems.
 
@@ -1599,7 +1570,7 @@ Tools often serve dual purposes for industry and combat, per the Lancer Doctrine
 
 * **Size Range:** 20 to 40 meters in length.
 * **Mass Range:** Dry mass from ~20 metric tons (light vessels) to over 100 metric tons (heavy freighters).
-* **Core Design:** Built around a compact, single-pilot life support pod with an integrated G-Stasis Cradle.
+* **Core Design:** Built around a compact, single-pilot life support pod with an integrated **G-Stasis Cradle**.
 
 ---
 
@@ -1625,9 +1596,9 @@ Tools often serve dual purposes for industry and combat, per the Lancer Doctrine
 
 # 7.2 GDTLancer Ship Engines
 
-**Version:** 1.3
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `2.1-GDD-Development-Phase1-Scope.md`
+**Version:** 1.4
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `2.1-GDD-Development-Phase1-Scope.md` (v1.3)
 
 ---
 
@@ -1637,7 +1608,7 @@ This document defines the player-facing engine configurations for GDTLancer. The
 
 This document is broken into three sections to align with the project's transmedia goals:
 1.  **Lore & Visuals:** Descriptive text for in-game infocards, aligning with the "Pragmatic Aesthetics".
-2.  **Godot Implementation:** The `AgentTemplate` `.tres` values that drive the "fake physics" model.
+2.  **Godot Implementation:** The `.tres` values that drive the "fake physics" model.
 3.  **Analogue Implementation:** The abstracted rules for the tabletop TTRPG asset sheets.
 
 ---
@@ -1665,11 +1636,11 @@ The "engine" casing (e.g., the `8m x 2m` cylinder of the Cruiser) contains the s
 
 ---
 
-## 3. Part 2: Godot Implementation (For `agent_template.gd`)
+## 3. Part 2: Godot Implementation (For `asset_ship_template.gd`)
 
-These are the *actual* gameplay parameters to be set in the `AgentTemplate` `.tres` resource files.
+These are the *actual* gameplay parameters to be set in the `ShipTemplate` `.tres` resource files (which derive from `asset_ship_template.gd`).
 
-### `agent_template.gd` Values
+### `asset_ship_template.gd` Values
 
 | Engine Config. | `max_move_speed` | `acceleration` | `deceleration` | `max_turn_speed` |
 | :--- | :--- | :--- | :--- | :--- |
@@ -1681,12 +1652,11 @@ These are the *actual* gameplay parameters to be set in the `AgentTemplate` `.tr
 
 ### Implementation Notes
 
-* These values are the direct input for the "fake physics" `MovementSystem`.
-* The `max_move_speed` (float) is the hard cap on velocity. The Microwave engine has a much lower cap, reflecting its "get-home" role.
-* `acceleration` (float) is the `lerp` factor. This value is the final gameplay implementation of the `Thruster Power` stat required by the Piloting Module. A "Brawler" (`0.8`) will feel highly responsive, while a "Cruiser" (`0.3`) will feel heavy.
-* `deceleration` (float) is the `lerp` factor for natural "drag".
-* `max_turn_speed` (float) is the `slerp` factor for rotation. This is the implementation of the `Agility` stat. A "Brawler" (`1.1`) will be highly agile, while a "Cruiser" (`0.6`) will feel sluggish.
-* **"Interceptor" (SRM):** This is **not** an `AgentTemplate` configuration. It will be implemented as a special *action* or *consumable asset* that, when activated, temporarily overrides the `MovementSystem.acceleration` with a massive value (e.g., `5.0` or higher) for a short, fixed duration.
+* These values are properties of the `ShipTemplate` `Resource`.
+* The `AgentBody`'s `initialize` function reads these values from its associated `ShipTemplate` (provided by `AssetSystem`) and passes them to the `MovementSystem`'s `initialize_movement_params` function.
+* `acceleration` (float) is the `lerp` factor. This value is the final gameplay implementation of the `Thruster Power` stat.
+* `max_turn_speed` (float) is the `slerp` factor for rotation. This is the implementation of the `Agility` stat.
+* **"Interceptor" (SRM):** This is **not** a `ShipTemplate` configuration. It will be implemented as a special *action* or *consumable asset* that, when activated, temporarily overrides the `MovementSystem.acceleration` with a massive value (e.g., `5.0` or higher) for a short, fixed duration.
 
 ---
 
@@ -1715,9 +1685,9 @@ These stats are for the tabletop TTRPG, aligning with the core rules for `Action
 
 # 7.3 GDTLancer Ship Chassis
 
-**Version:** 1.1
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1.1-GDD-Core-Systems.md`, `2.1-GDD-Development-Phase1-Scope.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `4.1-GDD-Analogue-Setup.md`
+**Version:** 1.2
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1.1-GDD-Core-Systems.md` (v1.5), `2.1-GDD-Development-Phase1-Scope.md` (v1.3), `6.1-GDD-Lore-Background.md` (v1.7), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.2-GDD-Assets-Ship-Engines.md` (v1.4), `4.1-GDD-Analogue-Setup.md` (v1.4)
 
 ---
 
@@ -1740,8 +1710,8 @@ This document is broken into three sections:
 | :--- | :--- | :--- |
 | **"Spinal"** | The baseline, pragmatic, function-first design. Its linear layout aligns all core components along a central thrust axis, making it the most straightforward and efficient versatile vessel. | The ubiquitous **freighter, explorer, or multi-role vessel**. The reference model used for the "Cruiser" engine is a perfect example of this common, reliable design. |
 | **"Catamaran"** | A dual-hull frame designed for a specific industrial purpose: mounting oversized modules that wouldn't fit on a standard spinal frame. Features dual-engine mounts for redundancy and stable thrust. | A dedicated **Industrial Hauler or Salvage Platform**. The wide central space is designed to mount specialized tools like a **Forward-Facing Debris Scoop** or oversized cargo pods. |
-| **"Trident"** | A triple-engine mount frame, over-engineered to support extreme power generation or acceleration. It is designed to handle high-draw systems like **Fission Reactors** or **Microwave Thrusters**. | A **high-end industrial or combat vessel**. It may be a **Deep-Space Miner** powering a **High-Power Ablative Laser**, or a **Lancer Interceptor** using raw acceleration for melee combat, as per the Lancer Doctrine. |
-| **"Tower"** | Not a "Broadside Battleship," but a **"Broadside Grappler"**. Its purpose is to present a massive "tool wall" for disabling and capturing enemy vessels, perfectly aligning with the Lancer Doctrine's focus on **preservation of assets** and melee. | A specialized **salvage and capture vessel**. Its tactical role is to "catch" a target with a volley of **Harpoon & Winch Arrays**, then use **Rotary Drills** (as lances) and **Ablative Lasers** to systematically disable and capture it. |
+| **"Trident"** | A triple-engine mount frame, over-engineered to support extreme power generation or acceleration. It is designed to handle high-draw systems like **Fission Reactors** or **Microwave Thrusters**. | A **high-end industrial or combat vessel**. It may be a **Deep-Space Miner** powering a **High-Power Ablative Laser**, or a **fast attack vessel** using raw acceleration for high-thrust industrial takedowns, as per the **Preservation Convention**. |
+| **"Tower"** | Not a "Broadside Battleship," but a **"Broadside Grappler"**. Its purpose is to present a massive "tool wall" for disabling and capturing enemy vessels, perfectly aligning with the **Preservation Convention's** focus on **preservation of assets** and close-quarters disabling actions. | A specialized **salvage and capture vessel**. Its tactical role is to "catch" a target with a volley of **Harpoon & Winch Arrays**, then use **Rotary Drills** (to breach) and **Ablative Lasers** to systematically disable and capture it. |
 
 ### Lore Note (Enabling Technology)
 
@@ -1765,7 +1735,7 @@ Ship Hulls will be defined as `Resource` files (e.g., `SpinalHull.tres`) and man
 ### Implementation Notes
 * **`Base Mass (t)`:** This is the hull's dry mass. The `Asset System` will be responsible for the final "wet mass" calculation (Base Mass + Engine Mass + Cargo Mass + Fuel Mass) that provides the `Mass` stat required by the Piloting Module.
 * **`Base Cargo (units)`:** This is the `Cargo Capacity` stat used by the `Inventory System` and Trading Module.
-* **Slots:** These define the number and type of components (like engines from `7.2-GDD-Assets-Ship-Engines.md` or tools from `7.1-GDD-Assets-Ship-Design.md`) that can be slotted into the hull.
+* **Slots:** These define the number and type of components (like engines from `7.2-GDD-Assets-Ship-Engines.md` or tools from `7.9-GDD-Assets-Utility-Tools.md`) that can be slotted into the hull.
 
 ---
 
@@ -1792,9 +1762,9 @@ For the tabletop TTRPG, the hull provides base stats (like Hull Integrity) and, 
 
 # 7.4 GDTLancer - Power Plants
 
-**Version:** 1.0
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.3-GDD-Assets-Ship-Chassis.md`, `7.11-GDD-Assets-Propellant-Storage.md`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.2-GDD-Assets-Ship-Engines.md` (v1.4), `7.3-GDD-Assets-Ship-Chassis.md` (v1.2), `7.11-GDD-Assets-Propellant-Storage.md` (v1.0)
 
 ---
 
@@ -1865,9 +1835,9 @@ For the TTRPG, power is abstracted into "Power Slots," which represent how many 
 
 # 7.5 GDTLancer - Cooling Systems
 
-**Version:** 1.0
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.4-GDD-Assets-Power-Plants.md`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.2-GDD-Assets-Ship-Engines.md` (v1.4), `7.4-GDD-Assets-Power-Plants.md` (v1.1)
 
 ---
 
@@ -1934,9 +1904,9 @@ For the TTRPG, cooling is abstracted. The primary effect is enabling high-perfor
 
 # 7.6 GDTLancer - Life Support Systems
 
-**Version:** 1.0
-**Date:** October 26, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.3-GDTLancer-Ship-Chassis.md`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `6.1-GDD-Lore-Background.md` (v1.7), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.3-GDTLancer-Ship-Chassis.md` (v1.2)
 
 ---
 
@@ -1956,7 +1926,7 @@ This document follows the standard 3-part structure:
 | Asset Type | Visual & Lore Description |
 | :--- | :--- |
 | **"Open-Loop System"** | The baseline life support system. Consumes stored consumables (oxygen, water, filters) to maintain a breathable atmosphere. Simple and reliable, but its limited supply restricts mission duration, making it standard only on short-range vessels. Visually represented by storage tanks and basic filtration units within the cockpit pod. |
-| **"Closed-Loop Recycler"** | An advanced life support system utilizing Pillar-derived technology. It actively recycles air and water, drastically reducing consumable usage and significantly extending mission endurance. Requires more power and maintenance. Visually, it includes more complex machinery, algae tanks, or chemical scrubbers. |
+| **"Closed-Loop Recycler"** | An advanced life support system utilizing advanced recycling technology. It actively recycles air and water, drastically reducing consumable usage and significantly extending mission endurance. Requires more power and maintenance. Visually, it includes more complex machinery, algae tanks, or chemical scrubbers. |
 | **"G-Stasis Cradle"** | Not an environmental system, but a critical pilot support mechanism integrated into the ship's core design. It mitigates extreme G-forces during high-performance maneuvers. Includes an Exo-Harness, Active Contour Bladders, Pressurized Breathing apparatus, and Neuro-Biological Support systems. Enables the use of specialized hulls like the "Trident" and "Tower". |
 
 ---
@@ -2003,9 +1973,9 @@ For the TTRPG, life support impacts mission endurance abstractly, while the G-St
 
 # 7.7 GDTLancer - Radiation Protection
 
-**Version:** 1.0
-**Date:** October 26, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `6.1-GDD-Lore-Background.md` (v1.7), `7.1-GDD-Assets-Ship-Design.md` (v2.3)
 
 ---
 
@@ -2069,9 +2039,9 @@ In the TTRPG, radiation protection primarily acts as a gate for certain types of
 
 # 7.8 GDTLancer - Turbomachinery
 
-**Version:** 1.0
-**Date:** October 26, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.2-GDD-Assets-Ship-Engines.md`, `7.11-GDD-Assets-Propellant-Storage.md`
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.2-GDD-Assets-Ship-Engines.md` (v1.4), `7.11-GDD-Assets-Propellant-Storage.md` (v1.0)
 
 ---
 
@@ -2136,19 +2106,19 @@ In the TTRPG, pump quality is abstracted into reliability and efficiency modifie
 
 # 7.9 GDTLancer - Utility Tools
 
-**Version:** 1.1
-**Date:** October 25, 2025
-**Related Documents:** `0.1-GDD-Main.md`, `1-GDD-Core-Mechanics.md`, `1.1-GDD-Core-Systems.md`, `3-GDD-Architecture-Coding.md`, `4.1-GDD-Analogue-Setup.md`, `5.2-GDD-Module-Combat.md`, `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`, `7.3-GDTLancer-Ship-Chassis.md` (corrected filename), `7.4-GDD-Assets-Power-Plants.md`
+**Version:** 1.2
+**Date:** October 31, 2025
+**Related Documents:** `0.1-GDD-Main.md` (v1.9), `1-GDD-Core-Mechanics.md` (v1.6), `1.1-GDD-Core-Systems.md` (v1.5), `3-GDD-Architecture-Coding.md` (v1.8), `4.1-GDD-Analogue-Setup.md` (v1.4), `5.2-GDD-Module-Combat.md` (v1.7), `6.1-GDD-Lore-Background.md` (v1.7), `7.1-GDD-Assets-Ship-Design.md` (v2.3), `7.3-GDD-Assets-Ship-Chassis.md` (v1.2), `7.4-GDD-Assets-Power-Plants.md` (v1.1)
 
 ---
 
 ## 1. Overview
 
-This document defines the asset configurations for external hardpoint-mounted utility tools. These tools often serve dual purposes for both industry (mining, salvage) and combat, which is a core tenet of the **Lancer Doctrine**.
+This document defines the asset configurations for external hardpoint-mounted utility tools. These tools often serve dual purposes for both industry (mining, salvage) and combat, which is a core tenet of the **Preservation Convention**.
 
 The specific tools available are the primary distinguishing feature for specialized hull classes like the "Catamaran" and "Tower".
 
-**Design Note on Combat:** Per previous instruction, these tools are the primary means of offense. There are **no energy shields**; combat is a "hard sci-fi" affair focused on disabling systems and overcoming hull integrity. These tools enable that specific gameplay, and `5.2-GDD-Module-Combat.md` reflects this.
+**Design Note on Combat:** Per `5.2-GDD-Module-Combat.md`, these tools are the primary means of offense. There are **no energy shields**; combat is a "hard sci-fi" affair focused on disabling systems and overcoming hull integrity. These tools enable that specific gameplay.
 
 This document follows the standard 3-part structure:
 1.  **Lore & Visuals:** Descriptive text for in-game infocards.
@@ -2161,8 +2131,8 @@ This document follows the standard 3-part structure:
 
 | Asset Type | Visual & Lore Description |
 | :--- | :--- |
-| **"Rotary Mining Drill"** | A heavy-duty industrial drill designed for precision ore extraction from asteroids. Per the Lancer Doctrine, it doubles as a brutal close-range "lance" for breaching ship hulls. A key tool for "Tower" hulls. |
-| **"Reinforced Prow"** | This is less a tool and more a structural modification. It consists of a heavily reinforced and specially shaped bow designed for brute-force asteroid fracturing. Its secondary purpose is as a melee "ram" for neutralizing enemy vessels. |
+| **"Rotary Mining Drill"** | A heavy-duty industrial drill designed for precision ore extraction from asteroids. Per the Preservation Convention, it doubles as a close-range tool for **breaching ship hulls** in a controlled manner. A key tool for "Tower" hulls. |
+| **"Reinforced Prow"** | A structural modification that adds a reinforced "hard place" to the ship's bow. It is designed for controlled, high-thrust interactions (like pushing large salvage objects) rather than high-speed impacts. Its combat application is for **breaching, pinning, or bulldozing** disabled targets. |
 | **"High-Power Ablative Laser"** | A high-draw energy tool. Its industrial use is to skim trace elements from asteroid surfaces. In combat, it is used to strip enemy armor or disable external systems without destroying the hull. Requires a **Fission Reactor**, common on "Trident" and "Tower" hulls. |
 | **"Seismic Charge Launcher"** | A launcher that fires expensive, consumable charges for the controlled demolition of asteroids. In combat, these low-velocity charges can be used to target specific ship subsystems. |
 | **"Harpoon & Winch Array"** | A recoverable projectile system. Industrially, it tethers asteroids for mining or towing. In combat, it is the primary tool for the "Broadside Grappler" tactic, allowing a "Tower" hull to tether and control a target. |
@@ -2178,8 +2148,8 @@ Utility Tools will be defined as `Resource` files (e.g., `RotaryDrill.tres`) and
 
 | Asset Type | `power_draw_mw` (float) | `damage` (int) | `consumable_item_id` (String) | `slot_type` (String) |
 | :--- | :--- | :--- | :--- | :--- |
-| Rotary Drill | 1.0 | 50 (Melee) | "None" | "Broadside" |
-| Reinforced Prow | 0.0 | 40 (Melee/Ram) | "None" | "Structural" |
+| Rotary Drill | 1.0 | 50 (Breach) | "None" | "Broadside" |
+| Reinforced Prow | 0.0 | 40 (Thrust/Impact)| "None" | "Structural" |
 | Ablative Laser | 15.0 | 20 (Energy) | "None" | "High-Power" |
 | Seismic Charge Launcher | 0.5 | 100 (Explosive) | "SeismicCharge" | "Standard" |
 | Harpoon & Winch | 2.0 | 5 (Kinetic) | "None" | "Broadside" |
@@ -2190,7 +2160,7 @@ Utility Tools will be defined as `Resource` files (e.g., `RotaryDrill.tres`) and
 * **`power_draw_mw`:** The power required from the ship's Power Plant when the tool is active. The `Asset System` tracks this against the plant's output. The "Ablative Laser" has a very high draw, requiring a "Fission Reactor".
 * **`damage`:** The base damage value used by the `Combat Module`. The "Harpoon" does minimal damage; its utility is in tethering.
 * **`consumable_item_id`:** The item ID that is consumed from the `Inventory System` on use (e.g., for the Seismic Launcher).
-* **`slot_type`:** Defines which hull hardpoints can mount this tool, aligning with the "Slots" defined in `7.3-GDTLancer-Ship-Chassis.md`.
+* **`slot_type`:** Defines which hull hardpoints can mount this tool, aligning with the "Slots" defined in `7.3-GDD-Assets-Ship-Chassis.md`.
 
 ---
 
@@ -2202,8 +2172,8 @@ For the TTRPG, tools grant new `Action Check` options or provide modifiers to ex
 
 | Asset Type | Asset Difficulty (Skill) | `WP` Cost (Est.) | Special Rule |
 | :--- | :--- | :--- | :--- |
-| Rotary Drill | **+2** (Tech/Pilot) | Medium | Grants the **"Breach Hull"** `Action Check` in melee. On a `Success` (10+), deals direct Hull damage. |
-| Reinforced Prow | **+1** (Piloting) | Low | Grants the **"Ram"** `Act Risky` option. On a `Success` (10+), deals significant damage; on a `Failure` (<10), you also take damage. |
+| Rotary Drill | **+2** (Tech/Pilot) | Medium | Grants the **"Breach Hull"** `Action Check` in close-quarters. On a `Success` (10+), deals direct Hull damage. |
+| Reinforced Prow | **+1** (Piloting) | Low | Grants the **"Bulldoze / Pin"** `Act Risky` option. On a `Success` (10+), deals damage and pins the target; on a `Failure` (<10), you also take damage or lose position. |
 | Ablative Laser | **+1** (Tech) | High | Requires 1 `Power Slot`. Can be used to `Act Cautiously` to add a **"Ship Quirk"** to a target instead of dealing damage. |
 | Seismic Charge Launcher | **+1** (Tech) | Low (Consumable) | Firing consumes `1 WP` (or a "Seismic Charge" item). Has a high chance to add a **"Ship Quirk"**. |
 | Harpoon & Winch | **+1** (Piloting) | Medium | Grants the **"Grapple Target"** `Action Check`. On a `Success` (10+), the target cannot flee. A key tool for "Tower" hulls. |
@@ -2211,28 +2181,28 @@ For the TTRPG, tools grant new `Action Check` options or provide modifiers to ex
 
 ### Analogue Rules
 
-* **Asset Difficulty:** This modifier applies to any `Action Check` made *using* that specific tool (e.g., a "Piloting" check to ram, a "Tech" check to operate the laser).
+* **Asset Difficulty:** This modifier applies to any `Action Check` made *using* that specific tool (e.g., a "Piloting" check to pin, a "Tech" check to operate the laser).
 * **Special Rule:** Defines the tool's unique mechanical function within the TTRPG's abstract systems.
 
 --- Start of ./7-GDD-Assets-Style.md ---
 
 # GDTLancer - General Asset & Style Guide
 
-**Version:** 1.0
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.6), 7.1-GDD-Assets-Ship-Design.md (v1.4)
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 6.1-GDD-Lore-Background.md (v1.7), 7.1-GDD-Assets-Ship-Design.md (v1.4)
 
 ## 1. Overview & Core Philosophy
 
 This document defines the overarching artistic, audio, and user interface style for all assets in GDTLancer. The goal is to create a cohesive and distinct identity that reinforces the game's core themes of pragmatism, function-first design, and a unique "Neo-Retro" aesthetic.
 
 * **Neo-Retro 3D:** The primary visual style is inspired by the limitations and aesthetics of early 3D graphics (mid-to-late 1990s), but executed with modern rendering techniques like dynamic lighting and shaders. This is not a pixel-perfect retro emulation, but an interpretation of that style.
-* **Pragmatic Aesthetics:** Form always follows function. Every element in the game world, from a ship's hull to a UI button, should look like it was designed for a purpose, not for decoration. This reflects the utilitarian culture of Opulence.
+* **Pragmatic Aesthetics:** Form always follows function. Every element in the game world, from a ship's hull to a UI button, should look like it was designed for a purpose, not for decoration. This reflects the utilitarian culture of the sector.
 
 ## 2. Visual Style
 
 ### 2.1. 3D Models & Texturing
-* **Geometry:** Models must be low-poly with clean, hard edges. Beveling should be used sparingly to catch light, but complex, smooth curves and subdivision surfaces are to be avoided. The silhouette should be clear and readable.
+* **Geometry:** Models must be medium-low-poly with clean, hard edges. Beveling should be used sparingly to catch light, but complex, smooth curves and subdivision surfaces are to be avoided. The silhouette should be clear and readable.
 * **Texturing:** Photorealistic textures are forbidden. Surfaces should primarily use flat colors, simple gradients, or subtle, procedurally generated noise patterns. Textures should define material type (e.g., matte metal, rubberized composite) rather than intricate surface detail.
 * **Wear and Tear:** Details like scratches, weld lines, and patch repairs should be added as simple decals or vertex color variations, not complex, high-resolution texture maps. The goal is to suggest a history of use, not to simulate realistic decay.
 
@@ -2288,9 +2258,9 @@ This project is licensed under the [GNU General Public License v3.0 (GPLv3)](htt
 
 # GDTLancer AI Collaboration Priming Prompt
 
-**Version:** 1.2
-**Date:** August 4, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 3-GDD-Architecture-Coding.md (v1.4)
+**Version:** 1.3
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 3-GDD-Architecture-Coding.md (v1.8)
 
 ## 1. Purpose
 
@@ -2317,8 +2287,10 @@ Shortly, I will upload several text files containing the project's context. Thes
 * A text dump of the current project file/directory structure (`.PROJECT_DUMP_TEXT_ENHANCED_TREE.txt`).
 * Text dumps of the existing GDScript code (`.PROJECT_DUMP_TEXT_GD.txt`), resource files (`.PROJECT_DUMP_TEXT_TRES.txt`), and scene structures (`.PROJECT_DUMP_TEXT_TSCN.txt`).
 
-**Critical Note on Source of Truth:** The text dumps of the project files (`.PROJECT_DUMP_...`) are your **primary source of truth**. You must always prioritize them to understand the current state of the project. Refer to the GDDs *only when we need to implement new features or for high-level planning*. The GDDs may contain contradictions or outdated information; always default to the project files and prioritize sound project structure, logic, and data organization.
-**Respect Coding Standards & Architecture Guide** and refer to it every time we need to generate code.
+**Critical Note on Source of Truth:** The text dumps of the project files (`.PROJECT_DUMP_...`) are your **primary source of truth**. You must always prioritize them to understand the current state of the project.
+* Refer to the GDDs *only when we need to implement new features or for high-level planning*.
+* The GDDs may contain contradictions or outdated information; always default to the project files and prioritize sound project structure, logic, and data organization.
+* You must **always** refer to and respect the `3-GDD-Architecture-Coding.md` file for all coding standards and architectural patterns.
 
 ### 2.3. Our Collaboration Paradigm & Roles
 
@@ -2327,7 +2299,7 @@ We will work together in a specific way:
 * **Your Role (Gemini):** You are my implementation assistant. Your primary responsibilities are:
     * Suggesting concrete implementation approaches and code structures.
     * Drafting initial versions of GDScript functions, classes, or entire system scripts based on my goals.
-    * **Adhering strictly to the project's established architecture.** This includes coding standards, modularity, data-logic separation (as seen in the project files), and using established patterns (e.g., Autoloads, Resources). Avoid creating redundant code or duplicating existing functionality.
+    * **Adhering strictly to the project's established architecture.** This includes coding standards, modularity, and especially the project's core data-logic separation pattern: **stateless systems** (nodes in `core/systems/`) that provide APIs to modify the central **`GameState` autoload**. Use established patterns (e.g., `EventBus`, `GlobalRefs`, Resources) and avoid creating redundant code or duplicating existing functionality.
     * Explaining drafted code and suggesting refinements.
     * Helping identify potential issues or inconsistencies.
 
@@ -2341,7 +2313,7 @@ Our workflow will be iterative:
 
 **Key Architectural Constraints:**
 * **File and Naming Conventions:** You must adhere to the existing folder structure, file naming conventions, and code formatting found in the project text dumps.
-* **`EventBus` vs. `EventSystem`:** Do not alter `EventBus.gd`. It is for managing engine-level signals and is managed manually. For in-game events (e.g., ambush, world tick), we will use the `event_system.gd` script, which acts as a narrative oracle.
+* **`EventBus` vs. `EventSystem`:** Do not alter `EventBus.gd` (in `autoload/`). It is for managing engine-level signals and is managed manually. For in-game events (e.g., ambush, world tick), we will use the `event_system.gd` script (in `core/systems/`), which acts as a narrative oracle.
 * **No Canvas Feature:** Do not use the Canvas feature for our collaboration. All discussion and code drafting will occur in the main chat.
 
 ---
@@ -2372,62 +2344,62 @@ This documentation is organized into several key areas:
 ### 0. Core Vision & Introduction
 
 * [**0.0-GDD-Internal-Rules-Conventions.md**](./0.0-GDD-Internal-Rules-Conventions.md): Defines the structure, numeration, and standard page format for the GDD. (New: v1.0, 2025-10-26)
-* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.8, 2025-08-01)
-* [**0.2-GDD-Main-Sayings.md**](./0.2-GDD-Main-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (Reviewed: v1.4, 2025-08-01)
+* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.9, 2025-10-31)
+* [**0.2-GDD-Main-Sayings.md**](./0.2-GDD-Main-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (Reviewed: v1.5, 2025-10-31)
 
 ### 1. Core Systems & Mechanics
 
-* [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)**, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.5, 2025-08-01)
-* [**1.1-GDD-Core-Systems.md**](./1.1-GDD-Core-Systems.md): Defines the cross-cutting gameplay systems required for Phase 1, including the `Core Mechanics API`, `Event System`, `Time System`, `Character System`, `Inventory System`, and `Asset System`. (Reviewed: v1.2, 2025-08-01)
-* [**1.2-GDD-Core-Cellular-Automata.md**](./1.2-GDD-Core-Cellular-Automata.md): Outlines the philosophy and catalogue of Cellular Automata implementations used to drive the living world and emergent narrative systems. (Reviewed: v1.1, 2025-08-01)
+* [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)**, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.6, 2025-10-31)
+* [**1.1-GDD-Core-Systems.md**](./1.1-GDD-Core-Systems.md): Defines the cross-cutting gameplay systems required for Phase 1, including the `Event System`, `Time System`, `Character System`, `Inventory System`, and `Asset System`, and their relation to `GameState.gd`. (Reviewed: v1.5, 2025-10-31)
+* [**1.2-GDD-Core-Cellular-Automata.md**](./1.2-GDD-Core-Cellular-Automata.md): Outlines the philosophy and catalogue of Cellular Automata implementations used to drive the living world and emergent narrative systems. (Reviewed: v1.2, 2025-10-31)
 
 ### 2. Development Planning
 
-* [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.3, 2025-08-01)
-* [**2.1-GDD-Development-Phase1-Scope.md**](./2.1-GDD-Development-Phase1-Scope.md): The master document for the Phase 1 "First Contract" demo, defining the core player experience, included components, content requirements, and development milestones. (Reviewed: v1.1, 2025-08-01)
+* [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.4, 2025-10-31)
+* [**2.1-GDD-Development-Phase1-Scope.md**](./2.1-GDD-Development-Phase1-Scope.md): The master document for the Phase 1 "First Contract" demo, defining the core player experience, included components, content requirements, and development milestones. (Reviewed: v1.3, 2025-10-31)
 
 ### 3. Development Architecture
 
-* [**3-GDD-Architecture-Coding.md**](./3-GDD-Architecture-Coding.md): Outlines the coding style conventions, architectural patterns, and development philosophy for the Godot implementation. (Reviewed: v1.4, 2025-08-01)
+* [**3-GDD-Architecture-Coding.md**](./3-GDD-Architecture-Coding.md): Outlines the coding style conventions, architectural patterns (including the stateless `GameState` model), and development philosophy for the Godot implementation. (Reviewed: v1.8, 2025-10-31)
 
 ### 4. Analogue Version
 
-* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.3, 2025-08-01)
-* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.2, 2025-08-01)
-* [**4.3-GDD-Analogue-Phase1-Scope.md**](./4.3-GDD-Analogue-Phase1-Scope.md): The master document for the Phase 1 Analogue "Quickstart PDF", defining its vision, required components, and development milestones. (Reviewed: v1.2, 2025-08-01)
+* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.4, 2025-10-31)
+* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.3, 2025-10-31)
+* [**4.3-GDD-Analogue-Phase1-Scope.md**](./4.3-GDD-Analogue-Phase1-Scope.md): The master document for the Phase 1 Analogue "Quickstart PDF", defining its vision, required components, and development milestones. (Reviewed: v1.3, 2025-10-31)
 
 ### 5. Gameplay Modules
 
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.8, 2025-10-25)
-* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`, adhering to the Lancer Doctrine. (Reviewed: v1.6, 2025-10-25)
-* [**5.3-GDD-Module-Trading.md**](./5.3-GDD-Module-Trading.md): Details the mechanics for the economic loop, including the `Trade Interface` and trading-related `Narrative Actions`. (Reviewed: v1.2, 2025-08-01)
+* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.9, 2025-10-31)
+* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`, adhering to the Preservation Convention. (Reviewed: v1.7, 2025-10-31)
+* [**5.3-GDD-Module-Trading.md**](./5.3-GDD-Module-Trading.md): Details the mechanics for the economic loop, including the `Trade Interface` and trading-related `Narrative Actions`. (Reviewed: v1.3, 2025-10-31)
 
 ### 6. Lore & Player Experience
 
-* [**6-GDD-Lore-Narrative-Borders.md**](./6-GDD-Lore-Narrative-Borders.md): Defines the thematic and narrative constraints that guide the game's simulation to ensure lore-adherence. (Reviewed: v1.1, 2025-08-01)
-* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational lore, history of humanity's journey, "The Pillar," the "Opulence" system, and core cultural traits. (Reviewed: v1.6, 2025-08-01)
-* [**6.2-GDD-Lore-Player-Onboarding.md**](./6.2-GDD-Lore-Player-Onboarding.md): Details the "First Contract" tutorial scenario for introducing players to core mechanics and the setting. (Reviewed: v1.2, 2025-08-01)
+* [**6-GDD-Lore-Narrative-Borders.md**](./6-GDD-Lore-Narrative-Borders.md): Defines the thematic and narrative constraints that guide the game's simulation to ensure setting-adherence. (Reviewed: v1.2, 2025-10-31)
+* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational setting premise (early colonists), pragmatic culture, Preservation Convention, and core technology. (Reviewed: v1.7, 2025-10-31)
+* [**6.2-GDD-Lore-Player-Onboarding.md**](./6.2-GDD-Lore-Player-Onboarding.md): Details the "First Contract" tutorial scenario for introducing players to core mechanics and the setting. (Reviewed: v1.3, 2025-10-31)
 
 ### 7. Assets and Style
 
-* [**7-GDD-Assets-Style.md**](./7-GDD-Assets-Style.md): Defines the core "Neo-Retro 3D" style for all game assets, including models, environments, UI, and audio. (New: v1.0, 2025-08-01)
-* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles and technology palette for ships. (Reviewed: v2.2, 2025-10-25)
-* [**7.2-GDD-Assets-Ship-Engines.md**](./7.2-GDD-Assets-Ship-Engines.md): Details the specific configurations, stats, and lore for ship engines. (Reviewed: v1.3, 2025-10-25)
-* [**7.3-GDD-Assets-Ship-Chassis.md**](./7.3-GDD-Assets-Ship-Chassis.md): Details the specific configurations, stats, and lore for ship hulls/chassis. (Reviewed: v1.1, 2025-10-25)
-* [**7.4-GDD-Assets-Power-Plants.md**](./7.4-GDD-Assets-Power-Plants.md): Details ship power generation assets. (New: v1.0, 2025-10-25)
-* [**7.5-GDD-Assets-Cooling-Systems.md**](./7.5-GDD-Assets-Cooling-Systems.md): Details ship heat management assets. (New: v1.0, 2025-10-26)
-* [**7.6-GDD-Assets-Life-Support.md**](./7.6-GDD-Assets-Life-Support.md): Details pilot life support and G-Stasis assets. (New: v1.0, 2025-10-26)
-* [**7.7-GDD-Assets-Radiation-Protection.md**](./7.7-GDD-Assets-Radiation-Protection.md): Details hull radiation shielding levels. (New: v1.0, 2025-10-26)
-* [**7.8-GDD-Assets-Turbomachinery.md**](./7.8-GDD-Assets-Turbomachinery.md): Details propellant and coolant pump assets. (New: v1.0, 2025-10-26)
-* [**7.9-GDD-Assets-Utility-Tools.md**](./7.9-GDD-Assets-Utility-Tools.md): Details external hardpoint tools for industry and combat. (Reviewed: v1.1, 2025-10-25)
-* [**7.10-GDD-Assets-Energy-Storage.md**](./7.10-GDD-Assets-Energy-Storage.md): Details battery and capacitor assets. (New: v1.0, 2025-10-26)
-* [**7.11-GDD-Assets-Propellant-Storage.md**](./7.11-GDD-Assets-Propellant-Storage.md): Details liquid/cryogenic propellant tank assets. (New: v1.0, 2025-10-25)
+* [**7-GDD-Assets-Style.md**](./7-GDD-Assets-Style.md): Defines the core "Neo-Retro 3D" style for all game assets, including models, environments, UI, and audio. (Reviewed: v1.1, 2025-10-31)
+* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles and technology palette for ships. (Reviewed: v2.3, 2025-10-31)
+* [**7.2-GDD-Assets-Ship-Engines.md**](./7.2-GDD-Assets-Ship-Engines.md): Details the specific configurations, stats, and lore for ship engines. (Reviewed: v1.4, 2025-10-31)
+* [**7.3-GDD-Assets-Ship-Chassis.md**](./7.3-GDD-Assets-Ship-Chassis.md): Details the specific configurations, stats, and lore for ship hulls/chassis. (Reviewed: v1.2, 2025-10-31)
+* [**7.4-GDD-Assets-Power-Plants.md**](./7.4-GDD-Assets-Power-Plants.md): Details ship power generation assets. (Reviewed: v1.1, 2025-10-31)
+* [**7.5-GDD-Assets-Cooling-Systems.md**](./7.5-GDD-Assets-Cooling-Systems.md): Details ship heat management assets. (Reviewed: v1.1, 2025-10-31)
+* [**7.6-GDD-Assets-Life-Support.md**](./7.6-GDD-Assets-Life-Support.md): Details pilot life support and G-Stasis assets. (Reviewed: v1.1, 2025-10-31)
+* [**7.7-GDD-Assets-Radiation-Protection.md**](./7.7-GDD-Assets-Radiation-Protection.md): Details hull radiation shielding levels. (Reviewed: v1.1, 2025-10-31)
+* [**7.8-GDD-Assets-Turbomachinery.md**](./7.8-GDD-Assets-Turbomachinery.md): Details propellant and coolant pump assets. (Reviewed: v1.1, 2025-10-31)
+* [**7.9-GDD-Assets-Utility-Tools.md**](./7.9-GDD-Assets-Utility-Tools.md): Details external hardpoint tools for industry and combat. (Reviewed: v1.2, 2025-10-31)
+* [**7.10-GDD-Assets-Energy-Storage.md**](./7.10-GDD-Assets-Energy-Storage.md): Details battery and capacitor assets. (Reviewed: v1.1, 2025-10-31)
+* [**7.11-GDD-Assets-Propellant-Storage.md**](./7.11-GDD-Assets-Propellant-Storage.md): Details liquid/cryogenic propellant tank assets. (Reviewed: v1.1, 2025-10-31)
 
 ### Meta & Legal
 
 * [**LICENSE**](./LICENSE): Contains the licensing information for this documentation project.
 * [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md): Details regarding the use of AI assistance during the generation and refinement of this documentation.
-* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant. (Reviewed: v1.1, 2025-08-01)
+* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant. (Reviewed: v1.3, 2025-10-31)
 
 ## All pages in a single file
 
