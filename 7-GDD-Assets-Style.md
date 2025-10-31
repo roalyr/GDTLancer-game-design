@@ -1,20 +1,20 @@
 # GDTLancer - General Asset & Style Guide
 
-**Version:** 1.0
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8), 6.1-GDD-Lore-Background.md (v1.6), 7.1-GDD-Assets-Ship-Design.md (v1.4)
+**Version:** 1.1
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9), 6.1-GDD-Lore-Background.md (v1.7), 7.1-GDD-Assets-Ship-Design.md (v1.4)
 
 ## 1. Overview & Core Philosophy
 
 This document defines the overarching artistic, audio, and user interface style for all assets in GDTLancer. The goal is to create a cohesive and distinct identity that reinforces the game's core themes of pragmatism, function-first design, and a unique "Neo-Retro" aesthetic.
 
 * **Neo-Retro 3D:** The primary visual style is inspired by the limitations and aesthetics of early 3D graphics (mid-to-late 1990s), but executed with modern rendering techniques like dynamic lighting and shaders. This is not a pixel-perfect retro emulation, but an interpretation of that style.
-* **Pragmatic Aesthetics:** Form always follows function. Every element in the game world, from a ship's hull to a UI button, should look like it was designed for a purpose, not for decoration. This reflects the utilitarian culture of Opulence.
+* **Pragmatic Aesthetics:** Form always follows function. Every element in the game world, from a ship's hull to a UI button, should look like it was designed for a purpose, not for decoration. This reflects the utilitarian culture of the sector.
 
 ## 2. Visual Style
 
 ### 2.1. 3D Models & Texturing
-* **Geometry:** Models must be low-poly with clean, hard edges. Beveling should be used sparingly to catch light, but complex, smooth curves and subdivision surfaces are to be avoided. The silhouette should be clear and readable.
+* **Geometry:** Models must be medium-low-poly with clean, hard edges. Beveling should be used sparingly to catch light, but complex, smooth curves and subdivision surfaces are to be avoided. The silhouette should be clear and readable.
 * **Texturing:** Photorealistic textures are forbidden. Surfaces should primarily use flat colors, simple gradients, or subtle, procedurally generated noise patterns. Textures should define material type (e.g., matte metal, rubberized composite) rather than intricate surface detail.
 * **Wear and Tear:** Details like scratches, weld lines, and patch repairs should be added as simple decals or vertex color variations, not complex, high-resolution texture maps. The goal is to suggest a history of use, not to simulate realistic decay.
 

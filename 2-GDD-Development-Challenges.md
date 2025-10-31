@@ -1,8 +1,8 @@
 # GDTLancer - Development Challenges
 
-**Version:** 1.3
-**Date:** August 1, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.8)
+**Version:** 1.4
+**Date:** October 31, 2025
+**Related Documents:** 0.1-GDD-Main.md (v1.9)
 
 ## 1. Overview
 
@@ -23,7 +23,7 @@ The game needs to let players feel impactful without allowing them to easily bre
 
 * **Mitigation Strategies:**
     * **Abstracted Resources:** Using abstract systems like Wealth Points (WP) and Time Units (TU) provides a layer of economic balancing.
-    * **Soft Gates:** Guide players with narrative and economic challenges (e.g., needing a specific ship part for Asset Progression, high upkeep costs) rather than restrictive invisible walls.
+    * **Soft Gates:** Guide players with narrative and economic challenges (e..g., needing a specific ship part for Asset Progression, high upkeep costs) rather than restrictive invisible walls.
 
 ## 3. Mechanical Challenges
 
