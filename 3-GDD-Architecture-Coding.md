@@ -1,8 +1,8 @@
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.8
-**Date:** October 31, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.9)
+**Version:** 1.9
+**Date:** January 26, 2026
+**Related Documents:** 0.1-GDD-Main.md (v2.0)
 
 ## 1. Purpose
 
@@ -23,7 +23,7 @@ This document outlines the agreed-upon coding style conventions and core archite
     * **Gameplay Layers (Vertical):** Functional implementations across modules (Simulation, Narrative, etc.).
     * **Gameplay Systems (Depth):** Cross-cutting rulesets managing specific domains (Events, Goals, Assets, etc.).
     * **Refactor for Clarity:** Proactively refactor large scripts that handle multiple responsibilities. Aim to split scripts when they significantly exceed approximately **300 lines** of code, breaking them down into smaller, focused components.
-* **Simulation Foundation + Narrative Layer:** Build core gameplay around simulation within modules. Layer narrative mechanics (Action Checks, Focus, Events, Goals) on top to handle uncertainty, abstraction, and story progression.
+* **Simulation Foundation + Narrative Layer:** Build core gameplay around simulation within modules. Layer narrative mechanics (Action Checks, Events, Goals) on top to handle uncertainty, abstraction, and story progression. Note: Focus Points (FP) are Analogue-only; see `0.1-GDD-Main.md` Section 7 for platform mechanics divergence.
 * **Player Agency:** Empower players with choices regarding risk vs. reward, engagement level, and resource management.
 * **Reusability:** Design core components to be reusable across different contexts. Leverage Godot's scene instancing and Resource system.
 * **Decoupling:** Minimize hard dependencies between different systems and modules. Utilize the global `EventBus` for signaling events and state changes. Use `GlobalRefs` only for accessing essential, unique managers or nodes.
@@ -55,6 +55,7 @@ This document outlines the agreed-upon coding style conventions and core archite
     * `TemplateDatabase`: Caches all loaded `.tres` templates on startup.
 * **Component Pattern:** Use child Nodes with attached scripts to encapsulate distinct functionalities (e.g., `MovementSystem`, `NavigationSystem`).
 * **Resource Templates (`.tres`):** Use custom `Resource` scripts (`extends Resource`, `class_name`) to define data structures (e.g., `AgentTemplate`). Initialize objects using these loaded Resource objects.
+    * **Action Templates:** `action_*.tres` files include a `stakes` property (`HIGH_STAKES`, `NARRATIVE`, `MUNDANE`) that determines UI behavior and approach prompting in Digital. See `0.1-GDD-Main.md` Section 7.1.
 * **Scene Instancing:** Leverage Godot's scene instancing for creating Agents, loading Zones, and assembling UI.
 * **Initialization:** Prefer initializing node properties via an `initialize(config)` method called *after* the node is added to the tree.
 
@@ -94,6 +95,7 @@ This section defines the project's core data flow, which is based on **stateless
 * **Systems are Stateless APIs:** Core systems (e.g., `CharacterSystem`, `InventorySystem`, `TimeSystem`) are `Node` scripts located in `core/systems/` and parented under `WorldManager`. They are **stateless**. They do not hold their own data.
 * **Systems Provide Logic:** A system's job is to provide a clean, logical API (a set of functions) that reads from and writes to the `GameState`.
     * **Example:** `CharacterSystem.add_wp(uid, amount)` is a function that retrieves the correct character from `GameState.characters`, modifies its `wealth_points` property, and (if it's the player) emits a signal on the `EventBus`. The `CharacterSystem` itself does not store the `wealth_points`.
+    * **Note:** FP-related functions (`add_fp`, `subtract_fp`, `get_fp`) exist for Analogue support but may be stubbed or removed in Digital builds.
 * **Event-Driven Communication:** Systems should react to game events by listening to signals on the `EventBus` (e.g., `_on_world_event_tick`). They announce significant state changes by emitting signals on the `EventBus` (e.g., `player_wp_changed`).
 
 ### 8.2. System Script Checklist (Stateless)

@@ -1,8 +1,8 @@
 # GDTLancer - Narrative Borders of the Simulation
 
-**Version:** 1.2
-**Date:** October 31, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.9), 6.1-GDD-Lore-Background.md (v1.7)
+**Version:** 1.3
+**Date:** January 26, 2026
+**Related Documents:** 0.1-GDD-Main.md (v2.0), 6.1-GDD-Lore-Background.md
 
 ## 1. Purpose & Philosophy
 
@@ -18,7 +18,7 @@ These principles must be applied to the design of all game systems, from agent A
 
 * **Lore Justification:** The culture of the sector's colonists was forged by the scarcity of complex materials and skilled personnel. Every ship is a significant investment, and every skilled pilot is a nearly irreplaceable resource. This led to the creation of the **Preservation Convention**, which prizes neutralization and capture over outright destruction.
 * **Mechanical Implementation:**
-    * **High Cost of Destruction:** Systems must be designed so that the total destruction of a ship is the least profitable and most consequence-heavy outcome of combat. It should result in minimal WP gain, significant Reputation loss, and potential negative Faction Standing changes.
+    * **High Cost of Destruction:** Systems must be designed so that the total destruction of a ship is the least profitable and most consequence-heavy outcome of combat. It should result in minimal currency gain, significant Reputation loss, and potential negative Faction Standing changes.
     * **Rewarding Disablement:** Conversely, disabling a ship to allow for salvage (`Claim Wreckage`) or compelling a surrender must always be the most mechanically and narratively rewarding path.
     * **NPC Behavior:** The logic for NPC agents must reflect this. Most NPCs will default to disabling tactics. Only specific, defined groups (e.g., fanatical outlaws, sociopaths) would ever favor wanton destruction, making them feel truly alien to the setting's culture.
 

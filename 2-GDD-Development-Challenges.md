@@ -1,8 +1,8 @@
 # GDTLancer - Development Challenges
 
-**Version:** 1.4
-**Date:** October 31, 2025
-**Related Documents:** 0.1-GDD-Main.md (v1.9)
+**Version:** 1.5
+**Date:** January 26, 2026
+**Related Documents:** 0.1-GDD-Main.md (v2.0)
 
 ## 1. Overview
 
@@ -28,11 +28,12 @@ The game needs to let players feel impactful without allowing them to easily bre
 ## 3. Mechanical Challenges
 
 ### Challenge: Meaningful Risky/Cautious Outcomes
-The `Act Risky` / `Act Cautiously` mechanic needs many unique and interesting outcomes to be effective. This is a large content creation task.
+The `Act Risky` / `Act Cautiously` mechanic needs many unique and interesting outcomes to be effective. This is a large content creation task. In Digital, this is mitigated by limiting approach choice to High-Stakes actions only (see `0.1-GDD-Main.md` Section 7.1); in Analogue, every action requires this choice.
 
 * **Mitigation Strategies:**
     * **Systemic Outcomes:** Focus on outcomes that affect game systems (e.g., damaging a component and adding a Ship Quirk, gaining a contact, alerting a faction) instead of just static text results.
     * **Templated Outcomes:** Create templates for outcomes that can be easily adapted to different situations.
+    * **Digital: Action Stakes:** Reduce content burden by only requiring distinct Risky/Cautious outcomes for High-Stakes actions.
 
 ## 4. Technical Challenges
 
@@ -48,4 +49,5 @@ Keeping the PC, mobile, and tabletop versions consistent requires significant de
 
 * **Mitigation Strategies:**
     * **Single Source of Truth:** The GDDs will serve as the master design source for all versions of the game.
-    * **Focus on the Core Experience:** Each version should capture the core gameplay loop and feel, even if specific features differ. The mobile version will naturally be the most simplified.
+    * **Thematic, Not Mechanical Parity:** Transmedia design means shared lore, narrative, and core experience—not identical mechanics. Each platform uses mechanics suited to its medium (see `0.1-GDD-Main.md` Section 7).
+    * **Platform-Specific Abstractions:** Digital uses real-time and Credits; Analogue uses TU, WP, and FP. The mobile version will be the most simplified.
