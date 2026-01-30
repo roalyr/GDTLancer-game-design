@@ -1,8 +1,8 @@
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 1.9
-**Date:** January 26, 2026
-**Related Documents:** 0.1-GDD-Main.md (v2.0)
+**Version:** 2.0
+**Date:** January 30, 2026
+**Related Documents:** 0.1-GDD-Main.md (v2.1)
 
 ## 1. Purpose
 
@@ -56,6 +56,56 @@ This document outlines the agreed-upon coding style conventions and core archite
 * **Component Pattern:** Use child Nodes with attached scripts to encapsulate distinct functionalities (e.g., `MovementSystem`, `NavigationSystem`).
 * **Resource Templates (`.tres`):** Use custom `Resource` scripts (`extends Resource`, `class_name`) to define data structures (e.g., `AgentTemplate`). Initialize objects using these loaded Resource objects.
     * **Action Templates:** `action_*.tres` files include a `stakes` property (`HIGH_STAKES`, `NARRATIVE`, `MUNDANE`) that determines UI behavior and approach prompting in Digital. See `0.1-GDD-Main.md` Section 7.1.
+
+### 5.1. Core Template Property Definitions
+
+#### CharacterTemplate Properties
+
+The `CharacterTemplate` resource includes personality and narrative properties to support Persistent Agent behavior:
+
+```
+CharacterTemplate Properties:
+├── Core Identity
+│   ├── character_name: String
+│   ├── description: String (lore/bio text)
+│   ├── faction_id: String
+│   └── character_icon_id: String
+├── Resources
+│   ├── credits: int
+│   ├── focus_points: int (Analogue only)
+│   └── active_ship_uid: int
+├── Skills
+│   ├── piloting: int
+│   ├── combat: int
+│   └── trading: int
+├── Personality
+│   ├── personality_traits: Dictionary
+│   │   ├── risk_tolerance: float (0.0-1.0)
+│   │   ├── greed: float (0.0-1.0)
+│   │   ├── loyalty: float (0.0-1.0)
+│   │   └── aggression: float (0.0-1.0)
+│   └── goals: Array (for Goal System integration)
+└── Standing
+    ├── reputation: int
+    ├── faction_standings: Dictionary
+    └── character_standings: Dictionary
+```
+
+#### AgentTemplate Properties
+
+The `AgentTemplate` resource includes persistence properties for managing Persistent vs Temporary agents:
+
+```
+AgentTemplate Properties:
+├── agent_type: String ("player", "npc", "hostile")
+├── agent_uid: int (assigned dynamically)
+├── Persistence
+│   ├── is_persistent: bool
+│   ├── home_location_id: String
+│   ├── character_template_id: String
+│   └── respawn_timeout_seconds: float
+```
+
 * **Scene Instancing:** Leverage Godot's scene instancing for creating Agents, loading Zones, and assembling UI.
 * **Initialization:** Prefer initializing node properties via an `initialize(config)` method called *after* the node is added to the tree.
 
