@@ -1,33 +1,44 @@
 # GDTLancer - Core Mechanics
 
-**Version:** 2.0
-**Date:** January 26, 2026
-**Related Documents:** 0.1-GDD-Main.md (v2.0)
+**Version:** 5.0
+**Date:** February 13, 2026
+**Related Documents:** `0.1-GDD-Main.md` (v4.0), `8-GDD-Simulation-Architecture.md`
 
 ## 1. Purpose
 
-This document defines the game's core rules for resolving actions and managing key resources. These mechanics are used across all gameplay modules.
+Defines the universal rules for resolving actions and managing core resources. Used across all gameplay modules.
 
-## 2. Action Check
+## 2. Action Categories
 
-Used for any action where the outcome is uncertain.
+Player actions fall into two distinct categories:
+
+### 2.1. Skill Actions (Real-Time)
+
+Actions resolved by real-time player performance. The outcome is authoritative — no dice roll overrides it.
+
+* **Examples:** Ship combat, flight challenges, manual docking.
+* **Outcome:** Determined entirely by player skill and ship stats during the real-time gameplay segment.
+
+### 2.2. Narrative Actions (Dice-Resolved)
+
+Actions resolved by the Action Check mechanic. Used for social, economic, and situational decisions where the outcome depends on character capability rather than player reflexes.
+
+* **Examples:** Negotiations, trade deals, information gathering, post-event assessments.
+* **Outcome:** `3d6 + Module Modifier` against thresholds.
+* **Presentation:** Implicit (auto-resolved, result shown as toast/log) or Explicit (full dice UI with Approach choice), depending on Action Stakes.
+
+### 2.3. Special Followup Triggers
+
+A Skill Action may trigger a Narrative Action *only* when a significant followup decision presents itself — e.g., deciding what to do with wreckage after a combat victory. The Skill Action outcome stands; the Narrative Action resolves the *consequence choice*, not the skill performance.
+
+## 3. Action Check
+
+Used for Narrative Actions with an uncertain outcome.
 
 * **Core Mechanic:** `3d6 + Module Modifier`
-* **Module Modifier:** `Relevant Skill + Asset Modifier +/- Situational Modifiers`
-* **Thresholds (Neutral):** The roll's total determines the quality of the outcome.
-    * **Critical Success (15+):** The action succeeds exceptionally well, providing a bonus.
-    * **Success with Complication (11-14):** The action succeeds as intended, possibly with a minor complication.
-    * **Failure (<11):** The action fails, often with a complication.
-* **Note:** Thresholds vary by Action Approach. See Section 3.
+* **Module Modifier:** `Relevant Skill + Equipment Modifier +/- Situational Modifiers`
 
-## 3. Action Approach
-
-A choice the player makes *before* rolling to influence the nature of the outcome.
-
-* **Act Cautiously:** Prioritizes safety. A failure is less severe (e.g., lost time instead of damage), but a success offers no special bonus.
-* **Act Risky:** Aims for a greater reward. A success is more effective or profitable, but a failure is more severe (e.g., critical damage instead of minor trouble).
-
-### 3.1. Approach Thresholds
+### 3.1. Thresholds
 
 | Approach | Success With Complication | Critical Success |
 |----------|---------------------------|------------------|
@@ -35,36 +46,67 @@ A choice the player makes *before* rolling to influence the nature of the outcom
 | Neutral | ≥11 | ≥15 |
 | Risky | ≥12 | ≥16 |
 
-### 3.2. Platform Differences
+**Failure:** Any roll below the Success threshold.
 
-* **Analogue:** Player always chooses Risky or Cautious before every Action Check.
-* **Digital:** Approach choice is only prompted for **High-Stakes** actions. Narrative and Mundane actions use **Neutral** thresholds automatically. See `0.1-GDD-Main.md` Section 7 for Action Stakes classification.
+## 4. Action Approach
 
-## 4. Core Resources
+A choice made *before* rolling that shifts the risk/reward curve. Only offered for **High-Stakes** Narrative Actions.
 
-These are the primary abstract resources players manage throughout the game.
+* **Act Cautiously:** Failure is less severe; success offers no bonus.
+* **Act Risky:** Success is more rewarding; failure is more severe.
 
-### 4.1. Focus Points (FP) — *Analogue Only*
+## 5. Action Stakes (Digital)
 
-* **What it is:** Represents an agent's mental energy, luck, or willpower.
-* **How it works:** Spend FP *before* an Action Check to add a +1 bonus to the roll per point spent.
-* **How to gain:** Earned by completing goals, roleplaying well, or through specific actions and outcomes.
-* **Digital Note:** FP is not used in the digital version. Dynamic gameplay and player skill/dexterity implicitly represent focus and engagement.
+Narrative Actions are classified by stakes tier (hardcoded in `action_*.tres` templates):
 
-### 4.2. Wealth Points (WP) / Credits
+| Stakes | UI | Approach Choice | Dice Display |
+|--------|-----|-----------------|--------------|
+| **High-Stakes** | Full modal | Yes (Risky/Cautious) | Animated roll |
+| **Narrative** | Brief toast | No (Neutral auto) | Quick toast |
+| **Mundane** | Log only | No (Neutral auto) | Hidden |
 
-* **What it is:** An abstract resource representing significant economic power. It is not granular cash, but a measure of major purchasing power.
-* **How it works:** Used to buy ships and modules, pay for major repairs, and cover the periodic Upkeep cost.
-* **How to gain:** Earned from completing jobs, selling valuable assets (salvage, data), and achieving major goals.
-* **Platform Differences:**
-    * **Analogue:** Uses abstract Wealth Points (WP).
-    * **Digital:** Uses **Credits** (more granular currency). Internally may use conversion factor (e.g., 1 WP ≈ 1000 Credits) for design consistency.
+## 6. Core Resources
 
-### 4.3. Time Units (TU) / Real-Time Clock
+### 6.1. Cash (Hard Currency)
 
-* **What it is:** A measure of time for significant actions like traveling, repairing, or undertaking a mission.
-* **How it works:** Spending time advances the **Time Clock**. When the clock fills, a **World Event Tick** occurs, advancing the world simulation.
-* **Significance:** Time is a critical resource. The world changes and evolves independently of the player. Spending time on one opportunity means others may be lost.
-* **Platform Differences:**
-    * **Analogue:** Uses abstract Time Units (TU). Actions have explicit TU costs. Time Clock is a physical track.
-    * **Digital:** Uses **real-time clock**. World Event Ticks occur at fixed real-time intervals (configurable, e.g., every 60 seconds of gameplay).
+* Physical commodity money — standardized refined metal units. There is no fiat currency (**Axiom 3**, `8-GDD` Section 1.3).
+* Total Cash in the universe is finite and materially grounded: the monetary mass equals the physical resource mass allocated as medium of exchange.
+* Used for inter-faction and universal trade: ships, equipment, repairs (which consume materials from station stockpiles), and services.
+* Earned from trade (buying/selling commodities), salvage (reclaiming disabled ships and their cargo), and goal completion rewards.
+* Cash can be physically carried (in cargo) or stored at stations. Cargo Cash is at risk during combat.
+
+### 6.2. Loyalty Points (LP)
+
+* Per-faction contribution credit. Earned by completing faction-aligned work (contracts, reputation milestones).
+* Spent at faction-specific services: discounted repairs, exclusive equipment, priority docking, faction intel.
+* Finite supply per faction per period — tracked by player contribution, not infinitely farmable.
+* **Phase 1:** LP is a stub counter. Displayed in Contact/Faction panels but with limited spending options.
+
+### 6.3. Time
+
+* Real-time clock. World Event Ticks fire at `Constants.TIME_TICK_INTERVAL_SECONDS`.
+* Time is a critical resource — the world evolves independently of the player.
+* Each tick triggers: Grid CA updates (including extraction from finite Resource Potential Map) → Bridge Systems (entropy, heat) → Agent processing → Chronicle capture.
+
+## 7. Failure & Recovery
+
+Loss is **substantial but not terminal** — part punishment, part opportunity.
+
+### 7.1. Ship Disabled (Hull → 0)
+
+* Ship is disabled, not destroyed (Preservation Convention).
+* The disabled ship persists in the sector as a **salvageable wreck** (`8-GDD` Section 3.7) containing its cargo and equipment.
+* Player is recovered to the nearest station. Recovery costs Cash (proportional to distance) or may be free if a Contact intervenes.
+* **Salvage:** Any agent (including the player, if they return) can attempt to claim or repair the wreck. If you can repair it, it's yours. Wrecks degrade over time via entropy — unclaimed wrecks eventually become debris, returning matter to the Resource Potential Map.
+* **Opportunity:** Recovery event may trigger unique Narrative Actions (rescued by a Contact, indebted to a faction, discovered something during drift).
+
+### 7.2. Resource Depletion
+
+* **Cash at 0:** Player can still fly and trade but cannot purchase services or equipment. NPCs may offer emergency work (low-pay, high-risk goals). Salvage is always available as a recovery path.
+* **Propellant at 0:** Ship is stranded. Distress beacon triggers a recovery event (see 7.1).
+
+### 7.3. True Game Over
+
+True game over requires a **convergence of multiple failures** — not a single bad roll or fight. The player must reach a state where recovery paths are exhausted (e.g., disabled with zero Cash, hostile standings with all factions, no Contacts willing to help). This is intentionally difficult to achieve.
+
+* **Phase 1:** True game over is not implemented. Player is always recoverable via mentor NPC or emergency bailout.

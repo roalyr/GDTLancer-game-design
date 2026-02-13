@@ -1,8 +1,8 @@
 # GDTLancer - General Asset & Style Guide
 
-**Version:** 1.2
-**Date:** January 26, 2026
-**Related Documents:** 0.1-GDD-Main.md (v2.0), 6.1-GDD-Lore-Background.md, 7.1-GDD-Assets-Ship-Design.md
+**Version:** 1.3
+**Date:** February 12, 2026
+**Related Documents:** `0.1-GDD-Main.md` (v3.0), `6.1-GDD-Lore-Background.md`, `7.1-GDD-Assets-Ship-Design.md`
 
 ## 1. Overview & Core Philosophy
 

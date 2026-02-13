@@ -1,202 +1,104 @@
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 2.0
-**Date:** January 30, 2026
-**Related Documents:** 0.1-GDD-Main.md (v2.1)
+**Version:** 3.0
+**Date:** February 12, 2026
+**Related Documents:** `0.1-GDD-Main.md` (v3.0), `8-GDD-Simulation-Architecture.md`
 
-## 1. Purpose
+## 1. Engine & Language
 
-This document outlines the agreed-upon coding style conventions and core architectural patterns for the Godot Engine (v3.x) implementation of GDTLancer. Adhering to these principles aims to improve code readability, maintainability, modularity, and reusability across the project's different platforms and development phases.
-
-## 2. Engine & Language
-
-* **Engine:** Godot Engine v3.x.
+* **Engine:** Godot Engine v3.x
 * **GUT version:** 7.4.3
-* **Renderer:** GLES2 backend (prioritizing performance and compatibility).
-* **Language:** GDScript (using static typing hints where beneficial for clarity).
+* **Renderer:** GLES2 (performance & compatibility)
+* **Language:** GDScript (static typing hints where beneficial)
 
-## 3. Core Philosophy
+## 2. Core Philosophy
 
-* **Keep It Simple (KISS):** Prefer simpler implementations where possible. Favor clarity over excessive abstraction if it doesn't provide significant benefit.
-* **Modularity:** Structure the project and code logically around distinct responsibilities using the established framework:
-    * **Gameplay Modules (Horizontal):** Self-contained activity loops (Piloting, Combat, etc.).
-    * **Gameplay Layers (Vertical):** Functional implementations across modules (Simulation, Narrative, etc.).
-    * **Gameplay Systems (Depth):** Cross-cutting rulesets managing specific domains (Events, Goals, Assets, etc.).
-    * **Refactor for Clarity:** Proactively refactor large scripts that handle multiple responsibilities. Aim to split scripts when they significantly exceed approximately **300 lines** of code, breaking them down into smaller, focused components.
-* **Simulation Foundation + Narrative Layer:** Build core gameplay around simulation within modules. Layer narrative mechanics (Action Checks, Events, Goals) on top to handle uncertainty, abstraction, and story progression. Note: Focus Points (FP) are Analogue-only; see `0.1-GDD-Main.md` Section 7 for platform mechanics divergence.
-* **Player Agency:** Empower players with choices regarding risk vs. reward, engagement level, and resource management.
-* **Reusability:** Design core components to be reusable across different contexts. Leverage Godot's scene instancing and Resource system.
-* **Decoupling:** Minimize hard dependencies between different systems and modules. Utilize the global `EventBus` for signaling events and state changes. Use `GlobalRefs` only for accessing essential, unique managers or nodes.
-* **Adhering strictly to the project's established architecture.** This includes coding standards, modularity, data-logic separation (as seen in the project files), and using established patterns (e.g., Autoloads, Resources). Avoid creating redundant code or duplicating existing functionality.
+* **KISS:** Prefer simpler implementations. Clarity over excessive abstraction.
+* **Modularity:** Split scripts exceeding ~300 lines. Structure around:
+    * **Modules** (horizontal activity loops): Piloting, Combat, Trading.
+    * **Systems** (cross-cutting rulesets): Events, Goals, Assets, etc.
+* **Simulation Foundation + Narrative Layer:** Build core gameplay around simulation. Layer narrative mechanics (Action Checks, Events, Goals) on top.
+* **Reusability:** Leverage Godot scene instancing and Resources.
+* **Decoupling:** Minimize hard dependencies. Use `EventBus` for signaling. Use `GlobalRefs` only for essential unique managers.
+* **Adhere to architecture.** No redundant code. Follow established patterns (Autoloads, Resources, data-logic separation).
 
-## 4. Code Formatting Standards
+## 3. Code Formatting
 
-* **Automatic Formatting:** Use **`gdformat`** consistently to ensure uniform code style.
-* **Indentation:** Use **Tabs** for indentation.
-* **Line Length:** A maximum line length of approximately **100 characters**.
-* **Conditional Statements (`if`/`elif`/`else`): No Lumping.** As a manual standard, statements controlled by a conditional must always start on a new, properly indented line. The `gdformat` tool should be configured to enforce this, but the primary responsibility lies with the developer to write pristine, readable code.
-* **Export Variables:** Only use `export var` for defining data in template files (e.g., `AgentTemplate`). Variables within standard node logic scripts should typically not be exported unless necessary for editor tweaking during development; prefer initialization via an `initialize()` method.
-* **Naming Conventions:** Follow standard Godot GDScript conventions:
-    * `snake_case` for variables and function names (e.g., `max_move_speed`, `_physics_process`). Use a leading underscore `_` for "private" methods or variables.
-    * `PascalCase` for class names (if using `class_name`) and node names in the scene tree (e.g., `AgentContainer`).
-    * `snake_case` for signals to maintain consistency with Godot's built-in signals and the project's `EventBus` (e.g., `agent_spawned`).
-    * `ALL_CAPS_SNAKE_CASE` for constants (`const`).
-* **Comments:** Use `#` for comments. Write comments to explain the *why* behind non-obvious code, not just *what* the code does.
+* **Formatter:** `gdformat` for uniform style.
+* **Indentation:** Tabs.
+* **Line Length:** ~100 characters max.
+* **Conditionals:** No single-line `if` lumping — body on new indented line.
+* **`export var`:** Only in template files (e.g., `AgentTemplate`). Logic scripts use `initialize()`.
+* **Naming:**
+    * `snake_case` — variables, functions, signals. Leading `_` for private.
+    * `PascalCase` — class names, scene tree node names.
+    * `ALL_CAPS_SNAKE_CASE` — constants.
+* **Comments:** Explain *why*, not *what*.
 
-## 5. Architectural Patterns & Practices
+## 4. Autoload Singletons
 
-* **Autoload Singletons:** Utilize for truly global services and data:
-    * `Constants`: Global constants (paths, names, tuning).
-    * `GlobalRefs`: Holds references to unique, essential nodes/managers.
-    * `EventBus`: Central signal dispatcher for decoupled communication.
-    * `CoreMechanicsAPI`: Centralized functions for core rule resolution.
-    * `GameStateManager`: Centralized save/load logic.
-    * `GameState`: **Primary Source of Truth for all persistent data.** Holds all dynamic game state (characters, inventories, world time, etc.).
-    * `TemplateDatabase`: Caches all loaded `.tres` templates on startup.
-* **Component Pattern:** Use child Nodes with attached scripts to encapsulate distinct functionalities (e.g., `MovementSystem`, `NavigationSystem`).
-* **Resource Templates (`.tres`):** Use custom `Resource` scripts (`extends Resource`, `class_name`) to define data structures (e.g., `AgentTemplate`). Initialize objects using these loaded Resource objects.
-    * **Action Templates:** `action_*.tres` files include a `stakes` property (`HIGH_STAKES`, `NARRATIVE`, `MUNDANE`) that determines UI behavior and approach prompting in Digital. See `0.1-GDD-Main.md` Section 7.1.
+| Autoload | Role |
+|----------|------|
+| `Constants` | Global constants (paths, names, tuning) |
+| `GlobalRefs` | References to unique managers/nodes |
+| `EventBus` | Central signal dispatcher |
+| `CoreMechanicsAPI` | Core rule resolution functions |
+| `GameStateManager` | Save/load logic |
+| `GameState` | **Single source of truth** for all persistent data — backing store for all four simulation layers (`8-GDD`) |
+| `TemplateDatabase` | Caches loaded `.tres` templates on startup |
 
-### 5.1. Core Template Property Definitions
+## 5. Stateless Systems Architecture
 
-#### CharacterTemplate Properties
+**`GameState` is the Source of Truth.** All dynamic, persistent game data lives here: World data (Layer 1), Grid state (Layer 2), Agent data (Layer 3), Chronicle events (Layer 4).
 
-The `CharacterTemplate` resource includes personality and narrative properties to support Persistent Agent behavior:
+**Systems are Stateless APIs.** Core systems in `core/systems/` are `Node` scripts parented under `WorldManager`. They hold no data. Each provides a clean API that reads/writes `GameState`.
 
-```
-CharacterTemplate Properties:
-├── Core Identity
-│   ├── character_name: String
-│   ├── description: String (lore/bio text)
-│   ├── faction_id: String
-│   └── character_icon_id: String
-├── Resources
-│   ├── credits: int
-│   ├── focus_points: int (Analogue only)
-│   └── active_ship_uid: int
-├── Skills
-│   ├── piloting: int
-│   ├── combat: int
-│   └── trading: int
-├── Personality
-│   ├── personality_traits: Dictionary
-│   │   ├── risk_tolerance: float (0.0-1.0)
-│   │   ├── greed: float (0.0-1.0)
-│   │   ├── loyalty: float (0.0-1.0)
-│   │   └── aggression: float (0.0-1.0)
-│   └── goals: Array (for Goal System integration)
-└── Standing
-    ├── reputation: int
-    ├── faction_standings: Dictionary
-    └── character_standings: Dictionary
-```
+* Example: `CharacterSystem.add_cash(uid, amount)` retrieves the character from `GameState.characters`, modifies `cash`, emits signal on `EventBus`.
+* Getters returning `Dictionary` or `Array` **must** return `.duplicate(true)` copies.
+* Systems react to and emit signals via `EventBus` (e.g., `_on_world_event_tick`, `player_cash_changed`).
 
-#### AgentTemplate Properties
+### System Checklist (New System)
+1. Place in `core/systems/`, `extends Node`, child of `WorldManager`.
+2. Register with `GlobalRefs` in `_ready()`.
+3. Connect to required `EventBus` signals.
+4. **No persistent state variables** — read/write `GameState` only.
+5. Action methods modify `GameState`; getter methods return safe copies.
 
-The `AgentTemplate` resource includes persistence properties for managing Persistent vs Temporary agents:
+## 6. Resource Templates
 
-```
-AgentTemplate Properties:
-├── agent_type: String ("player", "npc", "hostile")
-├── agent_uid: int (assigned dynamically)
-├── Persistence
-│   ├── is_persistent: bool
-│   ├── home_location_id: String
-│   ├── character_template_id: String
-│   └── respawn_timeout_seconds: float
-```
+* Custom `Resource` scripts (`extends Resource`, `class_name`) define data structures.
+* Template definitions: see `1.1-GDD-Core-Systems.md` Section 5.
+* **Action Templates:** `action_*.tres` files include `stakes` property (`HIGH_STAKES`, `NARRATIVE`, `MUNDANE`) determining UI behavior.
 
-* **Scene Instancing:** Leverage Godot's scene instancing for creating Agents, loading Zones, and assembling UI.
-* **Initialization:** Prefer initializing node properties via an `initialize(config)` method called *after* the node is added to the tree.
+## 7. Physics Abstraction
 
-## 6. Physics Abstraction & Implementation
+No rigid-body physics. "Faked physics" via state-based rules and interpolation.
 
-The game does not use a traditional rigid-body physics engine for ship movement. Instead, it "fakes physics" through a set of state-based rules and interpolation.
+* **Movement:** `KinematicBody.move_and_slide()` with velocity managed by component scripts.
+* **Smoothing:** `linear_interpolate()` for acceleration/deceleration/braking.
+* **PID Controllers:** Reusable `PIDController` class for goal-oriented behaviors (navigation, camera).
 
-* **Core Method:** The primary method for all movement is `KinematicBody.move_and_slide()`. The velocity vector passed to this function is managed by the agent's component scripts.
-* **Technical Components:**
-    * **Linear Interpolation (`lerp`):** The `linear_interpolate()` function is used extensively for smooth acceleration, deceleration, and braking.
-    * **PID Controllers:** A reusable `PIDController` class is employed for complex, goal-oriented behaviors that require smoothly reaching and maintaining a target state without overshoot, such as in navigation and camera control.
+## 8. Save & Load
 
-## 7. Unit Testing & Quality Assurance
+`GameStateManager` serializes/deserializes `GameState` directly.
 
-To ensure the reliability of core systems and prevent regressions, a test-driven approach is encouraged for crucial, self-contained scripts.
+**Save:** `save_game(slot_id)` → `_serialize_game_state()` builds `save_data` dict from `GameState` → writes to file.
 
-* **Tooling:** The project uses the **Godot Unit Test (GUT) 7.4.3** framework for writing and running unit tests.
-* **Testing Priorities (Crucial Scripts):** Unit tests are required for:
-    * **Core Systems & APIs:** Any autoload singleton with internal logic (e.g., `CoreMechanicsAPI`, `GameStateManager`) and any core system (e.g., `TimeSystem`, `InventorySystem`) must have a corresponding test script.
-    * **Complex Components:** Any component with significant, self-contained logic (e.g., `PIDController`, `MovementSystem`, `NavigationSystem`) must be tested.
-    * **Utility Scripts:** Any general-purpose utility scripts must be tested to ensure reliability.
-* **What Not to Test:**
-    * **UI Scripts:** Scripts that primarily manage UI nodes and visual state are better suited for manual, integration testing.
-    * **Simple "Glue" Scripts:** Scripts that primarily delegate commands or connect signals without complex internal logic do not require unit tests.
-* **Best Practices:**
-    * **Location:** Test scripts must be located in the `tests/` directory, mirroring the structure of the main project (e.g., the test for `core/systems/agent_system.gd` is located at `tests/core/systems/test_agent_spawner.gd`).
-    * **Isolation:** Tests must be independent. Use GUT's `before_each()` and `after_each()` methods to set up and tear down the test environment for each test function, preventing side effects.
-    * **Mocking:** When testing a script that depends on other complex nodes or systems, use mock objects (doubles) to isolate the unit under test.
+**Load:** `load_game(slot_id)` → reads `save_data` → `_deserialize_and_apply_game_state()` clears and repopulates `GameState` → emits `game_state_loaded` signal. UI refreshes by pulling from system APIs.
 
-## 8. System Implementation & Data Flow (Stateless Architecture)
+## 9. Unit Testing (GUT 7.4.3)
 
-This section defines the project's core data flow, which is based on **stateless systems** and a **centralized state object**.
+### Test Priorities
+* **Required:** Core Systems/APIs, complex components (`PIDController`, `MovementSystem`, `NavigationSystem`), utility scripts.
+* **Not Required:** UI scripts, simple glue/delegation scripts.
 
-### 8.1. General Principles
+### Practices
+* Tests in `tests/` directory mirroring project structure.
+* Independent tests — use `before_each()`/`after_each()` for setup/teardown.
+* Mock complex dependencies with doubles.
 
-* **`GameState` is the Source of Truth:** The `GameState.gd` autoload singleton is the **single source of truth** for all dynamic, persistent game data. This includes `GameState.characters`, `GameState.inventories`, `GameState.current_tu`, etc.
-* **Systems are Stateless APIs:** Core systems (e.g., `CharacterSystem`, `InventorySystem`, `TimeSystem`) are `Node` scripts located in `core/systems/` and parented under `WorldManager`. They are **stateless**. They do not hold their own data.
-* **Systems Provide Logic:** A system's job is to provide a clean, logical API (a set of functions) that reads from and writes to the `GameState`.
-    * **Example:** `CharacterSystem.add_wp(uid, amount)` is a function that retrieves the correct character from `GameState.characters`, modifies its `wealth_points` property, and (if it's the player) emits a signal on the `EventBus`. The `CharacterSystem` itself does not store the `wealth_points`.
-    * **Note:** FP-related functions (`add_fp`, `subtract_fp`, `get_fp`) exist for Analogue support but may be stubbed or removed in Digital builds.
-* **Event-Driven Communication:** Systems should react to game events by listening to signals on the `EventBus` (e.g., `_on_world_event_tick`). They announce significant state changes by emitting signals on the `EventBus` (e.g., `player_wp_changed`).
+## 10. Component Pattern
 
-### 8.2. System Script Checklist (Stateless)
-
-When creating a new system (e.g., `new_system.gd`):
-
-1.  **File Location & Node Setup:**
-    * [ ] Place the script in `core/systems/`.
-    * [ ] The script should `extend Node`.
-    * [ ] The system should be added as a child of the `WorldManager` node in `main_game_scene.tscn`.
-
-2.  **Initialization (`_ready()`):**
-    * [ ] Register the system with `GlobalRefs` so other parts of the game can access its API (e.g., `GlobalRefs.set_new_system(self)`).
-    * [ ] Connect to any necessary signals on the `EventBus` that this system needs to react to (e.g., `EventBus.connect("world_event_tick_triggered", self, "_on_world_event_tick")`).
-
-3.  **State Management:**
-    * [ ] **DO NOT** store persistent state variables in the system script. All persistent data must be read from and written to the `GameState` autoload.
-
-4.  **Public API (Functions):**
-    * [ ] **Action Methods:** Create functions that modify data within `GameState` (e.g., `add_wp(uid, amount)`). These are the only valid ways to change game state.
-    * [ ] **Getter Methods:** Create functions that provide read-only access to data from `GameState` (e.g., `get_wp(uid)`).
-    * [ ] **Data Protection:** If a getter returns a `Dictionary` or `Array` from `GameState`, it **must** return a copy by using `.duplicate(true)`. This prevents external scripts from getting a reference and modifying the data directly, bypassing the system's API.
-        ```gdscript
-        # GOOD: Returns a safe copy
-        func get_player_data() -> Dictionary:
-        	if GameState.characters.has(GameState.player_character_uid):
-        		return GameState.characters[GameState.player_character_uid].duplicate(true)
-        	return {}
-
-        # BAD: Returns a direct reference, allowing external modification
-        func get_player_data_bad() -> Dictionary:
-        	return GameState.characters[GameState.player_character_uid]
-        ```
-
-### 8.3. Data Flow for Save & Load
-
-The `GameStateManager.gd` autoload handles all save/load logic. It directly serializes and deserializes the `GameState` autoload.
-
-**Saving Process:**
-
-1.  `GameStateManager.save_game(slot_id)` is called.
-2.  `GameStateManager` calls its internal `_serialize_game_state()` function.
-3.  This function manually builds a `save_data` dictionary by pulling all necessary data *directly from `GameState`* (e.g., `save_data["current_tu"] = GameState.current_tu`).
-4.  It uses helper functions like `_serialize_resource_dict()` to handle complex data like `GameState.characters`.
-5.  `GameStateManager` writes the final, complete `save_data` dictionary to a file.
-
-**Loading Process:**
-
-1.  `GameStateManager.load_game(slot_id)` is called.
-2.  `GameStateManager` reads the entire `save_data` dictionary from a file.
-3.  It calls its internal `_deserialize_and_apply_game_state(save_data)`.
-4.  This function clears the live `GameState` (e.g., `GameState.characters.clear()`) and repopulates it with the data from the `save_data` dictionary.
-5.  After data is restored, `GameStateManager` emits `EventBus.emit_signal("game_state_loaded")`.
-6.  Any UI elements or other nodes that need to refresh their display (like the `MainHUD`) listen for the `game_state_loaded` signal and then pull the new data from `GameState` using the (stateless) system APIs.
+* Child Nodes with attached scripts encapsulate distinct functionality (e.g., `MovementSystem`, `NavigationSystem`).
+* Scene instancing for Agents, Zones, UI assembly.
+* Initialize via `initialize(config)` **after** node is added to tree.

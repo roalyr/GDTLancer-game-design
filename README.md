@@ -4,81 +4,56 @@
 
 This repository contains the Game Design Documentation (GDD) for **GDTLancer: Generative Dynamic Transmedia Lancer**.
 
-GDTLancer is envisioned as a multi-platform space adventure RPG blending sandbox simulation with TTRPG-inspired emergent narrative mechanics. It aims to create a living world shaped by the actions of both the player and AI agents, with a distinct neo-retro visual style and a focus on player agency in choosing their approach to risk and narrative engagement.
+GDTLancer is a space adventure RPG blending sandbox simulation with TTRPG-inspired emergent narrative mechanics. A four-layer simulation architecture (World → Grid → Agents → Chronicle) drives a living world shaped by both the player and AI agents. Built in Godot 3 with a neo-retro visual style and a focus on player agency.
 
-The main repository for the game project itself can be found at:
-[https://github.com/roalyr/GDTLancer](https://github.com/roalyr/GDTLancer)
+Main game repository: [https://github.com/roalyr/GDTLancer](https://github.com/roalyr/GDTLancer)
 
 ---
 
-## Documentation Pages
+## Documentation Structure
 
-This documentation is organized into several key areas:
+### 0. Core Vision
+* [**0.0 — Internal Rules & Conventions**](./0.0-GDD-Internal-Rules-Conventions.md): GDD structure and page format standards.
+* [**0.1 — Main GDD**](./0.1-GDD-Main.md): Central vision, pillars, glossary, development framework, Phase 1 scope summary.
+* [**0.2 — Sayings**](./0.2-GDD-Main-Sayings.md): Mottos and in-game lore sayings.
 
-### 0. Core Vision & Introduction
-
-* [**0.0-GDD-Internal-Rules-Conventions.md**](./0.0-GDD-Internal-Rules-Conventions.md): Defines the structure, numeration, and standard page format for the GDD. (New: v1.0, 2025-10-26)
-* [**0.1-GDD-Main.md**](./0.1-GDD-Main.md): The central Game Design Document outlining the overall vision, game pillars, development framework (Layers, Modules, Systems), phased plan, and summaries of core concepts. (Reviewed: v1.9, 2025-10-31)
-* [**0.2-GDD-Main-Sayings.md**](./0.2-GDD-Main-Sayings.md): Lists key mottos for the game's branding and ethos, alongside in-game lore-wise sayings. (Reviewed: v1.5, 2025-10-31)
-
-### 1. Core Systems & Mechanics
-
-* [**1-GDD-Core-Mechanics.md**](./1-GDD-Core-Mechanics.md): Details the fundamental, universal mechanics: the **Action Check** (3d6+Mod resolution), **Focus Points (FP)**, and the **Action Approach** system (`Act Risky`/`Act Cautiously`). (Reviewed: v1.6, 2025-10-31)
-* [**1.1-GDD-Core-Systems.md**](./1.1-GDD-Core-Systems.md): Defines the cross-cutting gameplay systems required for Phase 1, including the `Event System`, `Time System`, `Character System`, `Inventory System`, and `Asset System`, and their relation to `GameState.gd`. (Reviewed: v1.5, 2025-10-31)
-* [**1.2-GDD-Core-Cellular-Automata.md**](./1.2-GDD-Core-Cellular-Automata.md): Outlines the philosophy and catalogue of Cellular Automata implementations used to drive the living world and emergent narrative systems. (Reviewed: v1.2, 2025-10-31)
+### 1. Core Mechanics & Systems
+* [**1 — Core Mechanics**](./1-GDD-Core-Mechanics.md): Action Check (3d6+Mod), Action Stakes, Action Approach, core resources.
+* [**1.1 — Core Systems**](./1.1-GDD-Core-Systems.md): Event, Time, Character, Inventory, Asset systems. Templates and Phase 1 roster.
+* [**1.2 — Cellular Automata**](./1.2-GDD-Core-Cellular-Automata.md): CA catalogue driving the Grid layer (economy, social, agent CAs).
 
 ### 2. Development Planning
+* [**2 — Development Challenges**](./2-GDD-Development-Challenges.md): Key risks and mitigations.
+* [**2.1 — Phase 1 Scope**](./2.1-GDD-Development-Phase1-Scope.md): "The First Contract" demo — player experience, components, milestones.
 
-* [**2-GDD-Development-Challenges.md**](./2-GDD-Development-Challenges.md): Identifies and acknowledges the primary challenges and inherent risks associated with the development of GDTLancer. (Reviewed: v1.4, 2025-10-31)
-* [**2.1-GDD-Development-Phase1-Scope.md**](./2.1-GDD-Development-Phase1-Scope.md): The master document for the Phase 1 "First Contract" demo, defining the core player experience, included components, content requirements, and development milestones. (Reviewed: v1.3, 2025-10-31)
+### 3. Architecture & Coding
+* [**3 — Architecture & Coding**](./3-GDD-Architecture-Coding.md): Coding standards, stateless architecture, autoloads, save/load, testing.
 
-### 3. Development Architecture
-
-* [**3-GDD-Architecture-Coding.md**](./3-GDD-Architecture-Coding.md): Outlines the coding style conventions, architectural patterns (including the stateless `GameState` model), and development philosophy for the Godot implementation. (Reviewed: v1.8, 2025-10-31)
-
-### 4. Analogue Version
-
-* [**4.1-GDD-Analogue-Setup.md**](./4.1-GDD-Analogue-Setup.md): Describes the recommended physical components and general organization for playing the tabletop RPG version. (Reviewed: v1.4, 2025-10-31)
-* [**4.2-GDD-Analogue-Setup-Formatting.md**](./4.2-GDD-Analogue-Setup-Formatting.md): Specifies the detailed layout, content areas, and formatting for the physical sheets used in the analogue version. (Reviewed: v1.3, 2025-10-31)
-* [**4.3-GDD-Analogue-Phase1-Scope.md**](./4.3-GDD-Analogue-Phase1-Scope.md): The master document for the Phase 1 Analogue "Quickstart PDF", defining its vision, required components, and development milestones. (Reviewed: v1.3, 2025-10-31)
+### 4. Analogue TTRPG (Deferred)
+* [**4.1 — Analogue Setup**](./4.1-GDD-Analogue-Setup.md): Deferred placeholder.
+* [**4.2 — Analogue Formatting**](./4.2-GDD-Analogue-Setup-Formatting.md): Deferred placeholder.
+* [**4.3 — Analogue Phase 1**](./4.3-GDD-Analogue-Phase1-Scope.md): Deferred placeholder.
 
 ### 5. Gameplay Modules
-
-* [**5.1-GDD-Module-Piloting.md**](./5.1-GDD-Module-Piloting.md): Specific design details for the Piloting & Travel gameplay module, covering `Free Flight`, `Flight Challenges`, and `Narrative Actions`. (Reviewed: v1.9, 2025-10-31)
-* [**5.2-GDD-Module-Combat.md**](./5.2-GDD-Module-Combat.md): Details the mechanics for ship-to-ship conflict, including `Combat Challenges` and post-battle `Narrative Actions`, adhering to the Preservation Convention. (Reviewed: v1.7, 2025-10-31)
-* [**5.3-GDD-Module-Trading.md**](./5.3-GDD-Module-Trading.md): Details the mechanics for the economic loop, including the `Trade Interface` and trading-related `Narrative Actions`. (Reviewed: v1.3, 2025-10-31)
+* [**5.1 — Piloting Module**](./5.1-GDD-Module-Piloting.md): Free Flight, Flight Challenges, Narrative Actions.
+* [**5.2 — Combat Module**](./5.2-GDD-Module-Combat.md): Combat Challenges and post-battle Narrative Actions (Preservation Convention).
+* [**5.3 — Trading Module**](./5.3-GDD-Module-Trading.md): Trade Interface, contracts, economic Narrative Actions.
 
 ### 6. Lore & Player Experience
+* [**6 — Narrative Borders**](./6-GDD-Lore-Narrative-Borders.md): Thematic constraints guiding the simulation.
+* [**6.1 — Lore Background**](./6.1-GDD-Lore-Background.md): Setting premise, Preservation Convention, technology.
+* [**6.2 — Player Onboarding**](./6.2-GDD-Lore-Player-Onboarding.md): "The First Contract" tutorial scenario.
 
-* [**6-GDD-Lore-Narrative-Borders.md**](./6-GDD-Lore-Narrative-Borders.md): Defines the thematic and narrative constraints that guide the game's simulation to ensure setting-adherence. (Reviewed: v1.2, 2025-10-31)
-* [**6.1-GDD-Lore-Background.md**](./6.1-GDD-Lore-Background.md): Outlines the foundational setting premise (early colonists), pragmatic culture, Preservation Convention, and core technology. (Reviewed: v1.7, 2025-10-31)
-* [**6.2-GDD-Lore-Player-Onboarding.md**](./6.2-GDD-Lore-Player-Onboarding.md): Details the "First Contract" tutorial scenario for introducing players to core mechanics and the setting. (Reviewed: v1.3, 2025-10-31)
+### 7. Assets & Style
+* [**7 — Style Guide**](./7-GDD-Assets-Style.md): Neo-Retro 3D visual style, UI, audio.
+* [**7.1 — Ship Design & Component Catalogue**](./7.1-GDD-Assets-Ship-Design.md): Ship philosophy, all component categories (engines, chassis, power, cooling, life support, tools, storage).
 
-### 7. Assets and Style
-
-* [**7-GDD-Assets-Style.md**](./7-GDD-Assets-Style.md): Defines the core "Neo-Retro 3D" style for all game assets, including models, environments, UI, and audio. (Reviewed: v1.1, 2025-10-31)
-* [**7.1-GDD-Assets-Ship-Design.md**](./7.1-GDD-Assets-Ship-Design.md): Defines the core design principles and technology palette for ships. (Reviewed: v2.3, 2025-10-31)
-* [**7.2-GDD-Assets-Ship-Engines.md**](./7.2-GDD-Assets-Ship-Engines.md): Details the specific configurations, stats, and lore for ship engines. (Reviewed: v1.4, 2025-10-31)
-* [**7.3-GDD-Assets-Ship-Chassis.md**](./7.3-GDD-Assets-Ship-Chassis.md): Details the specific configurations, stats, and lore for ship hulls/chassis. (Reviewed: v1.2, 2025-10-31)
-* [**7.4-GDD-Assets-Power-Plants.md**](./7.4-GDD-Assets-Power-Plants.md): Details ship power generation assets. (Reviewed: v1.1, 2025-10-31)
-* [**7.5-GDD-Assets-Cooling-Systems.md**](./7.5-GDD-Assets-Cooling-Systems.md): Details ship heat management assets. (Reviewed: v1.1, 2025-10-31)
-* [**7.6-GDD-Assets-Life-Support.md**](./7.6-GDD-Assets-Life-Support.md): Details pilot life support and G-Stasis assets. (Reviewed: v1.1, 2025-10-31)
-* [**7.7-GDD-Assets-Radiation-Protection.md**](./7.7-GDD-Assets-Radiation-Protection.md): Details hull radiation shielding levels. (Reviewed: v1.1, 2025-10-31)
-* [**7.8-GDD-Assets-Turbomachinery.md**](./7.8-GDD-Assets-Turbomachinery.md): Details propellant and coolant pump assets. (Reviewed: v1.1, 2025-10-31)
-* [**7.9-GDD-Assets-Utility-Tools.md**](./7.9-GDD-Assets-Utility-Tools.md): Details external hardpoint tools for industry and combat. (Reviewed: v1.2, 2025-10-31)
-* [**7.10-GDD-Assets-Energy-Storage.md**](./7.10-GDD-Assets-Energy-Storage.md): Details battery and capacitor assets. (Reviewed: v1.1, 2025-10-31)
-* [**7.11-GDD-Assets-Propellant-Storage.md**](./7.11-GDD-Assets-Propellant-Storage.md): Details liquid/cryogenic propellant tank assets. (Reviewed: v1.1, 2025-10-31)
+### 8. Simulation Architecture
+* [**8 — Simulation Architecture**](./8-GDD-Simulation-Architecture.md): **Primary reference.** Four-layer model (World, Grid, Agents, Chronicle), Bridge Systems, Tick Sequence, Difficulty Tuning.
 
 ### Meta & Legal
-
-* [**LICENSE**](./LICENSE): Contains the licensing information for this documentation project.
-* [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md): Details regarding the use of AI assistance during the generation and refinement of this documentation.
-* [**AI-PRIMING.md**](./AI-PRIMING.md): Defines the standard priming prompt to be used when initiating a new chat session with an AI assistant. (Reviewed: v1.3, 2025-10-31)
-
-## All pages in a single file
-
-* [**GDD-COMBINED-TEXT.md**](./GDD-COMBINED-TEXT.md): Contains a consolidated version of all documentation pages.
+* [**LICENSE**](./LICENSE) | [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md) | [**AI-PRIMING.md**](./AI-PRIMING.md)
 
 ---
 
-This documentation is a living project and currently under active development.
+This documentation is a living project under active development.
