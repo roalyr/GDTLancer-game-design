@@ -3,14 +3,14 @@ PROJECT: GDTLancer
 MODULE: 7-GDD-Assets-Style.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - General Asset & Style Guide
 
-**Version:** 1.4
+**Version:** 1.5
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.2)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.6), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.3)
 
 ## 1. Overview & Core Philosophy
 

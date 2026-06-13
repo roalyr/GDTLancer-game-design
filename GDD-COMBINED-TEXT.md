@@ -5,14 +5,14 @@ PROJECT: GDTLancer
 MODULE: 0.0-GDD-Internal-Rules-Conventions.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_PROJECT.md § Workflow And Scope Boundary
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # 0.0 GDTLancer - Internal GDD Rules and Conventions
 
-**Version:** 2.1
+**Version:** 2.2
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [README.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/README.md)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [README.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/README.md)
 
 ---
 
@@ -69,14 +69,14 @@ PROJECT: GDTLancer
 MODULE: 0.1-GDD-Main.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 22:28:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Main GDD
 
-**Version:** 4.12
+**Version:** 4.13
 **Date:** 2026-06-13
-**Related Documents:** [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.7), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.7), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.3)
+**Related Documents:** [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.8), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.4)
 
 ## 1. Introduction
 
@@ -139,7 +139,7 @@ A small, tightly-scoped universe where every element is handcrafted, countable, 
 | Locations | 6–9 | Maybe 2–3 per faction |
 | Persistent Agents | 6-10 | At least 2 per faction |
 | Player Ships | 2-5 | Starting + unlockable |
-| Commodities | -- | Trading will be performed via contracts, instead of direct transactions |
+| Commodities | -- | Commodities exist as simulation cargo categories; player interaction is exclusively via contracts (no direct market UI). Module detail deferred. |
 | Temporary Agent Types | 1–2 | Non-human hostiles (drones/fauna), global population integral |
 
 ## 4. Core Gameplay
@@ -186,14 +186,14 @@ PROJECT: GDTLancer
 MODULE: 0.2-GDD-Main-Sayings.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_PROJECT.md § Workflow And Scope Boundary
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Mottos & Sayings
 
-**Version:** 1.8
+**Version:** 1.9
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13)
 
 ## 1. Purpose
 
@@ -236,14 +236,14 @@ PROJECT: GDTLancer
 MODULE: 1.1-GDD-Core-Systems.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 19:50:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Core Systems (Phase 1)
 
-**Version:** 5.7
+**Version:** 5.8
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.3)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.4)
 
 ## 1. Overview
 
@@ -260,14 +260,14 @@ PROJECT: GDTLancer
 MODULE: 1.2-GDD-Core-Cellular-Automata.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Cellular Automata
 
-**Version:** 2.1
+**Version:** 2.2
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Overview
 
@@ -284,14 +284,14 @@ PROJECT: GDTLancer
 MODULE: 1-GDD-Core-Mechanics.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 22:28:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Core Mechanics
 
-**Version:** 5.7
+**Version:** 5.8
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Purpose
 
@@ -375,7 +375,7 @@ Narrative Actions are classified by stakes tier (hardcoded in `action_*.tres` te
 
 * Real-time clock. World Event Ticks fire at `Constants.TIME_TICK_INTERVAL_SECONDS`.
 * Time is a critical resource — the world evolves independently of the player.
-* Each tick triggers: Grid CA updates (including extraction from finite Resource Potential Map) → Bridge Systems (entropy, heat) → Agent processing → Chronicle capture.
+* Each tick triggers: World layer static reference → Grid CA updates (including extraction from finite Resource Potential Map) → Bridge Systems (entropy, heat) → Agent processing → Chronicle capture.
 
 ## 7. Failure & Recovery
 
@@ -417,14 +417,14 @@ PROJECT: GDTLancer
 MODULE: 2-GDD-Development-Challenges.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Development Challenges
 
-**Version:** 2.1
+**Version:** 2.2
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Overview
 
@@ -435,7 +435,7 @@ Key development risks for GDTLancer, identified early for proactive mitigation.
 ### Emergent Narrative Complexity
 Making the "living world" produce coherent, engaging stories — not random noise.
 
-* **Mitigations:** Phased rollout of Agent complexity. Clear NPC goal-selection heuristics (`8-GDD` Section 4.6). Chronicle system (`8-GDD` Section 5) logs events for Agent reactions.
+* **Mitigations:** Phased rollout of Agent complexity. Clear NPC goal-selection heuristics (`8-GDD` Section 4). Chronicle system (`8-GDD` Section 5) logs events for Agent reactions.
 
 ### Balancing Agency and Simulation
 Players must feel impactful without easily breaking the simulation.
@@ -463,14 +463,14 @@ PROJECT: GDTLancer
 MODULE: 3-GDD-Architecture-Coding.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 19:50:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 3.3
+**Version:** 3.4
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Engine & Language
 
@@ -599,14 +599,14 @@ PROJECT: GDTLancer
 MODULE: 5.1-GDD-Module-Piloting.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Piloting Module
 
-**Version:** 4.1
+**Version:** 4.2
 **Date:** 2026-06-13
-**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.6), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.8), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Overview
 
@@ -658,15 +658,15 @@ Optional Narrative Actions triggered only when a significant decision point aris
 PROJECT: GDTLancer
 MODULE: 5.2-GDD-Module-Combat.md
 STATUS: [Level 2 - Implementation]
-TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001, REV_007
-LOG_REF: 2026-06-13 19:40:00
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Combat Module
 
-**Version:** 3.4
+**Version:** 3.5
 **Date:** 2026-06-13
-**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.6), [6-GDD-Lore-Narrative-Borders.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6-GDD-Lore-Narrative-Borders.md) (v2.1), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.8), [6-GDD-Lore-Narrative-Borders.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6-GDD-Lore-Narrative-Borders.md) (v2.2), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 
 <!-- Reimplementation postponed -->
@@ -678,14 +678,14 @@ PROJECT: GDTLancer
 MODULE: 5.3-GDD-Module-Trading.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 19:50:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Trading Module
 
-**Version:** 3.7
+**Version:** 3.8
 **Date:** 2026-06-13
-**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.6), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.8), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 <!-- Reimplementation postponed -->
 
@@ -696,14 +696,14 @@ PROJECT: GDTLancer
 MODULE: 6.1-GDD-Lore-Background.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 22:28:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Lore & Background
 
-**Version:** 2.5
+**Version:** 2.6
 **Date:** 2026-06-13
-**Related Documents:** [6-GDD-Lore-Narrative-Borders.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6-GDD-Lore-Narrative-Borders.md) (v2.1), [7-GDD-Assets-Style.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7-GDD-Assets-Style.md) (v1.4), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.6)
+**Related Documents:** [6-GDD-Lore-Narrative-Borders.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6-GDD-Lore-Narrative-Borders.md) (v2.2), [7-GDD-Assets-Style.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7-GDD-Assets-Style.md) (v1.5), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.8)
 
 ## 1. The Premise
 
@@ -741,7 +741,7 @@ Three distinct, non-generic factions drive systemic and narrative conflicts in t
 
 ## 7. Implementation
 
-Setting is experienced through mechanical consequences (combat module, entropy system), dialogue, and design — minimizing direct exposition. "Show, don't tell."
+Setting is experienced through mechanical consequences (flight challenges, entropy system), dialogue, and design — minimizing direct exposition. "Show, don't tell."
 
 --- Start of ./6.2-GDD-Lore-Player-Onboarding.md ---
 
@@ -750,14 +750,14 @@ PROJECT: GDTLancer
 MODULE: 6.2-GDD-Lore-Player-Onboarding.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 19:50:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Player Onboarding
 
-**Version:** 2.3
+**Version:** 2.4
 **Date:** 2026-06-13
-**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.6), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4)
+**Related Documents:** [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.8), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.6)
 
 ## 1. Goals
 
@@ -778,14 +778,14 @@ PROJECT: GDTLancer
 MODULE: 6-GDD-Lore-Narrative-Borders.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Narrative Borders of the Simulation
 
-**Version:** 2.1
+**Version:** 2.2
 **Date:** 2026-06-13
-**Related Documents:** [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.6), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Purpose
 
@@ -816,14 +816,14 @@ PROJECT: GDTLancer
 MODULE: 7.1-GDD-Assets-Ship-Design.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001, REV_007
-LOG_REF: 2026-06-13 19:35:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Ship Design & Component Catalogue
 
-**Version:** 4.2
+**Version:** 4.3
 **Date:** 2026-06-13
-**Related Documents:** [7-GDD-Assets-Style.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7-GDD-Assets-Style.md) (v1.4), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [7-GDD-Assets-Style.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7-GDD-Assets-Style.md) (v1.5), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.6), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Overview
 
@@ -954,14 +954,14 @@ PROJECT: GDTLancer
 MODULE: 7-GDD-Assets-Style.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - General Asset & Style Guide
 
-**Version:** 1.4
+**Version:** 1.5
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.2)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.6), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.3)
 
 ## 1. Overview & Core Philosophy
 
@@ -1006,14 +1006,14 @@ PROJECT: GDTLancer
 MODULE: 8-GDD-Simulation-Architecture.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 22:28:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Simulation Architecture
 
-**Version:** 2.7
+**Version:** 2.8
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.7), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.7), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.1), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.3), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.2)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.8), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.8), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.2), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.4), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.3)
 
 ---
 
@@ -1490,7 +1490,7 @@ PROJECT: GDTLancer
 MODULE: SESSION-LOG.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_PROJECT.md § Session Logging Boundary; MODEL-CASCADE-PROTOCOL.md § SESSION-LOG.md CONVENTIONS
-LOG_REF: 2026-06-13 07:15:51
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # SESSION-LOG — GDTLancer GDD
@@ -1499,6 +1499,7 @@ Reverse chronological. Newest entries at top.
 
 | Timestamp | Agent | Action | Result | Note for Future Agents |
 | :--- | :--- | :--- | :--- | :--- |
+| 2026-06-13 23:57:00 | Antigravity | Implement GDD consistency fixes | SUCCESS | Implemented all 6 consistency fixes: updated Related Documents version links across 17 GDD files (and bumped their own versions by +0.1), removed REV_007 from 5.2-GDD TRUTH_LINK, rephrased combat module reference in 6.1-GDD Section 7, updated 8-GDD section reference in 2-GDD, clarified Phase 1 Commodities scope in 0.1-GDD table, and prepended World layer static reference to tick sequence in 1-GDD Section 6.2. Verified 0 broken links. |
 | 2026-06-13 22:28:00 | Antigravity | Align internal GDD consistency | SUCCESS | Addressed GDD inconsistencies: defined Contract Value Classes directly in 1-GDD-Core-Mechanics.md (v5.7); stubbed out Phase 1 factions in 6.1-GDD-Lore-Background.md (v2.5); aligned inventory flow terminology in 8-GDD-Simulation-Architecture.md (v2.7); bumped referencing main GDD (v4.12). |
 | 2026-06-13 22:20:00 | Antigravity | Prune and compact 8-GDD-Simulation-Architecture.md | SUCCESS | Pruned low-level implementation parameter tables and GDScript code details from page 8. Kept conceptual model (4 layers, Conservation Axioms, bridge systems, sequences). Updated referencing docs to (v2.6) and validated links. |
 | 2026-06-13 21:05:00 | Antigravity | Review, compact, and update version headers and links across all non-8 GDD files | SUCCESS | Updated version headers, added Universal Headers where missing, updated date to 2026-06-13, and validated cross-references using link checker. No broken links. |

@@ -3,14 +3,14 @@ PROJECT: GDTLancer
 MODULE: 1-GDD-Core-Mechanics.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 22:28:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Core Mechanics
 
-**Version:** 5.7
+**Version:** 5.8
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Purpose
 
@@ -94,7 +94,7 @@ Narrative Actions are classified by stakes tier (hardcoded in `action_*.tres` te
 
 * Real-time clock. World Event Ticks fire at `Constants.TIME_TICK_INTERVAL_SECONDS`.
 * Time is a critical resource — the world evolves independently of the player.
-* Each tick triggers: Grid CA updates (including extraction from finite Resource Potential Map) → Bridge Systems (entropy, heat) → Agent processing → Chronicle capture.
+* Each tick triggers: World layer static reference → Grid CA updates (including extraction from finite Resource Potential Map) → Bridge Systems (entropy, heat) → Agent processing → Chronicle capture.
 
 ## 7. Failure & Recovery
 

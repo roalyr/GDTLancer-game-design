@@ -3,14 +3,14 @@ PROJECT: GDTLancer
 MODULE: 2-GDD-Development-Challenges.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 21:00:00
+LOG_REF: 2026-06-13 23:57:00
 -->
 
 # GDTLancer - Development Challenges
 
-**Version:** 2.1
+**Version:** 2.2
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.13), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.8)
 
 ## 1. Overview
 
@@ -21,7 +21,7 @@ Key development risks for GDTLancer, identified early for proactive mitigation.
 ### Emergent Narrative Complexity
 Making the "living world" produce coherent, engaging stories — not random noise.
 
-* **Mitigations:** Phased rollout of Agent complexity. Clear NPC goal-selection heuristics (`8-GDD` Section 4.6). Chronicle system (`8-GDD` Section 5) logs events for Agent reactions.
+* **Mitigations:** Phased rollout of Agent complexity. Clear NPC goal-selection heuristics (`8-GDD` Section 4). Chronicle system (`8-GDD` Section 5) logs events for Agent reactions.
 
 ### Balancing Agency and Simulation
 Players must feel impactful without easily breaking the simulation.
