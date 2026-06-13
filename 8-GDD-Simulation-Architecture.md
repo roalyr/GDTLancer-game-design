@@ -450,8 +450,4 @@ For Phase 1, the simulation layers are implemented as **lightweight stubs** cons
 
 ## 10. Future Phase Expansions
 
-| Phase | Additions |
-|-------|-----------|
-| **Phase 2** | Full CA-driven Supply & Demand with extraction-based restocking (Axiom 1). Inventory Flow with physical stockpile tracking. Power Load active simulation. Mining/Industrial module feeds into Resource Availability (depletes Resource Potential Map). Contract system overlay. Wreck & Debris lifecycle with full matter-cycle accounting. |
-| **Phase 3** | Full Agent Knowledge Snapshots with proper decay. NPC Goal Priority Queue with dynamic re-evaluation. Causality Chains in Chronicle. Rumor Engine with Trust tagging. Ship Quirks and Component Degradation loop active. Population dynamics (immigration/emigration driven by economic integrals). |
-| **Phase 4** | Social Graph sentiment tags. Narrative Inventory trading between agents. Full Heat Sink thermodynamic model. Maintenance Pressure with location-specific entropy rates. Faction standing progression extension. |
+<!-- Definition postponed -->

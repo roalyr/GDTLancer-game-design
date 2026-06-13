@@ -12,7 +12,7 @@ Defines the thematic constraints — the "borders" — within which the simulati
 
 ### Border 1: Preservation of Assets
 * **Lore:** Scarcity of complex materials and skilled personnel → the **Preservation Convention** prizes neutralization and capture over destruction.
-* **Mechanical:** Destruction = least profitable, most consequence-heavy outcome (minimal salvage, Reputation loss, negative Faction Standing). Disablement/capture = most rewarding path — disabled ships become salvageable wrecks with their full inventory (**Axiom 1**, `8-GDD` Section 3.7). NPC agents default to disabling tactics; only defined outlier groups (fanatical outlaws) favor destruction.
+* **Mechanical:** Destruction = least profitable, most consequence-heavy outcome (minimal salvage, Reputation loss, negative Faction Standing). Disablement/capture = most rewarding path — disabled ships become salvageable wrecks with their full inventory (**Axiom 1**, `8-GDD` Section 3.7). NPC agents default to disabling tactics; only defined outlier groups (fanatical outlaws, rogue fauna, etc) favor destruction.
 
 ### Border 2: Pragmatic Agent Behavior
 * **Lore:** Pragmatic, utilitarian culture focused on managing risk, time, and resources.

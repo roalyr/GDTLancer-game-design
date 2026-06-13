@@ -99,19 +99,13 @@ Loss is **substantial but not terminal** — part punishment, part opportunity.
 
 ### 7.1. Ship Disabled (Hull → 0)
 
-* Ship is disabled, not destroyed (Preservation Convention).
-* The disabled ship persists in the sector as a **salvageable wreck** (see [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) Section 3.7) containing its cargo and equipment.
-* Player is recovered to the nearest station. Recovery costs Wealth progress (e.g., -2 progress on the active track) or may be free if a Contact intervenes.
-* **Salvage:** Any agent (including the player, if they return) can attempt to claim or repair the wreck. If you can repair it, it's yours. Wrecks degrade over time via entropy — unclaimed wrecks eventually become debris, returning matter to the Resource Potential Map.
-* **Opportunity:** Recovery event may trigger unique Narrative Actions (rescued by a Contact, indebted to a faction, discovered something during drift).
+<!-- Reimplementation postponed -->
 
 ### 7.2. Resource Depletion
 
-* **Broke at 0:** When the player is in the Broke tier at 0 progress, they can still fly and trade but cannot purchase services or equipment. NPCs may offer emergency work (low-pay, high-risk goals). Salvage is always available as a recovery path.
-* **Propellant at 0:** Ship is stranded. Distress beacon triggers a recovery event (see 7.1).
+<!-- Reimplementation postponed -->
 
 ### 7.3. True Game Over
 
 True game over requires a **convergence of multiple failures** — not a single bad roll or fight. The player must reach a state where recovery paths are exhausted (e.g., disabled with Broke at 0 progress, hostile standings with all factions, no Contacts willing to help). This is intentionally difficult to achieve.
 
-* **Phase 1:** True game over is not implemented. Player is always recoverable via mentor NPC or emergency bailout.

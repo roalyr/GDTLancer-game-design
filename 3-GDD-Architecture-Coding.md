@@ -80,10 +80,7 @@ LOG_REF: 2026-06-13 19:50:00
 
 ## 7. Physics Abstraction
 
-No rigid-body physics. "Faked physics" via state-based rules and interpolation.
-
-* **Movement:** `KinematicBody.move_and_slide()` with velocity managed by component scripts.
-* **Smoothing:** `linear_interpolate()` for acceleration/deceleration/braking.
+* **Movement:** Reverted to rigid-body physics due to complications with slide-and-rotate system. 
 * **PID Controllers:** Reusable `PIDController` class for goal-oriented behaviors (navigation, camera).
 
 ## 8. Save & Load
