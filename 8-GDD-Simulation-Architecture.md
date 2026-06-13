@@ -1,8 +1,16 @@
+<!--
+PROJECT: GDTLancer
+MODULE: 8-GDD-Simulation-Architecture.md
+STATUS: [Level 2 - Implementation]
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001, REV_007
+LOG_REF: 2026-06-13 07:25:44
+-->
+
 # GDTLancer - Simulation Architecture
 
-**Version:** 2.0
-**Date:** February 13, 2026
-**Related Documents:** `0.1-GDD-Main.md` (v4.0), `1-GDD-Core-Mechanics.md` (v5.0), `1.1-GDD-Core-Systems.md` (v5.0), `1.2-GDD-Core-Cellular-Automata.md` (v2.0), `3-GDD-Architecture-Coding.md` (v3.0), `7.1-GDD-Assets-Ship-Design.md` (v4.0)
+**Version:** 2.1
+**Date:** 2026-06-13
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.1), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.0), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.0), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.0), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.0), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.0)
 
 ---
 
@@ -21,11 +29,11 @@ This separation allows difficulty tuning (e.g., harsher environmental hazards, f
 
 ### 1.1. Relationship to Existing Architecture
 
-This document does **not** replace the existing stateless systems architecture defined in `3-GDD-Architecture-Coding.md`. Rather, it provides a **conceptual simulation model** that the existing `GameState`, `EventBus`, and stateless systems implement. Each data parameter defined below maps to a concrete field in `GameState` or a stateless system API.
+This document does **not** replace the existing stateless systems architecture defined in [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md). Rather, it provides a **conceptual simulation model** that the existing `GameState`, `EventBus`, and stateless systems implement. Each data parameter defined below maps to a concrete field in `GameState` or a stateless system API.
 
 ### 1.2. Relationship to Cellular Automata
 
-The Grid layer is the primary consumer of the CA implementations defined in `1.2-GDD-Core-Cellular-Automata.md`. The CA systems (Strategic Map, Supply & Demand Flow, Influence Network, etc.) are the **engines** that drive Grid state transitions each World Event Tick.
+The Grid layer is the primary consumer of the CA implementations defined in [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md). The CA systems (Strategic Map, Supply & Demand Flow, Influence Network, etc.) are the **engines** that drive Grid state transitions each World Event Tick.
 
 ### 1.3. Governing Invariants (Conservation Axioms)
 
@@ -35,11 +43,14 @@ The simulation is governed by conservation laws that ensure internal consistency
 
 **Axiom 2 — Conservation of Population.** The universe is seeded with a fixed initial population of human agents. Population changes (death, arrival, departure) are driven by integral economic and resource conditions across the world — not by spawn probability. Non-human hostiles (feral drones, alien fauna) are tracked as **global population integrals** bounded by a carrying capacity derived from sector conditions — not as individual CA tokens. No entity appears from vacuum; every agent present is accounted for by the population budget.
 
-**Axiom 3 — Material Basis of Value.** Economic value is denominated in physical commodities — standardized refined metals and rare materials ("Cash"). There is no fiat currency; the total monetary mass equals the total physical resource mass allocated as medium of exchange. In-faction transactions use **Loyalty Points (LP)** — a finite, contribution-tracked internal credit system per faction. Repairs, services, and construction consume physical materials and energy, not abstract numbers.
+**Axiom 3 — Material Basis of Value (Dual-Currency System).** Economic value is denominated in two ways: trust-bound electronic credits and physical specie (dense refined metal tokens). Electronic credits exist as trust-bound ledger entries entirely outside the matter-conservation budget (**TOTAL_MATTER**) and clamp at a minimum of zero. Physical specie is a cargo commodity occupying inventory/cargo slots, subject to matter conservation (**TOTAL_MATTER**), and universally accepted because it requires no institutional trust. In-faction transactions use electronic credits gated by affinity trust, while low-trust or factionless agents transact unconditionally in physical specie. Repairs, services, and construction consume physical materials and energy, not abstract numbers.
 
 **Axiom 4 — Thermodynamic Arrow.** In the absence of energy input, all organized structures degrade toward disorder. Entropy is monotonically non-decreasing in closed subsystems. Reversing entropy (repair, construction, refinement) requires both physical material **and** energy input. Primary energy sources (stellar radiation, nuclear fuel reserves) are treated as inexhaustible within the game's timescale — they are the external heat bath that prevents total heat death and provides the energy gradient driving all economic activity.
 
 **Axiom 5 — Causality and Information Locality.** Effects have traceable causes (Chronicle, Section 5). Information propagates at finite speed (tick-based, proximity-based). Knowledge degrades without active maintenance — survey, exploration, and communication have real costs in time, energy, and resources. No agent has access to information it has not observed, been told, or inferred.
+
+> [!NOTE]
+> **Qualitative Runtime Constraint:** Axioms 1–5 serve as core design intent constraints. The live runtime enforces these qualitatively via tag propagation and bounded-occurrence loops (e.g., tag transitions, cargo tags) rather than real-time numeric stockpile bookkeeping ([REV_001](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/TRUTH_GDD-REVISION-LEDGER.md#L28)).
 
 ---
 
@@ -56,7 +67,10 @@ The spatial layout of the game universe.
 | `sector_id` | `String` | Unique identifier for each sector/location. | Handcrafted |
 | `connections` | `Array<String>` | List of `sector_id`s reachable from this sector (jump-gates, transit routes). | Handcrafted |
 | `station_ids` | `Array<String>` | List of station/habitat identifiers present in this sector. | Handcrafted |
-| `sector_type` | `String` | Classification: `"hub"`, `"frontier"`, `"deep_space"`, `"hazard_zone"`. | Handcrafted |
+| `sector_type` | `String` | Classification: `"star"`, `"planet"`, `"moon"`, `"field"`, `"deep_space"`. | Handcrafted |
+
+> [!NOTE]
+> **Deprecated Legacy Classifications:** Prior versions of the topology map used structural/security classification types (`"hub"`, `"frontier"`, `"deep_space"`, `"hazard_zone"`). These have been deprecated in favor of the nested 4-tier celestial role set (Stellar Systems → Planets → Moons → Deep Space POIs) consolidated under the `sector_type` field as of [REV_005](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/TRUTH_GDD-REVISION-LEDGER.md#L72).
 
 ### 2.2. Environmental Hazard Map
 
@@ -85,6 +99,9 @@ The sum of all `mineral_density` and `propellant_sources` values across all sect
 ## 3. Layer 2: The Grid (Systemic CA Layers)
 
 The Grid is the **dynamic simulation state**. It is updated each **World Event Tick** by CA rules and Agent activity. Grid data is the primary input for Agent decision-making and the Chronicle's narrative generation. All Grid data lives in `GameState` and is manipulated by stateless systems.
+
+> [!NOTE]
+> **Qualitative CA Runtime Reality:** In accordance with [REV_001](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/TRUTH_GDD-REVISION-LEDGER.md#L28), the Grid is implemented as a qualitative tag-transition Cellular Automata (CA) in the live runtime. The numeric stockpile parameters and tables described in the subsections below are retained as design intent for future numeric subsystems, but they do not represent the current authoritative simulation substrate.
 
 ### 3.1. Resource Availability
 
