@@ -1,8 +1,16 @@
+<!--
+PROJECT: GDTLancer
+MODULE: 2-GDD-Development-Challenges.md
+STATUS: [Level 2 - Implementation]
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
+LOG_REF: 2026-06-13 21:00:00
+-->
+
 # GDTLancer - Development Challenges
 
-**Version:** 2.0
-**Date:** February 12, 2026
-**Related Documents:** `0.1-GDD-Main.md` (v3.0), `8-GDD-Simulation-Architecture.md`
+**Version:** 2.1
+**Date:** 2026-06-13
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.5)
 
 ## 1. Overview
 

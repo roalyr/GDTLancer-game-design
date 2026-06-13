@@ -1,8 +1,16 @@
+<!--
+PROJECT: GDTLancer
+MODULE: 6-GDD-Lore-Narrative-Borders.md
+STATUS: [Level 2 - Implementation]
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
+LOG_REF: 2026-06-13 21:00:00
+-->
+
 # GDTLancer - Narrative Borders of the Simulation
 
-**Version:** 2.0
-**Date:** February 12, 2026
-**Related Documents:** `6.1-GDD-Lore-Background.md`, `8-GDD-Simulation-Architecture.md`
+**Version:** 2.1
+**Date:** 2026-06-13
+**Related Documents:** [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.5)
 
 ## 1. Purpose
 
