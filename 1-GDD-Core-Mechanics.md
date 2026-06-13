@@ -3,12 +3,12 @@ PROJECT: GDTLancer
 MODULE: 1-GDD-Core-Mechanics.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 19:50:00
+LOG_REF: 2026-06-13 22:28:00
 -->
 
 # GDTLancer - Core Mechanics
 
-**Version:** 5.6
+**Version:** 5.7
 **Date:** 2026-06-13
 **Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
 
@@ -85,7 +85,10 @@ Narrative Actions are classified by stakes tier (hardcoded in `action_*.tres` te
   - **Broke:** -2 modifier. Refined metals/commodities are expensive; agents are suspicious of your insolvency.
   - **Comfortable:** +0 modifier. Standard pricing and relationship reactions.
   - **Wealthy:** +2 modifier. Better leverage in negotiations; elite service access.
-* **Personal Wealth Progression:** Fulfilling contracts directly updates the player's active wealth track progress based on the Contract Value Class (Low, Mid, High) of the task completed (see [5.3-GDD-Module-Trading.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/5.3-GDD-Module-Trading.md) Section 2).
+* **Personal Wealth Progression:** Fulfilling contracts updates the player's active wealth track progress based on the Contract Value Class of the completed task:
+  - **Low Value Class:** +1 track progress (common courier work, minor salvaging).
+  - **Mid Value Class:** +2 track progress (systemic hauling, standard scouting).
+  - **High Value Class:** +3 track progress (dangerous escorting, high-priority logistics).
 
 ### 6.2. Time
 

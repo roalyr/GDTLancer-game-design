@@ -18,7 +18,7 @@ Main game repository: [https://github.com/roalyr/GDTLancer](https://github.com/r
 * [**0.2 — Sayings**](./0.2-GDD-Main-Sayings.md): Mottos and in-game lore sayings.
 
 ### 1. Core Mechanics & Systems
-* [**1 — Core Mechanics**](./1-GDD-Core-Mechanics.md): Action Check (3d6+Mod), Action Stakes, Action Approach, core resources.
+* [**1 — Core Mechanics**](./1-GDD-Core-Mechanics.md): Action Check (3d6+Mod), Action Stakes, Action Approach, Core Resources (Wealth Tiers/Tracks, Contract Value Classes).
 * [**1.1 — Core Systems**](./1.1-GDD-Core-Systems.md): Event, Time, Character, Inventory, Asset systems. Templates and Phase 1 roster.
 * [**1.2 — Cellular Automata**](./1.2-GDD-Core-Cellular-Automata.md): CA catalogue driving the Grid layer (economy, social, agent CAs).
 
@@ -37,11 +37,11 @@ Main game repository: [https://github.com/roalyr/GDTLancer](https://github.com/r
 ### 5. Gameplay Modules
 * [**5.1 — Piloting Module**](./5.1-GDD-Module-Piloting.md): Free Flight, Flight Challenges, Narrative Actions.
 * [**5.2 — Combat Module**](./5.2-GDD-Module-Combat.md): Combat Challenges and post-battle Narrative Actions (Preservation Convention).
-* [**5.3 — Trading Module**](./5.3-GDD-Module-Trading.md): Trade Interface, contracts, economic Narrative Actions.
+* [**5.3 — Trading Module**](./5.3-GDD-Module-Trading.md): Trade Interface, contracts, economic Narrative Actions (Reimplementation postponed).
 
 ### 6. Lore & Player Experience
 * [**6 — Narrative Borders**](./6-GDD-Lore-Narrative-Borders.md): Thematic constraints guiding the simulation.
-* [**6.1 — Lore Background**](./6.1-GDD-Lore-Background.md): Setting premise, Preservation Convention, technology.
+* [**6.1 — Lore Background**](./6.1-GDD-Lore-Background.md): Setting premise, Preservation Convention, technology, Phase 1 Factions.
 * [**6.2 — Player Onboarding**](./6.2-GDD-Lore-Player-Onboarding.md): "The First Contract" tutorial scenario.
 
 ### 7. Assets & Style
@@ -49,7 +49,7 @@ Main game repository: [https://github.com/roalyr/GDTLancer](https://github.com/r
 * [**7.1 — Ship Design & Component Catalogue**](./7.1-GDD-Assets-Ship-Design.md): Ship philosophy, all component categories (engines, chassis, power, cooling, life support, tools, storage).
 
 ### 8. Simulation Architecture
-* [**8 — Simulation Architecture**](./8-GDD-Simulation-Architecture.md): **Primary reference.** Four-layer model (World, Grid, Agents, Chronicle), Bridge Systems, Tick Sequence, Difficulty Tuning.
+* [**8 — Simulation Architecture**](./8-GDD-Simulation-Architecture.md): **Primary reference.** Four-layer model (World, Grid, Agents, Chronicle), Conservation Axioms, Bridge Systems, and Tick Sequence.
 
 ### Meta & Legal
 * [**LICENSE**](./LICENSE) | [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md) | [**MODEL-CASCADE-PROTOCOL.md**](./MODEL-CASCADE-PROTOCOL.md)

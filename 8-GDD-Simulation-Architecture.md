@@ -3,14 +3,14 @@ PROJECT: GDTLancer
 MODULE: 8-GDD-Simulation-Architecture.md
 STATUS: [Level 2 - Implementation]
 TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
-LOG_REF: 2026-06-13 22:15:00
+LOG_REF: 2026-06-13 22:28:00
 -->
 
 # GDTLancer - Simulation Architecture
 
-**Version:** 2.6
+**Version:** 2.7
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.6), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.7), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.1), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.3), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.2)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.11), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.7), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.7), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.1), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.3), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.2)
 
 ---
 
@@ -69,7 +69,7 @@ The Grid contains the dynamic simulation state updated each World Event Tick by 
 * **Dominion & Security:** Maps of faction influence, security levels, and pirate activity, determining patrol frequency and encounter rates.
 * **Market Pressure:** Derived price adjustments for trade items and services based on physical supply/demand imbalances relative to population density.
 * **Maintenance Pressure (Entropy):** Wear-and-tear rates on assets driven by environmental harshness (radiation, thermal extremes), necessitating physical repair materials.
-* **Inventory Flow:** Physical inventories of cargo commodities stored at locations that agents buy and sell, directly reflecting local resource depletion.
+* **Inventory Flow:** Physical inventories of cargo commodities stored at locations that agents exchange via contracts, directly reflecting local resource depletion.
 * **Wreck & Debris Lifecycle:** Persistence of disabled ships as salvageable wrecks that slowly degrade and return their mass to the local Resource Potential Map.
 
 ---
