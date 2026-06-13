@@ -1,1 +1,0 @@
-/home/roalyr/Software_archive/Games/GDTLancer/PROJECT_DUMP_TEXT_TRES.md
