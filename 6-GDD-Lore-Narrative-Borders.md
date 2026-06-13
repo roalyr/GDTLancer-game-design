@@ -10,7 +10,7 @@ LOG_REF: 2026-06-13 21:00:00
 
 **Version:** 2.1
 **Date:** 2026-06-13
-**Related Documents:** [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.5)
+**Related Documents:** [6.1-GDD-Lore-Background.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/6.1-GDD-Lore-Background.md) (v2.4), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.6)
 
 ## 1. Purpose
 
