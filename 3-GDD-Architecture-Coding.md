@@ -1,8 +1,16 @@
+<!--
+PROJECT: GDTLancer
+MODULE: 3-GDD-Architecture-Coding.md
+STATUS: [Level 2 - Implementation]
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
+LOG_REF: 2026-06-13 19:50:00
+-->
+
 # GDTLancer - Coding Standards & Architecture Guide
 
-**Version:** 3.0
-**Date:** February 12, 2026
-**Related Documents:** `0.1-GDD-Main.md` (v3.0), `8-GDD-Simulation-Architecture.md`
+**Version:** 3.2
+**Date:** 2026-06-13
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.8), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.5)
 
 ## 1. Engine & Language
 
@@ -15,7 +23,7 @@
 
 * **KISS:** Prefer simpler implementations. Clarity over excessive abstraction.
 * **Modularity:** Split scripts exceeding ~300 lines. Structure around:
-    * **Modules** (horizontal activity loops): Piloting, Combat, Trading.
+    * **Modules** (horizontal activity loops): Piloting, Contracting, Contacts.
     * **Systems** (cross-cutting rulesets): Events, Goals, Assets, etc.
 * **Simulation Foundation + Narrative Layer:** Build core gameplay around simulation. Layer narrative mechanics (Action Checks, Events, Goals) on top.
 * **Reusability:** Leverage Godot scene instancing and Resources.
@@ -53,9 +61,9 @@
 
 **Systems are Stateless APIs.** Core systems in `core/systems/` are `Node` scripts parented under `WorldManager`. They hold no data. Each provides a clean API that reads/writes `GameState`.
 
-* Example: `CharacterSystem.add_cash(uid, amount)` retrieves the character from `GameState.characters`, modifies `cash`, emits signal on `EventBus`.
+* Example: `CharacterSystem.gain_wealth_progress(uid, amount)` retrieves the character from `GameState.characters`, modifies `wealth_progress`, emits signal on `EventBus`.
 * Getters returning `Dictionary` or `Array` **must** return `.duplicate(true)` copies.
-* Systems react to and emit signals via `EventBus` (e.g., `_on_world_event_tick`, `player_cash_changed`).
+* Systems react to and emit signals via `EventBus` (e.g., `_on_world_event_tick`, `player_wealth_changed`).
 
 ### System Checklist (New System)
 1. Place in `core/systems/`, `extends Node`, child of `WorldManager`.

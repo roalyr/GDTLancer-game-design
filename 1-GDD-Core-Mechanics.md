@@ -1,8 +1,16 @@
+<!--
+PROJECT: GDTLancer
+MODULE: 1-GDD-Core-Mechanics.md
+STATUS: [Level 2 - Implementation]
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
+LOG_REF: 2026-06-13 19:50:00
+-->
+
 # GDTLancer - Core Mechanics
 
-**Version:** 5.0
-**Date:** February 13, 2026
-**Related Documents:** `0.1-GDD-Main.md` (v4.0), `8-GDD-Simulation-Architecture.md`
+**Version:** 5.5
+**Date:** 2026-06-13
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.7), [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) (v2.5)
 
 ## 1. Purpose
 
@@ -67,22 +75,19 @@ Narrative Actions are classified by stakes tier (hardcoded in `action_*.tres` te
 
 ## 6. Core Resources
 
-### 6.1. Cash (Hard Currency)
+### 6.1. Wealth Tiers & Tracks (Personal Wealth)
 
-* Physical commodity money — standardized refined metal units. There is no fiat currency (**Axiom 3**, `8-GDD` Section 1.3).
-* Total Cash in the universe is finite and materially grounded: the monetary mass equals the physical resource mass allocated as medium of exchange.
-* Used for inter-faction and universal trade: ships, equipment, repairs (which consume materials from station stockpiles), and services.
-* Earned from trade (buying/selling commodities), salvage (reclaiming disabled ships and their cargo), and goal completion rewards.
-* Cash can be physically carried (in cargo) or stored at stations. Cargo Cash is at risk during combat.
+* Personal wealth is represented by three qualitative **Wealth Tiers**: **Broke**, **Comfortable**, and **Wealthy**.
+* Each tier contains a 0–10 **Wealth Track** representing the player's progression within that tier.
+* **Gaining Wealth:** Gaining rewards or completing transport/delivery contracts increments progress on the current track. Reaching 10 on the current track promotes the player to 0 of the next higher tier (Broke 10 → Comfortable 0).
+* **Spending Wealth:** Repairing assets, purchasing ship equipment, or paying recovery costs decrements progress. Dropping below 0 demotes the player to 10 of the next lower tier (Comfortable 0 → Broke 10).
+* **Action Check Modifiers:** The active Wealth Tier applies a modifier to commercial and social Action Checks:
+  - **Broke:** -2 modifier. Refined metals/commodities are expensive; agents are suspicious of your insolvency.
+  - **Comfortable:** +0 modifier. Standard pricing and relationship reactions.
+  - **Wealthy:** +2 modifier. Better leverage in negotiations; elite service access.
+* **Personal Wealth Progression:** Fulfilling contracts directly updates the player's active wealth track progress based on the Contract Value Class (Low, Mid, High) of the task completed (see [5.3-GDD-Module-Trading.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/5.3-GDD-Module-Trading.md) Section 2).
 
-### 6.2. Loyalty Points (LP)
-
-* Per-faction contribution credit. Earned by completing faction-aligned work (contracts, reputation milestones).
-* Spent at faction-specific services: discounted repairs, exclusive equipment, priority docking, faction intel.
-* Finite supply per faction per period — tracked by player contribution, not infinitely farmable.
-* **Phase 1:** LP is a stub counter. Displayed in Contact/Faction panels but with limited spending options.
-
-### 6.3. Time
+### 6.2. Time
 
 * Real-time clock. World Event Ticks fire at `Constants.TIME_TICK_INTERVAL_SECONDS`.
 * Time is a critical resource — the world evolves independently of the player.
@@ -95,18 +100,18 @@ Loss is **substantial but not terminal** — part punishment, part opportunity.
 ### 7.1. Ship Disabled (Hull → 0)
 
 * Ship is disabled, not destroyed (Preservation Convention).
-* The disabled ship persists in the sector as a **salvageable wreck** (`8-GDD` Section 3.7) containing its cargo and equipment.
-* Player is recovered to the nearest station. Recovery costs Cash (proportional to distance) or may be free if a Contact intervenes.
+* The disabled ship persists in the sector as a **salvageable wreck** (see [8-GDD-Simulation-Architecture.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/8-GDD-Simulation-Architecture.md) Section 3.7) containing its cargo and equipment.
+* Player is recovered to the nearest station. Recovery costs Wealth progress (e.g., -2 progress on the active track) or may be free if a Contact intervenes.
 * **Salvage:** Any agent (including the player, if they return) can attempt to claim or repair the wreck. If you can repair it, it's yours. Wrecks degrade over time via entropy — unclaimed wrecks eventually become debris, returning matter to the Resource Potential Map.
 * **Opportunity:** Recovery event may trigger unique Narrative Actions (rescued by a Contact, indebted to a faction, discovered something during drift).
 
 ### 7.2. Resource Depletion
 
-* **Cash at 0:** Player can still fly and trade but cannot purchase services or equipment. NPCs may offer emergency work (low-pay, high-risk goals). Salvage is always available as a recovery path.
+* **Broke at 0:** When the player is in the Broke tier at 0 progress, they can still fly and trade but cannot purchase services or equipment. NPCs may offer emergency work (low-pay, high-risk goals). Salvage is always available as a recovery path.
 * **Propellant at 0:** Ship is stranded. Distress beacon triggers a recovery event (see 7.1).
 
 ### 7.3. True Game Over
 
-True game over requires a **convergence of multiple failures** — not a single bad roll or fight. The player must reach a state where recovery paths are exhausted (e.g., disabled with zero Cash, hostile standings with all factions, no Contacts willing to help). This is intentionally difficult to achieve.
+True game over requires a **convergence of multiple failures** — not a single bad roll or fight. The player must reach a state where recovery paths are exhausted (e.g., disabled with Broke at 0 progress, hostile standings with all factions, no Contacts willing to help). This is intentionally difficult to achieve.
 
 * **Phase 1:** True game over is not implemented. Player is always recoverable via mentor NPC or emergency bailout.

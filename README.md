@@ -52,7 +52,7 @@ Main game repository: [https://github.com/roalyr/GDTLancer](https://github.com/r
 * [**8 — Simulation Architecture**](./8-GDD-Simulation-Architecture.md): **Primary reference.** Four-layer model (World, Grid, Agents, Chronicle), Bridge Systems, Tick Sequence, Difficulty Tuning.
 
 ### Meta & Legal
-* [**LICENSE**](./LICENSE) | [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md) | [**AI-PRIMING.md**](./AI-PRIMING.md)
+* [**LICENSE**](./LICENSE) | [**AI-ACKNOWLEDGEMENT.md**](./AI-ACKNOWLEDGEMENT.md) | [**MODEL-CASCADE-PROTOCOL.md**](./MODEL-CASCADE-PROTOCOL.md)
 
 ---
 

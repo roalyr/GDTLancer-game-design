@@ -2,15 +2,15 @@
 PROJECT: GDTLancer
 MODULE: 8-GDD-Simulation-Architecture.md
 STATUS: [Level 2 - Implementation]
-TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001, REV_007
-LOG_REF: 2026-06-13 07:25:44
+TRUTH_LINK: TRUTH_GDD-REVISION-LEDGER.md § REV_001
+LOG_REF: 2026-06-13 19:50:00
 -->
 
 # GDTLancer - Simulation Architecture
 
-**Version:** 2.1
+**Version:** 2.5
 **Date:** 2026-06-13
-**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.1), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.0), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.0), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.0), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.0), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.0)
+**Related Documents:** [0.1-GDD-Main.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/0.1-GDD-Main.md) (v4.7), [1-GDD-Core-Mechanics.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1-GDD-Core-Mechanics.md) (v5.4), [1.1-GDD-Core-Systems.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.1-GDD-Core-Systems.md) (v5.5), [1.2-GDD-Core-Cellular-Automata.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/1.2-GDD-Core-Cellular-Automata.md) (v2.0), [3-GDD-Architecture-Coding.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/3-GDD-Architecture-Coding.md) (v3.1), [7.1-GDD-Assets-Ship-Design.md](file:///home/roalyr/Software_archive/Games/GDTLancer-game-design/7.1-GDD-Assets-Ship-Design.md) (v4.1)
 
 ---
 
@@ -43,7 +43,7 @@ The simulation is governed by conservation laws that ensure internal consistency
 
 **Axiom 2 — Conservation of Population.** The universe is seeded with a fixed initial population of human agents. Population changes (death, arrival, departure) are driven by integral economic and resource conditions across the world — not by spawn probability. Non-human hostiles (feral drones, alien fauna) are tracked as **global population integrals** bounded by a carrying capacity derived from sector conditions — not as individual CA tokens. No entity appears from vacuum; every agent present is accounted for by the population budget.
 
-**Axiom 3 — Material Basis of Value (Dual-Currency System).** Economic value is denominated in two ways: trust-bound electronic credits and physical specie (dense refined metal tokens). Electronic credits exist as trust-bound ledger entries entirely outside the matter-conservation budget (**TOTAL_MATTER**) and clamp at a minimum of zero. Physical specie is a cargo commodity occupying inventory/cargo slots, subject to matter conservation (**TOTAL_MATTER**), and universally accepted because it requires no institutional trust. In-faction transactions use electronic credits gated by affinity trust, while low-trust or factionless agents transact unconditionally in physical specie. Repairs, services, and construction consume physical materials and energy, not abstract numbers.
+**Axiom 3 — Material Basis of Value (Qualitative Tiers).** Economic value for individual agents is represented qualitatively, mapping character wealth to social and economic status: the player tracks wealth via three qualitative **Wealth Tiers** (Broke, Comfortable, Wealthy) with associated 0–10 tracks, while NPC agents use equivalent status tags (POOR, ADEQUATE, RICH) for simulation accounting. There are no virtual or electronic currency balances. Transactions are settled via station ledger entries that directly update the player's wealth progress track. Repairs, services, and construction consume physical materials and energy, not abstract numbers.
 
 **Axiom 4 — Thermodynamic Arrow.** In the absence of energy input, all organized structures degrade toward disorder. Entropy is monotonically non-decreasing in closed subsystems. Reversing entropy (repair, construction, refinement) requires both physical material **and** energy input. Primary energy sources (stellar radiation, nuclear fuel reserves) are treated as inexhaustible within the game's timescale — they are the external heat bath that prevents total heat death and provides the energy gradient driving all economic activity.
 
@@ -86,7 +86,7 @@ Persistent physical conditions that impose operational costs on any entity prese
 
 The universe's total matter budget. This map defines **where** extractable resources exist and at what density. Unlike other World data, Resource Potential values are **mutable at runtime** — extraction depletes them, and degradation of organized matter (wrecks, debris, abandoned stockpiles) slowly returns diffuse material to the local potential. This is the only World-layer data that changes at runtime, enforcing **Axiom 1** (Conservation of Matter).
 
-The sum of all `mineral_density` and `propellant_sources` values across all sectors, plus all matter currently in refined/manufactured form (ships, equipment, cargo, Cash, station stockpiles), equals a **constant total** initialized at world creation.
+The sum of all `mineral_density` and `propellant_sources` values across all sectors, plus all matter currently in refined/manufactured form (ships, equipment, cargo, station stockpiles), equals a **constant total** initialized at world creation.
 
 | Parameter | Type | Description | Source |
 |-----------|------|-------------|--------|
@@ -192,7 +192,8 @@ The agent's current physical situation in the world.
 | `propellant_reserves` | `float` | Current propellant in the agent's ship tanks. Consumed by movement; affected by `gravity_well_penalty`. | Asset System (via `7.1-GDD-Assets-Ship-Design.md`, Propellant Storage) |
 | `energy_reserves` | `float` | Current stored energy (battery/supercapacitor charge). Consumed by active systems. | Asset System (via `7.1-GDD-Assets-Ship-Design.md`, Energy Storage) |
 | `consumables_reserves` | `float` | Current life-support consumables aboard. Depleted over time; replenished at stations. | Asset System (via `7.1-GDD-Assets-Ship-Design.md`, Life Support) |
-| `cash_reserves` | `float` | Physical commodity money (refined metals) carried or stored. The agent's liquid wealth (**Axiom 3**). | Character System |
+| `wealth_tier` | `String` | Qualitative wealth status (Player: "Broke", "Comfortable", "Wealthy"; NPCs: "POOR", "ADEQUATE", "RICH"). Modifies Action Checks. | Character System |
+| `wealth_progress` | `int` | Player-only progression track within the active Wealth Tier (0–10). | Character System |
 | `fleet_ships` | `Array<String>` | Ship IDs owned by this agent beyond their active ship. Docked ships incur entropy and docking costs. Agents can sell, gift, or assign ships to other agents. | Asset System |
 | `current_heat_level` | `float` | Current thermal load on the ship. Accumulates from high-energy actions; dissipates based on cooling systems and `thermal_background_k`. | Asset System (via `7.1-GDD-Assets-Ship-Design.md`, Cooling Systems) |
 
@@ -309,7 +310,7 @@ A parameter that reduces the accuracy of an agent's Knowledge Snapshot (Section 
 |-----------|------|-------------|------------|
 | `decay_function` | `String` | The mathematical model for decay: `"linear"` or `"exponential"`. | Configurable per difficulty |
 | `decay_threshold_ticks` | `int` | Number of ticks after which knowledge begins to decay. Below this, knowledge is considered "fresh". | Configurable |
-| `stale_data_penalty` | `float` | The maximum inaccuracy introduced to an agent's `known_grid_state` when knowledge is fully decayed. E.g., a commodity price known at 100 Cash with a 0.3 penalty could be reported as anywhere from 70–130. | Derived from `knowledge_decay_rate` × elapsed ticks |
+| `stale_data_penalty` | `float` | The maximum inaccuracy introduced to an agent's `known_grid_state` when knowledge is fully decayed. E.g., a commodity price known at 10 units with a 0.3 penalty could be reported as anywhere from 7–13 units. | Derived from `knowledge_decay_rate` × elapsed ticks |
 
 ---
 
@@ -441,7 +442,7 @@ For Phase 1, the simulation layers are implemented as **lightweight stubs** cons
 |-------|---------------|
 | **World** | 6–9 handcrafted sectors with static `radiation_level`, `thermal_background_k`, `gravity_well_penalty`. Resource Potential Map uses simple fixed values representing a **finite total matter budget**. |
 | **Grid** | Resource Availability uses simple increment/decrement per trade action, sourced from extraction (depletes Resource Potential Map). Dominion uses fixed starting values modified by player actions. Market Pressure uses static base prices with CA-driven `commodity_price_deltas` as modifiers: `price = base_value × (1.0 + price_delta)`. Power Load and Maintenance Pressure are stub constants. Wreck lifecycle is stub (wrecks persist until salvaged or despawned). |
-| **Agents** | Player has full physical state tracking including `cash_reserves` and `fleet_ships`. Ships use hull+slot model (`7.1-GDD`). NPCs have simplified state: `current_sector_id`, `hull_integrity`, `cash_reserves`, basic `goal_queue` with 1–2 goals. Persistent Agents have social layer overlay (personality, interaction depth) operating independently from CA token. Knowledge Snapshot is a stub (NPCs use actual Grid data with a random noise factor). Fixed initial population of human agents (**Axiom 2**). Non-human hostiles tracked as global count with simple carrying capacity. |
+| **Agents** | Player has full physical state tracking including `wealth_tier`, `wealth_progress`, and `fleet_ships`. Ships use hull+slot model (`7.1-GDD`). NPCs have simplified state: `current_sector_id`, `hull_integrity`, `wealth_tier` status tag, basic `goal_queue` with 1–2 goals. Persistent Agents have social layer overlay (personality, interaction depth) operating independently from CA token. Knowledge Snapshot is a stub (NPCs use actual Grid data with a random noise factor). Fixed initial population of human agents (**Axiom 2**). Non-human hostiles tracked as global count with simple carrying capacity. |
 | **Chronicle** | Event Buffer captures key player actions. Causality Chain is stub (no chaining, events are independent). Rumor Engine generates simple templated text from Event Packets. |
 | **Bridge Systems** | Heat Sink is simplified to a binary check (overheating Y/N). Entropy System is stub (minimal environmental hull degradation). Repair consumes fixed material amount from station stockpile. Ship Quirks and Component Degradation are deferred. Knowledge Refresh is stub. |
 
@@ -453,4 +454,4 @@ For Phase 1, the simulation layers are implemented as **lightweight stubs** cons
 |-------|-----------|
 | **Phase 2** | Full CA-driven Supply & Demand with extraction-based restocking (Axiom 1). Inventory Flow with physical stockpile tracking. Power Load active simulation. Mining/Industrial module feeds into Resource Availability (depletes Resource Potential Map). Contract system overlay. Wreck & Debris lifecycle with full matter-cycle accounting. |
 | **Phase 3** | Full Agent Knowledge Snapshots with proper decay. NPC Goal Priority Queue with dynamic re-evaluation. Causality Chains in Chronicle. Rumor Engine with Trust tagging. Ship Quirks and Component Degradation loop active. Population dynamics (immigration/emigration driven by economic integrals). |
-| **Phase 4** | Social Graph sentiment tags. Narrative Inventory trading between agents. Full Heat Sink thermodynamic model. Maintenance Pressure with location-specific entropy rates. Loyalty Points system per faction. |
+| **Phase 4** | Social Graph sentiment tags. Narrative Inventory trading between agents. Full Heat Sink thermodynamic model. Maintenance Pressure with location-specific entropy rates. Faction standing progression extension. |
